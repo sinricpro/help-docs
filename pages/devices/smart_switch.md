@@ -82,3 +82,5 @@ Complete Python example is available [here](https://github.com/sinricpro/Python-
 
 ####  Supported Google Home Traits
 -  action.devices.traits.OnOff
+
+> This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

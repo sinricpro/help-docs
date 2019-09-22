@@ -33,3 +33,5 @@ Sinric Pro IOT platform will report any changes to Alexa as well.
 
 ![Sinric Pro alexa event]({{ site.github.url }}/public/img/sinricpro-alexa-event.png)
 
+
+> This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

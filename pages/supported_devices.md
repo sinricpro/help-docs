@@ -25,3 +25,5 @@ Following device types are supported at the moment
  - [x] [Motion Sensor](devices/motion_sensor)
  - [x] [Contact Sensor](devices/contact_sensor)
  - [ ] CO2 Gas Sensor
+
+ > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

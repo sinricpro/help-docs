@@ -207,3 +207,5 @@ This is a complete list of requests, responses and events by the device type
 |**TV**|setPowerState, setVolume, adjustVolume, setMute, mediaControl, selectInput, changeChannel, skipChannels|setPowerState, setVolume, setMute, mediaControl, selectInput, changeChannel, skipChannels|
 |**Smart Speaker**|setPowerState, setVolume, adjustVolume, setMute, mediaControl, setBands, adjustBands, resetBands, setMode|setPowerState, setVolume, setMute, mediaControl, setBands, resetBands, setMode|
 |**Smart Doorlock**|setLockState|setLockState| 
+
+> This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)
