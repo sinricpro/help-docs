@@ -1,0 +1,4 @@
+---
+title: Fan
+layout: post
+---

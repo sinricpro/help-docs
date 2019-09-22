@@ -1,0 +1,26 @@
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="{{ site.github.url }}">
+        <img alt="Sinric Pro logo" src="{{ site.github.url }}/public/img/logo_png/web_hi_res_512.png"
+             class="sidebar-logo">
+      </a>
+      {% for link in site.data.sidebar_links %}
+      <a href="{{ link.url }}" target="_blank" title="{{ link.text }}">
+        <img class="sidebar-social-icon" alt="{{ link.text }}" src="{{ site.github.url }}/public/img/{{ link.img }}">
+      </a>
+      {% endfor %}
+    </div>
+
+    <nav class="sidebar-nav">
+      {% assign pages_list = site.pages | sort:"weight" %}
+      {% for node in pages_list %}
+        {% if node.title != null %}
+          {% if node.layout == "page" %}
+            <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url | prepend: site.github.url }}">{{ node.title }}</a>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </nav>
+  </div>
+</div>
