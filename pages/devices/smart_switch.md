@@ -62,17 +62,17 @@ bool onPowerState(const char* deviceId, PowerState_t& state) {
 }
 .....
 ```
-Complete Arduino/ESP8266/ESP32 example is available [here](https://github.com/sinricpro/SinricPro/blob/master/examples/Request/01_Switch/src/Switch.cpp)
+Complete Arduino/ESP8266/ESP32 example is available [here](https://github.com/sinricpro/esp8266-esp32-sdk/tree/master/examples/Switch)
 
 #### If you are using the SinricPro Python SDK: 
-Update the credentails in [credentials.py](https://github.com/sinricpro/Python-Examples/blob/master/pro_switch_example/credentials.py), then update the code
+Update the credentails in [credentials.py](https://github.com/sinricpro/python-examples/blob/master/pro_switch_example/credentials.py), then update the code
 
 ```python
 def power_state(did, state):
 print(did, state['state'])
 return True, state['state']
 ```
-Complete Python example is available [here](https://github.com/sinricpro/Python-Examples/blob/master/pro_switch_example/app.py) 
+Complete Python example is available [here](https://github.com/sinricpro/python-pxamples/blob/master/pro_switch_example/app.py) 
 
 #### Supported SinrcPro actions
 - [setPowerState](https://github.com/sinricpro/sample_messages/blob/master/01_PowerState/01_setPowerState/01_Request.json)

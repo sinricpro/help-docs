@@ -6,20 +6,30 @@ weight: 2
 
 **Overview**
 
-The documentation covers the Sinric Pro WebSocket messaging protocol. All messages sent over the WebSocket protocol is in JSON format and they are signed using HMAC key  to guarante the authenticity of the request. Sample message definitions are available [here](https://github.com/sinricpro/sample_messages):
+The documentation covers the Sinric Pro WebSocket messaging protocol. All messages sent over the WebSocket protocol is in JSON format and they are signed using HMAC key  to guarante the authenticity of the request. Sample message definitions are available [here](https://github.com/sinricpro/sample_messages)
 
 We recommend using one of the SDKs we have built since they properly handle authentication, connection, reconnection and many more feature for messaging layer. We have libraries written for `Arduino`, `ESP8266`, `ESP32`, `RaspberryPI`, and `PC`
 
--   [ESP8266/ESP32 SDK]([[https://github.com/sinricpro/SinricPro](https://github.com/sinricpro/SinricPro)]([https://github.com/sinricpro/SinricPro/tree/master/examples](https://github.com/sinricpro/SinricPro/tree/master/examples)))  ([examples]([https://github.com/sinricpro/Python-Examples](https://github.com/sinricpro/Python-Examples)))
--   [Python SDK]([https://github.com/sinricpro/Python-SDK](https://github.com/sinricpro/Python-SDK))  ([examples]([https://github.com/sinricpro/Python-Examples](https://github.com/sinricpro/Python-Examples)))
+-   [ESP8266/ESP32 SDK](https://github.com/sinricpro/esp8266-esp32-sdk) - [examples](https://github.com/sinricpro/esp8266-esp32-sdk/tree/master/examples)
+-   [Python SDK](https://github.com/sinricpro/python-sdk)  - [examples](https://github.com/sinricpro/python-examples)
 
 ### Connecting
 Connect to the Websocket API at the following url.
 `ws://ws.sinric.pro`
 
-
 ### Authentication
-Each connection to the WebSocket API must be authenticated with an App Key and subsequent requests must be signed using the App Secret.
+Each connection to the WebSocket API must be authenticated with an App Key in HTTP Header and subsequent requests must be signed using the App Secret.
+
+#### Connect example
+
+```js
+let ws = new WebSocket('ws://ws.sinric.pro', {
+    headers: { 
+        appkey: "Your-app-key-here", 
+        deviceids: "deviceid;deviceid" 
+    }
+});
+```
 
 ### Messaging
 
