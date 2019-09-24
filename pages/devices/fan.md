@@ -49,7 +49,7 @@ Handle following actions **setPowerState**  in your IOT module if you are not us
 - [Alexa.PowerController](https://developer.amazon.com/docs/device-apis/alexa-powercontroller.html)
 - [Alexa.RangeController](https://developer.amazon.com/docs/device-apis/alexa-rangeController.html)
 
-NOTE: Alexa.RangeController is available for US locale only. Alexa may or may not show this device type if you are not using US locale.
+**NOTE: Alexa.RangeController is available for US locale only. Alexa may or may not show this device type if you are not using US locale.**
 https://developer.amazon.com/docs/device-apis/list-of-interfaces.html
 
 
