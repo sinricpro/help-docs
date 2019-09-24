@@ -45,10 +45,13 @@ Handle following actions **setPowerState**  in your IOT module if you are not us
 - [setRangeValue](https://github.com/sinricpro/sample_messages/tree/master/09_RangeValue/01_setRangeValue)
 - [adjustRangeValue](https://github.com/sinricpro/sample_messages/tree/master/09_RangeValue/02_adjustRangeValue)
 
-
 #### Supported Alexa capabilities
 - [Alexa.PowerController](https://developer.amazon.com/docs/device-apis/alexa-powercontroller.html)
 - [Alexa.RangeController](https://developer.amazon.com/docs/device-apis/alexa-rangeController.html)
+
+NOTE: Alexa.RangeController is available for US locale only. Alexa may or may not show this device type if you are not using US locale.
+https://developer.amazon.com/docs/device-apis/list-of-interfaces.html
+
 
 ####  Supported Google Home Traits
 -  N/A
