@@ -39,9 +39,7 @@ Complete Arduino/ESP8266/ESP32 example is available [here]()
 #### Sinric Pro Python SDK: 
 Complete Python example is available [here]() 
 
-Handle following actions **setPowerState, setContactState**  in your IOT module if you are not using any of the SDKs we have built.
-
-#### Supported Sinrc Pro actions
+#### Supported Sinrc Pro actions and events
 - [setPowerState](https://github.com/sinricpro/sample_messages/blob/master/01_PowerState/01_setPowerState/)
 - [setContactState](https://github.com/sinricpro/sample_messages/tree/master/11_Contact/)
 
