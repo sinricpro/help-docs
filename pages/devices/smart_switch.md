@@ -34,46 +34,9 @@ Now let's complete the setup process. To do that, you must update the sample ske
 - Copy the selected App key and App Secret in the Step 5 above.
 - Copy the device's ID from Sinric -> Devices.
 
-and handle the **setPowerState** action in your IOT module 
-
-#### If you are using the Sinric Pro C++ SDK: 
-```c++
-#include <Arduino.h>
-#include <ESP8266WiFi.h>
-#include <SinricPro.h>
-
-#define SSID "YOUR WIFI-SSID HERE"
-#define PASS "YOUR WIFI-PASS HERE"
-#define API_KEY "YOUR-SINRIC-PRO-API-KEY-HERE"
-#define SWITCH_ID "YOUR-SWITCH-DEVICE-ID-HERE"
-...
-
-bool onPowerState(const char* deviceId, PowerState_t& state) {
- Serial.printf("Device %s turned ", deviceId);
- switch (state) {
- case power_OFF : 
-  Serial.printf("off"); 
-  break;
- case power_ON : 
-  Serial.printf("on"); 
-  break;
-}
- return true;
-}
-.....
-```
-Complete Arduino/ESP8266/ESP32 example is available [here](https://github.com/sinricpro/esp8266-esp32-sdk/tree/master/examples/Switch)
-
-#### If you are using the SinricPro Python SDK: 
-Update the credentails in [credentials.py](https://github.com/sinricpro/python-examples/blob/master/pro_switch_example/credentials.py), then update the code
-
-```python
-def power_state(did, state):
-print(did, state['state'])
-return True, state['state']
-```
-Complete Python example is available [here](https://github.com/sinricpro/python-pxamples/blob/master/pro_switch_example/app.py) 
-
+#### Tutorial
+- Coming soon
+ 
 #### Supported SinrcPro actions
 - [setPowerState](https://github.com/sinricpro/sample_messages/blob/master/01_PowerState/01_setPowerState/01_Request.json)
 
@@ -81,6 +44,6 @@ Complete Python example is available [here](https://github.com/sinricpro/python-
 -  [Alexa.PowerController](https://developer.amazon.com/docs/device-apis/alexa-powercontroller.html)
 
 ####  Supported Google Home Traits
--  action.devices.traits.OnOff
+- Coming soon
 
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)
