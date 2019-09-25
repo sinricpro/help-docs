@@ -32,6 +32,9 @@ Now let's complete the setup process. To do that, you must update the sample ske
 - Copy the device's ID from Sinric -> Devices.
 
 
+#### Tutorial
+- Coming soon
+
 #### Sinric Pro C++ SDK: 
 Complete Arduino/ESP8266/ESP32 example is available [here]()
 
@@ -56,6 +59,6 @@ Complete Python example is available [here]()
 - [Alexa.ChannelController](https://developer.amazon.com/docs/device-apis/alexa-channelController.html)
 
 ####  Supported Google Home Traits
--  N/A
+- Coming soon
 
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)
