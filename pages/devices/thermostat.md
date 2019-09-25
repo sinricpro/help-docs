@@ -31,6 +31,8 @@ Now let's complete the setup process. To do that, you must update the sample ske
 - Copy the selected App key and App Secret in the Step 5 above.
 - Copy the device's ID from Sinric -> Devices.
 
+#### Tutorial
+- Coming soon
 
 #### Sinric Pro C++ SDK: 
 Complete Arduino/ESP8266/ESP32 example is available [here]()
@@ -51,6 +53,6 @@ Complete Python example is available [here]()
 - [Alexa.ThermostatController](https://developer.amazon.com/docs/device-apis/alexa-thermostatController.html)
 
 ####  Supported Google Home Traits
--  N/A
+- Coming soon
 
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)
