@@ -37,10 +37,8 @@ Complete Arduino/ESP8266/ESP32 example is available [here](https://github.com/si
 
 #### Sinric Pro Python SDK: 
 Complete Python example is available [here](https://github.com/sinricpro/python-examples/tree/master/pro_switch_example) 
-
-Handle following actions **setPowerState**  in your IOT module if you are not using any of the SDKs we have built.
-
-#### Supported Sinrc Pro actions
+ 
+#### Supported Sinrc Pro actions and events
 - [setPowerState](https://github.com/sinricpro/sample_messages/blob/master/01_PowerState/01_setPowerState/)
 - [setRangeValue](https://github.com/sinricpro/sample_messages/tree/master/09_RangeValue/01_setRangeValue)
 - [adjustRangeValue](https://github.com/sinricpro/sample_messages/tree/master/09_RangeValue/02_adjustRangeValue)
