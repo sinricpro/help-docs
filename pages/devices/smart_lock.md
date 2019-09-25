@@ -41,7 +41,7 @@ Complete Python example is available [here]https://github.com/sinricpro/python-e
 
 Handle following actions **setLockState**  in your IOT module if you are not using any of the SDKs we have built.
 
-#### Supported Sinrc Pro actions
+#### Supported Sinrc Pro actions and events
 - [setLockState](https://github.com/sinricpro/sample_messages/tree/master/22_SetLockState)
 
 #### Supported Alexa capabilities
