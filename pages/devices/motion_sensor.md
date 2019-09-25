@@ -34,11 +34,14 @@ Now let's complete the setup process. To do that, you must update the sample ske
 - Copy the device's ID from Sinric -> Devices.
 
 
+#### Tutorial: 
+- Coming soon
+
 #### Sinric Pro C++ SDK: 
-Complete Arduino/ESP8266/ESP32 example is available [here](https://github.com/sinricpro/esp8266-esp32-sdk/tree/master/examples/Doorbell)
+Complete Arduino/ESP8266/ESP32 example is available [here]()
 
 #### Sinric Pro Python SDK: 
-Complete Python example is available [here](https://github.com/sinricpro/python-examples/tree/master/pro_doorbell_example) 
+Complete Python example is available [here]() 
 
 #### Supported Sinrc Pro actions and events
 - [setPowerState](https://github.com/sinricpro/sample_messages/tree/master/01_PowerState)
@@ -49,6 +52,6 @@ Complete Python example is available [here](https://github.com/sinricpro/python-
 - [Alexa.MotionSensor](https://developer.amazon.com/docs/device-apis/alexa-motionSensor.html)
 
 ####  Supported Google Home Traits
--  N/A
+- Coming soon
 
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)
