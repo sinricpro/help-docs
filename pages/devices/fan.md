@@ -7,6 +7,8 @@ categories:
     - "fan"
 ---
 
+**NOTE: Alexa.RangeController is available for US locale only. Alexa app may or may not show this device type if you are not using US locale.** For more information: https://developer.amazon.com/docs/device-apis/list-of-interfaces.html
+
 Smart fan connects to your WiFi network and can control it using Sinric mobile app interface or with vocal commands using Alexa or Google Home
 
 To create a Fan:
@@ -31,6 +33,8 @@ Now let's complete the setup process. To do that, you must update the sample ske
 - Copy the selected App key and App Secret in the Step 5 above.
 - Copy the device's ID from Sinric -> Devices.
 
+#### Tutorial
+- Coming soon
 
 #### Sinric Pro C++ SDK: 
 Complete Arduino/ESP8266/ESP32 example is available [here](https://github.com/sinricpro/esp8266-esp32-sdk/tree/master/examples/Switch)
@@ -47,11 +51,7 @@ Complete Python example is available [here](https://github.com/sinricpro/python-
 - [Alexa.PowerController](https://developer.amazon.com/docs/device-apis/alexa-powercontroller.html)
 - [Alexa.RangeController](https://developer.amazon.com/docs/device-apis/alexa-rangeController.html)
 
-**NOTE: Alexa.RangeController is available for US locale only. Alexa may or may not show this device type if you are not using US locale.**
-https://developer.amazon.com/docs/device-apis/list-of-interfaces.html
-
-
 ####  Supported Google Home Traits
--  N/A
+- Coming soon
 
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)
