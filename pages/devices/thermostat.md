@@ -7,7 +7,7 @@ categories:
     - "thermostat"
 ---
 
-Thermostat. 
+Thermostat is used to control the home's heating and/or air conditioning.
 
 To create a Thermostat:
 
