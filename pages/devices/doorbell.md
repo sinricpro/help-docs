@@ -19,6 +19,8 @@ To create a Doorbell:
 6. Select the **Room** where the device is located.
 5. Select the **Device Access Key**. This is the credential your IOT device must use when connecting to SinricPro. 
 6. Click **Save**
+7. Turn on **Doorbell Press** in Alexa App. (If you are using Alexa)
+
 
 That's it. 
 
@@ -38,9 +40,7 @@ Complete Arduino/ESP8266/ESP32 example is available [here](https://github.com/si
 #### Sinric Pro Python SDK: 
 Complete Python example is available [here](https://github.com/sinricpro/python-examples/tree/master/pro_doorbell_example) 
 
-Handle following actions **DoorbellPress, setPowerState**  in your IOT module if you are not using any of the SDKs we have built.
-
-#### Supported Sinrc Pro actions
+#### Supported Sinrc Pro actions and events
 - [setPowerState](https://github.com/sinricpro/sample_messages/tree/master/01_PowerState)
 - [DoorbellPress](https://github.com/sinricpro/sample_messages/tree/master/06_Doorbell)
 
