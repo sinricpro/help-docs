@@ -31,14 +31,14 @@ Now let's complete the setup process. To do that, you must update the sample ske
 - Copy the selected App key and App Secret in the Step 5 above.
 - Copy the device's ID from Sinric -> Devices.
 
+#### Tutorial
+- Coming soon
 
 #### Sinric Pro C++ SDK: 
 Complete Arduino/ESP8266/ESP32 example is available [here](https://github.com/sinricpro/esp8266-esp32-sdk/tree/master/examples/Light)
 
 #### Sinric Pro Python SDK: 
 Complete Python example is available [here](https://github.com/sinricpro/python-examples/tree/master/pro_light_example/app.py) 
-
-Handle following actions **setPowerState, setBrightness, adjustBrightness, setColor, setColorTemperature, increaseColorTemperature, decreaseColorTemperature**  in your IOT module if you are not using any of the SDKs we have built.
 
 #### Supported Sinrc Pro actions
 - [setPowerState](https://github.com/sinricpro/sample_messages/blob/master/01_PowerState/01_setPowerState/)
@@ -57,6 +57,6 @@ Handle following actions **setPowerState, setBrightness, adjustBrightness, setCo
 - [Alexa.BrightnessController](https://developer.amazon.com/docs/device-apis/alexa-brightnesscontroller.html)
 
 ####  Supported Google Home Traits
--  N/A
+- Coming soon
 
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)
