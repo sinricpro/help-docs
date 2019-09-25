@@ -38,13 +38,12 @@ Complete Arduino/ESP8266/ESP32 example is available [here]()
 #### Sinric Pro Python SDK: 
 Complete Python example is available [here]() 
 
-Handle following actions **setPowerState, targetTemperature, setThermostatMode, currentTemperature**  in your IOT module if you are not using any of the SDKs we have built.
-
-#### Supported Sinrc Pro actions
+#### Supported Sinrc Pro actions and events
 - [setPowerState](https://github.com/sinricpro/sample_messages/blob/master/01_PowerState/01_setPowerState/)
-- [targetTemperature](https://github.com/sinricpro/sample_messages/tree/master/03_Brightness/01_setBrightness)
-- [setThermostatMode](https://github.com/sinricpro/sample_messages/tree/master/03_Brightness/02_adjustBrightness)
-- [currentTemperature](https://github.com/sinricpro/sample_messages/tree/master/04_Color/01_setColor)
+- [targetTemperature](https://github.com/sinricpro/sample_messages/tree/master/07_Temperature/01_targetTemperature)
+- [adjustTemperature](https://github.com/sinricpro/sample_messages/tree/master/07_Temperature/02_adjustTemperature)
+- [currentTemperature](https://github.com/sinricpro/sample_messages/tree/master/07_Temperature/03_currentTemperature)
+- [setThermostatMode](https://github.com/sinricpro/sample_messages/tree/master/08_ThermostatMode)
 
 #### Supported Alexa capabilities
 - [Alexa.PowerController](https://developer.amazon.com/docs/device-apis/alexa-powercontroller.html)
