@@ -9,8 +9,6 @@ categories:
 
 Window AC Unit is a portable heating and/or air conditioning unit.
 
-**NOTE: Alexa.RangeController is available for US locale only. Alexa app may or may not show this device type if you are not using US locale.** For more information: https://developer.amazon.com/docs/device-apis/list-of-interfaces.html
-
 To create a Window AC Unit:
 
 1. Log into your  [SinricPro](https://sinric.pro/) account.
@@ -55,6 +53,8 @@ Complete Python example is available [here]()
 - [Alexa.PowerController](https://developer.amazon.com/docs/device-apis/alexa-powercontroller.html)
 - [Alexa.TemperatureSensor](https://developer.amazon.com/docs/device-apis/alexa-temperatureSensor.html)
 - [Alexa.ThermostatController](https://developer.amazon.com/docs/device-apis/alexa-thermostatController.html)
+
+**NOTE: Alexa.RangeController is available for English (US) only. Alexa app may or may not show this device type in your Alexa app if you are not using English (US).** For more information: https://developer.amazon.com/docs/device-apis/list-of-interfaces.html
 
 ####  Supported Google Home Traits
 - Coming soon
