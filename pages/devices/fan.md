@@ -7,7 +7,6 @@ categories:
     - "fan"
 ---
 
-**NOTE: Alexa.RangeController is available for US locale only. Alexa app may or may not show this device type if you are not using US locale.** For more information: https://developer.amazon.com/docs/device-apis/list-of-interfaces.html
 
 Smart fan connects to your WiFi network and can control it using Sinric mobile app interface or with vocal commands using Alexa or Google Home
 
@@ -50,6 +49,8 @@ Complete Python example is available [here](https://github.com/sinricpro/python-
 #### Supported Alexa capabilities
 - [Alexa.PowerController](https://developer.amazon.com/docs/device-apis/alexa-powercontroller.html)
 - [Alexa.RangeController](https://developer.amazon.com/docs/device-apis/alexa-rangeController.html)
+
+**NOTE: Alexa.RangeController is available for English (US) only. Alexa app may or may not show this device type in your Alexa app if you are not using English (US).** For more information: https://developer.amazon.com/docs/device-apis/list-of-interfaces.html
 
 ####  Supported Google Home Traits
 - Coming soon
