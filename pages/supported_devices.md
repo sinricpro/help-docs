@@ -17,7 +17,7 @@ Following device types are supported at the moment
  - [x] [TV](devices/tv.html)
  - [x] [Smart Speaker](devices/smart_speaker.html)
  - [x] [Smart Lock](devices/smart_lock.html)
- - [ ] Sliding Door
+ - [ ] Sliding Door / Garage Door
  - [ ] Smart Blinds
 
 **Senors**
