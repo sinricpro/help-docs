@@ -14,7 +14,7 @@ To create a Doorbell:
 1. Log into your  [SinricPro](https://sinric.pro/) account.
 2. Click on **Devices**.
 3. Click on **Add Device**.
-4. Enter the device name and description.
+4. Enter the device name: **front door** and description: **front doorbell*.
 5. Select the device type as **Doorbell**
 6. Select the **Room** where the device is located.
 5. Select the **Device Access Key**. This is the credential your IOT device must use when connecting to SinricPro. 
