@@ -22,7 +22,7 @@ Following device types are supported at the moment
  - [ ] Smart Oven
 
 **Senors**
- - [x] [Temperature Sensor](devices/temperature_sensor.html)
+ - [x] [Temperature/Humidity Sensor](devices/temperature_sensor.html)
  - [x] [Motion Sensor](devices/motion_sensor.html)
  - [x] [Contact Sensor](devices/contact_sensor.html)
  - [ ] CO2 Gas Sensor

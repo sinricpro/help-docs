@@ -25,6 +25,8 @@ If you have already linked the Amazon Alexa skill the app will show a popup in y
 
 Cool!
 
+![Sinric Pro alexa arduino esp8266 esp32 speaker]({{ site.github.url }}/public/img/sinricpro_alexa_speaker_push_notification.jpg)
+
 Now let's complete the setup process. To do that, you must update the sample sketch with 
 - WiFi credentials
 - Copy the selected App key and App Secret in the Step 5 above.

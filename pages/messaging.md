@@ -17,6 +17,9 @@ We recommend using one of the SDKs we have built since they properly handle auth
 Connect to the Websocket API at the following url.
 `ws://ws.sinric.pro`
 
+### Heartbeat (Ping/Pong)
+The websocket server will send [Ping](https://tools.ietf.org/html/rfc6455#section-5.5.2) command to the websocket client every minute. If the webscoket client failed to respond with [Pong](https://tools.ietf.org/html/rfc6455#section-5.5.2) within a minute the server will disconnect the webscoket connection.
+
 ### Authentication
 Each connection to the WebSocket API must be authenticated with an App Key in HTTP Header and subsequent requests must be signed using the App Secret.
 

@@ -21,10 +21,11 @@ To create a Doorbell:
 6. Click **Save**
 7. Turn on **Doorbell Press** in Alexa App. (If you are using Alexa)
 
-
 That's it. 
 
 If you have already linked the Amazon Alexa skill the app will show a popup in your mobile phone.
+
+![Sinric Pro alexa esp8266 esp32 doorbell]({{ site.github.url }}/public/img/sinricpro_alexa_front_door_notification.jpg)
 
 Cool!
 

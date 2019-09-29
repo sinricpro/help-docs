@@ -1,15 +1,15 @@
 ---
-title: Temperature Sensor
+title: Temperature/Humidity Sensor
 layout: post
-tag: temperature-sensor
+tag: temperature-humidity-sensor
 categories: 
     - "sensor"
-    - "temperature-sensor"
+    - "temperature-humidity-sensor"
 ---
 
-Temperature sensor can detect the temperature. 
+Temperature sensor can detect the temperature surrounding area. Some temperature sensors has a humidity sensor built-in as well.
 
-To create a Contact Sensor:
+To create a Temperature/Humidity Sensor:
 
 1. Log into your  [SinricPro](https://sinric.pro/) account.
 2. Click on **Devices**.
@@ -23,6 +23,8 @@ To create a Contact Sensor:
 That's it. 
 
 If you have already linked the Amazon Alexa skill the app will show a popup in your mobile phone.
+
+![Sinric Pro alexa arduino esp8266 esp32 window ac unit]({{ site.github.url }}/public/img/sinricpro_alexa_tempreature_sensor_push_notification.jpg)
 
 Cool!
 

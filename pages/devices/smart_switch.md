@@ -21,11 +21,11 @@ To create a Smart Switch:
 5. Select the **Device Access Key**. This is the credential your IOT device must use when connecting to SinricPro. 
 6. Click **Save**
 
-![Sinric Pro alexa event]({{ site.github.url }}/public/img/sinricpro-smart-switch.png)
-
 That's it. 
 
 If you have already linked the Amazon Alexa skill the app will show a popup in your mobile phone.
+
+![Sinric Pro alexa arduino esp8266 esp32 switch]({{ site.github.url }}/public/img/sinricpro_alexa_switch_push_notification.jpg)
 
 Cool!
 

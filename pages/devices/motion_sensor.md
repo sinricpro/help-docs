@@ -21,10 +21,12 @@ To create a Motion Sensor:
 5. Select the **Device Access Key**. This is the credential your IOT device must use when connecting to SinricPro. 
 6. Click **Save**
 
-
 That's it. 
 
 If you have already linked the Amazon Alexa skill the app will show a popup in your mobile phone.
+
+![Sinric Pro alexa arduino esp8266 esp32 motion sensor]({{ site.github.url }}/public/img/sinricpro_alexa_motion-sensor_notification.jpg)
+
 
 Cool!
 

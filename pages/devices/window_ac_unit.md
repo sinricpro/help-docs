@@ -24,6 +24,8 @@ That's it.
 
 If you have already linked the Amazon Alexa skill the app will show a popup in your mobile phone.
 
+![Sinric Pro alexa arduino esp8266 esp32 window ac unit]({{ site.github.url }}/public/img/sinricpro_alexa_ac-unit_push_notification.jpg)
+
 Cool!
 
 Now let's complete the setup process. To do that, you must update the sample sketch with 
