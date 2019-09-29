@@ -12,8 +12,8 @@ Once you complete the skill linking process. Run the discovery command to discov
 
 ### Request
 1. The Amazon Alexa sends a message to the Sinric Pro IOT Platform. eg: Turn on [device name]
-2. The Sinric Pro IoT platform creates a request type message with appropriate action (in this case setPowerState) and send it to your IoT hardware module.
-3. Your IoT hardware module responds back to the Sinric Pro IOT Platform with success or failed status. 
+2. The Sinric Pro IoT platform creates a [request](https://github.com/sinricpro/sample_messages/blob/master/01_PowerState/01_setPowerState/01_Request.json) type message with appropriate action (in this case setPowerState) and send it to your IoT hardware module.
+3. Your IoT hardware module [responds](https://github.com/sinricpro/sample_messages/blob/master/01_PowerState/01_setPowerState/02_Response.json) back to the Sinric Pro IOT Platform with success or failed status. 
 
    **If you fail to respond with in 8 seconds / or device is offline, then the request will timeout and Alexa will say "Device is unresponsive".**
 
@@ -25,11 +25,11 @@ Once you complete the skill linking process. Run the discovery command to discov
 
 ### Event
 
-Sinric Pro IOT platform will report any changes to Alexa as well. 
-
 1.  The user change the device state physically. Eg: push a button to turn on the switch. 
-2.  Your IOT module creates an event message and send it to Sinric Pro IOT Platform. (In this case setPowerState)
+2.  Your IOT module creates an [event](https://github.com/sinricpro/sample_messages/blob/master/01_PowerState/01_setPowerState/03_Event.json) message and send it to Sinric Pro IOT Platform. (In this case setPowerState)
 3.  The Sinric Pro IOT platform update the device status and update Alexa service
+
+Sinric Pro IOT platform will report any changes you do via events, app or API to Alexa as well. 
 
 ![Sinric Pro alexa event]({{ site.github.url }}/public/img/sinricpro-alexa-event.png)
 

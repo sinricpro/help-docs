@@ -15,16 +15,16 @@ Welcome to **Sinric Pro** documentation.
  - [ ] GO SDK
 
 **Messaging**
- - [Introduction, Requests, responses and events]({{ site.github.url }}/pages/messaging) 
+ - [Introduction, Requests, responses and events]({{ site.github.url }}/pages/messaging.html) 
  - [Sample messages](https://github.com/sinricpro/sample_messages)
  
 **Voice Control**
- - [Amazon Alexa]({{ site.github.url }}/pages/alexa)  
+ - [Amazon Alexa]({{ site.github.url }}/pages/alexa.html)  
  - Google Home (Coming Soon)
  - IFTTT (Coming Soon)
 
 **Devices**
- - [All supported devices and example codes]({{ site.github.url }}/pages/supported_devices)
+ - [All supported devices and example codes]({{ site.github.url }}/pages/supported_devices.html)
 
 **Tutorials**
   - How to hack Mijia (Xiaomi) temperature sensor and connect it to Sinric Pro 
@@ -32,8 +32,8 @@ Welcome to **Sinric Pro** documentation.
  
 ## Where to go next?
 
- * To try out Sinric, check out our [Quickstart guide]({{ site.github.url }}/pages/quickstart)
- * See if your device is supported [Supported Devices]({{ site.github.url }}/pages/Supported Devices)
+ * To try out Sinric, check out our [Quickstart guide]({{ site.github.url }}/pages/quickstart.html)
+ * See if your device is supported [Supported Devices]({{ site.github.url }}/pages/supported_devices.html)
  * The example source code is on GitHub as [sinricpro/sinric](https://github.com/sinricpro/sinric/)
  * Issues are also tracked on [GitHub](https://github.com/sinricpro/)
 
