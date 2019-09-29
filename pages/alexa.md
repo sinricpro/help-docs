@@ -26,7 +26,7 @@ Once you complete the skill linking process. Run the discovery command to discov
 ### Event
 
 1.  The user change the device state physically. Eg: push a button to turn on the switch. 
-2.  Your IOT module creates an [event](https://github.com/sinricpro/sample_messages/blob/master/01_PowerState/01_setPowerState/03_Event.json) message and send it to Sinric Pro IOT Platform. (In this case setPowerState)
+2.  Your IOT module creates an [event](https://github.com/sinricpro/sample_messages/blob/master/01_PowerState/01_setPowerState/03_Event.json) message and send it to Sinric Pro IOT Platform. (In this case your IOT module sends setPowerState event)
 3.  The Sinric Pro IOT platform update the device status and update Alexa service
 
 Sinric Pro IOT platform will report any changes you do via events, app or API to Alexa as well. 

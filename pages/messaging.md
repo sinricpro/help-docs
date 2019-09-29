@@ -68,7 +68,7 @@ An act of doing something in will generate a **request** type message in the sys
 }
 {% endhighlight %}
  
-[https://github.com/sinricpro/sample_messages/blob/master/01_PowerState/01_setPowerState/01_Request.json](https://github.com/sinricpro/sample_messages/blob/master/01_PowerState/01_setPowerState/01_Request.json)
+[Complete Message](https://github.com/sinricpro/sample_messages/blob/master/01_PowerState/01_setPowerState/01_Request.json)
 
 ## Response
  When you receive such a request in your IOT module, you must respond to it by sending a **response** type message. The correct response to above request should be
@@ -98,7 +98,7 @@ An act of doing something in will generate a **request** type message in the sys
 }
 {% endhighlight %}
 
-[https://github.com/sinricpro/sample_messages/blob/master/01_PowerState/01_setPowerState/02_Response.json](https://github.com/sinricpro/sample_messages/blob/master/01_PowerState/01_setPowerState/02_Response.json)
+[Complete Message](https://github.com/sinricpro/sample_messages/blob/master/01_PowerState/01_setPowerState/02_Response.json)
 
 **Notes:**
 
