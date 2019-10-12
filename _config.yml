@@ -1,9 +1,9 @@
 title: SinricPro
 
-tagline: IOT Cloud Platform
+tagline: IOT Cloud Platform Documentation
 
 description: >
-  Sinric Pro is a IOT Cloud Platform.
+  Sinric Pro is a IOT Cloud Platform Documentation.
 
 twitter_username: sinricpro
 github_username:  sinricpro
@@ -17,6 +17,8 @@ defaults:
       weight: 100   # Used to sort navbar items. Lower weight goes higher on the list.
 
 highlighter: rouge
+
+google_analytics: G-D9D07HPM4B
 
 environment: development
 

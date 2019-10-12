@@ -9,7 +9,7 @@ Welcome to **Sinric Pro** documentation.
  - Complete API documentation is available [here](https://apidocs.sinric.pro/)
 
 **SDKs**
- - [x]  [C++ SDK for Arduino, ESP8266 and ESP32](https://github.com/sinricpro/SinricPro)
+ - [x]  [C++ SDK for Arduino, ESP8266 and ESP32](https://github.com/sinricpro/esp8266-esp32-sdk)
  - [x]  [Python SDK](https://github.com/sinricpro/python-sdk)
  - [x]  [NodeJS SDK](https://github.com/sinricpro/nodejs-sdk)
  - [ ] GO SDK

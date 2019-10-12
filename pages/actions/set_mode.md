@@ -1,7 +1,7 @@
 ---
-title: decreaseColorTemperature
+title: setMode
 layout: post
-tag: decreaseColorTemperature
+tag: setMode
 categories: 
     - "actions"
 ---

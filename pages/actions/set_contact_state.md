@@ -1,18 +1,16 @@
 ---
-title: decreaseColorTemperature
+title: setContactState
 layout: post
-tag: decreaseColorTemperature
+tag: setContactState
 categories: 
     - "actions"
 ---
 
-#### Payload Version : 2
- 
+#### Payload Version : 2 
 
 #### Alexa Interfaces
  
-##### Alexa utterances
-  
+##### Alexa utterances  
 
 #### Sinric Pro samples
 [Request]()
@@ -20,3 +18,4 @@ categories:
 [Event]()
 
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)
+

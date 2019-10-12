@@ -39,9 +39,35 @@ Once you click on the save button Amazon Alexa will automatically detect the dev
 
 If you did not get the push notification, just ask Alexa to device devices
 
+### Step 4 : Schematics
+
+An external switch circuit:
+```js
+     3.3V
+    --+--
+      |
+     +-+
+     | | 1K ~ 10K
+     +-+
+      |
+      +--> D2 (for ESP8266, ex: GPIO33 in case of ESP32)
+      |
+    | O
+  --+
+    | O
+      |
+    --+--
+     GND
+```
+
+![Sinric Pro alexa doorbell notification]({{ site.github.url }}/public/img/alexa-doorbell-sinric-pro-schematics.png)
+
+
+
 ### Step 4 : Connect ESP8266 or ESP32
 * 4.1 Go to **Credentials** menu on your left. 
 * 4.2 Copy the **App Key** and **App Secret**
+
 
 
 ![SinricPro credentials]({{ site.github.url }}/public/img/sinricpro-credentials.png)
