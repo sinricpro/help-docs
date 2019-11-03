@@ -1,0 +1,79 @@
+---
+title: Quickstart-Switch
+weight: 1
+youtubeId: H-iftzWVTXE
+youtubeId2: HEMifE1Xm7E
+---
+
+
+In this section we’ll walk through creating a **Smart Switch** and controlling it using Amazon Alexa.
+
+
+### Step 1 : Create a Sinric Pro account
+
+* Visit [http://portal.sinric.pro/register](http://portal.sinric.pro/register) and sign up for a new account
+
+
+### Step 2 : Link your Amazon Alexa account
+
+* 2.1 Open your Amazon Alexa app.
+* 2.2 Goto Skills & Games.
+* 2.3 Search for **Sinric Pro**.
+* 2.4 Click **ENABLE TO USE**.
+* 2.5 Enter the credentails you created in step 1.
+
+### Step 3 : Create a new device: Switch
+
+* 3.1 [Login](http://portal.sinric.pro) to your Sinric Pro account.
+* 3.2 Go to **Devices** menu on your left.
+* 3.3 Click **Add Device** button (On top left).
+* 3.4 Enter the device name **SwitchOne**, description **My First Switch** and select the type as **Switch**.
+* 3.5 Set the Device Access Key Room and Room to the default values. (**default** and **Living Room**, respectively) 
+* 3.6 Click **Save** to create the device
+
+![Sinric Pro create device alexa]({{ site.github.url }}/public/img/sinric-pro-create-switch.png)
+
+Once you click on the save button Alexa should automatically detect the device we just created (If you completed Step 2). You should see a push notification like below in your phone. 
+
+![Sinric Pro alexa switch notification]({{ site.github.url }}/public/img/sinricpro_switch_pushNotification.png)
+
+If you did not get the push notification, you can either ask,  "Alexa, discover devices", or use the Add Device workflow in the alexa app.
+
+### Step 4 : Build A smart switch
+#### 4.1 Example below assumes a WeMos D1 Mini and associated relay shield.  
+* Any MCU capable of running C++ code (NodeMCU, ESP-8266, ESP-32, Arduino) can be used.   
+* For this example power is provided via USB
+* Details such as converting line voltage to 3.3V or 5V DC are not covered here.
+
+![Sinric Pro alexa switch on D1 Mini]({{ site.github.url }}/public/img/sinricpro_d1-mini-switch.png)
+
+### Step 5 : Program your device.
+* 5.1 SinricPro can be used from the Arduino IDE or any modern C/C++ IDE
+* 5.2 SinricPro works with PlatformIO - tested on VSCode and Jetbrains CLion.
+* 5.3 Visit htpps://portal.sinric.pro and sign in.
+* 5.4 Select *Credentials* from the left menu. 
+* 5.5 Copy the *App Key* and *App Secret*
+* ***Keep these values secure.  Sharing them will likely suspend your account.***
+
+
+
+![SinricPro credentials]({{ site.github.url }}/public/img/sinricpro-credentials.png)
+
+* 5.6 Download the demo code from here 
+    * [Arduino Sketch Example](https://github.com/sinricpro/esp8266-esp32-sdk/tree/master/examples/switch)
+    * [PlatformIO Example](https://github.com/sinricpro/esp8266-esp32-sdk/tree/master/pio-examples/switch)
+    * [Full SDK documentation - All Devices](https://github.com/sinricpro/esp8266-esp32-sdk#examples)
+* 5.7 Update the *SOCKET_AUTH_TOKEN* with your *App Key* from step 5.4.
+* 5.8 Update the *SIGNING_KEY* with your *App Secret* from step 5.4.
+* 5.9 Upload the code to your ESP module.
+* 5.10 Toggle 'SwitchOne' in your Alexa App.
+* 5.11 Each time you toggle the switch you should hear the relay click.
+
+Demo ESP8266/ESP32:
+{% include youtubePlayer.html id=page.youtubeId %}
+
+
+Demo RaspberryPI + Python:
+{% include youtubePlayer.html id=page.youtubeId2 %}
+
+> This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)
