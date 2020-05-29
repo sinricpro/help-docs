@@ -10,6 +10,7 @@ Welcome to **Sinric Pro** documentation.
 
 **SDKs**
  - [x]  [C++ SDK for Arduino, ESP8266 and ESP32](https://github.com/sinricpro/esp8266-esp32-sdk)
+ - [x]  [C++ SDK for Arduino SAMD21, Adafruit SAMD21, SAMD51, nRF52, STM32, Teensy, SAM DUE](https://github.com/khoih-prog/SinricPro_Generic)
  - [x]  [Python SDK](https://github.com/sinricpro/python-sdk)
  - [x]  [NodeJS SDK](https://github.com/sinricpro/nodejs-sdk)
  - [ ] GO SDK
@@ -20,8 +21,8 @@ Welcome to **Sinric Pro** documentation.
  
 **Voice Control**
  - [Amazon Alexa]({{ site.github.url }}/pages/alexa.html)  
- - Google Home (Coming Soon)
- - IFTTT (Coming Soon)
+ - [Google Home (via IFTTT)]({{ site.github.url }}/pages/ifttt-googlehome.html)  
+ - [IFTTT]({{ site.github.url }}/pages/ifttt.html)  
 
 **Devices**
  - [All supported devices and example codes]({{ site.github.url }}/pages/supported_devices.html)

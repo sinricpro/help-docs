@@ -20,5 +20,8 @@ highlighter: rouge
 
 google_analytics: G-D9D07HPM4B
 
-environment: development
+environment: production
 
+# How to build production
+# Change the environment: production / development
+# bundle exec jekyll build
