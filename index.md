@@ -21,14 +21,13 @@ Welcome to **Sinric Pro** documentation.
  
 **Voice Control**
  - [Amazon Alexa]({{ site.github.url }}/pages/alexa.html)  
- - [Google Home (via IFTTT)]({{ site.github.url }}/pages/ifttt-googlehome.html)  
+ - [Google Home (via IFTTT)]({{ site.github.url }}/pages/googlehome.html)  
+ - [Google Home (via SmartThings)]({{ site.github.url }}/pages/smartthings-googlehome.html)
  - [IFTTT]({{ site.github.url }}/pages/ifttt.html)  
 
 **Devices**
  - [All supported devices and example codes]({{ site.github.url }}/pages/supported_devices.html)
 
-**Tutorials**
-  - How to hack Mijia (Xiaomi) temperature sensor and connect it to Sinric Pro 
 
  
 ## Where to go next?
