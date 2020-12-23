@@ -50,7 +50,7 @@ Handle following actions **setPowerState, setContactState**  in your IOT module 
 
 #### Supported Alexa capabilities
 - [Alexa.PowerController](https://developer.amazon.com/docs/device-apis/alexa-powercontroller.html)
-- [Alexa.ContactSensor](https://developer.amazon.com/docs/device-apis/alexa-contactSensor.html) 
+- [Alexa.ContactSensor](https://developer.amazon.com/docs/device-apis/alexa-contactsensor.html) 
 
 ####  Supported Google Home Traits
 - Coming soon
