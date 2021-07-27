@@ -13,27 +13,6 @@ We recommend using one of the SDKs we have built since they properly handle auth
 -   [ESP8266/ESP32 SDK](https://github.com/sinricpro/esp8266-esp32-sdk) - [examples](https://github.com/sinricpro/esp8266-esp32-sdk/tree/master/examples)
 -   [Python SDK](https://github.com/sinricpro/python-sdk)  - [examples](https://github.com/sinricpro/python-examples)
 
-### Connecting
-Connect to the Websocket API at the following url.
-`ws://ws.sinric.pro`
-
-### Heartbeat (Ping/Pong)
-The websocket server will send [Ping](https://tools.ietf.org/html/rfc6455#section-5.5.2) command to the websocket client every minute. If the webscoket client failed to respond with [Pong](https://tools.ietf.org/html/rfc6455#section-5.5.2) within a minute the server will disconnect the webscoket connection.
-
-### Authentication
-Each connection to the WebSocket API must be authenticated with an App Key in HTTP Header and subsequent requests must be signed using the App Secret.
-
-#### Connect example
-
-```js
-let ws = new WebSocket('ws://ws.sinric.pro', {
-    headers: { 
-        appkey: "Your-app-key-here", 
-        deviceids: "deviceid;deviceid" 
-    }
-});
-```
-
 ### Messaging
 
 There are 3 types of messages in Sinric Pro platform. They are
@@ -135,71 +114,5 @@ Let's imagine you want to turn on the device by pushing a button or change the b
     }
 }
  {% endhighlight %}
-
-## Signature calculation.
-This is a signature calculation example in NodeJS. 
-
-```js
-
-const crypto = require('crypto'); // npm install crypto
-const _ = require("lodash"); // npm install lodash
-const header = { "payloadVersion": 2, "signatureVersion" : 1 };
-const APP_SECRET = "a751abdb-e260-4bfd-a42c-60660561123d-3d8e6a30-0f39-42f0-a1ec-e47d47fb1392";
-
-function sortKeys(obj) {
-  if(_.isArray(obj)) {
-    return obj.map(sortKeys);
-  }
-  if(_.isObject(obj)) {
-    return _.fromPairs(_.keys(obj).sort().map(key => [key, sortKeys(obj[key])]));
-  }
-  return obj;
-}
-
-function getSignature(message, appsecert) {
-    return crypto.createHmac('sha256', appsecert).update(message).digest('base64');
-}
- 
-let payload = {
-  "replyToken": "6ec1f778-e92f-487c-9818-bdbe3438f30e",
-  "clientId": "alexa-skill",
-  "createdAt": 1567852244,
-  "deviceId": "5d737888aea17c30a056d759",
-  "deviceAttributes": [],
-  "type": "request",
-  "action": "setPowerState",
-  "value": {
-	 "state": "On"
-  }
-}
-
-// Sort the json by the keys first
-payload = sortKeys(payload);
-
-// Calculate HMAC
-const HMAC = getSignature(JSON.stringify(payload), APP_SECRET);
-const signature = { "HMAC": HMAC };
-const event = { header: header, payload: payload, signature : signature };
-
-console.log(event);
- 
-
-// Output:
-
-/*
-{ header: { payloadVersion: 2, signatureVersion: 1 },
-  payload:
-   { action: 'setPowerState',
-     clientId: 'alexa-skill',
-     createdAt: 1567852244,
-     deviceAttributes: [],
-     deviceId: '5d737888aea17c30a056d759',
-     replyToken: '6ec1f778-e92f-487c-9818-bdbe3438f30e',
-     type: 'request',
-     value: { state: 'On' } },
-  signature: { HMAC: '5aR5dHuVPOb1rYrWIzSbwqJX6mWMlH1EluQ2Pl7sPDg=' } }
-*/
-```
-
-
+  
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)
