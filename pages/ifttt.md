@@ -15,7 +15,7 @@ Login to your IFTTT account. Get the API Key under the **Documentation** link in
 Copy your IFTTT API Key and paste it in Menu -> Integrations -> IFTTT Webhooks
   
 ![Sinric Pro Google Home IFTTT]({{ site.github.url }}/public/img/sinric_pro_ifttt_save_key.png)
-Now, Sinric Pro is able to send **events** from IoT development board (such as ESP8266, ESP32, RaspPi) to IFTTT.
+Now, Sinric Pro is able to send **events** coming from your IoT development board (such as ESP8266, ESP32, RaspPi) to IFTTT.
 
 Requests made to IFTTT from Sinric Pro will have the below format
 https://maker.ifttt.com/trigger/**{event}**/with/key/**{key}**
@@ -69,8 +69,6 @@ Body:
    }
 }
 {% endhighlight %}
-
-#### Wanna know how to integrate with [Google Home ?]({{ site.github.url }}/pages/googlehome.html)
 
 
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

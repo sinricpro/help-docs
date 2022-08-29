@@ -13,10 +13,6 @@ This action is used to adjust power level in your smart light bulb or smart swit
 #### Alexa
 [Alexa Interface](https://developer.amazon.com/docs/device-apis/alexa-powerlevelcontroller.html#adjustpowerlevel-directive)
 
-##### Alexa utterances
-Alexa, increase the power level by 12 on the lamp.
-
-
 #### Sinric Pro samples
 [Request](https://github.com/sinricpro/sample_messages/blob/master/02_PowerLevel/02_adjustPowerLevel/01_Request.json)
 [Response](https://github.com/sinricpro/sample_messages/blob/master/02_PowerLevel/02_adjustPowerLevel/02_Response.json)

@@ -6,6 +6,8 @@ youtubeId: UHuVoE6kPB8
 
 **How to integrate Sinric Pro + Google Home**
 
+You can find the Google Action [**here**](https://assistant.google.com/services/a/uid/000000c715375dd7?hl=en).
+
 * Open  **Google Home** and click on **Add**. 
     * Select **Setup Device**
     * Select **Works with Google Home**

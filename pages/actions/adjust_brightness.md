@@ -12,10 +12,6 @@ This action is used to adjust brightness in your smart light bulb.
 #### Alexa
 [Alexa Interface](https://developer.amazon.com/docs/device-apis/alexa-brightnesscontroller.html#adjustbrightness-directive)
 
-##### Alexa utterances
-Alexa, dim lamp ten percent.
-
-
 #### Sinric Pro samples
 [Request](https://github.com/sinricpro/sample_messages/blob/master/03_Brightness/02_adjustBrightness/01_Request.json)
 [Response](https://github.com/sinricpro/sample_messages/blob/master/03_Brightness/02_adjustBrightness/02_Response.json)

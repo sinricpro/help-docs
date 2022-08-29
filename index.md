@@ -9,10 +9,11 @@ Welcome to **Sinric Pro** documentation.
  - Complete API documentation is available [here](https://apidocs.sinric.pro/)
 
 **SDKs**
- - [x]  [C++ SDK for Arduino, ESP8266 and ESP32](https://github.com/sinricpro/esp8266-esp32-sdk)
- - [x]  [C++ SDK for Arduino SAMD21, Adafruit SAMD21, SAMD51, nRF52, STM32, Teensy, SAM DUE](https://github.com/khoih-prog/SinricPro_Generic) *(Community Maintained)*
- - [x]  [Python SDK](https://github.com/sinricpro/python-sdk)
- - [x]  [NodeJS SDK](https://github.com/sinricpro/nodejs-sdk)
+ - [x]  [Arduino, ESP8266 and ESP32 SDK ](https://github.com/sinricpro/esp8266-esp32-sdk) *(Official)*
+ - [x]  [Arduino SAMD21, Adafruit SAMD21, SAMD51, nRF52, STM32, Teensy, SAM DUE SDK](https://github.com/khoih-prog/SinricPro_Generic) *(Community Maintained)*
+ - [x]  [Python SDK](https://github.com/sinricpro/python-sdk) *(Official)*
+ - [x]  [NodeJS SDK](https://github.com/sinricpro/nodejs-sdk) *(Official)*
+ - [x]  [C#](https://github.com/xamakadesigns/sinric-pro-csharp) *(Community Maintained)*
 
 **Messaging**
   - [Introduction, Requests, responses and events]({{ site.github.url }}/pages/messaging.html)
@@ -23,11 +24,6 @@ Welcome to **Sinric Pro** documentation.
  - [Google Home]({{ site.github.url }}/pages/googlehome.html)  
  - [Google Home (via SmartThings)]({{ site.github.url }}/pages/smartthings-googlehome.html)
  - [IFTTT]({{ site.github.url }}/pages/ifttt.html)  
-
-**Devices**
- - [All supported devices and example codes]({{ site.github.url }}/pages/supported_devices.html)
-
-
  
 ## Where to go next?
 

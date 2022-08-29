@@ -2,6 +2,7 @@
 title: Google Home (SmartThings)
 weight: 4
 youtubeId: UHuVoE6kPB8
+published: false
 ---
 
 **How to integrate Sinric Pro + Google Home**

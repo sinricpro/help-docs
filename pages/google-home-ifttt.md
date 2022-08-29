@@ -2,6 +2,7 @@
 title: Google Home (IFTTT)
 weight: 4
 youtubeId: UHuVoE6kPB8
+published: false
 ---
 
 ### Google Home Via IFTTT

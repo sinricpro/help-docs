@@ -1,8 +1,7 @@
 ---
 title: Device Templates
 weight: 1
-youtubeId: H-iftzWVTXE
-youtubeId2: HEMifE1Xm7E
+youtubeId: QJVbSPSztwY
 ---
 
 ### Introduction 
@@ -78,5 +77,7 @@ latest version of the Sinric Pro SDK (v2.9.0). Otherwise you may see compile err
 
 ![Sinric Pro create a device and generate code from template]({{ site.github.url }}/public/img/create-device-template-and-generate-code.gif)
  
+
+{% include youtubePlayer.html id=page.youtubeId %}
 
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

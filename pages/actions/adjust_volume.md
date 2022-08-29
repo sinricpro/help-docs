@@ -8,12 +8,7 @@ categories:
 
 #### Payload Version : 2
  
-
-#### Alexa Interfaces
  
-##### Alexa utterances
-  
-
 #### Sinric Pro samples
 [Request]()
 [Response]()
