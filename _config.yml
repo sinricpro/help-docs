@@ -22,7 +22,7 @@ google_analytics: G-D9D07HPM4B
 
 environment: production
 
-exclude: ["pages/pass.md"]
+#exclude: ["pages/pass.md"]
 
 # How to build production
 # Change the environment: production / development

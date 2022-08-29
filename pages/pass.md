@@ -40,7 +40,7 @@ We also fully manage the server and maintain it — and your instance will recei
 
 * No need to maintain the code or keep libraries upto date. We will do it for you.
 
-* Scalability, reliability, and security is managed by our experts.
+* Daily backups, scalability, security patches are managed by our experts.
 
 
 ### Why not:
@@ -62,6 +62,7 @@ Once you have signed the contract, we will provide you with sample code as well 
 
 *10,000 virtual devices created on server not ESP modules.
 
+if you want to know more information please take a look at our [PaaS - Process and Timeline]({{ site.github.url }}/pages/pass-timeline/timeline.html)  
   
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)
 

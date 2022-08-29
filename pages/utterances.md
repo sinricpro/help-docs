@@ -3,6 +3,8 @@ title: Utterances
 weight: 1
 ---
 
+**Sample utterances for Amazon Alexa and Google Home**
+
 #### Switch
 	Power:
 		Alexa, Turn on Lounge Light

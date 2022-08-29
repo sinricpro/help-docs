@@ -15,6 +15,10 @@ Welcome to **Sinric Pro** documentation.
  - [x]  [NodeJS SDK](https://github.com/sinricpro/nodejs-sdk) *(Official)*
  - [x]  [C#](https://github.com/xamakadesigns/sinric-pro-csharp) *(Community Maintained)*
 
+**PaaS**
+ - [PaaS (White Label) solution]({{ site.github.url }}/pages/pass.html)  
+ - [PaaS Process & Timeline]({{ site.github.url }}/pages/pass-timeline/timeline.html)  
+
 **Messaging**
   - [Introduction, Requests, responses and events]({{ site.github.url }}/pages/messaging.html)
   - [Sample messages](https://github.com/sinricpro/sample_messages)

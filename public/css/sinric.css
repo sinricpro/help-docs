@@ -13,6 +13,7 @@ img.sidebar-social-icon {
 img.sidebar-logo {
   float: left;
   border: 0px solid white;
+  max-width: 90%;
 }
 
 div.sidebar-social-icons a {
