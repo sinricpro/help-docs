@@ -68,7 +68,7 @@ if you want to know more information please take a look at our [PaaS - Process a
 
 For enquiries please contact us via the link below.
 
-https://forms.gle/h6jJj8KYDQNeruct5
+[https://forms.gle/sinricpro](https://forms.gle/h6jJj8KYDQNeruct5)
   
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)
 
