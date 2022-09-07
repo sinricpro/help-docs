@@ -63,6 +63,12 @@ Once you have signed the contract, we will provide you with sample code as well 
 *10,000 virtual devices created on server not ESP modules.
 
 if you want to know more information please take a look at our [PaaS - Process and Timeline]({{ site.github.url }}/pages/pass-timeline/timeline.html)  
+
+### Ready to get started? 
+
+For enquiries please contact us via the link below.
+
+https://forms.gle/h6jJj8KYDQNeruct5
   
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)
 
