@@ -18,6 +18,10 @@ We will setup an Amazon Alexa Skill for your own brand and publish it on Amazon 
 
 The App supports device provisioning via BLE (for ESP32), ESPTouch/SmartAP (for ESP8266) and by a Captive Portal (WebUI). 
 
+BLE Demo: https://youtu.be/b8tU4GRuHyc
+
+SmartAP Demo: https://youtu.be/2EmZgiWjfaA
+
 You do not need to hardcode the app/security keys or device Ids — as this will be sent to your hardware module securely during the provisioning process.
  
 
