@@ -275,4 +275,4 @@ weight: 1
 	https://www.youtube.com/shorts/qaczcy4XaNE
 
 #### Custom Devices (Alexa Only)
-	Range Controller: Alexa, what is the [range controller **name**] of [device name]
+	Range Controller: Alexa, what is the [range controller name] of [device name]
