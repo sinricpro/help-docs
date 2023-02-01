@@ -13,6 +13,7 @@ Welcome to **Sinric Pro** documentation.
  - [x]  [Arduino SAMD21, Adafruit SAMD21, SAMD51, nRF52, STM32, Teensy, SAM DUE SDK](https://github.com/khoih-prog/SinricPro_Generic) *(Community Maintained)*
  - [x]  [Python SDK](https://github.com/sinricpro/python-sdk) *(Official)*
  - [x]  [NodeJS SDK](https://github.com/sinricpro/nodejs-sdk) *(Official)*
+ - [x]  [Node-RED](https://github.com/sinricpro/nodejs-sdk) *(Official)*
  - [x]  [C#](https://github.com/xamakadesigns/sinric-pro-csharp) *(Community Maintained)*
 
 **PaaS**
