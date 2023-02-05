@@ -36,7 +36,7 @@ Copy the Device Id, App Key and App Secret from the last page.
 
 Once the device node is configured, voice commands related to above device in SinricPro will be forward to this Node-RED node. 
 
-* You can add another node (function) to process this output above device node. 
+* You can add another node (function) to process this output. 
 
 ![Sinric Pro Node-RED function node]({{ site.github.url }}/public/img/sinric_pro_nodered_function_node.png)
 
