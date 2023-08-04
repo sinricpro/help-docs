@@ -1,6 +1,7 @@
 ---
 title: PaaS
 weight: 1
+published: false
 ---
 
 **We provide the following services with our PaaS (White Label) solution**
