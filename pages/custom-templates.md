@@ -1,6 +1,6 @@
 ---
 title: Device Templates
-weight: 1
+weight: 2
 youtubeId: QJVbSPSztwY
 ---
 

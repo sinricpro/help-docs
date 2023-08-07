@@ -1,6 +1,6 @@
 ---
 title: Utterances
-weight: 1
+weight: 3
 ---
 
 **Sample utterances for Amazon Alexa and Google Home**

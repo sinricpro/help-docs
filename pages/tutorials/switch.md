@@ -1,87 +1,253 @@
 ---
-title: Smart Switch
+title: Switch Tutorial
 layout: post
 ---
 
-In this section we’ll walk through creating a **Smart Switch** and controlling it using Amazon Alexa.
+In this section we’ll walk through creating a Sinric Pro **Switch** for **ESP32**, **ESP8266** or **Raspberry Pi Zero W** which you can control via **Alexa, Google Home or SmartThings**.
 
-### Step 1 : Create a Sinric Pro account
+### Prerequisites : 
 
-* Visit [http://portal.sinric.pro/register](http://portal.sinric.pro/register) and sign up for a new account
+1. ESP32, ESP8266 or RaspPi W x 1.
+2. SPDT Relay controller x 1.
+3. Jumper Wires.
+
+![Sinric Pro esp8266 esp32 picow]({{ site.github.url }}/public/img/esp32-esp8266-picow.png) 
+### Quick introduction to Relay
+
+A relay is an electrically operated switch that can be turned on or off by a low-voltage signal. It is like a regular switch in that it allows current to flow through or not, but it can be controlled by a much smaller voltage. This makes relays ideal for MCUs where it is necessary to control a high-voltage circuit with a low-voltage signal.
+
+#### How it works
+
+The operation of a relay can vary depending on the manufacturer, the wiring, and the type of relay controller being used. Some relay controllers require a high-level signal from the MCU to activate the relay, while others require a low-level signal. It is important to check the specifications of the relay controller before using it to ensure that it is compatible with your MCU.
+
+**High-level signal**: A high-level signal is a signal that is above a certain voltage threshold. For example, a 5V relay controller may require a signal that is above 3.3V to activate the relay.
+
+```c++
+digitalWrite(pin, HIGH);
+```
+
+**Low-level signal**: A low-level signal is a signal that is below a certain voltage threshold. For example, a 5V relay controller may require a signal that is below 0.8V to activate the relay.
+
+```c++
+digitalWrite(pin, LOW);
+```
+
+**High Voltage Connectors**
+![High Voltage Connectors]({{ site.github.url }}/public/img/high_voltage_connectors.png) 
 
 
-### Step 2 : Link your Amazon Alexa account
+The relay module in the above has a single connector with three sockets: **Common (COM)**, **Normally Closed (NC)**, and **Normally Open (NO)**.
 
-* Open your Amazon Alexa app.
-* Goto Skills & Games.
-* Search for **Sinric Pro**.
-* Click **ENABLE TO USE**.
-* Enter the credentails you created in step 1.
+**Common (COM)**: COM is the common connection for both the NO and NC pins. Connect the high voltage device to the COM pin.
 
-### Step 3 : Create a new device: Switch
+**Normally Closed (NC)**: The circuit is closed by default.
 
-* [Login](http://portal.sinric.pro) to your Sinric Pro account.
-* Go to **Devices** menu on your left.
-* Click **Add Device** button (On top left).
-* Enter the device name **SwitchOne**, description **My First Switch** and select the type as **Switch**.
+**Normally Open (NO)**: The circuit is open by default.
+
+Normally open (NO) and normally closed (NC) contacts allow you to use one pin to control two separate circuits depending on your requirements. For example, you could use one pin to control the power to a light bulb and another pin to control the power to a motor. When the pin is high/low the light bulb will turn on otherwise the motor will turn on.
+
+### Wiring
+
+![Sinric Pro esp8266 relay wiring]({{ site.github.url }}/public/img/sinricpro-esp8266-relay-wired.png) 
+
+| MCU       | Pin     |
+| --------- | ------- |
+| ESP32     |    16   |
+| ESP8266   |    12 (D6)    |
+| RaspPi W  |    6    |
+
+Before we integrate with Sinric Pro, it is important to verify that the relay is wired correctly. You can use the following code to check whether the relay turns on and off every 5 seconds.  
+
+```c++
+#if defined(ESP8266)
+  #define relay        12
+#elif defined(ESP32) 
+  #define relay        16
+#elif (ARDUINO_ARCH_RP2040)
+  #define relay        6
+#endif
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(relay, OUTPUT);
+}
+
+void loop() {
+  Serial.println("Writing HIGH ..");
+  digitalWrite(relay, HIGH);
+  delay(5000); 
+  
+  Serial.println("Writing LOW ..");
+  digitalWrite(relay, LOW);
+  delay(5000);
+}
+```
+
+### Step 1 : Create a new device in Sinric Pro
+
+* [Login](http://portal.sinric.pro) to your Sinric Pro account, go to **Devices** menu on your left and click **Add Device** button (On top left).
+* Enter the device name **Switch**, description **My First Switch** and select the device type as **Switch**.
 
 ![Sinric Pro create device alexa]({{ site.github.url }}/public/img/sinric-pro-create-switch.png)
 
-* Click **Next**
-
-* Select appropreate notifications if you wish to receive push notification via Sinric Pro app.
-
-![Sinric Pro push notifications]({{ site.github.url }}/public/img/sinric-pro-create-device-notification.png)
-
-* Click **Next**
-
-* The timer can be configured to turn ON or OFF after a certain amount of seconds. eg: automatically switch off your iron after an hour once turned it on.
-
-![Sinric Pro push notifications]({{ site.github.url }}/public/img/sinric-pro-create-device-timers.png)
-
-* Click **Next**
-
-* Sinric Pro And Alexa (US) supports energy estimates. If you know how much electricity your connected appliance uses, you can enter it here.
-
-![Sinric Pro copy device id]({{ site.github.url }}/public/img/sinric-pro-create-device-other.png)
-
-* Click **Save**
+* Click **Next** the in the Notifications tab, Timers tab and Click **Save**
 
 * Next screen will show the credentials required to connect the device you just created.
 
 ![Sinric Pro copy device id]({{ site.github.url }}/public/img/sinric-pro-create-device-keys.png)
 
-* Copy the **Device Id**, **App Key** and **App Secret**
+* Copy the **Device Id**, **App Key** and **App Secret** ***Keep these values secure. DO NOT SHARE THEM ON PUBLIC FORUMS !***
+
+### Step 2 : Coding 
+ 
+You can generate the code using Zero Code feature or write it by your self. If you do not have programming experice, we recommend to use Zero Code feature.
+ 
+
+```c++
+#include <Arduino.h>
+#if defined(ESP8266)
+  #include <ESP8266WiFi.h>
+#elif defined(ESP32) || defined(ARDUINO_ARCH_RP2040)
+  #include <WiFi.h>
+#endif
+
+#include "SinricPro.h"
+#include "SinricProSwitch.h"
+
+#define WIFI_SSID         ""
+#define WIFI_PASS         ""
+#define APP_KEY           ""
+#define APP_SECRET        ""
+
+#define SWITCH_ID_1       ""
+
+#if defined(ESP8266)
+  #define RELAYPIN_1        12
+#elif defined(ESP32) 
+  #define RELAYPIN_1        16
+#elif (ARDUINO_ARCH_RP2040)
+  #define RELAYPIN_1        6
+#endif
+
+#define BAUD_RATE         115200                // Change baudrate to your need
+
+bool onPowerState1(const String &deviceId, bool &state) {
+ Serial.printf("Device 1 turned %s", state?"on":"off");
+ digitalWrite(RELAYPIN_1, state ? HIGH:LOW);
+ return true; // request handled properly
+}
+
+// setup function for WiFi connection
+void setupWiFi() {
+  Serial.printf("\r\n[Wifi]: Connecting");
+
+  #if defined(ESP8266)
+    WiFi.setSleepMode(WIFI_NONE_SLEEP); 
+    WiFi.setAutoReconnect(true);
+  #elif defined(ESP32)
+    WiFi.setSleep(false); 
+    WiFi.setAutoReconnect(true);
+  #endif
+
+  WiFi.begin(WIFI_SSID, WIFI_PASS);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.printf(".");
+    delay(250);
+  }
+
+  Serial.printf("connected!\r\n[WiFi]: IP-Address is %s\r\n", WiFi.localIP().toString().c_str());
+}
+
+// setup function for SinricPro
+void setupSinricPro() {
+  // add devices and callbacks to SinricPro
+  pinMode(RELAYPIN_1, OUTPUT);
+    
+  SinricProSwitch& mySwitch1 = SinricPro[SWITCH_ID_1];
+  mySwitch1.onPowerState(onPowerState1);
+    
+  // setup SinricPro
+  SinricPro.onConnected([](){ Serial.printf("Connected to SinricPro\r\n"); }); 
+  SinricPro.onDisconnected([](){ Serial.printf("Disconnected from SinricPro\r\n"); });
+   
+  SinricPro.begin(APP_KEY, APP_SECRET);
+}
+
+// main setup function
+void setup() {
+  Serial.begin(BAUD_RATE); Serial.printf("\r\n\r\n");
+  setupWiFi();
+  setupSinricPro();
+}
+
+void loop() {
+  SinricPro.handle();
+}
+```
+
+Change *WIFI_SSID* to your WiFi Name. 
+
+Change *WIFI_PASS* to your WiFi password.
+
+Paste *APP_KEY* from above  **App Key**
+
+Paste *APP_SECRET* from above **App Secret**
+
+Paste *SWITCH_ID_1* to above  **Device Id**
+
+<video width="640" height="480" controls>
+  <source src="{{ site.github.url }}/public/video/portal-relay-on-off.mp4" type="video/mp4">
+</video>
+
+### Step 3 : Link your Amazon Alexa account
+
+* Open your Amazon Alexa app.
+
+* Goto Skills & Games.
+
+* Search for **Sinric Pro**.
+
+* Click ENABLE TO USE.
+
+* Enter your **Sinric Pro** credentails in linking page.
+
+* Ask Alexa to discover new devices.
+
+* Ask Alexa to turn on the *Switch*
+
+### Troubleshooting
+
+#### Can not connect to Sinric Pro ? 
+
+* Always try our example sketches without making any changes. They have been thoroughly tested and are known to work correctly.
+
+* Enable logging and check for errors, disconnections.
+
+    * To enable logs Sinric Pro SDK logs, add ``#define ENABLE_DEBUG`` to top of the sketch.
+
+        * To enable ESP8266 logs, in Arduinio IDE:
+
+        1. `Tools -> Debug Serial Port -> Serial`
+
+        2. `Tools -> Debug Level -> SSL + HTTP_CLIENT`
+
+        * To enable ESP32 logs, in Arduinio IDE:
+
+            `Tools -> Core Debug Level -> Verbose`
 
 
-* ***Keep these values secure.  Sharing them will likely suspend your account.***
+* Try starting a hotspot from your mobile phone and then connect your ESP to SinricPro via the hotspot. If you can connect to SinricPro via the hotspot, then the problem is with your WiFi network. 
 
-Once you click on the save button Alexa should automatically detect the device we just created (If you completed Step 2). You should see a push notification like below in your phone. 
+* Try switching to a different WiFi network if possible.
 
-![Sinric Pro alexa switch notification]({{ site.github.url }}/public/img/sinricpro_switch_pushNotification.png)
+* Sometimes, due to memory limitations, the ESP chip may fail while trying to establish the SSL connection to the SinricPro server. In this case, you can try disabling the SSL feature by adding the following line to the **top of the sketch**:
 
-If you did not get the push notification, you can either ask,  "Alexa, discover devices", or use the Add Device workflow in the alexa app.
+    ```#define SINRICPRO_NOSSL```
 
-### Step 4 : Build A smart switch
-#### 4.1 Example below assumes a WeMos D1 Mini and associated relay shield.  
-* Any MCU capable of running C++ code (NodeMCU, ESP-8266, ESP-32, Arduino) can be used.   
-* For this example power is provided via USB
-* Details such as converting line voltage to 3.3V or 5V DC are not covered here.
+* If you have any long delay(x); in the loop() function, you may need to remove them.
+ 
+* Check for existing [issues](https://github.com/sinricpro/esp8266-esp32-sdk/issues) in GitHub repo or open a [new one](https://github.com/sinricpro/esp8266-esp32-sdk/issues/new)
 
-![Sinric Pro alexa switch on D1 Mini]({{ site.github.url }}/public/img/sinricpro_d1-mini-switch.png)
-
-### Step 5 : Program your device.
-* SinricPro can be used from the Arduino IDE or any modern C/C++ IDE
-* SinricPro works with PlatformIO - tested on VSCode and Jetbrains CLion.
-* Download the demo code from here 
-    * [Arduino Sketch Example](https://github.com/sinricpro/esp8266-esp32-sdk/tree/master/examples/Switch/Switch)
-    * [PlatformIO Example](https://github.com/sinricpro/esp8266-esp32-sdk/tree/master/examples/Switch/Switch)
-    * [Full SDK documentation - All Devices](https://github.com/sinricpro/esp8266-esp32-sdk#examples)
-* Update the *APP_KEY* with your *App Key*
-* Update the *APP_SECRET* with your *App Secret*
-* Update the *SWITCH_ID* with your *Device ID*
-* Upload the code to your ESP module.
-* Toggle 'SwitchOne' in your Alexa App.
-* Each time you toggle the switch you should hear the relay click.
  
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)
