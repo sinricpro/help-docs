@@ -3,8 +3,10 @@ title: Switch Tutorial Part 2 - How to use a push button to toggle the Relay
 layout: post
 ---
 
-In this section, we will continue from [Part 1]({{ site.github.url }}/pages/tutorials/switch/part-1.html) and add a push button to turn on and off the relay. We will also update the status of the relay on the Sinric Pro server.
+In this section, we will continue from [Part 1]({{ site.github.url }}/pages/tutorials/switch/part-1.html) and add a push button to turn on and off the relay. We will also update the new status of the relay on the Sinric Pro server.
 
+
+![sinricpro relay push button esp8266]({{ site.github.url }}/public/img/sinric_pro_relay_push_button_esp8266.png) 
 ### Prerequisites : 
 
 1. ESP32, ESP8266 or RaspPi W x 1.
