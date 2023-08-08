@@ -1,6 +1,7 @@
 ---
 title: Amazon Alexa
 weight: 4
+published: false
 ---
 
 **How Amazon Alexa works with Sinric Pro**

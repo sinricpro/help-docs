@@ -1,9 +1,9 @@
 ---
-title: Switch Tutorial
+title: Switch Tutorial Part 1 - Turn on and off a Relay
 layout: post
 ---
 
-In this section we’ll walk through creating a Sinric Pro **Switch** for **ESP32**, **ESP8266** or **Raspberry Pi Zero W** which you can control via **Alexa, Google Home or SmartThings**.
+In this section we’ll walk through creating a Sinric Pro **Switch** for **ESP32**, **ESP8266** or **Raspberry Pi Zero W** and then control via **Alexa, Google Home or SmartThings**.
 
 ### Prerequisites : 
 
@@ -114,12 +114,11 @@ You can generate the code using Zero Code feature or write it by your self. If y
 #include "SinricPro.h"
 #include "SinricProSwitch.h"
 
-#define WIFI_SSID         ""
-#define WIFI_PASS         ""
-#define APP_KEY           ""
-#define APP_SECRET        ""
-
-#define SWITCH_ID_1       ""
+#define WIFI_SSID         ""  // Change WIFI_SSID to your WiFi Name.
+#define WIFI_PASS         ""  // Change WIFI_PASS to your WiFi password.
+#define APP_KEY           ""  // Paste App Key from above 
+#define APP_SECRET        ""  // Paste App Secret from above 
+#define SWITCH_ID_1       ""  // Paste Device Id from  above
 
 #if defined(ESP8266)
   #define RELAYPIN_1        12
@@ -185,36 +184,71 @@ void loop() {
   SinricPro.handle();
 }
 ```
-
-Change *WIFI_SSID* to your WiFi Name. 
-
-Change *WIFI_PASS* to your WiFi password.
-
-Paste *APP_KEY* from above  **App Key**
-
-Paste *APP_SECRET* from above **App Secret**
-
-Paste *SWITCH_ID_1* to above  **Device Id**
+ 
+Now you should be able to control the relay via Portal like in the below video. 
 
 <video width="640" height="480" controls>
   <source src="{{ site.github.url }}/public/video/portal-relay-on-off.mp4" type="video/mp4">
 </video>
 
-### Step 3 : Link your Amazon Alexa account
+### Step 3 : Link [Sinric Pro](https://www.amazon.com/dp/B07ZT5VDT8) Alexa Skill with your account.
 
-* Open your Amazon Alexa app.
+<div align="center">
+  <table >
+    <tr>
+      <td>
+        <p>&#x2022; Open your Amazon Alexa app.</p>
+        <p>&#x2022; Goto Skills & Games.</p>
+        <p>&#x2022; Search for <b>Sinric Pro</b>.</p>
+        <p>&#x2022; Click ENABLE TO USE.</p>
+        <p>&#x2022; Enter your <b>Sinric Pro</b> credentails in linking page.</p>
+        <p>&#x2022; Ask Alexa to discover new devices.</p>
+        <p>&#x2022; Ask Alexa to turn on the <b>Switch</b></p>  
+      </td>
+      <td> 
+      </td>
+    </tr>
+  </table>
+</div>
 
-* Goto Skills & Games.
+### Step 4 : Link [Sinric Pro](https://assistant.google.com/services/a/uid/000000c715375dd7?hl=en) Google Home action with your account.
 
-* Search for **Sinric Pro**.
+<div align="center">
+  <table >
+    <tr>
+      <td>
+          <p>&#x2022; Open <b>Google Home</b> and click on <b>Add</b>. </p>
+          <p>&#x2022; Select <b>Setup Device</b></p>
+          <p>&#x2022; Select <b>Works with Google Home</b></p>
+          <p>&#x2022; Search for <b>Sinric Pro</b>.</p>
+          <p>&#x2022; Link your account. </p>
+          <p>&#x2022; Discover new devices </p>
+          <p>&#x2022; Ask Google Home to turn on the <b>Switch</b></p>  
+      </td>
+      <td> 
+      </td>
+    </tr>
+  </table>
+</div>
 
-* Click ENABLE TO USE.
+### Step 5 : Link [Sinric Pro](https://assistant.google.com/services/a/uid/000000c715375dd7?hl=en) SmartThings with your account.
 
-* Enter your **Sinric Pro** credentails in linking page.
+<div align="center">
+  <table >
+    <tr>
+      <td>
+           <p>&#x2022; Open the SmartThings app and tap the <b>+</b> Icon</p>
+           <p>&#x2022; Select Device</p>
+           <p>&#x2022; Select Sinric Pro under <b>By Brand</b></p>
+           <p>&#x2022; Link your account. </p>
+           <p>&#x2022; Now you can turn on or off <b>Switch</b> from the dashboard</p> 
+      </td>
+      <td> 
+      </td>
+    </tr>
+  </table>
+</div> 
 
-* Ask Alexa to discover new devices.
-
-* Ask Alexa to turn on the *Switch*
 
 ### Troubleshooting
 
