@@ -91,8 +91,7 @@ void loop() {
 
 ![Sinric Pro pull-down arduino serial monitor]({{ site.github.url }}/public/img/sinricpro-pushbutton-pull-down.png) 
 
-
-Complete sketch with push button, Relay and Sinric Pro
+Now let's complete sketch with push button, Relay controller with Sinric Pro integration.
 
 ```c++
 #include <Arduino.h>
@@ -114,7 +113,7 @@ Complete sketch with push button, Relay and Sinric Pro
 #define BAUD_RATE         115200              // Change baudrate to your need
 
 #if defined(ESP8266)
-  #define BUTTON_PIN        15 // D8
+  #define BUTTON_PIN        15
   #define RELAYPIN_1        12
 #elif defined(ESP32) 
   #define BUTTON_PIN        17
@@ -207,7 +206,7 @@ void loop() {
 }
 ```
 
-Now let's complete sketch with push button, Relay controller integrated with Sinric Pro.
+
 
 <video width="640" height="480" controls>
   <source src="{{ site.github.url }}/public/video/relay-on-off-switch.mp4" type="video/mp4">
