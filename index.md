@@ -6,6 +6,9 @@ weight: 0
 Welcome to **Sinric Pro** documentation.
 
 **API**
+ - Tutorials [here]({{ site.github.url }}/pages/quickstart.html) 
+
+**API**
  - Complete API documentation is available [here](https://apidocs.sinric.pro/)
 
 **SDKs**
@@ -15,10 +18,6 @@ Welcome to **Sinric Pro** documentation.
  - [x]  [NodeJS SDK](https://github.com/sinricpro/nodejs-sdk) *(Official)*
  - [x]  [Node-RED](https://github.com/sinricpro/node-red-contrib-sinric-pro) *(Official)*
  - [x]  [C#](https://github.com/xamakadesigns/sinric-pro-csharp) *(Community Maintained)*
-
-**PaaS**
- - [PaaS (White Label) solution]({{ site.github.url }}/pages/pass.html)  
- - [PaaS Process & Timeline]({{ site.github.url }}/pages/pass-timeline/timeline.html)  
 
 **Messaging**
   - [Introduction, Requests, responses and events]({{ site.github.url }}/pages/messaging.html)
