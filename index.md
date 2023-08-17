@@ -5,7 +5,7 @@ weight: 0
  
 Welcome to **Sinric Pro** documentation.
 
-**API**
+**Quick Start**
  - Tutorials [here]({{ site.github.url }}/pages/quickstart.html) 
 
 **API**
