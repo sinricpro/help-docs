@@ -10,6 +10,17 @@ With our Node-RED plugin, now you can receive commands from Amazon Alexa, Google
 
 Click on the hamburger menu in the top-right corner and select Manage palette, select Install, type [**@sinricpro/node-red-contrib-sinric-pro**](https://flows.nodered.org/node/@sinricpro/node-red-contrib-sinric-pro) and click the install button.
 
+Please make sure Git command line tools are installed.  If you are on a Debian-based distribution, such as Ubuntu, try apt:
+
+```
+sudo apt install git-all
+```
+
+Otherwise please refer Git documentation
+
+https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+
+
 ![Sinric Pro Node-RED installtion]({{ site.github.url }}/public/img/sinricpro_node_red_install.png)
 
 After the installation is complete a new set of nodes shoud appear under **sinricpro** category
