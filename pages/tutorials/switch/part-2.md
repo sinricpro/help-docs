@@ -212,6 +212,7 @@ void loop() {
   <source src="{{ site.github.url }}/public/video/relay-on-off-switch.mp4" type="video/mp4">
 </video>
 
+If you have any issues, please refer to [troubleshooting]({{ site.github.url }}/pages/tutorials/switch/part-1.html)
 
  
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)
