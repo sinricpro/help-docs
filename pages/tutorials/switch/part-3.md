@@ -19,7 +19,7 @@ Following components are required.
  
 ### Wiring
  
-We are going to use Pull-Up method to wire our push button. Please refer [Part 2]({{ site.github.url }}/pages/tutorials/switch/part-2.html) for more details.
+We are going to use Pull-Down method to wire our push button. If you are not sure what that means, please refer [Part 2]({{ site.github.url }}/pages/tutorials/switch/part-2.html) for more details.
 
 
 | MCU       | Pin     | Component     |
