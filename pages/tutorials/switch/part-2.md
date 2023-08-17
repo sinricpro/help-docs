@@ -9,12 +9,14 @@ In this section, we will continue from [Part 1]({{ site.github.url }}/pages/tuto
 ![sinricpro relay push button esp8266]({{ site.github.url }}/public/img/sinric_pro_relay_push_button_esp8266.png) 
 ### Prerequisites : 
 
-1. ESP32, ESP8266 or RaspPi W x 1.
-2. SPDT Relay controller x 1.
-3. Momentary button x 1
-4. 10K ohm resistor x 1
-5. Breadboard x 1
-6. Jumper Wires.
+
+| Component    | Quantity |
+| ---------                   | ------- |
+| ESP32, ESP8266 or RaspPi W  |    1     |
+| SPDT Relay controller       |    1     |
+| Push button                 |    1     |
+| 10K ohm resistor            |    1     | 
+| Jumper Wires                |    1     | 
 
 ### Quick introduction to Push button & debouncing
 
@@ -30,6 +32,7 @@ There are two ways you can wire a push button.
 
 **Pull-Down** - When the switch is pressed, digitalRead reads HIGH (1) signal.
  
+
 
 | MCU       | Pin     | Component     |
 | --------- | ------- | ------- |
