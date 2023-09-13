@@ -10,5 +10,5 @@ gem "yaml-lint", "~> 0.0.9"
 gem "terminal-table", "~> 1.4"
 gem "jekyll", "~> 3.9.3"
 gem "webrick", "~> 1.8"
-gem 'kramdown', '~> 1.11'
+gem "kramdown", ">= 2.3.0"
 gem 'rouge', '~> 1.11'
