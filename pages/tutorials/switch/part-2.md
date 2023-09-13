@@ -47,7 +47,7 @@ Before we integrate with sketch from part 1, it is important to verify that the 
 
 We are going to use **Pull-Down** method to wire our push button.
 
-```c++
+{% highlight cpp %}
 #if defined(ESP8266)
   #define BUTTON_PIN        12
 #elif defined(ESP32) 
@@ -90,13 +90,13 @@ void loop() {
   handle_button_press();
 }
 
-```
+{% endhighlight %}
 
 ![Sinric Pro pull-down arduino serial monitor]({{ site.github.url }}/public/img/sinricpro-pushbutton-pull-down.png) 
 
 Now let's complete sketch with push button, Relay controller with Sinric Pro integration.
 
-```c++
+{% highlight cpp linenos %}
 #include <Arduino.h>
 #if defined(ESP8266)
   #include <ESP8266WiFi.h>
@@ -207,7 +207,7 @@ void loop() {
   handleButtonPress();
   SinricPro.handle();
 }
-```
+{% endhighlight %}
 
 
 
@@ -215,7 +215,8 @@ void loop() {
   <source src="{{ site.github.url }}/public/video/relay-on-off-switch.mp4" type="video/mp4">
 </video>
 
-If you have any issues, please refer to [troubleshooting]({{ site.github.url }}/pages/tutorials/switch/part-1.html)
+### Something wrong? 
+Please refer to our [Troubleshooting]({{ site.github.url }}/pages/troubleshooting.html) page for possible solutions to your issue.
 
  
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

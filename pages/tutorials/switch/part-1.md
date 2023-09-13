@@ -58,7 +58,7 @@ Normally open (NO) and normally closed (NC) contacts allow you to use one pin to
 
 Before we integrate with Sinric Pro, it is important to verify that the relay is wired correctly. You can use the following code to check whether the relay turns on and off every 5 seconds.  
 
-```c++
+{% highlight cpp %}
 #if defined(ESP8266)
   #define relay        12
 #elif defined(ESP32) 
@@ -81,7 +81,7 @@ void loop() {
   digitalWrite(relay, LOW);
   delay(5000);
 }
-```
+{% endhighlight %}
 
 ### Step 1 : Create a new device in Sinric Pro
 
@@ -90,7 +90,14 @@ void loop() {
 
 ![Sinric Pro create device alexa]({{ site.github.url }}/public/img/sinric-pro-create-switch.png)
 
-* Click **Next** the in the Notifications tab, Timers tab and Click **Save**
+* Click **Next** the in the Notifications tab
+
+![Sinric Pro online offline push notifications]({{ site.github.url }}/public/img/sinric_pro_switch_tutorial_device_notifications.png)
+
+To receive push notifications when your device goes online or offline, enable the **"Connect and Disconnect"** option in the Sinric Pro app. To receive push notifications when your device turns on or off, enable the **"On and Off"** option.
+
+
+* Click Others and Click **Save**
 
 * Next screen will show the credentials required to connect the device you just created.
 
@@ -103,7 +110,7 @@ void loop() {
 You can generate the code using Zero Code feature or write it by your self. If you do not have programming experice, we recommend to use Zero Code feature.
  
 
-```c++
+{% highlight cpp linenos %}
 #include <Arduino.h>
 #if defined(ESP8266)
   #include <ESP8266WiFi.h>
@@ -183,7 +190,7 @@ void setup() {
 void loop() {
   SinricPro.handle();
 }
-```
+{% endhighlight %}
  
 Now you should be able to control the relay via Portal like in the below video. 
 
@@ -249,39 +256,9 @@ Now you should be able to control the relay via Portal like in the below video.
   </table>
 </div> 
 
-
-### Troubleshooting
-
-#### Can not connect to Sinric Pro ? 
-
-* Always try our example sketches without making any changes. They have been thoroughly tested and are known to work correctly.
-
-* Enable logging and check for errors, disconnections.
-
-    * To enable logs Sinric Pro SDK logs, add ``#define ENABLE_DEBUG`` to top of the sketch.
-
-        * To enable ESP8266 logs, in Arduinio IDE:
-
-        1. `Tools -> Debug Serial Port -> Serial`
-
-        2. `Tools -> Debug Level -> SSL + HTTP_CLIENT`
-
-        * To enable ESP32 logs, in Arduinio IDE:
-
-            `Tools -> Core Debug Level -> Verbose`
+### Something wrong? 
+Please refer to our [Troubleshooting]({{ site.github.url }}/pages/troubleshooting.html) page for possible solutions to your issue.
 
 
-* Try starting a hotspot from your mobile phone and then connect your ESP to SinricPro via the hotspot. If you can connect to SinricPro via the hotspot, then the problem is with your WiFi network. 
 
-* Try switching to a different WiFi network if possible.
-
-* Sometimes, due to memory limitations, the ESP chip may fail while trying to establish the SSL connection to the SinricPro server. In this case, you can try disabling the SSL feature by adding the following line to the **top of the sketch**:
-
-    ```#define SINRICPRO_NOSSL```
-
-* If you have any long delay(x); in the loop() function, you may need to remove them.
- 
-* Check for existing [issues](https://github.com/sinricpro/esp8266-esp32-sdk/issues) in GitHub repo or open a [new one](https://github.com/sinricpro/esp8266-esp32-sdk/issues/new)
-
- 
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

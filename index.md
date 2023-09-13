@@ -6,7 +6,7 @@ weight: 0
 Welcome to **Sinric Pro** documentation.
 
 **Quick Start**
- - Tutorials [here]({{ site.github.url }}/pages/quickstart.html) 
+ - Tutorials [here]({{ site.github.url }}/pages/quickstarts.html) 
 
 **API**
  - Complete API documentation is available [here](https://apidocs.sinric.pro/)

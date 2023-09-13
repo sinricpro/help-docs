@@ -231,10 +231,9 @@ void loop()
   handleFlipSwitches();
 }
 ```
-
-
-
-If you have any issues, please refer to [troubleshooting]({{ site.github.url }}/pages/tutorials/switch/part-1.html)
+ 
+### Something wrong? 
+Please refer to our [Troubleshooting]({{ site.github.url }}/pages/troubleshooting.html) page for possible solutions to your issue.
 
 
  
