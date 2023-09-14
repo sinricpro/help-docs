@@ -254,8 +254,5 @@ Please note that Google Home App shows the temperature sensor as a Thermostat du
 
 2. Please refer to our [Troubleshooting]({{ site.github.url }}/pages/troubleshooting.html) page for more details.
 
-#### Can not connect to Sinric Pro ? 
- 
-
  
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)
