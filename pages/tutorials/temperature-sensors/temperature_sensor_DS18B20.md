@@ -1,5 +1,5 @@
 ---
-title: Temperature Sensor tutorial for DHT11, DHT22, AM2302, RHT03
+title: Temperature Sensor tutorial for DS18B20
 layout: post
 ---
 
@@ -8,19 +8,13 @@ In this section we’ll walk through creating a **Temperature Sensor** using **E
 ### Prerequisites : 
 
 1. ESP32, ESP8266 x 1.
-2. DHT11 or DHT22, AM2302, RHT03 x 1.
+2. DS18B20 x 1.
+3. 4.7k Ohm resistor x 1
 3. Jumper Wires.
-
-### Quick introduction to Temperature Sensor
-
-The DHT and AM series are low-cost digital sensor for sensing temperature and humidity. It uses a capacitive humidity sensor and a thermistor to measure the surrounding air and then spits out a digital signal on the data pin. 
-
 
 ### Wiring
 
-![Sinric Pro esp8266 DHT22 wiring]({{ site.github.url }}/public/img/sinric_pro_temperature_sensor_dht_tutorial.png) 
-
-Note: Some DHT22 sensors do not come with a pull-up resistor, so you may need to connect one yourself. A 10k resistor is typically used, and it should be connected from the data pin of the sensor to the +3.3V or +5V power supply. 
+![Sinric Pro esp8266 DS18B20 wiring]({{ site.github.url }}/public/img/sinricpro_temperature_sensor_DS18B20_Wiring.png) 
 
 
 
@@ -31,45 +25,45 @@ Note: Some DHT22 sensors do not come with a pull-up resistor, so you may need to
 
 Let's verify that temperature is wired correctly and working. 
 
-{% highlight cpp linenos %}
-#include "DHT.h" // https://github.com/markruys/arduino-DHT  Support for DHT11 and DHT22, AM2302, RHT03
+{% highlight cpp%}
  
 #if defined(ESP8266)
-  #define DHT_PIN    D1
+  #define DS18B20_PIN    D5
 #elif defined(ESP32)
-  #define DHT_PIN    16
+  #define DS18B20_PIN    16
 #endif
 
-float temperature;
-float humidity;
-
-DHT dht;
+#include <OneWire.h>
+#include <DallasTemperature.h>
  
+OneWire oneWire(DS18B20_PIN);
+DallasTemperature sensors(&oneWire);
+
 void setup() {
   Serial.begin(115200);
-  delay(10);
+  
+  Serial.print("DallasTemperature Library version: ");
+  Serial.println(DALLASTEMPLIBVERSION);
 
-  dht.setup(DHT_PIN);
+  sensors.begin();
 }
- 
+
 void loop() {
-    delay(dht.getMinimumSamplingPeriod());
-
-    temperature = dht.getTemperature();
-    humidity = dht.getHumidity();
-
-    if (isnan(temperature) || isnan(humidity)) {
-      Serial.printf("DHT reading failed!\r\n");
-      return;
-    } else {
-      Serial.printf("Temperature: %2.1f Celsius\tHumidity: %2.1f%%\r\n", temperature, humidity);
-    }     
+  sensors.requestTemperatures(); 
+  float temperatureC = sensors.getTempCByIndex(0);
+  float temperatureF = sensors.getTempFByIndex(0);
+  Serial.print(temperatureC);
+  Serial.println("C");
+  Serial.print(temperatureF);
+  Serial.println("F");
+  delay(2000);
 }
+
 {% endhighlight %}
 
 Arduino IDE Serial Monitor will show the current temperature like this
 
-![Sinric Pro DHT Temperature Sensor]({{ site.github.url }}/public/img/sinric_pro_temperature_sensor_dht_sensor_readings.png)
+![Sinric Pro DS18B20 Temperature Sensor]({{ site.github.url }}/public/img/sinricpro_temperature_sensor_DS18B20_readings.png)
 
 ### Step 1 : Create a new device in Sinric Pro
 
@@ -97,8 +91,6 @@ You can set the threshold here to receive a push notification via the Sinric Pro
 You can generate the code using **Zero Code** feature or write it by your self. If you do not have programming experice, we recommend to use Zero Code feature to generate the code.
   
 {% highlight cpp linenos %}
-// Uncomment the following line to enable serial debug output
-//#define ENABLE_DEBUG
 
 #ifdef ENABLE_DEBUG
   #define DEBUG_ESP_PORT Serial
@@ -109,13 +101,20 @@ You can generate the code using **Zero Code** feature or write it by your self. 
 #include <Arduino.h>
 #if defined(ESP8266)
   #include <ESP8266WiFi.h>
-#elif defined(ESP32) || defined(ARDUINO_ARCH_RP2040)
+#elif defined(ESP32)
   #include <WiFi.h>
+#endif
+
+#if defined(ESP8266)
+  #define DS18B20_PIN    D5
+#elif defined(ESP32)
+  #define DS18B20_PIN    16
 #endif
 
 #include "SinricPro.h"
 #include "SinricProTemperaturesensor.h"
-#include "DHT.h" // https://github.com/markruys/arduino-DHT
+#include <OneWire.h>
+#include <DallasTemperature.h> // https://github.com/milesburton/Arduino-Temperature-Control-Library
 
 #define WIFI_SSID         ""   // Your WiFI SSID name 
 #define WIFI_PASS         ""   // Your WiFi Password.
@@ -125,18 +124,12 @@ You can generate the code using **Zero Code** feature or write it by your self. 
 #define BAUD_RATE         115200              // Change baudrate to your need (used for serial monitor)
 #define EVENT_WAIT_TIME   60000               // send event every 60 seconds
 
-#if defined(ESP8266)
-  #define DHT_PIN    D1
-#elif defined(ESP32)
-  #define DHT_PIN    16
-#endif
-
-DHT dht;                                      // DHT sensor
+OneWire oneWire(DS18B20_PIN);
+DallasTemperature sensors(&oneWire);
 
 float temperature;                            // actual temperature
 float humidity;                               // actual humidity
 float lastTemperature;                        // last known temperature (for compare)
-float lastHumidity;                           // last known humidity (for compare)
    
 void handleTemperaturesensor() {
   if (SinricPro.isConnected() == false) {
@@ -149,32 +142,31 @@ void handleTemperaturesensor() {
   if (last_millis && current_millis - last_millis < EVENT_WAIT_TIME) return;
   last_millis = current_millis;
   
-  temperature = dht.getTemperature();          // get actual temperature in °C
-//  temperature = dht.getTemperature() * 1.8f + 32;  // get actual temperature in °F
-  humidity = dht.getHumidity();                // get actual humidity
+  sensors.requestTemperatures(); 
+  temperature = sensors.getTempCByIndex(0);
+  //temperature = sensors.getTempFByIndex(0); // in °F
 
-  if (isnan(temperature) || isnan(humidity)) { // reading failed... 
-    Serial.printf("DHT reading failed!\r\n");  // print error message
+  Serial.printf("Temperature: %2.1f °C\r\n", temperature);
+
+  if (isnan(temperature)) { // reading failed... 
+    Serial.printf("DS18B20 reading failed!\r\n");  // print error message
     return;                                    // try again next time
   } 
 
-  Serial.printf("Temperature: %2.1f Celsius\tHumidity: %2.1f%%\r\n", temperature, humidity);
-
-  if (temperature == lastTemperature && humidity == lastHumidity) {
+  if (temperature == lastTemperature) {
     Serial.printf("Temperature did not changed. do nothing...!\r\n");
     return; 
   }
 
   SinricProTemperaturesensor &mySensor = SinricPro[TEMP_SENSOR_ID];  // get temperaturesensor device
-  bool success = mySensor.sendTemperatureEvent(temperature, humidity); // send event
+  bool success = mySensor.sendTemperatureEvent(temperature, -1); // send event
   if (success) {  
     Serial.printf("Sent!\r\n");
   } else {
     Serial.printf("Something went wrong...could not send Event to server!\r\n"); // Enable ENABLE_DEBUG to see why
   }
 
-  lastTemperature = temperature;  // save actual temperature for next compare
-  lastHumidity = humidity;        // save actual humidity for next compare 
+  lastTemperature = temperature;  // save actual temperature for next compare  
 }
 
 
@@ -220,7 +212,10 @@ void setupSinricPro() {
 // main setup function
 void setup() {
   Serial.begin(BAUD_RATE); Serial.printf("\r\n\r\n");
-  dht.setup(DHT_PIN);
+  
+  Serial.print("DallasTemperature Library version: ");
+  Serial.println(DALLASTEMPLIBVERSION);
+  sensors.begin();
 
   setupWiFi();
   setupSinricPro();
@@ -230,27 +225,28 @@ void loop() {
   SinricPro.handle();
   handleTemperaturesensor();
 }
+
 {% endhighlight %}
  
 Now you should be able to view the temperature via Sinric Pro App
   
 ![Sinric Pro App Temperature Sensor]({{ site.github.url }}/public/img/sinric_pro_app_temperature_sensor.png)
 
-Charts via Portal
-
-![Sinric Pro Portal Temperature Sensor]({{ site.github.url }}/public/img/sinric_pro_portal_temperature_sensor.png)
-
-Alexa, Google Home and SmartThings
-
-![Sinric Pro Portal Temperature Sensor]({{ site.github.url }}/public/img/sinric_pro_alexa_googlehome_smartthings_temperature_sensor.png)
-
 Please note that Google Home App shows the temperature sensor as a Thermostat due to Google Home limitations.
 
 ### Troubleshooting
 
-1. error: no matching function for call to 'DHT::DHT()' or error: 'class DHT' has no member named 'getMinimumSamplingPeriod'
+1. error: DallasTemperature.h: No such file or directory
 
-    **Solution**: Please make sure correct DHT library is installed. This example was made with https://github.com/markruys/arduino-DHT.  Remove any other DHT libraries you may have previously installed eg: https://github.com/adafruit/DHT-sensor-library
+    **Solution**: Please make sure correct temperature library is installed. https://github.com/milesburton/Arduino-Temperature-Control-Library
+
+2. Reading invalid values like -127.00C, -196.60F, -127.00C, -196.60F
+
+    **Solution**: Make sure you have wired correcrly or you do not have loose connection.
+
+![Sinric Pro App Temperature Sensor]({{ site.github.url }}/public/img/sinricpro_temperature_sensor_DS18B20_invalid_readings.png)
+
+
 
 2. Please refer to our [Troubleshooting]({{ site.github.url }}/pages/troubleshooting.html) page for more details.
 
