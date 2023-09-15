@@ -48,6 +48,8 @@ Normally open (NO) and normally closed (NC) contacts allow you to use one pin to
 
 ### Wiring
 
+![Sinric Pro esp8266 relay wiring]({{ site.github.url }}/public/img/sinric-pro-relay-esp32-switch.png) 
+
 ![Sinric Pro esp8266 relay wiring]({{ site.github.url }}/public/img/sinricpro-esp8266-relay-wired.png) 
 
 | MCU       | Pin     |
