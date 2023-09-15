@@ -1,5 +1,5 @@
 ---
-title: Temperature Sensor tutorial for DS18B20
+title: Temperature Sensor tutorial for DS18B20 and DS1822, DS1820, MAX31820, MAX31850
 layout: post
 ---
 
@@ -8,15 +8,19 @@ In this section we’ll walk through creating a **Temperature Sensor** using **E
 ### Prerequisites : 
 
 1. ESP32, ESP8266 x 1.
-2. DS18B20 x 1.
+2. DS18B20 or DS1822, DS1820, MAX31820, MAX31850 x 1.
 3. 4.7k Ohm resistor x 1
 3. Jumper Wires.
+
+### Quick introduction to Temperature Sensor
+
+The DS18B20 is a digital temperature sensor that communicates over a 1-Wire bus. It is a popular choice for many applications, including home automation, environmental monitoring, and industrial automation. The DS18B20 works by measuring the resistance of a thermistor. The thermistor is a semiconductor device whose resistance changes with temperature. The DS18B20 has a built-in 12-bit ADC that converts the thermistor's resistance to a digital value.
 
 ### Wiring
 
 ![Sinric Pro esp8266 DS18B20 wiring]({{ site.github.url }}/public/img/sinricpro_temperature_sensor_DS18B20_Wiring.png) 
 
-
+**If you are using the DS18B20, ground pins 1 and 3. The centre pin is the data line '1-wire'.** 
 
 | MCU       | DHT Pin     |
 | --------- | ------- |
@@ -34,7 +38,7 @@ Let's verify that temperature is wired correctly and working.
 #endif
 
 #include <OneWire.h>
-#include <DallasTemperature.h>
+#include <DallasTemperature.h> // Supports DS18B20 or DS1822, DS1820, MAX31820, MAX31850
  
 OneWire oneWire(DS18B20_PIN);
 DallasTemperature sensors(&oneWire);

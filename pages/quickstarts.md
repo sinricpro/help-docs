@@ -20,7 +20,7 @@ youtubeId2: HEMifE1Xm7E
 
 ##### [Temperature Sensor Tutorial - DHT11 and DHT22, AM2302, RHT03]({{ site.github.url }}/pages/tutorials/temperature-sensors/temperature_sensor_dht.html)
 
-##### [Temperature Sensor Tutorial - DS18B20]({{ site.github.url }}/pages/tutorials/temperature-sensors/temperature_sensor_DS18B20.html)
+##### [Temperature Sensor Tutorial - DS18B20 and DS1822, DS1820, MAX31820, MAX31850]({{ site.github.url }}/pages/tutorials/temperature-sensors/temperature_sensor_DS18B20.html)
 
 
 #### [Doorbell]({{ site.github.url }}/pages/tutorials/doorbell.html)  
