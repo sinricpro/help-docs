@@ -146,6 +146,10 @@ bool onPowerState(String deviceId, bool &state)
   Serial.printf("%s: %s\r\n", deviceId.c_str(), state ? "on" : "off");
   int relayPIN = devices[deviceId].relayPIN; // get the relay pin for corresponding device
   digitalWrite(relayPIN, state);             // set the new relay state
+
+   /* If your relay is activated with low signal, change the above to below code
+  digitalWrite(RELAYPIN_1, !state); */
+
   return true;
 }
 

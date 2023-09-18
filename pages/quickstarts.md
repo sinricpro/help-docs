@@ -22,9 +22,10 @@ youtubeId2: HEMifE1Xm7E
 
 ##### [LM35 (LM35DZ), LM335 and LM34]({{ site.github.url }}/pages/tutorials/temperature-sensors/LMx.html)
 
+##### [BME280]({{ site.github.url }}/pages/tutorials/temperature-sensors/BME280.html)
 
 
-
+#### Doorbell Tutorials
 #### [Doorbell]({{ site.github.url }}/pages/tutorials/doorbell.html)  
 
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

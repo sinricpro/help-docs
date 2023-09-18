@@ -85,6 +85,7 @@ void loop() {
 }
 {% endhighlight %}
 
+
 ### Step 1 : Create a new device in Sinric Pro
 
 * [Login](http://portal.sinric.pro) to your Sinric Pro account, go to **Devices** menu on your left and click **Add Device** button (On top left).
@@ -108,9 +109,15 @@ To receive push notifications when your device goes online or offline, enable th
 * Copy the **Device Id**, **App Key** and **App Secret** ***Keep these values secure. DO NOT SHARE THEM ON PUBLIC FORUMS !***
 
 ### Step 2 : Coding 
- 
-You can generate the code using Zero Code feature or write it by your self. If you do not have programming experice, we recommend to use Zero Code feature.
- 
+
+#### 2.1 Install Sinric Pro Library
+
+![Sinric Pro install SinricPro library]({{ site.github.url }}/public/img/sinricpro_arduinoIDE-library-manager.png)
+
+
+You can **generate the code** using **Zero Code** feature or write it by your self. If you do not have programming experice, we recommend to use Zero Code feature in the Portal to generate the code, download and flash.
+
+#### 2.2 Complete Code
 
 {% highlight cpp linenos %}
 #include <Arduino.h>
@@ -142,6 +149,10 @@ You can generate the code using Zero Code feature or write it by your self. If y
 bool onPowerState1(const String &deviceId, bool &state) {
  Serial.printf("Device 1 turned %s", state?"on":"off");
  digitalWrite(RELAYPIN_1, state ? HIGH:LOW);
+ 
+ /* If your relay is activated with low signal, change the above to below code
+  digitalWrite(RELAYPIN_1, state ? LOW : HIGH); */
+
  return true; // request handled properly
 }
 

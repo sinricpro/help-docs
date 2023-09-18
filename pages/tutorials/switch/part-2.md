@@ -131,6 +131,12 @@ unsigned long lastBtnPress = 0;
 
 bool onPowerState(const String &deviceId, bool &state) {
   Serial.printf("Device %s turned %s (via SinricPro) \r\n", deviceId.c_str(), state?"on":"off");
+  
+  digitalWrite(RELAYPIN_1, state ? HIGH:LOW);
+  
+   /* If your relay is activated with low signal, change the above to below code
+  digitalWrite(RELAYPIN_1, state ? LOW : HIGH); */
+
   myPowerState = state;
   return true; // request handled properly
 }
