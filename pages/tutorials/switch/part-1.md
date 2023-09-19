@@ -269,6 +269,9 @@ Now you should be able to control the relay via Portal like in the below video.
   </table>
 </div> 
 
+Continue to [Part 2]({{ site.github.url }}/pages/tutorials/switch/part-2.html) of this article series to learn how to add a push button to toggle the relay.
+
+
 ### Something wrong? 
 Please refer to our [Troubleshooting]({{ site.github.url }}/pages/troubleshooting.html) page for possible solutions to your issue.
 

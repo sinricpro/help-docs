@@ -221,6 +221,9 @@ void loop() {
   <source src="{{ site.github.url }}/public/video/relay-on-off-switch.mp4" type="video/mp4">
 </video>
 
+Continue to [Part 3]({{ site.github.url }}/pages/tutorials/switch/part-2.html) of this article series to learn how to control multiple push buttons with multiple  relays.
+
+
 ### Something wrong? 
 Please refer to our [Troubleshooting]({{ site.github.url }}/pages/troubleshooting.html) page for possible solutions to your issue.
 
