@@ -24,6 +24,7 @@ youtubeId2: HEMifE1Xm7E
 
 ##### [BME280]({{ site.github.url }}/pages/tutorials/temperature-sensors/BME280.html)
 
+##### [BMP180]({{ site.github.url }}/pages/tutorials/temperature-sensors/BMP180.html)
 
 #### Doorbell Tutorials
 #### [Doorbell]({{ site.github.url }}/pages/tutorials/doorbell.html)  
