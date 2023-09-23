@@ -1,0 +1,21 @@
+title How does Alexa, Google Home WebRTC work with Sinric Pro
+
+Alexa or Google Home->Sinric Pro:Show me the **Font Camera**
+note over Alexa,Sinric Pro:Alexa generates a WebRTC SDP **request** and send it to Sinric Pro
+
+Sinric Pro->RaspPi:Sinric Pro forward to the request to your Pi 
+note over Sinric Pro,RaspPi:SDP **request** is in base64 format
+
+RaspPi->MediaMTX:Forward to the SDP **request** to MediaMTX 
+
+MediaMTX->MediaMTX:Creates SDP **answer**
+
+MediaMTX->RaspPi:Send the SDP **answer**
+
+RaspPi->Sinric Pro:Send the SDP **answer** to Sinric Pro 
+note over Sinric Pro,RaspPi:SDP **answer** is in Base64 format
+
+Sinric Pro->Alexa or Google Home:Sends Alexa SDP **answer**
+
+Alexa or Google Home<->RaspPi: Starts steaming Pi Camera
+

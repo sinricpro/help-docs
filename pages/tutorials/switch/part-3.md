@@ -47,7 +47,7 @@ Now let's complete sketch with push buttons and relays with Sinric Pro integrati
 
 <script src="https://gist.github.com/kakopappa/4c23e8fa19ffe37730cb0995dc2e15a9.js"></script>
  
-### Something wrong? 
+### Troubleshooting
 Please refer to our [Troubleshooting]({{ site.github.url }}/pages/troubleshooting.html) page for possible solutions to your issue.
 
 

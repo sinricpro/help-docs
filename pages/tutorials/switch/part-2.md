@@ -63,7 +63,7 @@ Now let's complete sketch with push button, Relay controller with Sinric Pro int
 Continue to [Part 3]({{ site.github.url }}/pages/tutorials/switch/part-2.html) of this article series to learn how to control multiple push buttons with multiple  relays.
 
 
-### Something wrong? 
+### Troubleshooting
 Please refer to our [Troubleshooting]({{ site.github.url }}/pages/troubleshooting.html) page for possible solutions to your issue.
 
  
