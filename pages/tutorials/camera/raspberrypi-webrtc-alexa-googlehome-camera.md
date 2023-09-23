@@ -66,7 +66,8 @@ total 36544
 -rw-r--r-- 1 pi pi     1062 May 24 16:07 LICENSE
 -rwxr-xr-x 1 pi pi 24859649 May 24 16:15 mediamtx
 -rw-r--r-- 1 pi pi    19171 Sep 22 12:34 mediamtx.yml
-```shell
+```
+
 
 Edit ``mediamtx.yml`` to enable RaspberryPi Camera:
 
