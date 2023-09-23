@@ -35,6 +35,11 @@ youtubeId2: HEMifE1Xm7E
 
 <br>
 
+#### Contact Sensor Tutorials
+#### [Contact Sensor]({{ site.github.url }}/pages/tutorials/contact-sensors/contact.html)  
+
+<br>
+
 #### Doorbell Tutorials
 #### [Doorbell]({{ site.github.url }}/pages/tutorials/doorbell.html)  
 
