@@ -144,7 +144,8 @@ Install our NodeJS:
 ### Step 5: Demo
 
 1. Ask Alexa or Google Home to discover new devices.
-2. Say Alexa, show me the **Font Camera**
+2. Alexa: Alexa, show me the **Font Camera**
+3. Google Home: Show me the **Font Camera** on Working Room TV (name of your Chromecast with Google TV)
 
 Alexa Show Echo:
 

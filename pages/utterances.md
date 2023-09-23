@@ -275,8 +275,10 @@ weight: 3
 	Hey Google, what's the PM2.5 level in the bedroom (room where your Air Quality Sensor is)
 	Google will automatically notify you when the air quality is unhealthy. (Must enable notifications in the Google Home app. Does not support assistant)
 	https://www.youtube.com/shorts/qaczcy4XaNE
-	
-	
 
 #### Custom Devices (Alexa Only)
 	Range Controller: Alexa, what is the [range name] of [device name]
+
+#### Camera
+	Alexa, show me the **Font Camera**
+	Hey Google, show me the Font Camera on Working Room TV (name of your Chromecast with Google TV)
