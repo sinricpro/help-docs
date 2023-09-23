@@ -3,7 +3,13 @@ title: RaspberryPI WebRTC Camera for Alexa, Google Home
 layout: post
 ---
 
-In this section we’ll walk through creating a Sinric Pro **Camera** and then view the camera feed via **Alexa Echo Show, Alexa App, Google Nest Smart Display and Chromecast with Google TV devices.**.
+
+In this section, we will show you how to create a Sinric Pro Camera and view the camera feed on 
+
+* Alexa Echo Show
+* Alexa App
+* Google Nest Smart Display, and Chromecast with Google TV devices.
+* Sinric Pro App and Portal.
 
 ### Prerequisites : 
 

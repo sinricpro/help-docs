@@ -31,7 +31,7 @@ youtubeId2: HEMifE1Xm7E
 <br>
 
 #### Camera Tutorials
-#### [RaspberryPI Camera (WebRTC) for Alexa, Google Home]({{ site.github.url }}/pages/tutorials/camera/raspberrypi-alexa-googlehome-camera.html)  
+#### [RaspberryPI Camera (WebRTC) for Alexa, Google Home]({{ site.github.url }}/pages/tutorials/camera/raspberrypi-webrtc-alexa-googlehome-camera.html)  
 
 <br>
 
