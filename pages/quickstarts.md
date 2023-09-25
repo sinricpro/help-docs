@@ -40,6 +40,11 @@ youtubeId2: HEMifE1Xm7E
 
 <br>
 
+#### Motion Sensor Tutorials
+#### [HC-SR501, HC-SR505, Mini AM312, HC-SR312 PIR]({{ site.github.url }}/pages/tutorials/motion-sensors/HC-SR501-HC-SR505-AM312-HC-SR312.html)  
+
+<br>
+
 #### Doorbell Tutorials
 #### [Doorbell]({{ site.github.url }}/pages/tutorials/doorbell.html)  
 
