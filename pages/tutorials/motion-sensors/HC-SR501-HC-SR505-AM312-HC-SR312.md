@@ -53,9 +53,15 @@ The HC-SR501 has adjustable configurations:
 
 - **Single Trigger Mode (L)**: Triggers a single motion. The time delay potentiometer determines how long the pin will stay ``HIGH``. Any further motion detection is blocked until turns to ``LOW``.
 
+**Example**: The motion detector's time delay is set to 3 seconds, but it cannot detect motion for about 6 seconds after detecting motion.
+
+![Sinric Pro esp8266 PIR Single Trigger Mode]({{ site.github.url }}/public/img/sinric_pro_motion_pir_single_trigger.png) 
+
 - **Multiple Trigger Mode (H)**: Triggers series of motions. The time delay potentiometer determines how long the pin will stay ``HIGH``. In multiple trigger mode, the time delay is reset each time motion is detected, so there is no blocking of further detection.
  
-  
+**Example**: The time delay is 3 seconds. After motion is detected, the time delay period restarts. However, detection is still blocked for 3 seconds after the time delay expires. This 3-second delay allows the sensor to rest before starting to detect motion again..
+
+![Sinric Pro esp8266 PIR Multiple Trigger Mode]({{ site.github.url }}/public/img/sinric_pro_motion_pir_multi_trigger.png) 
 
 ### Wiring
 
