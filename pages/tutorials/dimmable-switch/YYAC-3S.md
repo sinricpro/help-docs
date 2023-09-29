@@ -40,7 +40,7 @@ Let's verify that YYAC-3S module is wired correctly and working.
 
 <script src="https://gist.github.com/kakopappa/b34693c62c679437fa3a7465a242d7f2.js"></script>
 
-Arduino IDE Serial Monitor will show the motion detections like this:
+Arduino IDE Serial Monitor will show light bulb dimming like this:
 
 <video width="640" height="480" controls>
   <source src="{{ site.github.url }}/public/video/sinricpro-swith-with-dimmer-YYAC3S.mp4" type="video/mp4">

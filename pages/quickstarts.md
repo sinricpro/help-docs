@@ -13,14 +13,13 @@ youtubeId2: HEMifE1Xm7E
 - ##### [Part 2 - Add a push button to toggle the Relay]({{ site.github.url }}/pages/tutorials/switch/part-2.html)
 
 - ##### [Part 3 - Multiple relays with multiple tactile (push) buttons]({{ site.github.url }}/pages/tutorials/switch/part-3.html)
-
-<br>
-
+ 
 #### Dimmable Switch Tutorials
 
-- ##### [Dimmable Switch Tutorial using YYAC-3S for ESP32]({{ site.github.url }}/pages/tutorials/dimmable-switch/YYAC-3S.html)
+- ##### [YYAC-3S for ESP32]({{ site.github.url }}/pages/tutorials/dimmable-switch/YYAC-3S.html)
 
-<br>
+- ##### [RobotDyn' AC Light dimmer module]({{ site.github.url }}/pages/tutorials/dimmable-switch/robotdyn-ac-light-dimmer.html)
+ 
 
 #### Temperature Sensor Tutorials
 
@@ -34,22 +33,15 @@ youtubeId2: HEMifE1Xm7E
 
 - ##### [BMP180]({{ site.github.url }}/pages/tutorials/temperature-sensors/BMP180.html)
 
-<br>
 
 #### Contact Sensor Tutorials
-- #### [Contact Sensor]({{ site.github.url }}/pages/tutorials/contact-sensors/contact.html)  
-
-<br>
+- #### [Contact (also known as a door, entry, or window) Sensor]({{ site.github.url }}/pages/tutorials/contact-sensors/contact.html)  
 
 #### Motion Sensor Tutorials
-- #### [HC-SR501, HC-SR505, Mini AM312, HC-SR312 PIR]({{ site.github.url }}/pages/tutorials/motion-sensors/HC-SR501-HC-SR505-AM312-HC-SR312.html)  
-
-<br>
+- #### [PIR Motion Sensor: HC-SR501, HC-SR505, Mini AM312, HC-SR312]({{ site.github.url }}/pages/tutorials/motion-sensors/HC-SR501-HC-SR505-AM312-HC-SR312.html)  
 
 #### Camera Tutorials
 - #### [RaspberryPI Camera (WebRTC) for Alexa, Google Home]({{ site.github.url }}/pages/tutorials/camera/raspberrypi-webrtc-alexa-googlehome-camera.html)  
-
-<br>
 
 #### Doorbell Tutorials
 - #### [Doorbell]({{ site.github.url }}/pages/tutorials/doorbell.html)  
