@@ -19,7 +19,10 @@ youtubeId2: HEMifE1Xm7E
 - ##### [YYAC-3S for ESP32]({{ site.github.url }}/pages/tutorials/dimmable-switch/YYAC-3S.html)
 
 - ##### [RobotDyn' AC Light dimmer module]({{ site.github.url }}/pages/tutorials/dimmable-switch/robotdyn-ac-light-dimmer.html)
- 
+
+#### Light Tutorials
+
+- ##### [LED Light Strip RGB 5050]({{ site.github.url }}/pages/tutorials/light/LED-Stripe-5050.html)
 
 #### Temperature Sensor Tutorials
 
