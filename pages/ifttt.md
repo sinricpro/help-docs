@@ -49,7 +49,7 @@ Sending an action to Sinric Pro is easy.
 ![Sinric Pro Google Home IFTTT]({{ site.github.url }}/public/img/sinricpro-iftt-request.png)
 
 URL:
-**https://ifttt.sinric.pro/v1/actions**
+**https://ifttt.sinric.pro/ifttt/v1/actions**
 
 Method:
 **POST**
