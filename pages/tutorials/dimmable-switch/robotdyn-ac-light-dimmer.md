@@ -19,7 +19,7 @@ In this section we’ll walk through creating a **Light dimmer with RobotDyn** a
 
 The RobotDyn AC Light Dimmer Module is a device that allows you to control the brightness of AC lights using a microcontroller. It is a small and easy-to-use module that can be used with microcontrollers, such as the ESP8266, ESP32. The module works by using a triac to control the flow of current to the light bulb. The triac is a semiconductor device that can be used to switch AC current on and off. The RobotDyn AC Light Dimmer Module uses a PWM signal to control the triac, which in turn controls the brightness of the light bulb.
 
-### Wiring
+### Wiring RobotDyn AC Light Dimmer
 
 You can use the below pin mapping table to connect your ESP32/ESP8266 with RobotDyn AC Light Dimmer module.
 

@@ -77,6 +77,8 @@ latest version of the Sinric Pro SDK (v2.9.0). Otherwise you may see compile err
 
 ![Sinric Pro create a device and generate code from template]({{ site.github.url }}/public/img/create-device-template-and-generate-code.gif)
  
+### More Tutorials:
+- #### [Capacitive Soil Moisture Sensor: HW-390]({{ site.github.url }}/pages/tutorials/custom-device-types/capacitive-soil-moisture-sensor/HW-390.html)   
 
 {% include youtubePlayer.html id=page.youtubeId %}
 

@@ -49,4 +49,8 @@ youtubeId2: HEMifE1Xm7E
 #### Doorbell Tutorials
 - #### [Doorbell]({{ site.github.url }}/pages/tutorials/doorbell.html)  
 
+
+#### Custom Device Types
+- #### [Capacitive Soil Moisture Sensor: HW-390]({{ site.github.url }}/pages/tutorials/custom-device-types/capacitive-soil-moisture-sensor/HW-390.html)  
+
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

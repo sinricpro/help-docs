@@ -277,7 +277,16 @@ weight: 3
 	https://www.youtube.com/shorts/qaczcy4XaNE
 
 #### Custom Devices (Alexa Only)
-	Range Controller: Alexa, what is the [range name] of [device name]
+	Range Controller
+	Alexa, what is the [range name] of [device name]
+	Alexa, what is the [range name] in [device name]
+
+	Mode Controller
+	Alexa, what is the [mode name] in [device name]
+
+Alexa, What's the moisture (mode name) in garden(device name)
+
+Alexa, What's the moisture level(range name) in garden(device name)
 
 #### Camera
 	Alexa, show me the **Font Camera**
