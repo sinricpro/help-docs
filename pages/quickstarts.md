@@ -51,10 +51,12 @@ youtubeId2: HEMifE1Xm7E
 
 
 #### Custom Device Types
-- #### [Capacitive Soil Moisture Sensor: HW-390]({{ site.github.url }}/pages/tutorials/custom-device-types/capacitive-soil-moisture-sensor/HW-390.html)  
+- #### [Soil Moisture: Using Capacitive Soil Moisture Sensor (HW-390)]({{ site.github.url }}/pages/tutorials/custom-device-types/capacitive-soil-moisture-sensor/HW-390.html)  
+- #### [Water Level Indicator: Using Ultrasonic Sensor (HC-SR04)]({{ site.github.url }}/pages/tutorials/custom-device-types/ultrasonic-sensor/HC-SR04.html)  
 
 #### Battery Powered Sensors Tutorials
 - #### [Capacitive Soil Moisture Sensor]({{ site.github.url }}/pages/tutorials/custom-device-types/battery-powered-capacitive-soil-moisture-sensor/battery-powered-capacitive-soil-moisture-sensor.html)  
+
 
 
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)
