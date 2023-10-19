@@ -145,7 +145,14 @@ Alexa, What's the water level(range name) in water tank(device name)
 ![Sinric Pro Alexa HC-SR04 sensor]({{ site.github.url }}/public/img/sinricpro-water-tank-alexa.jpg)
  
 ![Sinric Pro Alexa HC-SR04 portal]({{ site.github.url }}/public/img/sinricpro-water-tank-HC-SR04-portal.png)
- 
+
+![Sinric Pro water tank app]({{ site.github.url }}/public/img/sinricpro-water-tank-hc-sr04.png)
+
+<video width="640" height="480" controls>
+  <source src="{{ site.github.url }}/public/video/sinricpro-water-tank.mp4" type="video/mp4">
+</video>
+
+
 
 ### Troubleshooting
 1. Google Home or SmartThings are not supproted.
