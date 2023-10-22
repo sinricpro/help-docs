@@ -3,7 +3,7 @@ title: Dimmable Switch Tutorial using YYAC-3S for ESP32
 layout: post
 ---
 
-In this section we’ll walk through creating a **Dimmable Switch** using **ESP32** and then control the light brightness via **Alexa, GoogleHome or SmartThings**.
+In this section we’ll walk through creating a **Dimmable Switch** using **ESP32** and then control the light brightness via **Amazon Alexa, GoogleHome or SmartThings**.
 
 ### Prerequisites : 
 

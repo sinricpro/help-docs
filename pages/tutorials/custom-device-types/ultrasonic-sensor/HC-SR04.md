@@ -3,7 +3,7 @@ title: Water Level Indicator using Ultrasonic Sensor (HC-SR04) for ESP8266, ESP3
 layout: post
 ---
  
-In this part, we'll guide you on building a **Water Level Indicator (also known as Water Tank Indicator)** using a **Ultrasonic Sensor** that can be connected to either an **ESP32, ESP8266, or Raspberry Pi Pico W**. Once it's set up, you'll be able to measure water levels using Alexa, ask Alexa for information about it, and also monitor it through the Sinric Pro app and *receive a push notification when water level is low*.
+In this part, we'll guide you on building a **Water Level Indicator (also known as Water Tank Indicator)** using a **Ultrasonic Sensor** that can be connected to either an **ESP32, ESP8266, or Raspberry Pi Pico W**. Once it's set up, you'll be able to measure water levels using Amazon Alexa, ask Alexa for information about it, and also monitor it through the Sinric Pro app and *receive a push notification when water level is low*.
 
 
 ![Sinric Pro HC-SR04 Ultrasonic Sensor ]({{ site.github.url }}/public/img/sinricpro-water-tank-HC-SR04-intro.png)

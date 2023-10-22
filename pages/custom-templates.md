@@ -9,13 +9,19 @@ youtubeId: QJVbSPSztwY
 Built-in device types are nice but sometimes they are just not what we want. In this walk though we will create a new custom device type
 called **Washing Machine**, learn how to define differet wash modes like: Hot, Warm and Cold and generate the code it and control using Amazon Alexa.
 
+##### More Tutorials: [Soil Moisture]({{ site.github.url }}/pages/tutorials/custom-device-types/capacitive-soil-moisture-sensor/HW-390.html), [Water Level Indicator]({{ site.github.url }}/pages/tutorials/custom-device-types/ultrasonic-sensor/HC-SR04.html), [Water Sensor]({{ site.github.url }}/pages/tutorials/custom-device-types/water-sensor/flood-leak-rain-sensor.html)       
+
 ### Step 1: Create Washing Machine device template
 
 * [Login](http://portal.sinric.pro) to your Sinric Pro account.
+
 * Go to **Device Templates** menu on left.
+
 * Click **Add Device Template** button.
     * Template Name: **Washing Machine**
+
     * Description: **washing machine template** 
+
     * Device Type: **Other**. If the device type you are looking for is in the list, you can select it
 
 ![Sinric Pro device template]({{ site.github.url }}/public/img/sinric-pro-create-device-template-basic-info.png)
@@ -56,10 +62,15 @@ Now we are going to create a device out of the device template we created ealier
 * Go to **Devices** menu and click on **Add**. 
 
     * Device Name: **Washing Machine**
+
     * Description: **My washing machine at basement**
+
     * Device Type: Select **Washing Machine** under "Your Device Templates". This is the template we created ealier.
+
     * Device Access Key: Leave the default selection
+
     * Room: Leave the default selection
+    
     * Click Next > Next > Next and **Save**.
 
 ![Sinric Pro create a device from template]({{ site.github.url }}/public/img/sinric-pro-create-device-from-template.png)
@@ -77,8 +88,6 @@ latest version of the Sinric Pro SDK (v2.9.0). Otherwise you may see compile err
 
 ![Sinric Pro create a device and generate code from template]({{ site.github.url }}/public/img/create-device-template-and-generate-code.gif)
  
-### More Tutorials:
-- #### [Capacitive Soil Moisture Sensor: HW-390]({{ site.github.url }}/pages/tutorials/custom-device-types/capacitive-soil-moisture-sensor/HW-390.html)   
 
 {% include youtubePlayer.html id=page.youtubeId %}
 

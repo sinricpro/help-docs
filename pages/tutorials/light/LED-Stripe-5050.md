@@ -3,7 +3,7 @@ title: Light Tutorial for LED Light Strip RGB 5050
 layout: post
 ---
 
-In this section we’ll walk through creating a LED Light Strip using **ESP32**, **ESP8266** and then control it via **Alexa, Google Home or SmartThings**.
+In this section we’ll walk through creating a LED Light Strip using **ESP32**, **ESP8266** and then control it via **Amazon Alexa, Google Home or SmartThings**.
 
 ### Prerequisites : 
 
