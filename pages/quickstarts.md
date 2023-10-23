@@ -47,7 +47,7 @@ youtubeId2: HEMifE1Xm7E
 - #### [RaspberryPI Camera (WebRTC) for Alexa, Google Home]({{ site.github.url }}/pages/tutorials/camera/raspberrypi-webrtc-alexa-googlehome-camera.html)  
 
 #### Doorbell Tutorials
-- #### [Doorbell]({{ site.github.url }}/pages/tutorials/doorbell.html)  
+- #### [Doorbell: Smart Doorbell using  ESP32, ESP8266 or Raspberry Pi Pico W for Alexa, Google Home]({{ site.github.url }}/pages/tutorials/doorbell/doorbell.html)  
 
 
 #### Custom Device Types

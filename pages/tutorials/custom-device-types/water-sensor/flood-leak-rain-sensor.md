@@ -61,8 +61,6 @@ Let's verify that sensor is wired correctly and working.
 
 <script src="https://gist.github.com/kakopappa/a2dffb0f0c46585ed0b35aa902c2447e.js"></script>
 
-
-
  
 ### Step 1 : Connect to Sinric Pro 
 
