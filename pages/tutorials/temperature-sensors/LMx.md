@@ -1,5 +1,5 @@
 ---
-title: Temperature Sensor tutorial for LM35 (LM35DZ), LM335 and LM34
+title: Temperature Sensor Tutorial for LM35 (LM35DZ), LM335 and LM34
 layout: post
 ---
 

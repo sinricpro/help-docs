@@ -1,5 +1,5 @@
 ---
-title: Temperature Sensor tutorial for DHT11, DHT22, AM2302, RHT03
+title: Temperature Sensor Tutorial for DHT11, DHT22, AM2302, RHT03
 layout: post
 ---
 
