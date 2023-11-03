@@ -49,14 +49,11 @@ youtubeId2: HEMifE1Xm7E
 #### Doorbell Tutorials
 - #### [Doorbell: Smart Doorbell using  ESP32, ESP8266 or Raspberry Pi Pico W for Alexa, Google Home]({{ site.github.url }}/pages/tutorials/doorbell/doorbell.html)  
 
-#### Air Quality Sensor
-- #### [Air Quality Sensor: MQ135]({{ site.github.url }}/pages/tutorials/air-quality-sensors/mq135.html)  
-
 #### Custom Device Types
 - #### [Soil Moisture: Using Capacitive Soil Moisture Sensor (HW-390)]({{ site.github.url }}/pages/tutorials/custom-device-types/capacitive-soil-moisture-sensor/HW-390.html)  
 - #### [Water Level Indicator: Using Ultrasonic Sensor (HC-SR04)]({{ site.github.url }}/pages/tutorials/custom-device-types/ultrasonic-sensor/HC-SR04.html)  
 - #### [Water Sensor (also known as Water leak, flood, or rain detector)]({{ site.github.url }}/pages/tutorials/custom-device-types/water-sensor/flood-leak-rain-sensor.html)  
-
+- #### [Air Quality Sensor: MQ135]({{ site.github.url }}/pages/tutorials/air-quality-sensors/mq135.html)
 
 #### Battery Powered Sensors Tutorials
 - #### [Capacitive Soil Moisture Sensor]({{ site.github.url }}/pages/tutorials/custom-device-types/battery-powered-capacitive-soil-moisture-sensor/battery-powered-capacitive-soil-moisture-sensor.html)  
