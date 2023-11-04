@@ -70,4 +70,12 @@ If you did not get the push notification, just ask Alexa to device devices
 
 {% include youtubePlayer.html id=page.youtubeId2 %}
 
+### Troubleshooting
+
+- Push button is too sensitive? You can adjust `debounce_delay` or try the perprosed solution in [issues/346](https://github.com/sinricpro/esp8266-esp32-sdk/issues/346)
+
+Please refer to our [Troubleshooting]({{ site.github.url }}/pages/troubleshooting.html) page for possible solutions to your issue.
+
+
+
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)
