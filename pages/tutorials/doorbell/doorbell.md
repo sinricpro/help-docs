@@ -74,7 +74,7 @@ If you did not get the push notification, just ask Alexa to device devices
 
 - Push button is too sensitive? You can adjust `debounce_delay` or try the perprosed solution in [issues/346](https://github.com/sinricpro/esp8266-esp32-sdk/issues/346)
 
-Please refer to our [Troubleshooting]({{ site.github.url }}/pages/troubleshooting.html) page for possible solutions to your issue.
+- Please refer to our [Troubleshooting]({{ site.github.url }}/pages/troubleshooting.html) page for possible solutions to your issue.
 
 
 
