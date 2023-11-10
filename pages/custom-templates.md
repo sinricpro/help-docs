@@ -9,7 +9,7 @@ youtubeId: QJVbSPSztwY
 Built-in device types are nice but sometimes they are just not what we want. In this walk though we will create a new custom device type
 called **Washing Machine**, learn how to define differet wash modes like: Hot, Warm and Cold and generate the code it and control using Amazon Alexa.
 
-##### More Tutorials: [Soil Moisture]({{ site.github.url }}/pages/tutorials/custom-device-types/capacitive-soil-moisture-sensor/HW-390.html), [Water Level Indicator]({{ site.github.url }}/pages/tutorials/custom-device-types/ultrasonic-sensor/HC-SR04.html), [Water Sensor]({{ site.github.url }}/pages/tutorials/custom-device-types/water-sensor/flood-leak-rain-sensor.html), [Air Quality Sensor: MQ135]({{ site.github.url }}/pages/tutorials/air-quality-sensors/mq135.html)         
+##### More Tutorials: [Soil Moisture]({{ site.github.url }}/pages/tutorials/custom-device-types/capacitive-soil-moisture-sensor/HW-390.html), [Water Level Indicator]({{ site.github.url }}/pages/tutorials/custom-device-types/ultrasonic-sensor/HC-SR04.html), [Water Sensor]({{ site.github.url }}/pages/tutorials/custom-device-types/water-sensor/flood-leak-rain-sensor.html), [Air Quality Sensor: MQ135]({{ site.github.url }}/pages/tutorials/air-quality-sensors/mq135.html), [Gas Sensor]({{ site.github.url }}/pages/tutorials/custom-device-types/alcohol-sensor/MQ-3.html)
 
 ### Step 1: Create Washing Machine device template
 

@@ -1,5 +1,5 @@
 ---
-title: Water Level Indicator using Ultrasonic Sensor (HC-SR04) for ESP8266, ESP32, Raspberry Pi Pico W
+title: Water Level Indicator using Ultrasonic Sensor (HC-SR04) for ESP8266, ESP32, Raspberry Pi Pico W for Alexa
 layout: post
 ---
  

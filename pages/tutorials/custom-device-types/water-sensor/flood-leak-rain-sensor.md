@@ -1,9 +1,9 @@
 ---
-title:  Water Sensor (also known as Water leak, flood, or rain detector)  for ESP8266, ESP32, Raspberry Pi Pico W
+title:  Water Sensor (also known as Water leak, flood, or rain detector)  for ESP8266, ESP32, Raspberry Pi Pico W for Alexa
 layout: post
 ---
  
-In this tutorial, we'll build a water sensor that can be connected to an **ESP32**, **ESP8266**, or **Raspberry Pi Pico W** and use it to monitor for water leaks, floods, or rainfall. With **Amazon Alexa**, you can check the status of your water sensor, ask for information about it, and receive push notifications when water is detected.
+In this tutorial, we'll build a water sensor that can be connected to an **ESP32**, **ESP8266**, or **Raspberry Pi Pico W** and use it to monitor for water leaks, floods, or rainfall. With **Amazon Alexa**, you can check the status of your water sensor, ask for information about it, and **receive push notifications when water is detected**.
 
 ![Sinric Pro HW-390 capacitive soil moisture sensor ]({{ site.github.url }}/public/img/sinricpro-water-sensor-intro.png)
 

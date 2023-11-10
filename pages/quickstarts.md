@@ -38,10 +38,10 @@ youtubeId2: HEMifE1Xm7E
 
 
 #### Contact Sensor Tutorials
-- #### [Contact (also known as a door, entry, or window) Sensor]({{ site.github.url }}/pages/tutorials/contact-sensors/contact.html)  
+- #### [Contact (also known as a door, entry, or window) Sensor for Alexa, Google Home]({{ site.github.url }}/pages/tutorials/contact-sensors/contact.html) 
 
 #### Motion Sensor Tutorials
-- #### [PIR Motion Sensor: HC-SR501, HC-SR505, Mini AM312, HC-SR312]({{ site.github.url }}/pages/tutorials/motion-sensors/HC-SR501-HC-SR505-AM312-HC-SR312.html)  
+- #### [PIR Motion Sensor: HC-SR501, HC-SR505, Mini AM312, HC-SR312 for Alexa, Google Home]({{ site.github.url }}/pages/tutorials/motion-sensors/HC-SR501-HC-SR505-AM312-HC-SR312.html)
 
 #### Camera Tutorials
 - #### [RaspberryPI Camera (WebRTC) for Alexa, Google Home]({{ site.github.url }}/pages/tutorials/camera/raspberrypi-webrtc-alexa-googlehome-camera.html)  
@@ -50,10 +50,11 @@ youtubeId2: HEMifE1Xm7E
 - #### [Doorbell: Smart Doorbell using  ESP32, ESP8266 or Raspberry Pi Pico W for Alexa, Google Home]({{ site.github.url }}/pages/tutorials/doorbell/doorbell.html)  
 
 #### Custom Device Types
-- #### [Soil Moisture: Using Capacitive Soil Moisture Sensor (HW-390)]({{ site.github.url }}/pages/tutorials/custom-device-types/capacitive-soil-moisture-sensor/HW-390.html)  
-- #### [Water Level Indicator: Using Ultrasonic Sensor (HC-SR04)]({{ site.github.url }}/pages/tutorials/custom-device-types/ultrasonic-sensor/HC-SR04.html)  
-- #### [Water Sensor (also known as Water leak, flood, or rain detector)]({{ site.github.url }}/pages/tutorials/custom-device-types/water-sensor/flood-leak-rain-sensor.html)  
-- #### [Air Quality Sensor: MQ135]({{ site.github.url }}/pages/tutorials/air-quality-sensors/mq135.html)
+- #### [Soil Moisture: Measure soil moisture using a Capacitive Soil Moisture Sensor (HW-390) for Alexa]({{ site.github.url }}/pages/tutorials/custom-device-types/capacitive-soil-moisture-sensor/HW-390.html)  
+- #### [Water Level Indicator: Moisture water level using a Ultrasonic Sensor (HC-SR04) for Alexa]({{ site.github.url }}/pages/tutorials/custom-device-types/ultrasonic-sensor/HC-SR04.html)  
+- #### [Water Sensor (also known as Water leak, flood, or rain detector) for Alexa]({{ site.github.url }}/pages/tutorials/custom-device-types/water-sensor/flood-leak-rain-sensor.html)  
+- #### [Air Quality Sensor: Detect smoke and other harmful gas (MQ135) for Alexa]({{ site.github.url }}/pages/tutorials/air-quality-sensors/mq135.html)
+- #### [Gas Sensor: Detect alcohol, ethanol, smoke in the air (MQ-3) for Alexa]({{ site.github.url }}/pages/tutorials/custom-device-types/alcohol-sensor/MQ-3.html)
 
 #### Battery Powered Sensors Tutorials
 - #### [Capacitive Soil Moisture Sensor]({{ site.github.url }}/pages/tutorials/custom-device-types/battery-powered-capacitive-soil-moisture-sensor/battery-powered-capacitive-soil-moisture-sensor.html)  
