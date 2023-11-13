@@ -31,4 +31,4 @@ environment: production
 
 plugins:
   - jekyll-seo-tag
-  - jekyll-sitemap
+  - jekyll-sitemap 

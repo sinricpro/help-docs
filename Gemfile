@@ -13,4 +13,4 @@ gem "webrick", "~> 1.8"
 gem "kramdown", ">= 2.3.0"
 gem 'rouge', '~> 3.26.0'
 gem 'jekyll-seo-tag', '~> 2.8'
-gem 'jekyll-sitemap'
+gem 'jekyll-sitemap' 
