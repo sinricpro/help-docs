@@ -28,3 +28,7 @@ environment: production
 # How to build production
 # Change the environment: production / development
 # bundle exec jekyll build
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
