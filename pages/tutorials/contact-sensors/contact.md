@@ -1,5 +1,5 @@
 ---
-title: Contact Sensor Tutorial for ESP8266, ESP32, Raspberry Pi Pico W
+title: Contact Sensor (MC-38) Tutorial for ESP8266, ESP32, Raspberry Pi Pico W
 layout: post
 ---
  
@@ -11,7 +11,7 @@ In this section, we will show you how to create a contact sensor (also known as 
 ### Prerequisites : 
 
 1. ESP32, ESP8266 or Raspberry Pi Pico W x 1.
-2. Contact Sensor x 1.
+2. Contact Sensor (MC-38) x 1.
 3. Jumper Wires.
 
 ### Quick introduction to Contact Sensor

@@ -38,7 +38,7 @@ youtubeId2: HEMifE1Xm7E
 
 
 #### Contact Sensor Tutorials
-- #### [Contact (also known as a door, entry, or window) Sensor for Alexa, Google Home]({{ site.github.url }}/pages/tutorials/contact-sensors/contact.html) 
+- #### [Contact (also known as a door, entry, or window) Sensor (MC-38) for Alexa, Google Home]({{ site.github.url }}/pages/tutorials/contact-sensors/contact.html) 
 
 #### Motion Sensor Tutorials
 - #### [PIR Motion Sensor: HC-SR501, HC-SR505, Mini AM312, HC-SR312 for Alexa, Google Home]({{ site.github.url }}/pages/tutorials/motion-sensors/HC-SR501-HC-SR505-AM312-HC-SR312.html)
