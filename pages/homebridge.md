@@ -1,6 +1,7 @@
 ---
 title: Homebridge (Homekit)
 weight: 4
+youtubeId: 3YI87iWlgDM
 ---
 
 With our Homebridge-SinricPro plugin, now you can expose your devices to Homekit.
@@ -38,3 +39,8 @@ Click Save.
 On start-up Homebridge will discover all your devices and now they are available in Apple HomeKit app.
 
 ![Homebridge-SinricPro plugin settings]({{ site.github.url }}/public/img/sinricpro-homebridge-plugin-homekit-app.png)
+
+
+Demo:
+
+{% include youtubePlayer.html id=page.youtubeId %}
