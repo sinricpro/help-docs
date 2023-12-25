@@ -3,7 +3,7 @@ title: How to turn on and off a relay using MicroPython and ESP32
 layout: post
 ---
 
-In this section we’ll walk through setting up MicroPython in ESP32 and create a Sinric Pro **Switch** for **ESP32** and then control it via Alexa, Google Home or SmartThings.
+In this guide, we'll walk you through the steps of setting up MicroPython on your ESP32, creating a Sinric Pro Switch and ultimately controlling it with smart home platforms like Alexa, Google Home, and SmartThings
 
 ### Prerequisites : 
 
