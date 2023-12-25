@@ -6,7 +6,7 @@ youtubeId2: HEMifE1Xm7E
 ---
  
 
-#### Switch Tutorials
+#### Switch Tutorials (C++)
 
 - ##### [Part 1 - How to turn on and off a Relay]({{ site.github.url }}/pages/tutorials/switch/part-1.html)
 
@@ -14,6 +14,11 @@ youtubeId2: HEMifE1Xm7E
 
 - ##### [Part 3 - Multiple relays with multiple tactile (push) buttons]({{ site.github.url }}/pages/tutorials/switch/part-3.html)
  
+#### Switch Tutorials (MicroPython)
+
+- ##### [How to turn on and off a Relay]({{ site.github.url }}/pages/tutorials/switch/micropython/how-to-turn-on-and-off-a-relay-using-micropython.html)
+
+
 #### Dimmable Switch Tutorials
 
 - ##### [YYAC-3S for ESP32]({{ site.github.url }}/pages/tutorials/dimmable-switch/YYAC-3S.html)
