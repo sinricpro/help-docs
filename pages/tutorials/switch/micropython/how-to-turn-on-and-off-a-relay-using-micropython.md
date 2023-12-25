@@ -1,10 +1,9 @@
 ---
-title: How to turn on and off a relay using MicroPython and then control it via Alexa, Google Home or SmartThings.
+title: How to turn on and off a relay using MicroPython and ESP32
 layout: post
 ---
 
-
-In this section we’ll walk through setting up MicroPython in ESP32 and create a Sinric Pro **Switch** for **ESP32**
+In this section we’ll walk through setting up MicroPython in ESP32 and create a Sinric Pro **Switch** for **ESP32** and then control it via Alexa, Google Home or SmartThings.
 
 ### Prerequisites : 
 
@@ -51,12 +50,33 @@ print("Hello, MicroPython!")
 
 Refer to the MicroPython documentation for details: [https://docs.micropython.org/en/latest/esp32/quickref.html](https://docs.micropython.org/en/latest/esp32/quickref.html)
 
+### Setup IDE
+
+We are going to use **VS Code** with **Pymakr** extension to program our ESP32 with MicroPython. So let's setup **Pymakr** extension
+
+1. Open VS Code.
+
+2. Go to the Extensions tab (Ctrl+Shift+X or Cmd+Shift+X).
+
+3. Search for "Pymakr" and click the "Install" button next to it.
+
+![Sinric Pro Pymakr]({{ site.github.url }}/public/img/sinricpro-micropython-install-pymakr.png)
+
+Reload VS Code when prompted. 
+
+Click the "Pymakr" icon in the left sidebar of VS Code.
+
 ### Wiring
 
 ![Sinric Pro esp8266 relay wiring]({{ site.github.url }}/public/img/sinric-pro-relay-esp32-switch.png) 
 
+Before we integrate with Sinric Pro, it is important to verify that the relay is wired correctly and it's working. 
 
-Before we integrate with Sinric Pro, it is important to verify that the relay is wired correctly. 
+Let's create a new Pymark Project. Press (Ctrl+Shift+P) and select `PyMark: Create new project`
+
+![Sinric Pro pymark new project]({{ site.github.url }}/public/img/sinricpro-micropython-pymakr-new-project.png) 
+
+Paste this code in `main.py`
 
 ```py
 from machine import Pin
@@ -71,6 +91,18 @@ while True:
   relay.value(0)
   sleep(5)
 ```
+
+Select `PyMark` extention -> Connect to your ESP32 -> Click on Upload Icon
+
+![Sinric Pro pymark new project]({{ site.github.url }}/public/img/sinricpro-micropython-pymakr-upload-mainpy.png) 
+
+When you perform a **Hard reset device** ESP32 will reboot and run the code in `main.py`
+
+![Sinric Pro pymark hard reset device]({{ site.github.url }}/public/img/sinricpro-micropython-pymakr-hard-reset.png) 
+
+Now your relay should trun on and off every 5 seconds. If the relay is working correctly, time to integrate with Sinric Pro.
+
+### Sinric Pro integration
 
 ### Step 1 : Create a new device in Sinric Pro
 
@@ -104,7 +136,7 @@ Using mpremote:
 mpremote mip install github:sinricpro/micropython-sinricpro-sdk
 ```
 
-Or using mip:
+Or using mip in MicroPython REPL prompt:
 
 ```shell
 import mip
@@ -112,6 +144,8 @@ mip.install("github:sinricpro/micropython-sinricpro-sdk")`
 ```
 
 #### 2.2 Complete Code
+
+Paste the following code in `main.py`
 
 ```py
 from sinricpro import SinricPro
