@@ -143,6 +143,8 @@ import mip
 mip.install("github:sinricpro/micropython-sinricpro-sdk")`
 ```
 
+![Sinric Pro MicroPython SDK installtion]({{ site.github.url }}/public/img/sinricpro-micropython-install.png)
+
 #### 2.2 Complete Code
 
 Paste the following code in `main.py`
