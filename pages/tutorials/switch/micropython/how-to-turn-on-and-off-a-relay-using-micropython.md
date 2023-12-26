@@ -92,11 +92,11 @@ while True:
   sleep(5)
 ```
 
-Select `PyMark` extention -> Connect to your ESP32 -> Click on Upload Icon
+Select `PyMark` extention -> Connect to your ESP32 -> Click on Upload Icon.
 
 ![Sinric Pro pymark new project]({{ site.github.url }}/public/img/sinricpro-micropython-pymakr-upload-mainpy.png) 
 
-When you perform a **Hard reset device** ESP32 will reboot and run the code in `main.py`
+Once upload compleres, you must perform a **Hard reset device**. Then ESP32 will reboot and execute the code in `main.py`
 
 ![Sinric Pro pymark hard reset device]({{ site.github.url }}/public/img/sinricpro-micropython-pymakr-hard-reset.png) 
 
