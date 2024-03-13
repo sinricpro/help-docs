@@ -1,5 +1,5 @@
 ---
-title: Water Level Indicator using Ultrasonic Sensor (HC-SR04) for ESP8266, ESP32, Raspberry Pi Pico W for Alexa
+title: Water Level Indicator (Water Tank) using Ultrasonic Sensor (HC-SR04) for ESP8266, ESP32, Raspberry Pi Pico W for Alexa
 layout: post
 ---
  
@@ -152,7 +152,30 @@ Alexa, What's the water level(range name) in water tank(device name)
   <source src="{{ site.github.url }}/public/video/sinricpro-water-tank.mp4" type="video/mp4">
 </video>
 
+### Step 3 : Making the Full and Empty Tank heights configurable via UI
 
+#### 3.1 Update device template
+
+In order to set the tank full and empty height configurable via UI, we need to go back to the custom device template and add two more Range Controllers for **Full Tank Height** and **Empty Tank Height** like below.
+
+![Full Empty ]({{ site.github.url }}/public/img/sinricpro-water-sensor-device-template-full-empty-tank-height.png)
+
+Full device template would look like this
+
+![Full Template ]({{ site.github.url }}/public/img/sinricpro-water-sensor-device-template-full-template.png)
+
+Here's the template with full and empty heights. You can import this in the Device Template section.
+
+<script src="https://gist.github.com/kakopappa/0ca54644b4abbd05c164e2bdd3dcf052.js"></script>
+
+
+#### 3.2 Complete Code
+
+<script src="https://gist.github.com/kakopappa/2b20b0086bb0a6de500c08407acd3943.js"></script>
+
+![Tank control with Alexa and SinricPro App ]({{ site.github.url }}/public/img/sinricpro-water-sensor-device-template-full-alexa-sinricpro.jpg)
+
+That's It.
 
 ### Troubleshooting
 1. Google Home or SmartThings are not supproted.
