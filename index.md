@@ -13,6 +13,7 @@ Welcome to **Sinric Pro** documentation.
 
 **SDKs**
  - [x]  [Arduino, ESP8266 and ESP32 SDK ](https://github.com/sinricpro/esp8266-esp32-sdk) *(Official)*
+ - [x]  [Arduino UNO R4 WiFi](https://github.com/sinricpro/arduino-renesas-sdk/) *(Official)*
  - [x]  [Arduino SAMD21, Adafruit SAMD21, SAMD51, nRF52, STM32, Teensy, SAM DUE SDK](https://github.com/khoih-prog/SinricPro_Generic) *(Community Maintained)*
  - [x]  [Python SDK](https://github.com/sinricpro/python-sdk) *(Official)*
  - [x]  [NodeJS SDK](https://github.com/sinricpro/nodejs-sdk) *(Official)*
@@ -23,16 +24,15 @@ Welcome to **Sinric Pro** documentation.
   - [Introduction, Requests, responses and events]({{ site.github.url }}/pages/messaging.html)
   - [Sample messages](https://github.com/sinricpro/sample_messages)
  
-**Voice Control**
- - [Amazon Alexa]({{ site.github.url }}/pages/alexa.html)  
- - [Google Home]({{ site.github.url }}/pages/googlehome.html)  
- - [Google Home (via SmartThings)]({{ site.github.url }}/pages/smartthings-googlehome.html)
+**Integrations**
  - [IFTTT]({{ site.github.url }}/pages/ifttt.html)  
+ - [Homebridge (Homekit)]({{ site.github.url }}/pages/homebridge.html)  
+ - [Apple Shortcuts]({{ site.github.url }}/pages/apple-shortcuts.html)
+ - [Node-Red]({{ site.github.url }}/pages/node-red.html)
  
 ## Where to go next?
 
  * To try out Sinric, check out our [Quickstart guide]({{ site.github.url }}/pages/quickstart.html)
- * See if your device is supported [Supported Devices]({{ site.github.url }}/pages/supported_devices.html)
  * The example source code is on GitHub as [sinricpro/sinric](https://github.com/sinricpro/sinric/)
  * Issues are also tracked on [GitHub](https://github.com/sinricpro/)
 

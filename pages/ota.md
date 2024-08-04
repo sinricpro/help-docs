@@ -1,140 +1,40 @@
 ---
 title: OTA Updates
 weight: 4
+youtubeId: FxtsQuC9mn8
 ---
 
-Over-the-air (OTA) updates offer a convenient and efficient way to update your Sinric Pro devices remotely without physically connecting it to your computer. This can be especially useful for projects that are difficult to access or located in remote locations.
+### Introduction 
 
-In order to upload firmware to your ESP8266/ESP32 wirelessly, you have to upload your Sinric Pro integration code with ArduinoOTA support. 
-
-Below example demonstrates how to use Switch sketch with ArduinoOTA support. 
-
-```c++
-// Uncomment the following line to enable serial debug output
-//#define ENABLE_DEBUG
-
-#ifdef ENABLE_DEBUG
-  #define DEBUG_ESP_PORT Serial
-  #define NODEBUG_WEBSOCKETS
-  #define NDEBUG
-#endif 
-
-#include <Arduino.h>
-#include <ArduinoOTA.h>
-#if defined(ESP8266)
-  #include <ESP8266WiFi.h>
-#elif defined(ESP32) || defined(ARDUINO_ARCH_RP2040)
-  #include <WiFi.h>
-#endif
-
-#include "SinricPro.h"
-#include "SinricProSwitch.h"
-
-#define WIFI_SSID         "YOUR-WIFI-SSID"    
-#define WIFI_PASS         "YOUR-WIFI-PASSWORD"
-#define APP_KEY           "YOUR-APP-KEY"      // Should look like "de0bxxxx-1x3x-4x3x-ax2x-5dabxxxxxxxx"
-#define APP_SECRET        "YOUR-APP-SECRET"   // Should look like "5f36xxxx-x3x7-4x3x-xexe-e86724a9xxxx-4c4axxxx-3x3x-x5xe-x9x3-333d65xxxxxx"
-#define SWITCH_ID         "YOUR-DEVICE-ID"    // Should look like "5dc1564130xxxxxxxxxxxxxx"
-#define BAUD_RATE         115200                // Change baudrate to your need
+OTA (Over-the-Air) updates allow you to load new firmware onto your module remotely, eliminating the need to connect it to your PC. This capability is particularly valuable when physical access to the ESP module is restricted or inconvenient.
 
 
-bool onPowerState(const String &deviceId, bool &state) {
-  Serial.printf("Device %s turned %s (via SinricPro) \r\n", deviceId.c_str(), state?"on":"off");
-  return true; // request handled properly
-}
 
-// setup function for WiFi connection
-void setupWiFi() {
-  Serial.printf("\r\n[Wifi]: Connecting");
 
-  #if defined(ESP8266)
-    WiFi.setSleepMode(WIFI_NONE_SLEEP); 
-    WiFi.setAutoReconnect(true);
-  #elif defined(ESP32)
-    WiFi.setSleep(false); 
-    WiFi.setAutoReconnect(true);
-  #endif
+### How to do an OTA Update
 
-  WiFi.begin(WIFI_SSID, WIFI_PASS); 
+1. [Login](http://portal.sinric.pro) to your Sinric Pro account.
 
-  while (WiFi.status() != WL_CONNECTED) {
-    Serial.printf(".");
-    delay(250);
-  }
-  Serial.printf("connected!\r\n[WiFi]: IP-Address is %s\r\n", WiFi.localIP().toString().c_str());
-}
+2. Go to **OTA Updates** menu on left.
 
-void setupOTA() {
-  // Hostname defaults to esp3232-[MAC]
-  ArduinoOTA.setHostname("SinricProOTATestDevice");
+3. Click **Add OTA Update** button.
 
-  // No authentication by default
-  // ArduinoOTA.setPassword("admin");
+4. Enter the the new firmware version. Select the OTA .bin file (Arduino IDE -> Sketch -> Export Compiled Binary) and the modules you want to apply the OTA update.
 
-  ArduinoOTA.onStart([]() {
-    String type;
-    if (ArduinoOTA.getCommand() == U_FLASH)
-      type = "sketch";
-    else // U_SPIFFS
-      type = "filesystem";
+5. Click **Save**
 
-    // NOTE: if updating SPIFFS this would be the place to unmount SPIFFS using SPIFFS.end()
-    Serial.println("Start updating " + type);
-  })
-  .onEnd([]() {
-    Serial.println("\nEnd");
-  })
-  .onProgress([](unsigned int progress, unsigned int total) {
-    Serial.printf("Progress: %u%%\r", (progress / (total / 100)));
-  })
-  .onError([](ota_error_t error) {
-    Serial.printf("Error[%u]: ", error);
-    if (error == OTA_AUTH_ERROR) Serial.println("Auth Failed");
-    else if (error == OTA_BEGIN_ERROR) Serial.println("Begin Failed");
-    else if (error == OTA_CONNECT_ERROR) Serial.println("Connect Failed");
-    else if (error == OTA_RECEIVE_ERROR) Serial.println("Receive Failed");
-    else if (error == OTA_END_ERROR) Serial.println("End Failed");
-  });
+<img src="{{ site.github.url }}/public/img/sinricpro-ota-update-upload.png">
 
-  ArduinoOTA.begin();
-  Serial.printf("\r\n[setupOTA]: Ready");
-}
+Once you click the **Save** button, the server will broadcast an OTA update request to the selected modules. If your module is currently offline, it will receive the update the next time it connects to the server.
 
-// setup function for SinricPro
-void setupSinricPro() {
-  // add device to SinricPro
-  SinricProSwitch& mySwitch = SinricPro[SWITCH_ID];
+<img src="{{ site.github.url }}/public/img/sinricpro-ota-update-inprogress.png">
 
-  // set callback function to device
-  mySwitch.onPowerState(onPowerState);
+*Note: You need to be on SinricPro SDK v3.2.x or newer in order to use OTA*
 
-  // setup SinricPro
-  SinricPro.onConnected([](){ Serial.printf("Connected to SinricPro\r\n"); }); 
-  SinricPro.onDisconnected([](){ Serial.printf("Disconnected from SinricPro\r\n"); });
-  //SinricPro.restoreDeviceStates(true); // Uncomment to restore the last known state from the server.
-  SinricPro.begin(APP_KEY, APP_SECRET);
-}
+You can find the complete example code here: 
+[https://github.com/sinricpro/esp8266-esp32-sdk/tree/master/examples/OTAUpdate](https://github.com/sinricpro/esp8266-esp32-sdk/tree/master/examples/OTAUpdate)
 
-// main setup function
-void setup() {
-  Serial.begin(BAUD_RATE); Serial.printf("\r\n\r\n");
-  setupWiFi();
-  setupSinricPro();
-  setupOTA();
-}
 
-void loop() {
-  ArduinoOTA.handle();
-  SinricPro.handle();
-}
-```
+{% include youtubePlayer.html id=page.youtubeId %}
 
-Once you flash above code, OTA server will start listening to OTA updates from Arduino IDE.
-
-![Sinric Pro OTA Hosts]({{ site.github.url }}/public/img/sinricpro-ota-host.png) 
-
-Next time, you can select the OTA host (SinricProOTATestDevice) instead of COM port.
-
-![Sinric Pro OTA Hosts Selection]({{ site.github.url }}/public/img/sinricpro-ota-devices.png) 
-
-### Your Arduno IDE and the ESP must be on the same network! 
+If you are looking for local WiFI OTA Update [here]({{ site.github.url }}/pages/ota-updates/local-wifi-ota-update.html)

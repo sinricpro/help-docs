@@ -1,6 +1,5 @@
 ---
 title: Google Home
-weight: 4
 youtubeId: UHuVoE6kPB8
 published: false
 ---
