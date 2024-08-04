@@ -9,6 +9,7 @@ Welcome to **Sinric Pro** documentation.
  - Tutorials [here]({{ site.github.url }}/pages/quickstarts.html) 
 
 **API**
+ - API guide [here](https://help.sinric.pro/pages/tutorials/api-guide)
  - Complete API documentation is available [here](https://apidocs.sinric.pro/)
 
 **SDKs**

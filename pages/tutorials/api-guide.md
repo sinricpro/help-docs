@@ -184,8 +184,9 @@ curl --location 'https://api.sinric.pro/api/v1/devicess/find' \
 { "success":true,"devices": [ {"name": "TV"} ] }
 ```
 
+Complete API endpoints are available [here](https://apidocs.sinric.pro/)
+
 Looking for more examples ?
 
  - [IFTTT]({{ site.github.url }}/pages/ifttt.html)  
- - [Apple Shortcuts]({{ site.github.url }}/pages/apple-shortcuts.html)  
- - For complete API Endpoints please visit [API documentation](https://apidocs.sinric.pro/)
+ - [Apple Shortcuts]({{ site.github.url }}/pages/apple-shortcuts.html)
