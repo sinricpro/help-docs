@@ -11,7 +11,7 @@ youtubeId2: HEMifE1Xm7E
 
 * There's a known issue on ESP32 and ESP8266 WiFi being unstable when ADC is used.
 
-* Enable logging and check for errors, disconnections. To enable logs Sinric Pro SDK logs, add ``#define ENABLE_DEBUG`` to top of the sketch.
+* Enable logging and check for errors, and disconnections. To enable logs Sinric Pro SDK logs, add ``#define ENABLE_DEBUG`` to top of the sketch.
 
     * To enable ESP8266 logs, in Arduinio IDE:
 
