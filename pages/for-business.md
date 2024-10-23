@@ -34,6 +34,6 @@ Turn your smart device ideas into reality with [Sinric Pro for Business](https:/
 
 Don't let technical barriers hold your smart home ideas back. With Sinric Pro, you can focus on innovation while we handle the complex backend operations. Ready to revolutionize the smart device market? [Sign up for a business account now](https://biz.sinric.pro) and have your first device live within the hour!
 
-Take a look at the tutorial to get started in minutes!
+#### Take a look at the tutorial to get started in minutes!
 
-
+- #### [Wally - Tutorial]({{ site.github.url }}/pages/tutorials/for-business/wally/wally.html)  
