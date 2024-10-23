@@ -88,6 +88,10 @@ youtubeId2: HEMifE1Xm7E
 #### Battery Powered Sensors Tutorials
 - #### [Capacitive Soil Moisture Sensor]({{ site.github.url }}/pages/tutorials/custom-device-types/battery-powered-capacitive-soil-moisture-sensor/battery-powered-capacitive-soil-moisture-sensor.html)  
 
+<br/>
+
+#### Sinric Pro for Business Tutorials
+- #### [Wally - Tutorial]({{ site.github.url }}/pages/tutorials/for-business/wally/wally.html)  
 
 
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)
