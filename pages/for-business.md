@@ -21,9 +21,7 @@ Turn your smart device ideas into reality with [Sinric Pro for Business](https:/
 
 ### Lightning-Fast Setup: From Idea to Implementation
 
-1. **60-Second Sign-Up**: Create your [business account](https://biz.sinric.pro) in less than a minute with our streamlined registration process. No credit card required.
-
-Our registration process is currently limited to invitations only. If you’re interested in trying out the feature, contact us and we will send you an invitation URL and detailed documentation.
+1. **60-Second Sign-Up**: Create your [business account](https://biz.sinric.pro) in less than a minute with our streamlined registration process. No credit card required. **Our registration process is currently limited to invitations only**. If you’re interested in trying out the feature, contact us and we will send you an invitation URL and detailed documentation.
 
 2. **2-Minute Product Creation**: Use our intuitive dashboard to define your smart device profile in just a couple of minutes. No complex coding required!
 
