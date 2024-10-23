@@ -13,14 +13,15 @@ Welcome to **Sinric Pro** documentation.
  - Complete API documentation is available [here](https://apidocs.sinric.pro/)
 
 **SDKs**
- - [x]  [Arduino, ESP8266 and ESP32 SDK ](https://github.com/sinricpro/esp8266-esp32-sdk) *(Official)*
- - [x]  [Arduino UNO R4 WiFi](https://github.com/sinricpro/arduino-renesas-sdk/) *(Official)*
- - [x]  [Arduino SAMD21, Adafruit SAMD21, SAMD51, nRF52, STM32, Teensy, SAM DUE SDK](https://github.com/khoih-prog/SinricPro_Generic) *(Community Maintained)*
+ - [x]  [ESP8266, ESP32, Raspberry Pi Pico W SDK ](https://github.com/sinricpro/esp8266-esp32-sdk) *(Official)*
+ - [x]  [Arduino UNO R4 WiFi, Nano 33 IoT, MKR WIFI 1010, Seeedstudio Wio Terminal](https://github.com/sinricpro/arduino-variants-sdk) *(Official)*
+ - [x]  [Micropython SDK](https://github.com/sinricpro/micropython-sinricpro-sdk) *(Official)*
  - [x]  [Python SDK](https://github.com/sinricpro/python-sdk) *(Official)*
  - [x]  [NodeJS SDK](https://github.com/sinricpro/nodejs-sdk) *(Official)*
  - [x]  [Node-RED](https://github.com/sinricpro/node-red-contrib-sinric-pro) *(Official)*
  - [x]  [C#](https://github.com/xamakadesigns/sinric-pro-csharp) *(Community Maintained)*
-
+ - [x]  [Arduino SAMD21, Adafruit SAMD21, SAMD51, nRF52, STM32, Teensy, SAM DUE SDK](https://github.com/khoih-prog/SinricPro_Generic) *(Community Maintained)*
+ 
 **Messaging**
   - [Introduction, Requests, responses and events]({{ site.github.url }}/pages/messaging.html)
   - [Sample messages](https://github.com/sinricpro/sample_messages)
