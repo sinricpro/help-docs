@@ -44,7 +44,18 @@ Click *Save* and click on **Download** to download the product provisioing code.
 
 The downloaded example comes pre-loaded with essential features including easy setup, multi-WiFi support, OTA updates, and health checks, allowing you to focus on bringing your unique IoT ideas to life without needing to implement these fundamental functionalities from scratch.
 
-Install the **esp32-business-sdk** from Arduino Library Manager. This would also install *ArduinoJson, WebSockets, NimBLE-Arduino, SinricPro* as well. Customize the GPIO mappings to fit your specific device configuration, compile and flash the firmware to your hardware.
+Search for **sinricprobusinesssdk** in the Arduino Library Manager to install the SinricPro Business SDK. 
+
+![Sinric Pro Business SDK arduino IDE]({{ site.github.url }}/public/img/sinricpro-business-sdk.png)
+
+
+This would also install *ArduinoJson (>=7.0.3), WebSockets (>=2.6.1), NimBLE-Arduino (>=1.4.2), SinricPro (>=3.2.1)* as well. Customize the GPIO mappings to fit your specific device configuration, compile and flash the firmware to your hardware.
+
+Next, please change the Arduino IDE Tools -> Partition Scheme -> Minimal SPIFF (1.9MB APP ...). 
+
+![Sinric Pro sinricpro wally arduino IDE tools settings]({{ site.github.url }}/public/img/arduino-ide-settings.png)
+
+Now we are ready to flash the code.
 
 ![Sinric Pro sinricpro business acccount code download]({{ site.github.url }}/public/img/sinricpro-biz-acccount-setup-code-arduino-ide.png)
 
