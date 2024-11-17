@@ -74,7 +74,7 @@ Sinric Pro does not have a built-in device type for Water/Flood Sensor so we are
 
 **Note**: You can use the device template import feature mentioned below to skip creating the full template.
 
-* [Login](https://testportal.sinric.pro/devicetemplates/new) to your Sinric Pro account and goto **Device Templates**
+* [Login](https://portal.sinric.pro/devicetemplates/new) to your Sinric Pro account and goto **Device Templates**
 
 * Click **Add Device Template**. Enter name and description as **Flood Sensor** and select **Flood Sensor** as device type
 

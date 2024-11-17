@@ -82,7 +82,7 @@ youtubeId2: HEMifE1Xm7E
 - #### [Water Sensor (also known as Water leak, flood, or rain detector) for Alexa]({{ site.github.url }}/pages/tutorials/custom-device-types/water-sensor/flood-leak-rain-sensor.html)  
 - #### [Air Quality Sensor: Detect smoke and other harmful gas (MQ135) for Alexa]({{ site.github.url }}/pages/tutorials/air-quality-sensors/mq135.html)
 - #### [Gas Sensor: Detect alcohol, ethanol, smoke in the air (MQ-3) for Alexa]({{ site.github.url }}/pages/tutorials/custom-device-types/alcohol-sensor/MQ-3.html)
-
+- #### [Smart Button: A push button on your phone to do anything]({{ site.github.url }}/pages/tutorials/custom-device-types/smart-button/push-button.html)
 <br/>
 
 #### Battery Powered Sensors Tutorials

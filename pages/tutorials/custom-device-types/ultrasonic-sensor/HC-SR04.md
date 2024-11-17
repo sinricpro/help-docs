@@ -68,7 +68,7 @@ Sinric Pro does not have a built-in device type for Water Level Indicator so we 
 
 **Note**: You can use the device template import feature mentioned below to skip creating the full template.
 
-* [Login](https://testportal.sinric.pro/devicetemplates/new) to your Sinric Pro account and goto **Device Templates**
+* [Login](https://portal.sinric.pro/devicetemplates/new) to your Sinric Pro account and goto **Device Templates**
 
 * Click **Add Device Template**. Enter name and description as **Water Level Indicator** and select **Water Tank** as device type
 
