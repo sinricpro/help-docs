@@ -276,17 +276,27 @@ weight: 3
 	Google will automatically notify you when the air quality is unhealthy. (Must enable notifications in the Google Home app. Does not support assistant)
 	https://www.youtube.com/shorts/qaczcy4XaNE
 
-#### Custom Devices (Alexa Only)
-	Range Controller
+#### Custom Devices (Alexa)
+Range:
+
 	Alexa, what is the [range name] of [device name]
 	Alexa, what is the [range name] in [device name]
+	Alexa, What's the **moisture level** (range name) in the **garden** (device name)
 
-	Mode Controller
+Mode:
+
 	Alexa, what is the [mode name] in [device name]
+	Alexa, set the [device name] to [mode name].
+	Alexa, set the [device name] [mode name] to [mode value].	
+	Alexa, set the **door** (device name) to **open** (mode name).
+	Alexa, set the **blinds** (device name) **position** (mode name) to open (mode value).
+	Alexa, What's the **moisture** (mode name) in **garden** (device name)
 
-Alexa, What's the moisture (mode name) in garden(device name)
+#### Custom Devices (Google Home)
+Mode:
 
-Alexa, What's the moisture level(range name) in garden(device name)
+	Hey Google, set [mode name] to [mode name] mode
+        Hey Google, set **the vacuum** (device name) to **energy saver** (mode name) mode
 
 #### Camera
 	Alexa, show me the **Font Camera**
