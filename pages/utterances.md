@@ -281,6 +281,9 @@ Range:
 
 	Alexa, what is the [range name] of [device name]
 	Alexa, what is the [range name] in [device name]
+        Alexa, set the the [device name] [range name] to [range value]
+        Alexa, set the [device name] [range name] to [Preset name]
+        Alexa, set the bedroom fan [device name] speed [range name] to 7 [range value]
 	Alexa, What's the **moisture level** (range name) in the **garden** (device name)
 
 Mode:
