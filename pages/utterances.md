@@ -276,31 +276,13 @@ weight: 3
 	Google will automatically notify you when the air quality is unhealthy. (Must enable notifications in the Google Home app. Does not support assistant)
 	https://www.youtube.com/shorts/qaczcy4XaNE
 
-#### Custom Devices (Alexa)
-Range:
+#### Custom Devices
 
-	Alexa, what is the [range name] of [device name]
-	Alexa, what is the [range name] in [device name]
-        Alexa, set the the [device name] [range name] to [range value]
-        Alexa, set the [device name] [range name] to [Preset name]
-        Alexa, set the bedroom fan [device name] speed [range name] to 7 [range value]
-	Alexa, What's the **moisture level** (range name) in the **garden** (device name)
-
-Mode:
-
-	Alexa, what is the [mode name] in [device name]
-	Alexa, set the [device name] to [mode name].
-	Alexa, set the [device name] [mode name] to [mode value].	
-	Alexa, set the **door** (device name) to **open** (mode name).
-	Alexa, set the **blinds** (device name) **position** (mode name) to open (mode value).
-	Alexa, What's the **moisture** (mode name) in **garden** (device name)
-
-#### Custom Devices (Google Home)
-Mode:
-
-	Hey Google, set [mode name] to [mode name] mode
-        Hey Google, set **the vacuum** (device name) to **energy saver** (mode name) mode
-
-#### Camera
-	Alexa, show me the **Font Camera**
-	Hey Google, show me the Font Camera on Working Room TV (name of your Chromecast with Google TV)
+- [Power]({{ site.github.url }}/pages/device-templates/capabilities/power.html)
+- [Percentage]({{ site.github.url }}/pages/device-templates/capabilities/percentage.html)
+- [Mode]({{ site.github.url }}/pages/device-templates/capabilities/mode.html)
+- [Power Level]({{ site.github.url }}/pages/device-templates/capabilities/power-level.html)
+- [Range]({{ site.github.url }}/pages/device-templates/capabilities/range.html)
+- [Brightness]({{ site.github.url }}/pages/device-templates/capabilities/brightness.html)
+- [Color]({{ site.github.url }}/pages/device-templates/capabilities/color.html)
+- [Channel]({{ site.github.url }}/pages/device-templates/capabilities/channel.html)
