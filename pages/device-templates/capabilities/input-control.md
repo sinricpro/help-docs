@@ -1,20 +1,20 @@
 ---
-title: Color Capability
+title: Input Control Capability
 layout: post
 ---
 
-The Color capability in SinricPro device templates provides dynamic control over the hue and saturation of compatible smart devices. This feature enables users to transform their environment by adjusting RGB values of color-changing light bulbs, LED strips, and other chromatic lighting fixtures to create personalized atmospheres for any occasion.
+The Input Control capability in SinricPro device templates allows you to control the input of an entertainment device..
 
 #### Supports
  - [x]  Alexa
- - [x]  Google Home
- - [ ]  SmartThings
+ - [ ]  Google Home
+ - [x]  SmartThings
  - [x]  SinricPro Portal
  - [x]  SinricPro App
 
 ### Alexa 
 
-This capabiliy is mapped to Alexa interface [ColorController](https://developer.amazon.com/en-US/docs/alexa/device-apis/alexa-colorcontroller.html)
+This capabiliy is mapped to Alexa interface [InputController](https://developer.amazon.com/en-US/docs/alexa/device-apis/alexa-inputcontroller.html)
 
 #### Utterances
 
@@ -32,54 +32,62 @@ This capabiliy is mapped to Alexa interface [ColorController](https://developer.
 </div>
 
 <div id="alexa-nl-NL" class="tabcontent" style="display: block;"> 
-    <p>Alexa, zet het licht op de veranda op blauw.</p>
-    <p>Alexa, verander de keuken naar de kleur blauw.</p>
+    <p>Alexa, verander de input van de woonkamertv naar dvd.</p>
+    <p>Alexa, switch naar HDMI twee op de woonkamertv.</p>
+    <p>Alexa, switch naar AnyCompany TV op de keukentv.</p>
 </div>
 
 <div id="alexa-en-US" class="tabcontent"> 
-    <p>Alexa, set the front porch light to blue.</p> 
-    <p>Alexa, change the kitchen to the color blue.</p> 
+    <p>Alexa, change the input to DVD on the Living Room TV.</p> 
+    <p>Alexa, switch to HDMI two on the Living Room TV.</p> 
+    <p>Alexa, switch to AnyCompany TV on the Kitchen TV.</p> 
 </div>
 
 <div id="alexa-fr-FR" class="tabcontent"> 
-    <p>Alexa, règle la lumière du vestibule en bleu.</p>
-    <p>Alexa, mets la cuisine en bleu.</p>    
+    <p>Alexa, change le port d'entrée sur DVD dans le salon.</p>
+    <p>Alexa, change la télé du salon à HDMI 2.</p>
+    <p>Alexa, change à France 2 sur la télé.</p>
 </div>
 
 <div id="alexa-de-DE" class="tabcontent"> 
-   <p>Alexa, schalte das Wohnzimmerlicht hellblau.</p>
+    <p>Alexa, ändere den Eingang am Fernseher im Wohnzimmer auf DVD.</p>
+    <p>Alexa, schalte auf dem Fernseher im Wohnzimmer auf HDMI zwei um.</p>
+    <p>Alexa, wechsle auf dem Küchenfernseher zu Arte.</p>
 </div>
-
+ 
 <div id="alexa-hi-IN" class="tabcontent"> 
-    <p>Alexa, फ्रंट पोर्च लाइट को ब्लू पर सेट करें।</p>
-    <p>Alexa, किचन को नीले रंग में बदलें।</p>
+    <p>Alexa, लिविंग रूम टीवी पर इनपुट को DVD में बदलें।</p>
+    <p>Alexa, लिविंग रूम टीवी पर HDMI दो पर स्विच करें</p>
+    <p>Alexa, किचन टीवी पर AnyCompany TV पर स्विच करें।</p>
 </div>
 
 <div id="alexa-it-IT" class="tabcontent"> 
-    <p>Alexa, imposta la luce del portico anteriore su blu.</p>
-    <p>Alexa, cambia la cucina con il colore blu.</p>
+    <p>Alexa, cambia l'ingresso in DVD sulla TV del soggiorno.</p>
+    <p>Alexa, passa a HDMI due sulla TV del soggiorno.</p>
+    <p>Alexa, passa a Rai 1 sulla TV.</p>
 </div>
 
 <div id="alexa-ja-JP" class="tabcontent"> 
-    <p>アレクサ、寝室のライトを青にして</p>
-    <p>アレクサ、キッチンをオレンジ色に変えて</p>
+    <p>アレクサ、リビングのテレビの入力をDVDに変えて</p>
+    <p>アレクサ、リビングのテレビの入力をHDMI2に切り替えて</p>
+    <p>アレクサ、キッチンのテレビをNHKに切り替えて</p>
 </div>
 
 <div id="alexa-pt-BR" class="tabcontent"> 
-    <p>Alexa, coloque a luz da entrada em azul.</p>
-    <p>Alexa, mude luz da entrada para azul.</p>
-    <p>Alexa, coloque a luz da cozinha em vermelho.</p>
-    <p>Alexa, mude luz da cozinha para vermelho.</p>
+    <p>Alexa, mude a entrada para DVD na TV da sala de estar.</p>
+    <p>Alexa, mude a entrada para HDMI dois na TV da sala de estar.</p>
+    <p>Alexa, mude para Band na TV da cozinha.</p>
 </div>
 
 <div id="alexa-es-ES" class="tabcontent"> 
-    <p>Alexa, pon la luz del porche delantero en azul.</p>
-    <p>Alexa, cambia la cocina al color azul.</p>
+    <p>Alexa, cambia la entrada a DVD en el televisor de la sala.</p>
+    <p>Alexa, cambia a HDMI dos en el televisor de la sala.</p>
+    <p>Alexa, cambia a Discovery en la tele de la cocina.</p>
 </div>
 
 ### Google Home
 
-This capability is mapped to Google Home [ColorSetting](https://developers.home.google.com/cloud-to-cloud/traits/colorsetting) trait
+This capability is mapped to Google Home [InputSelector](https://developers.home.google.com/cloud-to-cloud/traits/inputselector) trait
 
 #### Utterances
 
@@ -99,58 +107,48 @@ This capability is mapped to Google Home [ColorSetting](https://developers.home.
 </div>
 
 <div id="gh-de-DE" class="tabcontent"> 
-    <p>Stell die Farbe der Lampe auf blau</p>
-    <p>Stelle die Farbtemperatur auf 3000 Kelvin ein.</p>
+    <p>Ändere den Eingangskanal auf AUX .</p>
 </div>
 
 <div id="gh-en-US" class="tabcontent">
-    <p>can you adjust my lights color to 4000 kelvins</p>
-    <p>set the lights to blue</p>  
+    <p>change input mode to HDMI 1</p>  
 </div>
 
 <div id="gh-es-ES" class="tabcontent">
-    <p>pon azul la luz de la cocina</p>
-    <p>pon la luz a 2000 k de temperatura de color</p>
+    <p>cambia a hdmi 1</p>
 </div>
 
 <div id="gh-fr-FR" class="tabcontent">
-    <p>Allume la lampe de la chambre à 3500 kelvins.</p>
-    <p>mets les lampes en rose dans la chambre</p>
+    <p>Activation du mode HDMI1 .</p>
+    <p>Mets la télé sur HDMI 1 .</p>
 </div>
 
 <div id="gh-hi-IN" class="tabcontent">
-    <p>तुम लाइट को ब्लू कर दो</p>
-    <p>लैम्प 2000 केल्विन पर लगाओ।</p>
+    <p>टीवी की इनपुट HDMI 1 में स्विच करो</p>
 </div>
 
 <div id="gh-it-IT" class="tabcontent">
-    <p>Imposta la lampada a 2000 K .</p>
-    <p>metti la luce gialla</p>
+    <p>metti ingresso aux sulla tv</p>
 </div>
 
 <div id="gh-ja-JP" class="tabcontent">
-    <p>照明 の色を 青 にして</p>
-    <p>照明 の色温度を 5000K にセットして</p>
+    <p>テレビ HDMI1 にして</p>
 </div>
 
 <div id="gh-ko-KR" class="tabcontent">
-    <p>조명 색깔 흰색 으로 바꿔 줘</p>
-    <p>주방 전등 색 온도를 5000 켈빈 으로 설정해</p>
+    <p>TV HDMI 1 로 바꿔 줘</p>
 </div>
 
 <div id="gh-nl-NL" class="tabcontent" style="display: block;">
-    <p>Zet de keukenlamp op 2000 Kelvin .</p>
-    <p>maak het licht rood</p>
+    <p>zet de TV op bluetooth</p>
 </div>
 
 <div id="gh-pt-BR" class="tabcontent">
-    <p>Colocar a lâmpada em 2000 K .</p>
-    <p>Define a lâmpada para 2000 K .</p>
-    <p>colocar a luz da sala em azul</p>
-    <p>põe a luz da sala a vermelho</p>
+    <p>Muda a entrada da TV para HDMI2 .</p>
+    <p>mudar a entrada para AUX</p>
 </div>
 
 <div id="gh-sv-SE" class="tabcontent">
-    <p>Ställ in lampan på 2000 Kelvin</p>
-    <p>tänd blått ljus i köket</p>
+    <p>Sätt på hdmi 1</p>
 </div>
+ 

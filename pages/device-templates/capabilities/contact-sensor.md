@@ -1,9 +1,9 @@
 ---
-title: Color Capability
+title: Contact Sensor Capability
 layout: post
 ---
 
-The Color capability in SinricPro device templates provides dynamic control over the hue and saturation of compatible smart devices. This feature enables users to transform their environment by adjusting RGB values of color-changing light bulbs, LED strips, and other chromatic lighting fixtures to create personalized atmospheres for any occasion.
+The Contact Sensor capability in SinricPro device templates enables detection of physical contact between two surfaces. This functionality allows devices to monitor and report the state of doors, windows, or other openings - indicating whether they are currently open or closed.
 
 #### Supports
  - [x]  Alexa
@@ -14,7 +14,7 @@ The Color capability in SinricPro device templates provides dynamic control over
 
 ### Alexa 
 
-This capabiliy is mapped to Alexa interface [ColorController](https://developer.amazon.com/en-US/docs/alexa/device-apis/alexa-colorcontroller.html)
+This capabiliy is mapped to Alexa interface [ContactSensor](https://developer.amazon.com/en-US/docs/alexa/device-apis/alexa-contactsensor.html)
 
 #### Utterances
 
@@ -32,54 +32,45 @@ This capabiliy is mapped to Alexa interface [ColorController](https://developer.
 </div>
 
 <div id="alexa-nl-NL" class="tabcontent" style="display: block;"> 
-    <p>Alexa, zet het licht op de veranda op blauw.</p>
-    <p>Alexa, verander de keuken naar de kleur blauw.</p>
+    <p>Not Available</p>
 </div>
 
 <div id="alexa-en-US" class="tabcontent"> 
-    <p>Alexa, set the front porch light to blue.</p> 
-    <p>Alexa, change the kitchen to the color blue.</p> 
+    <p>Alexa, is the bedroom window open?</p>
 </div>
 
 <div id="alexa-fr-FR" class="tabcontent"> 
-    <p>Alexa, règle la lumière du vestibule en bleu.</p>
-    <p>Alexa, mets la cuisine en bleu.</p>    
+    <p>Alexa, est-ce que la fenêtre de la chambre est ouverte?</p> 
 </div>
 
 <div id="alexa-de-DE" class="tabcontent"> 
-   <p>Alexa, schalte das Wohnzimmerlicht hellblau.</p>
+    <p>Alexa, ist das Schlafzimmerfenster offen?</p>
 </div>
 
 <div id="alexa-hi-IN" class="tabcontent"> 
-    <p>Alexa, फ्रंट पोर्च लाइट को ब्लू पर सेट करें।</p>
-    <p>Alexa, किचन को नीले रंग में बदलें।</p>
+    <p>एलेक्सा, क्या बेडरूम की खिड़की खुली है?</p>
 </div>
 
 <div id="alexa-it-IT" class="tabcontent"> 
-    <p>Alexa, imposta la luce del portico anteriore su blu.</p>
-    <p>Alexa, cambia la cucina con il colore blu.</p>
+    <p>Alexa, la finestra della camera da letto è aperta?</p>
 </div>
 
 <div id="alexa-ja-JP" class="tabcontent"> 
-    <p>アレクサ、寝室のライトを青にして</p>
-    <p>アレクサ、キッチンをオレンジ色に変えて</p>
+    <p>アレクサ、寝室の窓は開いていますか？</p>
 </div>
 
 <div id="alexa-pt-BR" class="tabcontent"> 
-    <p>Alexa, coloque a luz da entrada em azul.</p>
-    <p>Alexa, mude luz da entrada para azul.</p>
-    <p>Alexa, coloque a luz da cozinha em vermelho.</p>
-    <p>Alexa, mude luz da cozinha para vermelho.</p>
+    <p>Alexa, a janela do quarto está aberta?</p>
 </div>
 
 <div id="alexa-es-ES" class="tabcontent"> 
-    <p>Alexa, pon la luz del porche delantero en azul.</p>
-    <p>Alexa, cambia la cocina al color azul.</p>
+    <p>Alexa, ¿está abierta la ventana del dormitorio?</p>
 </div>
+ 
 
 ### Google Home
 
-This capability is mapped to Google Home [ColorSetting](https://developers.home.google.com/cloud-to-cloud/traits/colorsetting) trait
+This capability is mapped to Google Home [OpenClose](https://developers.home.google.com/cloud-to-cloud/traits/openclose) trait
 
 #### Utterances
 
@@ -99,58 +90,46 @@ This capability is mapped to Google Home [ColorSetting](https://developers.home.
 </div>
 
 <div id="gh-de-DE" class="tabcontent"> 
-    <p>Stell die Farbe der Lampe auf blau</p>
-    <p>Stelle die Farbtemperatur auf 3000 Kelvin ein.</p>
+    <p>Sind die Jalousien in der Küche offen?</p>
 </div>
 
 <div id="gh-en-US" class="tabcontent">
-    <p>can you adjust my lights color to 4000 kelvins</p>
-    <p>set the lights to blue</p>  
+    <p>Are the blinds in the kitchen open?</p>  
 </div>
 
 <div id="gh-es-ES" class="tabcontent">
-    <p>pon azul la luz de la cocina</p>
-    <p>pon la luz a 2000 k de temperatura de color</p>
+    <p>¿Están abiertas las persianas de la cocina?</p>
 </div>
 
 <div id="gh-fr-FR" class="tabcontent">
-    <p>Allume la lampe de la chambre à 3500 kelvins.</p>
-    <p>mets les lampes en rose dans la chambre</p>
+    <p>Est-ce que les stores de la cuisine sont ouverts?</p>
 </div>
 
 <div id="gh-hi-IN" class="tabcontent">
-    <p>तुम लाइट को ब्लू कर दो</p>
-    <p>लैम्प 2000 केल्विन पर लगाओ।</p>
+    <p>क्या रसोई के पर्दे खुले हैं?</p>
 </div>
 
 <div id="gh-it-IT" class="tabcontent">
-    <p>Imposta la lampada a 2000 K .</p>
-    <p>metti la luce gialla</p>
+    <p>Le tapparelle in cucina sono aperte?</p>
 </div>
 
 <div id="gh-ja-JP" class="tabcontent">
-    <p>照明 の色を 青 にして</p>
-    <p>照明 の色温度を 5000K にセットして</p>
+    <p>キッチンのブラインドは開いていますか？</p>
 </div>
 
 <div id="gh-ko-KR" class="tabcontent">
-    <p>조명 색깔 흰색 으로 바꿔 줘</p>
-    <p>주방 전등 색 온도를 5000 켈빈 으로 설정해</p>
+    <p>부엌의 블라인드가 열려 있나요?</p>
 </div>
 
 <div id="gh-nl-NL" class="tabcontent" style="display: block;">
-    <p>Zet de keukenlamp op 2000 Kelvin .</p>
-    <p>maak het licht rood</p>
+    <p>Zijn de jaloezieën in de keuken open?</p>
 </div>
 
 <div id="gh-pt-BR" class="tabcontent">
-    <p>Colocar a lâmpada em 2000 K .</p>
-    <p>Define a lâmpada para 2000 K .</p>
-    <p>colocar a luz da sala em azul</p>
-    <p>põe a luz da sala a vermelho</p>
+    <p>As persianas da cozinha estão abertas?</p>
 </div>
 
 <div id="gh-sv-SE" class="tabcontent">
-    <p>Ställ in lampan på 2000 Kelvin</p>
-    <p>tänd blått ljus i köket</p>
+    <p>Är persiennerna i köket öppna?</p>
 </div>
+ 
