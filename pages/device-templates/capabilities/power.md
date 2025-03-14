@@ -191,3 +191,10 @@ This capability is mapped to Google Home [OnOff](https://developers.home.google.
 
 
  
+### Tutorials
+- ##### [Part 1 - How to turn on and off a Relay]({{ site.github.url }}/pages/tutorials/switch/part-1.html)
+
+- ##### [Part 2 - Add a push button to toggle the Relay]({{ site.github.url }}/pages/tutorials/switch/part-2.html)
+
+- ##### [Part 3 - Multiple relays with multiple tactile (push) buttons]({{ site.github.url }}/pages/tutorials/switch/part-3.html)
+ 

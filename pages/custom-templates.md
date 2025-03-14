@@ -16,7 +16,8 @@ You can create your own device type by bundling together the following capabilit
 | [Percentage]({{ site.github.url }}/pages/device-templates/capabilities/percentage.html) | [Color]({{ site.github.url }}/pages/device-templates/capabilities/color.html) | [Doorbell]({{ site.github.url }}/pages/device-templates/capabilities/doorbell.html) |
 | [Mode]({{ site.github.url }}/pages/device-templates/capabilities/mode.html) | [Channel]({{ site.github.url }}/pages/device-templates/capabilities/channel.html) | [Equalizer]({{ site.github.url }}/pages/device-templates/capabilities/equalizer.html) |
 | [Power Level]({{ site.github.url }}/pages/device-templates/capabilities/power-level.html) | [Color Temperature]({{ site.github.url }}/pages/device-templates/capabilities/color-temperature.html) | [Input Control]({{ site.github.url }}/pages/device-templates/capabilities/input-control.html) |
-| [Range]({{ site.github.url }}/pages/device-templates/capabilities/range.html) | | |
+| [Range]({{ site.github.url }}/pages/device-templates/capabilities/range.html) | [Lock]({{ site.github.url }}/pages/device-templates/capabilities/lock.html) | [Motion Sensor]({{ site.github.url }}/pages/device-templates/capabilities/motion-sensor.html) |
+[Media Control]({{ site.github.url }}/pages/device-templates/capabilities/media-control.html) | [Volume]({{ site.github.url }}/pages/device-templates/capabilities/volume.html) | | |
 
 In this walk though we will create a new custom device type called **Washing Machine**, learn how to define differet wash modes like: Hot, Warm and Cold and generate the code it and control using Amazon Alexa.
 

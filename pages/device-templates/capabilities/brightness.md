@@ -232,7 +232,7 @@ This capability is mapped to Google Home [Brightness](https://developers.home.go
     <p>照明 の明るさを ５% 下げて</p>
     <p>照明 を 20% 明るくしてください</p>
     <p>照明 を 50% まで明るくして</p>
-    照明 を 少し 暗くして下さい</p>
+    <p>照明 を 少し 暗くして下さい</p>
 </div>
 
 <div id="gh-ko-KR" class="tabcontent">

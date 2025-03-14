@@ -1,9 +1,9 @@
 ---
-title: Contact Sensor Capability
+title: Lock Capability
 layout: post
 ---
 
-The Contact Sensor capability in SinricPro device templates enables detection of physical contact between two surfaces. This functionality allows devices to monitor and report the state of doors, windows, or other openings - indicating whether they are currently open or closed.
+The Brightness capability in SinricPro device templates allows you to lock and unlock lockable devices.
 
 #### Supports
  - [x]  Alexa
@@ -14,7 +14,7 @@ The Contact Sensor capability in SinricPro device templates enables detection of
 
 ### Alexa 
 
-This capabiliy is mapped to Alexa interface [ContactSensor](https://developer.amazon.com/en-US/docs/alexa/device-apis/alexa-contactsensor.html)
+This capabiliy is mapped to Alexa interface [LockController](https://developer.amazon.com/en-US/docs/alexa/device-apis/alexa-lockcontroller.html)
 
 #### Utterances
 
@@ -32,45 +32,71 @@ This capabiliy is mapped to Alexa interface [ContactSensor](https://developer.am
 </div>
 
 <div id="alexa-nl-NL" class="tabcontent" style="display: block;"> 
-    <p>Not Available</p>
+<p>Alexa, doe de voordeur op slot.</p>
+<p>Alexa, haal de achterdeur van het slot.</p>
+<p>Alexa, is mijn deur op slot?</p>
+<p>Alexa, is mijn deur van het slot?</p>
 </div>
 
 <div id="alexa-en-US" class="tabcontent"> 
-    <p>Alexa, is the bedroom window open?</p>
+<p>Alexa, lock my front door.</p>
+<p>Alexa, unlock the back door.</p>
+<p>Alexa, is my door locked?</p>
+<p>Alexa, is my door unlocked?</p>
 </div>
 
 <div id="alexa-fr-FR" class="tabcontent"> 
-    <p>Alexa, est-ce que la fenêtre de la chambre est ouverte?</p> 
+<p>Alexa, verrouille la porte d'entrée.</p>
+<p>Alexa, déverrouille la porte arrière.</p>
+<p>Alexa, est-ce que la porte est verrouillée?</p>
+<p>Alexa, est-ce que la porte est déverrouillée?</p>
 </div>
 
 <div id="alexa-de-DE" class="tabcontent"> 
-    <p>Alexa, ist das Schlafzimmerfenster offen?</p>
+<p>Alexa, schließe meine Haustür ab.</p>
+<p>Alexa, entsperre die Hintertür.</p>
+<p>Alexa, ist meine Tür verschlossen?</p>
+<p>Alexa, ist meine Tür aufgeschlossen?</p>
 </div>
-
+ 
 <div id="alexa-hi-IN" class="tabcontent"> 
-    <p>एलेक्सा, क्या बेडरूम की खिड़की खुली है?</p>
+<p>Alexa, मेरे सामने के दरवाजे को बंद कर दो।</p>
+<p>Alexa, पिछले दरवाजे को खोलो।</p>
+<p>Alexa, क्या मेरा दरवाजा बंद है?</p>
+<p>Alexa, क्या मेरा दरवाजा खुला है?</p>
 </div>
 
 <div id="alexa-it-IT" class="tabcontent"> 
-    <p>Alexa, la finestra della camera da letto è aperta?</p>
+<p>Alexa, chiudi a chiave la mia porta d'ingresso.</p>
+<p>Alexa, sblocca la porta sul retro.</p>
+<p>Alexa, la mia porta è chiusa a chiave?</p>
+<p>Alexa, la mia porta è aperta?</p>
 </div>
 
 <div id="alexa-ja-JP" class="tabcontent"> 
-    <p>アレクサ、寝室の窓は開いていますか？</p>
+アレクサ、玄関をロックして</p>
+アレクサ、裏口を開けて</p>
+アレクサ、玄関の鍵は閉まっている？</p>
+アレクサ、玄関の鍵は開いている？</p>
 </div>
 
 <div id="alexa-pt-BR" class="tabcontent"> 
-    <p>Alexa, a janela do quarto está aberta?</p>
+<p>Alexa, tranque minha porta da frente.</p>
+<p>Alexa, destranque a porta traseira.</p>
+<p>Alexa, a minha porta está trancada?</p>
+<p>Alexa, a minha porta está destrancada?</p>
 </div>
 
 <div id="alexa-es-ES" class="tabcontent"> 
-    <p>Alexa, ¿está abierta la ventana del dormitorio?</p>
+<p>Alexa, bloquea la puerta de mi casa.</p>
+<p>Alexa, desbloquea la puerta trasera.</p>
+<p>Alexa, ¿mi puerta está bloqueada?</p>
+<p>Alexa, ¿mi puerta está desbloqueada?</p>
 </div>
- 
 
 ### Google Home
 
-This capability is mapped to Google Home [OpenClose](https://developers.home.google.com/cloud-to-cloud/traits/openclose) trait
+This capability is mapped to Google Home [LockUnlock](https://developers.home.google.com/cloud-to-cloud/traits/lockunlock) trait
 
 #### Utterances
 
@@ -90,48 +116,62 @@ This capability is mapped to Google Home [OpenClose](https://developers.home.goo
 </div>
 
 <div id="gh-de-DE" class="tabcontent"> 
-    <p>Sind die Jalousien in der Küche offen?</p>
+<p>Bitte Eingangstür abschließen</p>
+<p>Bitte schließ die Eingangstür auf</p>
 </div>
 
 <div id="gh-en-US" class="tabcontent">
-    <p>Are the blinds in the kitchen open?</p>  
+<p>lock my doors</p>
+<p>unlock study room</p>
 </div>
 
 <div id="gh-es-ES" class="tabcontent">
-    <p>¿Están abiertas las persianas de la cocina?</p>
+<p>cierra la puerta con llave</p>
+<p>quitar el cerrojo de la puerta de entrad a</p>
 </div>
 
 <div id="gh-fr-FR" class="tabcontent">
-    <p>Est-ce que les stores de la cuisine sont ouverts?</p>
+<p>déverrouille la porte d'entrée</p>
+<p>verrouille la porte d'entrée</p>
 </div>
 
 <div id="gh-hi-IN" class="tabcontent">
-    <p>क्या रसोई के पर्दे खुले हैं?</p>
+<p>फ़्रंट डोर अनलॉक करो</p>
+<p>सामने के दरवाजे को लॉक करो</p>
 </div>
 
 <div id="gh-it-IT" class="tabcontent">
-    <p>Le tapparelle in cucina sono aperte?</p>
+<p>apri la porta d'ingresso</p>
+<p>puoi chiudere la porta d'ingresso a chiave</p>
 </div>
 
 <div id="gh-ja-JP" class="tabcontent">
-    <p>キッチンのブラインドは開いていますか？</p>
+<p>玄関のドア を施錠して</p>
+<p>玄関 開錠して</p>
 </div>
 
 <div id="gh-ko-KR" class="tabcontent">
-    <p>부엌의 블라인드가 열려 있나요?</p>
+<p>도어락 잠가 줘</p>
+<p>현관 도어락 열어 줄래</p>
 </div>
 
 <div id="gh-nl-NL" class="tabcontent" style="display: block;">
-    <p>Zijn de jaloezieën in de keuken open?</p>
+<p>Ontgrendel de voordeur</p>
+<p>doe de voordeur op slot</p>
 </div>
 
 <div id="gh-pt-BR" class="tabcontent">
-    <p>As persianas da cozinha estão abertas?</p>
+<p>Tranca a porta do quarto .</p>
+<p>destranca a porta da cozinha</p>
+<p>destrancar a porta da frente</p>
+<p>trancar a porta da frente</p>
 </div>
 
 <div id="gh-sv-SE" class="tabcontent">
-    <p>Är persiennerna i köket öppna?</p>
+<p>lås upp ytterdörren</p>
+<p>lås ytterdörren</p>
 </div>
+
+
  
-### Tutorial
-- #### [Contact Sensor]({{ site.github.url }}/pages/tutorials/contact-sensors/contact.html) 
+
