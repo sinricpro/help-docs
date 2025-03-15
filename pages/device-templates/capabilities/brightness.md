@@ -311,5 +311,7 @@ This capability is mapped to Google Home [Brightness](https://developers.home.go
     <p>sätt ljuset på minsta värdet</p>
 </div>
 
+> This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)
+
 
  

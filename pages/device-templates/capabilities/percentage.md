@@ -92,3 +92,5 @@ This capabiliy is mapped to Alexa interface [PercentageController](https://devel
 ### Google Home
  
 Not supported. You may be able to use OpenClose as an alternative.
+
+> This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

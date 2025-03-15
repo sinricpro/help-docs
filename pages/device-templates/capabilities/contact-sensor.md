@@ -135,3 +135,6 @@ This capability is mapped to Google Home [OpenClose](https://developers.home.goo
  
 ### Tutorial
 - #### [Contact Sensor]({{ site.github.url }}/pages/tutorials/contact-sensors/contact.html) 
+
+
+> This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

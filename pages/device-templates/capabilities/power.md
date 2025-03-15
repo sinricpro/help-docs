@@ -198,3 +198,4 @@ This capability is mapped to Google Home [OnOff](https://developers.home.google.
 
 - ##### [Part 3 - Multiple relays with multiple tactile (push) buttons]({{ site.github.url }}/pages/tutorials/switch/part-3.html)
  
+ > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

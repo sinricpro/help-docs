@@ -223,3 +223,5 @@ This capability is mapped to Google Home [ColorSetting](https://developers.home.
 | 7000 | Cloudy Day Light, White Smoke |
 | 8000 | Blue Overcast |
 | 9000 | Blue Sky |
+
+> This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

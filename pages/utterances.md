@@ -278,11 +278,4 @@ weight: 3
 
 #### Custom Devices
 
-- [Power]({{ site.github.url }}/pages/device-templates/capabilities/power.html)
-- [Percentage]({{ site.github.url }}/pages/device-templates/capabilities/percentage.html)
-- [Mode]({{ site.github.url }}/pages/device-templates/capabilities/mode.html)
-- [Power Level]({{ site.github.url }}/pages/device-templates/capabilities/power-level.html)
-- [Range]({{ site.github.url }}/pages/device-templates/capabilities/range.html)
-- [Brightness]({{ site.github.url }}/pages/device-templates/capabilities/brightness.html)
-- [Color]({{ site.github.url }}/pages/device-templates/capabilities/color.html)
-- [Channel]({{ site.github.url }}/pages/device-templates/capabilities/channel.html)
+- [Here]({{ site.github.url }}/pages/custom-templates.html)

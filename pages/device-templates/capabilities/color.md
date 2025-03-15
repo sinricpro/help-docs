@@ -154,3 +154,5 @@ This capability is mapped to Google Home [ColorSetting](https://developers.home.
     <p>Ställ in lampan på 2000 Kelvin</p>
     <p>tänd blått ljus i köket</p>
 </div>
+
+> This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

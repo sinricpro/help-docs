@@ -152,3 +152,5 @@ This capability is mapped to Google Home [InputSelector](https://developers.home
     <p>Sätt på hdmi 1</p>
 </div>
  
+
+ > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

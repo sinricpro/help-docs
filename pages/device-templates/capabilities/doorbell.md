@@ -27,3 +27,5 @@ Not Available
 
 ### Tutorial
 - #### [Doorbell]({{ site.github.url }}/pages/tutorials/doorbell/doorbell.html)  
+
+> This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

@@ -21,7 +21,7 @@ This capabiliy is mapped to Alexa interface [PlaybackController](https://develop
 <!-- Alexa Language Tabs -->
 <div class="tab">
   <button class="tablinks active" onclick="openLanguage(event, 'alexa-nl-NL')">Dutch</button>
-  <button class="tablinks" onclick="openLanguage(event, 'alexa-ar-EG')">Arabic</button>
+  <button class="tablinks" onclick="openLanguage(event, 'alexa-ar-SA')">Arabic</button>
   <button class="tablinks" onclick="openLanguage(event, 'alexa-en-US')">English (All)</button>
   <button class="tablinks" onclick="openLanguage(event, 'alexa-fr-FR')">French (All)</button>
   <button class="tablinks" onclick="openLanguage(event, 'alexa-de-DE')">German</button>  
@@ -44,7 +44,7 @@ This capabiliy is mapped to Alexa interface [PlaybackController](https://develop
     <p>Alexa, stop device.</p>
 </div>
 
-<div id="alexa-ar-EG" class="tabcontent"> 
+<div id="alexa-ar-SA" class="tabcontent"> 
     <p>أليكسا، قدّمي على الجهاز</p>
     <p>أليكسا، اللي بعده</p>
     <p>أليكسا، وقفي</p>
@@ -155,3 +155,5 @@ This capabiliy is mapped to Alexa interface [PlaybackController](https://develop
 ### Google Home
 
 Not Supported
+
+> This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

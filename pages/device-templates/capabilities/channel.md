@@ -22,7 +22,7 @@ This capabiliy is mapped to Alexa interface [ChannelController](https://develope
 <!-- Alexa Language Tabs -->
 <div class="tab">
   <button class="tablinks active" onclick="openLanguage(event, 'alexa-nl-NL')">Dutch</button>  
-  <button class="tablinks" onclick="openLanguage(event, 'alexa-ar-EG')">Arabic</button>
+  <button class="tablinks" onclick="openLanguage(event, 'alexa-ar-SA')">Arabic</button>
   <button class="tablinks" onclick="openLanguage(event, 'alexa-en-US')">English (All)</button>
   <button class="tablinks" onclick="openLanguage(event, 'alexa-fr-FR')">French (All)</button>
   <button class="tablinks" onclick="openLanguage(event, 'alexa-de-DE')">German</button>  
@@ -37,7 +37,7 @@ This capabiliy is mapped to Alexa interface [ChannelController](https://develope
     <p>Not Supported</p>
 </div>
 
-<div id="alexa-ar-EG" class="tabcontent"> 
+<div id="alexa-ar-SA" class="tabcontent"> 
     <p>أليكسا، حطّي قناة الإخباريّة</p>
     <p>أليكسا، حطّي الإخباريّة</p>
     <p>أليكسا، غيّري لقناة الإخبارية</p>
@@ -128,3 +128,5 @@ This capability is mapped to Google Home [Channel](https://developers.home.googl
     <p>Switch to the previous channel</p>  
 </div>
  
+
+ > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

@@ -26,3 +26,5 @@ Not Supported
 
 ### Tutorials
 - #### [PIR Motion Sensor: HC-SR501, HC-SR505, Mini AM312, HC-SR312]({{ site.github.url }}/pages/tutorials/motion-sensors/HC-SR501-HC-SR505-AM312-HC-SR312.html)
+
+> This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

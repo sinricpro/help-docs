@@ -6,20 +6,23 @@ youtubeId: QJVbSPSztwY
 
 ### Introduction 
 
-Device Templates in SinricPro allows you to make your own device type by draging and droping capabilities that describes the features of your IoT device. They serve as blueprints for creating custom device types in the SinricPro.
+Device Templates in SinricPro allows you to make your own device type by draging and droping capabilities that describes the features of your IoT device. They serve as blueprints for creating custom device types in the SinricPro. You can create your own device type by bundling together the following capabilities.
 
-You can create your own device type by bundling together the following capabilities.
-
-| | | |
+| Capabilities | | |
 |----------|----------|----------|
-| [Power]({{ site.github.url }}/pages/device-templates/capabilities/power.html) | [Brightness]({{ site.github.url }}/pages/device-templates/capabilities/brightness.html) | [Contact Sensor]({{ site.github.url }}/pages/device-templates/capabilities/contact-sensor.html) |
-| [Percentage]({{ site.github.url }}/pages/device-templates/capabilities/percentage.html) | [Color]({{ site.github.url }}/pages/device-templates/capabilities/color.html) | [Doorbell]({{ site.github.url }}/pages/device-templates/capabilities/doorbell.html) |
-| [Mode]({{ site.github.url }}/pages/device-templates/capabilities/mode.html) | [Channel]({{ site.github.url }}/pages/device-templates/capabilities/channel.html) | [Equalizer]({{ site.github.url }}/pages/device-templates/capabilities/equalizer.html) |
-| [Power Level]({{ site.github.url }}/pages/device-templates/capabilities/power-level.html) | [Color Temperature]({{ site.github.url }}/pages/device-templates/capabilities/color-temperature.html) | [Input Control]({{ site.github.url }}/pages/device-templates/capabilities/input-control.html) |
-| [Range]({{ site.github.url }}/pages/device-templates/capabilities/range.html) | [Lock]({{ site.github.url }}/pages/device-templates/capabilities/lock.html) | [Motion Sensor]({{ site.github.url }}/pages/device-templates/capabilities/motion-sensor.html) |
-[Media Control]({{ site.github.url }}/pages/device-templates/capabilities/media-control.html) | [Volume]({{ site.github.url }}/pages/device-templates/capabilities/volume.html) | | |
+| [Brightness]({{ site.github.url }}/pages/device-templates/capabilities/brightness.html) | [Channel]({{ site.github.url }}/pages/device-templates/capabilities/channel.html) | [Color]({{ site.github.url }}/pages/device-templates/capabilities/color.html) |
+| [Color Temperature]({{ site.github.url }}/pages/device-templates/capabilities/color-temperature.html) | [Contact Sensor]({{ site.github.url }}/pages/device-templates/capabilities/contact-sensor.html) | [Doorbell]({{ site.github.url }}/pages/device-templates/capabilities/doorbell.html) |
+| [Equalizer]({{ site.github.url }}/pages/device-templates/capabilities/equalizer.html) | [Input Control]({{ site.github.url }}/pages/device-templates/capabilities/input-control.html) | [Lock]({{ site.github.url }}/pages/device-templates/capabilities/lock.html) |
+| [Media Control]({{ site.github.url }}/pages/device-templates/capabilities/media-control.html) | [Mode]({{ site.github.url }}/pages/device-templates/capabilities/mode.html) | [Motion Sensor]({{ site.github.url }}/pages/device-templates/capabilities/motion-sensor.html) |
+| [Open Close]({{ site.github.url }}/pages/device-templates/capabilities/open-close.html) | [Percentage]({{ site.github.url }}/pages/device-templates/capabilities/percentage.html) | [Power]({{ site.github.url }}/pages/device-templates/capabilities/power.html) |
+| [Power Level]({{ site.github.url }}/pages/device-templates/capabilities/power-level.html) | [Push Notification]({{ site.github.url }}/pages/device-templates/capabilities/push-notification.html) | [Range]({{ site.github.url }}/pages/device-templates/capabilities/range.html) |
+| [Setting]({{ site.github.url }}/pages/device-templates/capabilities/setting.html) | [Smart Button]({{ site.github.url }}/pages/device-templates/capabilities/smart-button.html) | [Start Stop]({{ site.github.url }}/pages/device-templates/capabilities/start-stop.html) |
+| [Temperature Sensor]({{ site.github.url }}/pages/device-templates/capabilities/temperature-sensor.html) | [Thermostat]({{ site.github.url }}/pages/device-templates/capabilities/thermostat.html) | [Toggle]({{ site.github.url }}/pages/device-templates/capabilities/toggle.html) |
+| [Volume]({{ site.github.url }}/pages/device-templates/capabilities/volume.html) | | |
 
-In this walk though we will create a new custom device type called **Washing Machine**, learn how to define differet wash modes like: Hot, Warm and Cold and generate the code it and control using Amazon Alexa.
+### How to make a custom device type? 
+
+Let's create a custom device type called **Washing Machine**, learn how to define differet wash modes like: *Hot, Warm and Cold* and generate the code it and control using Amazon Alexa and Goole Home.
 
 ##### More Tutorials: [Soil Moisture]({{ site.github.url }}/pages/tutorials/custom-device-types/capacitive-soil-moisture-sensor/HW-390.html), [Water Level Indicator]({{ site.github.url }}/pages/tutorials/custom-device-types/ultrasonic-sensor/HC-SR04.html), [Water Sensor]({{ site.github.url }}/pages/tutorials/custom-device-types/water-sensor/flood-leak-rain-sensor.html), [Air Quality Sensor: MQ135]({{ site.github.url }}/pages/tutorials/air-quality-sensors/mq135.html), [Gas Sensor]({{ site.github.url }}/pages/tutorials/custom-device-types/alcohol-sensor/MQ-3.html)
 
@@ -36,7 +39,7 @@ In this walk though we will create a new custom device type called **Washing Mac
 
     * Device Type: **Other**
     
-    *Note*: Select the device type that matches your device and the voice assistant ecosystem you intend to use. Alexa supports all device types; however, Google Home does not.
+    *Note*: Select the device type that best matches your hardware and your target voice assistant ecosystem. While Alexa is compatible with all device types, Google Home has limited compatibility. If you don't see your intended device type listed, please reach out to our support team.
 
 ![Sinric Pro device template]({{ site.github.url }}/public/img/sinric-pro-create-device-template-basic-info.png)
 
@@ -102,6 +105,7 @@ latest version of the Sinric Pro SDK (v2.9.0). Otherwise you may see compile err
 
 ![Sinric Pro create a device and generate code from template]({{ site.github.url }}/public/img/create-device-template-and-generate-code.gif)
  
+When you descover the devices in Alexa, Google,  Washing Machine device will show
 
 {% include youtubePlayer.html id=page.youtubeId %}
 

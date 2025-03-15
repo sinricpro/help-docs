@@ -82,3 +82,5 @@ This capabiliy is mapped to Alexa interface [PowerLevelController](https://devel
 ### Google Home
  
 Not supported
+
+> This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

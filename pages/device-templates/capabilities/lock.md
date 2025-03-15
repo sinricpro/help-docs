@@ -173,5 +173,4 @@ This capability is mapped to Google Home [LockUnlock](https://developers.home.go
 </div>
 
 
- 
-
+> This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

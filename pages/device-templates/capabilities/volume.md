@@ -94,3 +94,6 @@ This capabiliy is mapped to Alexa interface [Speaker](https://developer.amazon.c
 ### Google Home
 
 This capability is mapped to Google Home [Volume](https://developers.home.google.com/cloud-to-cloud/traits/volume) trait
+
+
+> This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

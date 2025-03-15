@@ -10,6 +10,8 @@ SinricPro uses REST for its API. This means it uses JSON for data exchange and f
 To interact with the SinricPro API, you'll need an API key. You can create and manage your API keys within the SinricPro Dashboard under the Credentials section. To create a new API Key click [here](https://portal.sinric.pro/credential/new/apikey)
 
 
+![Sinric Pro - Create a new API key]({{ site.github.url }}/public/img/sinricpro-create-new-api-key.png)
+
 *Request*
 
 ```javascript
