@@ -155,4 +155,8 @@ This capability is mapped to Google Home [ColorSetting](https://developers.home.
     <p>tänd blått ljus i köket</p>
 </div>
 
+### Tutorials
+
+- ##### [LED Light Strip RGB 5050]({{ site.github.url }}/pages/tutorials/light/LED-Stripe-5050.html)
+
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

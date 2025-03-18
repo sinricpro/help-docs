@@ -91,4 +91,16 @@ This capabiliy is mapped to Alexa interface [TemperatureSensor](https://develope
 
 Not Supproted
 
+### Tutorials
+
+- ##### [DHT11 and DHT22, AM2302, RHT03]({{ site.github.url }}/pages/tutorials/temperature-sensors/DHTx_AMx_RHTx.html)
+
+- ##### [DS18B20 and DS1822, DS1820, MAX31820, MAX31850]({{ site.github.url }}/pages/tutorials/temperature-sensors/DS18B20.html)
+
+- ##### [LM35 (LM35DZ), LM335 and LM34]({{ site.github.url }}/pages/tutorials/temperature-sensors/LMx.html)
+
+- ##### [BME280]({{ site.github.url }}/pages/tutorials/temperature-sensors/BME280.html)
+
+- ##### [BMP180]({{ site.github.url }}/pages/tutorials/temperature-sensors/BMP180.html)
+
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

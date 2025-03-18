@@ -311,6 +311,12 @@ This capability is mapped to Google Home [Brightness](https://developers.home.go
     <p>sätt ljuset på minsta värdet</p>
 </div>
 
+### Tutorials
+
+- ##### [YYAC-3S for ESP32]({{ site.github.url }}/pages/tutorials/dimmable-switch/YYAC-3S.html)
+
+- ##### [RobotDyn's AC Light dimmer module]({{ site.github.url }}/pages/tutorials/dimmable-switch/robotdyn-ac-light-dimmer.html)
+
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)
 
 
