@@ -20,6 +20,15 @@ Device Templates in SinricPro allows you to make your own device type by draging
 | [Temperature Sensor]({{ site.github.url }}/pages/device-templates/capabilities/temperature-sensor.html) | [Thermostat]({{ site.github.url }}/pages/device-templates/capabilities/thermostat.html) | [Toggle]({{ site.github.url }}/pages/device-templates/capabilities/toggle.html) |
 | [Volume]({{ site.github.url }}/pages/device-templates/capabilities/volume.html) | | |
 
+### Limitations
+The number of capabilities you can add is based on your total licenses. Each license allows you to add one capability to your custom device type.
+
+When you sign up, your initial subscription includes 3 devices, allowing you to add 3 capabilities.
+If you purchase an additional 1-device subscription, your total increases to 4 devices, entitling you to 4 capabilities.
+Adding another 1-device subscription brings your total to 5 devices, allowing you to add 5 capabilities.
+
+To expand your available capabilities, simply purchase additional device licenses.
+
 ### How to make a custom device type? 
 
 Let's create a custom device type called **Washing Machine**, learn how to define differet wash modes like: *Hot, Warm and Cold* and generate the code it and control using Amazon Alexa and Goole Home.
