@@ -29,6 +29,18 @@ Note: Some DHT22 sensors do not come with a pull-up resistor, so you may need to
 | ESP32     |    16   |
 | ESP8266   |    14 (D5)    |
 
+
+
+### Setup arduino-DHT library 
+
+We will be using [arduino-DHT](https://github.com/markruys/arduino-DHT) library to read the temperature and humidity from our sensor. Goto [arduino-DHT](https://github.com/markruys/arduino-DHT) and download the library as a zip file. 
+
+![Sinric Pro esp8266 DHT22 wiring]({{ site.github.url }}/public/img/download-arduino-DHT-library.png) 
+
+Then extract the zip file to `C:\Users\<username>\Documents\Arduino\libraries\arduino-DHT`. This is how it should look like.
+
+![Sinric Pro esp8266 DHT22 wiring]({{ site.github.url }}/public/img/extract-arduino-DHT-library.png) 
+
 Let's verify that temperature is wired correctly and working. 
 
 <script src="https://gist.github.com/kakopappa/08c5cd5bbee8da13e6ca081afd017974.js"></script>
@@ -90,7 +102,12 @@ Please note that Google Home App shows the temperature sensor as a Thermostat du
 
     **Solution**: Please make sure correct DHT library is installed. This example was made with https://github.com/markruys/arduino-DHT.  Remove any other DHT libraries you may have previously installed eg: https://github.com/adafruit/DHT-sensor-library
 
+2. Compilation error: DHT.h: No such file or directory
+
+    **Solution**: Please make sure correct DHT library is installed. 
+
 2. Please refer to our [Troubleshooting]({{ site.github.url }}/pages/troubleshooting.html) page for more details.
+
 
  
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)
