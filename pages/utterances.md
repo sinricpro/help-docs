@@ -278,4 +278,4 @@ weight: 3
 
 #### Custom Devices
 
-- [Here]({{ site.github.url }}/pages/custom-templates.html)
+- Please take a look inside the capabilities [Here]({{ site.github.url }}/pages/custom-templates.html)
