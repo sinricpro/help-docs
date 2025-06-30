@@ -1,6 +1,7 @@
 ---
 title: Quickstart Tutorials
 weight: 1
+lang: en
 youtubeId: H-iftzWVTXE
 youtubeId2: HEMifE1Xm7E
 ---

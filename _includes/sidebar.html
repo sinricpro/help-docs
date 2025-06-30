@@ -1,26 +1,96 @@
 <div class="sidebar">
-  <div class="container sidebar-sticky">
-    <div class="sidebar-about">
-      <a href="{{ site.github.url }}">
-        <img alt="Sinric Pro logo" src="{{ site.github.url }}/public/img/logo_png/web_hi_res_512.png"
-             class="sidebar-logo">
-      </a>
-      {% for link in site.data.sidebar_links %}
-      <a href="{{ link.url }}" target="_blank" title="{{ link.text }}">
-        <img class="sidebar-social-icon" alt="{{ link.text }}" src="{{ site.github.url }}/public/img/{{ link.img }}">
-      </a>
-      {% endfor %}
-    </div>
+  <div class="container sidebar-sticky sidebar-flex">
+     
 
-    <nav class="sidebar-nav">
-      {% assign pages_list = site.pages | sort:"weight" %}
-      {% for node in pages_list %}
-        {% if node.title != null %}
-          {% if node.layout == "page" %}
-            <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url | prepend: site.github.url }}">{{ node.title }}</a>
+    <div class="sidebar-bottom">
+      <div class="sidebar-about">
+        <a href="{{ site.github.url }}">
+          <img alt="Sinric Pro logo" src="{{ site.github.url }}/public/img/logo_png/web_hi_res_512.png"
+               class="sidebar-logo">
+        </a>
+        {% for link in site.data.sidebar_links %}
+        <a href="{{ link.url }}" target="_blank" title="{{ link.text }}">
+          <img class="sidebar-social-icon" alt="{{ link.text }}" src="{{ site.github.url }}/public/img/{{ link.img }}">
+        </a>
+        {% endfor %}
+      </div>
+      
+      <nav class="sidebar-nav">
+        {% assign current_lang = site.active_lang | default: site.default_lang %}
+        {% assign pages_list = site.pages | where: "lang", current_lang | sort:"weight" %}
+        {% for node in pages_list %}
+          {% if node.title != null %}
+            {% if node.layout == "page" %}
+              <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url | prepend: site.github.url }}">{{ node.title }}</a>
+            {% endif %}
           {% endif %}
-        {% endif %}
-      {% endfor %}
-    </nav>
+        {% endfor %}
+      </nav>
+      
+      <!-- Language Switcher at very bottom -->
+      <div class="sidebar-footer">
+        {% include language-switcher.html %}
+      </div>
+    </div>
   </div>
 </div>
+
+<style>
+.sidebar-flex {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  height: 100vh !important;
+  padding-bottom: 0 !important;
+}
+
+.sidebar-top {
+  flex-shrink: 0;
+}
+
+.sidebar-bottom {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 20px;
+}
+
+.sidebar-nav {
+  margin-bottom: 20px;
+}
+
+.sidebar-footer {
+  position: relative !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .sidebar-flex {
+    height: auto !important;
+    min-height: 100vh;
+  }
+  
+  .sidebar-bottom {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Ensure sidebar doesn't interfere with main content on mobile */
+  .sidebar {
+    position: relative;
+    z-index: 10;
+  }
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .language-menu {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+}
+</style>

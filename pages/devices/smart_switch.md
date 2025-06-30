@@ -1,6 +1,7 @@
 ---
 title: Smart Switch
 layout: post
+lang: en
 tag: smart-switch
 categories: 
     - "devices"

@@ -1,0 +1,49 @@
+en:
+  site:
+    title: "SinricPro"
+    tagline: "IOT Cloud Platform Documentation"
+    description: "Sinric Pro is a IOT Cloud Platform Documentation."
+  nav:
+    home: "Home"
+    documentation: "Documentation"
+    tutorials: "Tutorials"
+    devices: "Devices"
+    api: "API"
+    integrations: "Integrations"
+  ui:
+    read_more: "Read more"
+    previous: "Previous"
+    next: "Next"
+    search: "Search"
+    language: "Language"
+    toc: "Table of Contents"
+    last_updated: "Last updated"
+  footer:
+    copyright: "© 2024 SinricPro. All rights reserved."
+    edit_page: "Edit this page"
+    report_issue: "Report an issue"
+
+pt:
+  site:
+    title: "SinricPro"
+    tagline: "Documentação da Plataforma IoT em Nuvem"
+    description: "Sinric Pro é uma Documentação da Plataforma IoT em Nuvem."
+  nav:
+    home: "Início"
+    documentation: "Documentação"
+    tutorials: "Tutoriais"
+    devices: "Dispositivos"
+    api: "API"
+    integrations: "Integrações"
+  ui:
+    read_more: "Leia mais"
+    previous: "Anterior"
+    next: "Próximo"
+    search: "Buscar"
+    language: "Idioma"
+    toc: "Índice"
+    last_updated: "Última atualização"
+  footer:
+    copyright: "© 2024 SinricPro. Todos os direitos reservados."
+    edit_page: "Editar esta página"
+    report_issue: "Reportar um problema"

@@ -18,6 +18,9 @@ defaults:
 
 markdown: kramdown
 highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
 google_analytics: G-D9D07HPM4B
 
@@ -31,4 +34,11 @@ environment: production
 
 plugins:
   - jekyll-seo-tag
-  - jekyll-sitemap 
+  - jekyll-sitemap
+  - jekyll-polyglot
+
+# Multi-language configuration
+languages: ["en", "pt"]
+default_lang: "en"
+exclude_from_localization: ["public", "_site", "robots.txt", "sitemap.xml"]
+parallel_localization: false

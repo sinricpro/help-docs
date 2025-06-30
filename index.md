@@ -1,6 +1,8 @@
 ---
 title: Home
 weight: 0
+lang: en
+permalink: /
 ---
  
 Welcome to **Sinric Pro** documentation.

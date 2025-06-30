@@ -1,6 +1,7 @@
 ---
 title: Energy Estimates
 weight: 3
+lang: en
 ---
 We are innovating new ways with Sinric to make smart homes more efficient and help everyone have a positive impact on the planet
 

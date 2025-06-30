@@ -1,6 +1,7 @@
 ---
 title: IFTTT
 weight: 4
+lang: en
 youtubeId: UHuVoE6kPB8
 ---
 

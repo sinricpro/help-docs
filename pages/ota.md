@@ -1,6 +1,7 @@
 ---
 title: OTA Updates
 weight: 4
+lang: en
 youtubeId: FxtsQuC9mn8
 ---
 

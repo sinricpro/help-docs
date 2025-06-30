@@ -1,6 +1,7 @@
 ---
 title: Apple Shortcuts
 weight: 4
+lang: en
 ---
 
 ### Introduction 

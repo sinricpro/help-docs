@@ -1,6 +1,7 @@
 ---
 title: Node-RED
 weight: 4
+lang: en
 youtubeId: YYjxLY7zioo
 ---
 
