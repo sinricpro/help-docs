@@ -3,6 +3,7 @@ title: Smart Switch
 layout: post
 lang: en
 tag: smart-switch
+published: false
 categories: 
     - "devices"
     - "smart-switch"

@@ -23,11 +23,7 @@ Welcome to **Sinric Pro** documentation.
  - [x]  [Node-RED](https://github.com/sinricpro/node-red-contrib-sinric-pro) *(Official)*
  - [x]  [C#](https://github.com/xamakadesigns/sinric-pro-csharp) *(Community Maintained)*
  - [x]  [Arduino SAMD21, Adafruit SAMD21, SAMD51, nRF52, STM32, Teensy, SAM DUE SDK](https://github.com/khoih-prog/SinricPro_Generic) *(Community Maintained)*
- 
-**Messaging**
-  - [Introduction, Requests, responses and events]({{ site.github.url }}/pages/messaging.html)
-  - [Sample messages](https://github.com/sinricpro/sample_messages)
- 
+  
 **Integrations**
  - [IFTTT]({{ site.github.url }}/pages/ifttt.html)  
  - [Homebridge (Homekit)]({{ site.github.url }}/pages/homebridge.html)  

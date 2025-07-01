@@ -2,6 +2,7 @@
 title: Thermostat
 layout: post
 tag: thermostat
+published: false
 categories: 
     - "devices"
     - "thermostat"

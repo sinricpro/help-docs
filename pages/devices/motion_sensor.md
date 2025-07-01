@@ -2,6 +2,7 @@
 title: Motion Sensor
 layout: post
 tag: doorbell
+published: false
 categories: 
     - "devices"
     - "motionsensor"

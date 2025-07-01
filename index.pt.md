@@ -24,10 +24,6 @@ Bem-vindo à documentação do **Sinric Pro**.
  - [x]  [C#](https://github.com/xamakadesigns/sinric-pro-csharp) *(Mantido pela Comunidade)*
  - [x]  [Arduino SAMD21, Adafruit SAMD21, SAMD51, nRF52, STM32, Teensy, SAM DUE SDK](https://github.com/khoih-prog/SinricPro_Generic) *(Mantido pela Comunidade)*
  
-**Mensagens**
-  - [Introdução, Solicitações, respostas e eventos]({{ site.github.url }}/pt/pages/messaging.html)
-  - [Mensagens de exemplo](https://github.com/sinricpro/sample_messages)
- 
 **Integrações**
  - [IFTTT]({{ site.github.url }}/pt/pages/ifttt.html)  
  - [Homebridge (Homekit)]({{ site.github.url }}/pt/pages/homebridge.html)  

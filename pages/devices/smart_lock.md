@@ -2,6 +2,7 @@
 title: Smart Lock
 layout: post
 tag: smart-lock
+published: false
 categories: 
     - "devices"
     - "smart-lock"

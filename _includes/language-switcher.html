@@ -20,13 +20,21 @@
       {% for language in site.languages %}
         {% if language != current_language %}
           {% if language == 'en' %}
-            <a href="{% if page.permalink %}{{ page.permalink }}{% else %}{{ page.url | remove: '/pt' }}{% endif %}" 
-               class="language-option" hreflang="en">
+            {% assign en_url = page.url | remove_first: '/pt' %}
+            {% if en_url == '' %}{% assign en_url = '/' %}{% endif %}
+            <a href="{{ en_url }}" class="language-option" hreflang="en">
               🇺🇸 English
             </a>
           {% elsif language == 'pt' %}
-            <a href="{% if page.permalink %}/pt{{ page.permalink }}{% else %}/pt{{ page.url }}{% endif %}" 
-               class="language-option" hreflang="pt">
+            {% assign pt_url = page.url %}
+            {% unless pt_url contains '/pt' %}
+              {% if pt_url == '/' %}
+                {% assign pt_url = '/pt/' %}
+              {% else %}
+                {% assign pt_url = '/pt' | append: pt_url %}
+              {% endif %}
+            {% endunless %}
+            <a href="{{ pt_url }}" class="language-option" hreflang="pt">
               🇧🇷 Português
             </a>
           {% endif %}

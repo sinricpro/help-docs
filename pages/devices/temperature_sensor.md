@@ -2,6 +2,7 @@
 title: Temperature/Humidity Sensor
 layout: post
 tag: temperature-humidity-sensor
+published: false
 categories: 
     - "sensor"
     - "temperature-humidity-sensor"

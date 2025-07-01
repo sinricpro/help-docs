@@ -2,6 +2,7 @@
 title: Window AC Unit
 layout: post
 tag: windowacunit
+published: false
 categories: 
     - "devices"
     - "windowacunit"

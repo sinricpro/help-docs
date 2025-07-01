@@ -2,6 +2,7 @@
 title: Contact Sensor
 layout: post
 tag: smart-light-bulb
+published: false
 categories: 
     - "sensor"
     - "contactsensor"

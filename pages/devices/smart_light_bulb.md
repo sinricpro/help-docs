@@ -2,6 +2,7 @@
 title: Smart Light Bulb
 layout: post
 tag: smart-light-bulb
+published: false
 categories: 
     - "devices"
     - "smart-light-bulb"
