@@ -1,6 +1,7 @@
 ---
 title: Switch Tutorial Part 1 - Turn on and off a Relay
 layout: post
+lang: en
 ---
 
 In this section we’ll walk through creating a Sinric Pro **Switch** for **ESP32**, **ESP8266** or **Raspberry Pi Zero W** and then control via **Alexa, Google Home or SmartThings**.

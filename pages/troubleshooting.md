@@ -1,6 +1,7 @@
 ---
 title: Troubleshooting
 weight: 4
+lang: en
 youtubeId: H-iftzWVTXE
 youtubeId2: HEMifE1Xm7E
 ---

@@ -2,6 +2,7 @@
 title: Fan
 layout: post
 tag: fan
+published: false
 categories: 
     - "devices"
     - "fan"

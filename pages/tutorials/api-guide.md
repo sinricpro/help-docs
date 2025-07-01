@@ -1,6 +1,7 @@
 ---
 title: API Guide
-weight: 5 
+weight: 5
+lang: en
 ---
 
 SinricPro uses REST for its API. This means it uses JSON for data exchange and follows common HTTP practices for communication.

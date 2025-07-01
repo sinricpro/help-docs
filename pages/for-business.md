@@ -1,6 +1,7 @@
 ---
 title: Sinric Pro For Business
 weight: 4
+lang: en
 ---
 
 Turn your smart device ideas into reality with [Sinric Pro for Business](https://biz.sinric.pro). Our platform empowers businesses to rapidly develop IoT solutions without the hassle of complex infrastructure.

@@ -1,7 +1,9 @@
 ---
 title: Switch With Dimmer
 layout: post
+lang: en
 tag: smart-switch-with-dimmer
+published: false
 categories: 
     - "devices"
     - "switch-with-dimmer"

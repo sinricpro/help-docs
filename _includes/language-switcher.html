@@ -1,0 +1,213 @@
+<div class="language-switcher">
+  {% assign current_language = site.default_lang %}
+  {% if site.active_lang %}
+    {% assign current_language = site.active_lang %}
+  {% endif %}
+  
+  <div class="language-selector">
+    <button class="language-button" onclick="toggleLanguageMenu()">
+      <span class="language-flag-text">
+        {% if current_language == 'en' %}
+          🇺🇸 English
+        {% elsif current_language == 'pt' %}
+          🇧🇷 Português
+        {% endif %}
+      </span>
+      <span class="arrow">▼</span>
+    </button>
+    
+    <div class="language-menu" id="languageMenu">
+      {% for language in site.languages %}
+        {% if language != current_language %}
+          {% if language == 'en' %}
+            {% assign en_url = page.url | remove_first: '/pt' %}
+            {% if en_url == '' %}{% assign en_url = '/' %}{% endif %}
+            <a href="{{ en_url }}" class="language-option" hreflang="en">
+              🇺🇸 English
+            </a>
+          {% elsif language == 'pt' %}
+            {% assign pt_url = page.url %}
+            {% unless pt_url contains '/pt' %}
+              {% if pt_url == '/' %}
+                {% assign pt_url = '/pt/' %}
+              {% else %}
+                {% assign pt_url = '/pt' | append: pt_url %}
+              {% endif %}
+            {% endunless %}
+            <a href="{{ pt_url }}" class="language-option" hreflang="pt">
+              🇧🇷 Português
+            </a>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+.sidebar-footer {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+}
+
+.language-switcher {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.language-button {
+  background: #3c5a78;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.language-button:hover {
+  background: #4a6b8a;
+  border-color: rgba(255,255,255,0.5);
+}
+
+.language-menu {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  background: #2c3e50;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  box-shadow: 0 -4px 15px rgba(0,0,0,0.3);
+  z-index: 1000;
+  margin-bottom: 5px;
+}
+
+.language-menu.show {
+  display: block;
+}
+
+.language-option {
+  display: block;
+  padding: 12px 15px;
+  color: #ffffff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  transition: background-color 0.2s;
+  font-size: 14px;
+}
+
+.language-option:hover {
+  background: rgba(255,255,255,0.1);
+  color: #ffffff;
+}
+
+.language-option:last-child {
+  border-bottom: none;
+}
+
+.language-flag-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.arrow {
+  font-size: 12px;
+  transition: transform 0.2s;
+  color: rgba(255,255,255,0.8);
+}
+
+.language-menu.show ~ .language-button .arrow {
+  transform: rotate(180deg);
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .language-menu {
+    position: fixed !important;
+    bottom: 60px !important;
+    left: 10px !important;
+    right: 10px !important;
+    width: auto !important;
+    z-index: 9999 !important;
+    margin-bottom: 0 !important;
+  }
+  
+  .sidebar-footer {
+    position: relative;
+    z-index: 1000;
+  }
+  
+  .language-switcher {
+    position: relative;
+    z-index: 1001;
+  }
+  
+  /* Ensure dropdown doesn't interfere with main content */
+  .content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Add overlay when dropdown is open on mobile */
+  .language-menu.show::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: -1;
+  }
+}
+</style>
+
+<script>
+function toggleLanguageMenu() {
+  const menu = document.getElementById('languageMenu');
+  menu.classList.toggle('show');
+}
+
+// Close menu when clicking outside
+document.addEventListener('click', function(event) {
+  const switcher = event.target.closest('.language-switcher');
+  if (!switcher) {
+    const menu = document.getElementById('languageMenu');
+    if (menu) {
+      menu.classList.remove('show');
+    }
+  }
+});
+
+// Close menu on escape key (mobile accessibility)
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    const menu = document.getElementById('languageMenu');
+    if (menu && menu.classList.contains('show')) {
+      menu.classList.remove('show');
+    }
+  }
+});
+
+// Prevent dropdown from closing when clicking inside it
+document.addEventListener('DOMContentLoaded', function() {
+  const menu = document.getElementById('languageMenu');
+  if (menu) {
+    menu.addEventListener('click', function(event) {
+      event.stopPropagation();
+    });
+  }
+});
+</script>

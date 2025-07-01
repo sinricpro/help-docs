@@ -1,6 +1,7 @@
 ---
 title: Homebridge (Homekit)
 weight: 4
+lang: en
 youtubeId: 3YI87iWlgDM
 ---
 

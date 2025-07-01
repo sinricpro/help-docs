@@ -2,6 +2,7 @@
 title: Smart Speaker
 layout: post
 tag: smart-light-bulb
+published: false
 categories: 
     - "devices"
     - "smart-speaker"

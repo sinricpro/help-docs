@@ -2,6 +2,7 @@
 title: TV
 layout: post
 tag: tv
+published: false
 categories: 
     - "devices"
     - "tv"
