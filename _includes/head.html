@@ -31,24 +31,39 @@
 
   {% seo %}
   
-  <!-- Multilingual SEO -->
-  {% assign current_lang = site.active_lang | default: site.default_lang %}
-  <html lang="{{ current_lang }}">
-  
-  <!-- hreflang tags for multilingual SEO -->
-  {% if page.lang %}
-    {% for language in site.languages %}
-      {% if language == 'en' %}
-        {% assign lang_url = page.url | remove: '/pt' %}
-        {% if lang_url == '' %}{% assign lang_url = '/' %}{% endif %}
-        <link rel="alternate" hreflang="en" href="{{ site.url }}{{ lang_url }}" />
-      {% elsif language == 'pt' %}
-        {% assign lang_url = page.url %}
-        {% unless lang_url contains '/pt' %}
-          {% assign lang_url = '/pt' | append: lang_url %}
-        {% endunless %}
-        <link rel="alternate" hreflang="pt-BR" href="{{ site.url }}{{ lang_url }}" />
-      {% endif %}
-    {% endfor %}
+  <!-- Canonical URL -->
+  {% assign canonical_url = page.url | prepend: site.url %}
+  {% if site.active_lang and site.active_lang != site.default_lang %}
+    {% assign canonical_url = page.url | prepend: site.url %}
+  {% else %}
+    {% assign canonical_url = page.url | remove: '/pt' | prepend: site.url %}
+    {% if canonical_url == site.url %}
+      {% assign canonical_url = site.url | append: '/' %}
+    {% endif %}
   {% endif %}
+  <link rel="canonical" href="{{ canonical_url }}" />
+  
+  <!-- Multilingual hreflang tags -->
+  {% for language in site.languages %}
+    {% if language == 'en' %}
+      {% assign lang_url = page.url | remove: '/pt' %}
+      {% if lang_url == '' or lang_url == '/' %}
+        {% assign lang_url = '/' %}
+      {% endif %}
+      <link rel="alternate" hreflang="en" href="{{ site.url }}{{ lang_url }}" />
+    {% elsif language == 'pt' %}
+      {% assign lang_url = page.url %}
+      {% unless lang_url contains '/pt' %}
+        {% if lang_url == '/' %}
+          {% assign lang_url = '/pt/' %}
+        {% else %}
+          {% assign lang_url = '/pt' | append: lang_url %}
+        {% endif %}
+      {% endunless %}
+      <link rel="alternate" hreflang="pt-BR" href="{{ site.url }}{{ lang_url }}" />
+    {% endif %}
+  {% endfor %}
+  
+  <!-- Default hreflang -->
+  <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url | remove: '/pt' | default: '/' }}" />
 </head>

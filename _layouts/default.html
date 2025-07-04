@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en-us">
+{% assign current_lang = site.active_lang | default: site.default_lang %}
+<html lang="{{ current_lang }}">
 
   {% include head.html %}
 
