@@ -22,8 +22,8 @@ Our free plan is perfect for getting started with SinricPro.
 
 Pay based on number of devices
 
-*   **Price:** $3/year or $29.99/year
-*   **Devices:** Many
+*   **Price:** $3 for a year / per device
+*   **Devices:** Your choice
 *   **Support:** Chat, Email, Community Forum
 
 You can get to get a 10% discount when you buy 5 or more with code **GIVEME10OFF**
@@ -38,7 +38,7 @@ You can get to get a 30% discount when you buy 5 or more with code **GIVEME30OFF
 
 Create Unlimited Devices – No Limits, Full Flexibility. Fixed price of $39.99 per year
 
-*   **Price:** $39.99/year
+*   **Price:** $39.99 for a year
 *   **Devices:** Unlimited
 *   **Support:** Chat, Email, Community Forum
 
