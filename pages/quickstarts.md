@@ -5,7 +5,11 @@ lang: en
 youtubeId: H-iftzWVTXE
 youtubeId2: HEMifE1Xm7E
 ---
- 
+
+#### Portal Tutorials
+
+- ##### [Explore the SinricPro device creation wizard.]({{ site.github.url }}/pages/tutorials/general/device-creation-wizard.html)
+
 
 #### Switch Tutorials (Arduino)
 
