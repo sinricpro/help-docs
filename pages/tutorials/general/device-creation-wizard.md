@@ -41,7 +41,7 @@ The first step in creating a new device involves configuring basic information a
     - Blinds
     - Garage Door
     - Camera
-    - Custom Devices (Once you create in Device Template will appear under here)
+    - Custom Devices (Once you create a custom device in [Device Template]({{ site.github.url }}/pages/custom-templates), it will appear under here)
 
   - *Note*: Click on the link `(How to create a custom device type?)` if you want to learn about how to create a custom device type.
 
