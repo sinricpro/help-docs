@@ -1,5 +1,5 @@
 ---
-title: Local WiFI OTA Update
+title: Local WiFI OTA Update via ArduinoOTA
 layout: post
 ---
 
