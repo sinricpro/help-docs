@@ -1,25 +1,12 @@
 ---
-title: SinricPro OTA Update Tutorial for ESP32/ESP8266/RP2040
+title: OTA Updates
 weight: 4
 lang: en
 youtubeId: FxtsQuC9mn8
 ---
 
+
 This tutorial walks you through setting up **Over-The-Air (OTA) firmware updates** for your ESP32 or ESP8266 device using **SinricPro**. OTA allows you to remotely update your device’s firmware without physically connecting it to a computer — perfect for deployed IoT devices!
-
----
-
-## Table of Contents
-
-1. [What is SinricPro OTA?](#-what-is-sinricpro-ota)
-2. [Prerequisites](#-prerequisites)
-3. [Step-by-Step Setup](#-step-by-step-setup)
-4. [Understanding the Code](#-understanding-the-code)
-5. [Preparing Firmware for OTA](#-preparing-firmware-for-ota)
-6. [Triggering OTA Updates](#-triggering-ota-updates)
-7. [Debugging OTA Issues](#-debugging-ota-issues)
-8. [Best Practices](#-best-practices)
-9. [FAQ](#-faq)
 
 ---
 
@@ -37,14 +24,13 @@ SinricPro OTA (Over-The-Air) is a feature that allows your ESP device to **downl
 
 Before you begin, ensure you have:
 
-- An ESP32 or ESP8266 board
+- An ESP32, ESP8266 or RP2040 board
 - Arduino IDE (or PlatformIO) installed
 - Latest [SinricPro Library](https://github.com/sinricpro/esp8266-esp32-sdk) installed via Library Manager
 - WiFi network credentials
 - SinricPro account with:
-  - `APP_KEY` and `APP_SECRET` from [portal.sinric.pro](https://portal.sinric.pro)
-  - Device ID (`SWITCH_ID`, etc.) for your device
-
+  - `APP_KEY` and `APP_SECRET` from [portal.sinric.pro](https://portal.sinric.pro) -> Credentials
+  - Device ID (`SWITCH_ID`, etc.) for your device from [portal.sinric.pro](https://portal.sinric.pro) -> Devices
 
 💡 *Complete code: [here](https://github.com/sinricpro/esp8266-esp32-sdk/tree/master/examples/OTAUpdate)*
 
@@ -57,15 +43,14 @@ Before you begin, ensure you have:
 In Arduino IDE:
 
 - Go to **Sketch → Include Library → Manage Libraries**
-- Search and install:
-  - `SinricPro`
+- Search and install: `SinricPro`
 ---
 
 ### 2. Configure Your Sketch
 
 Copy and paste the example code below into your Arduino IDE.
 
-> **IMPORTANT**: `FIRMWARE_VERSION` is the Firmware version. You can see in the Portal -> Module. It must be define above must be above SinricPro.h
+> **IMPORTANT**: `FIRMWARE_VERSION` is the Firmware version. You can see in the Module section of Portal. **It must be define above must be above SinricPro.h**
 
 ```cpp
 // Uncomment the following line to enable serial debug output
