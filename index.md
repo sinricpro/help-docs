@@ -33,7 +33,12 @@ Welcome to **Sinric Pro** documentation.
 ## Where to go next?
 
  * To try out Sinric, check out our [Quickstart guide]({{ site.github.url }}/pages/quickstart.html)
- * The example source code is on GitHub as [sinricpro/sinric](https://github.com/sinricpro/sinric/)
+ * Example code is available on GitHub
+    - [ESP8266, ESP32, Raspberry Pi Pico W SDK](https://github.com/sinricpro/esp8266-esp32-sdk/tree/master/examples)
+    - [Micropython SDK](https://github.com/sinricpro/micropython-sinricpro-sdk/tree/main/examples)
+    - [Python SDK](https://github.com/sinricpro/python-sdk/tree/master/examples)
+    - [NodeJS SDK](https://github.com/sinricpro/nodejs-sdk/tree/master/examples)
+
  * Issues are also tracked on [GitHub](https://github.com/sinricpro/)
 
  > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

@@ -33,7 +33,7 @@ Bem-vindo à documentação do **Sinric Pro**.
 ## Para onde ir a seguir?
 
  * Para experimentar o Sinric, confira nosso [Guia de início rápido]({{ site.github.url }}/pt/pages/quickstart.html)
- * O código-fonte de exemplo está no GitHub como [sinricpro/sinric](https://github.com/sinricpro/sinric/)
+ * O código-fonte de exemplo está no GitHub como [sinricpro](https://github.com/sinricpro)
  * Issues também são rastreados no [GitHub](https://github.com/sinricpro/)
 
  > Este documento é código aberto. Viu um erro de grafia? Por favor, crie uma [issue](https://github.com/sinricpro/help-docs)
