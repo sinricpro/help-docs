@@ -81,6 +81,22 @@ Now you should be able to see the contact state via Alexa, Google Home, SmartThi
 
 ![Sinric Pro Alexa Contact Sensor]({{ site.github.url }}/public/img/sinric_pro_contact_sensor_google_home_alexa_smartthings.jpg)
  
+### Step 3 : Voice Announcements!
+
+✅ How it works:
+
+1️⃣ Add a Switch in SinricPro (your secret trigger!)
+
+2️⃣ Create an Alexa Routine that speaks your message when a "Someone is at the door!" when Switch turned on
+
+3️⃣ Send a power state event to turn ON that switch from your code
+
+```
+void triggerVoiceAnnouncement() {
+    SinricProSwitch& mySwitch = SinricPro[SWITCH_ID];
+    mySwitch.sendPowerStateEvent(true);
+}
+``` 
 
 ### Troubleshooting
 1. Please refer to our [Troubleshooting]({{ site.github.url }}/pages/troubleshooting.html) page for more details.

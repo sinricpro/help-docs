@@ -117,6 +117,23 @@ latest version of the Sinric Pro SDK (v2.9.0). Otherwise you may see compile err
  
 When you descover the devices in Alexa, Google,  Washing Machine device will show
 
+### Step 4 : Voice Announcements!
+
+✅ How it works:
+
+1️⃣ Add a Switch in SinricPro (your secret trigger!)
+
+2️⃣ Create an Alexa Routine that speaks your message when a "Washing is done!" when Switch turned on
+
+3️⃣ Send a power state event to turn ON that switch from your code
+
+```
+void triggerVoiceAnnouncement() {
+    SinricProSwitch& mySwitch = SinricPro[SWITCH_ID];
+    mySwitch.sendPowerStateEvent(true);
+}
+```
+
 {% include youtubePlayer.html id=page.youtubeId %}
 
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

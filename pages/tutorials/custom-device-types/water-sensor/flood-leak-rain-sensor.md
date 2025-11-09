@@ -163,6 +163,22 @@ Alexa, What's the water level(range name) in flood sensor(device name)
  
 ![Sinric Pro Alexa capacitive soil moisture sensor portal]({{ site.github.url }}/public/img/sinricpro-water-sensor-device-portal.png)
  
+### Step 3 : Voice Announcements!
+
+✅ How it works:
+
+1️⃣ Add a Switch in SinricPro (your secret trigger!)
+
+2️⃣ Create an Alexa Routine that speaks your message when a "Basement is flooding!" when Switch turned on
+
+3️⃣ Send a power state event to turn ON that switch from your code
+
+```
+void triggerVoiceAnnouncement() {
+    SinricProSwitch& mySwitch = SinricPro[SWITCH_ID];
+    mySwitch.sendPowerStateEvent(true);
+}
+``` 
 
 ### Troubleshooting
 1. Google Home or SmartThings are not supproted.

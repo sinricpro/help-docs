@@ -146,6 +146,22 @@ Alexa, What's the alcholol (mode name) in Gas Sensor (device name)
  
 ![Sinric Pro Portal gas sensor portal]({{ site.github.url }}/public/img/sinricpro-gas-sensor-device-portal.png)
  
+ ### Step 3 : Voice Announcements!
+
+✅ How it works:
+
+1️⃣ Add a Switch in SinricPro (your secret trigger!)
+
+2️⃣ Create an Alexa Routine that speaks your message when a "Gas sensor detects gas!" when Switch turned on
+
+3️⃣ Send a power state event to turn ON that switch from your code
+
+```
+void triggerVoiceAnnouncement() {
+    SinricProSwitch& mySwitch = SinricPro[SWITCH_ID];
+    mySwitch.sendPowerStateEvent(true);
+}
+```
 
 ### Troubleshooting
 1. Google Home or SmartThings are not supproted.
