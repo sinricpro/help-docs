@@ -6,10 +6,15 @@ youtubeId: H-iftzWVTXE
 youtubeId2: HEMifE1Xm7E
 ---
 
-#### Portal Tutorials
+#### General Tutorials
 
 - ##### [Explore the SinricPro device creation wizard.]({{ site.github.url }}/pages/tutorials/general/device-creation-wizard.html)
 
+- ##### [Sending Voice Announcements via Google Home]({{ site.github.url }}/pages/tutorials/general/how-to-send-announcements-to-google-home.html)
+
+- ##### [Making Voice Announcements via Amazon Alexa]({{ site.github.url }}/pages/tutorials/general/how-to-send-announcements-to-alexa.html)
+
+<br/>
 
 #### Switch Tutorials (Arduino)
 
