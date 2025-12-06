@@ -178,7 +178,7 @@ Here's the template with full and empty heights. You can import this in the Devi
 That's It.
 
 ### Troubleshooting
-1. Google Home or SmartThings are not supproted.
+1. Google Home or SmartThings are not Supported.
 
 2. Please refer to our [Troubleshooting]({{ site.github.url }}/pages/troubleshooting.html) page for more details.
  

@@ -89,7 +89,7 @@ This capabiliy is mapped to Alexa interface [TemperatureSensor](https://develope
 
 ### Google Home
 
-Not Supproted
+Not Supported
 
 ### Tutorials
 

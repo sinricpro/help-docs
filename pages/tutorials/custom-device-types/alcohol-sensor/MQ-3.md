@@ -164,7 +164,7 @@ void triggerVoiceAnnouncement() {
 ```
 
 ### Troubleshooting
-1. Google Home or SmartThings are not supproted.
+1. Google Home or SmartThings are not Supported.
 
 2. Please refer to our [Troubleshooting]({{ site.github.url }}/pages/troubleshooting.html) page for more details.
  

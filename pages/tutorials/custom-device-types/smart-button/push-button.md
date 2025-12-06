@@ -95,7 +95,7 @@ Paste this Template:
 ![Sinric Pro smart button in app]({{ site.github.url }}/public/img/smart-button-app.png)
 
 ### Troubleshooting
-1. Smart Buttons are only supported in SinricPro app. Alexa, Google Home or SmartThings are not supproted.
+1. Smart Buttons are only supported in SinricPro app. Alexa, Google Home or SmartThings are not Supported.
 
 2. Please refer to our [Troubleshooting]({{ site.github.url }}/pages/troubleshooting.html) page for more details.
  

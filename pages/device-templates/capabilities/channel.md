@@ -91,7 +91,7 @@ This capabiliy is mapped to Alexa interface [ChannelController](https://develope
 </div>
 
 <div id="alexa-ja-JP" class="tabcontent"> 
-    <p>Not Supproted</p>
+    <p>Not Supported</p>
 </div>
 
 <div id="alexa-pt-BR" class="tabcontent"> 
