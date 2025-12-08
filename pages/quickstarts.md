@@ -14,6 +14,8 @@ youtubeId2: HEMifE1Xm7E
 
 - ##### [Making Voice Announcements via Amazon Alexa]({{ site.github.url }}/pages/tutorials/general/how-to-send-announcements-to-alexa.html)
 
+- ##### [Espalexa or fauxmoESP "Device Not Found"? Why Emulation Fails and How to Fix It]({{ site.github.url }}/pages/tutorials/general/device-not-found-fauxmoESP-espalexa.html)
+
 <br/>
 
 #### Switch Tutorials (Arduino)
