@@ -144,8 +144,10 @@ void loop() {
 ## Why Switch?
 
   * **Reliability:** Works with **all** Alexa generations (Echo, Dot, Spot, Show, Flex).
+
   * **Features:** Supports dimming, color temperature, thermostats, blinds, and garage doors natively—things that are very hard to emulate with WeMo protocols.
-  * **Mobile App:** You get a free mobile app to control your devices when you aren't home (Espalexa only works when you are on the same WiFi).
+
+  * **Mobile App:** You get SinricPro mobile app to control your devices when you aren't home (Espalexa only works when you are on the same WiFi).
 
 **Get your secrets for Free at [SinricPro](https://portal.sinric.pro)**
 
