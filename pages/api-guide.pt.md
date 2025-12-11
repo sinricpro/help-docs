@@ -96,6 +96,28 @@ Nota: `value` é uma string. Use `JSON.stringify()`
 }
 ```
 
+#### Tipo de dispositivo personalizado com alcance ou modo
+
+*Range Solicitação*
+
+```javascript
+curl --location 'https://api.sinric.pro/api/v1/devices/{device_id}/action' \
+--header 'Authorization: Bearer {accessToken}' \
+--header 'Content-Type: application/json' \
+--data '{ "type": "request", "instanceId" : "rangeInstance1", "action": "setRangeValue", "value": "{\"rangeValue\":41}" }'
+```
+
+*Mode Solicitação*
+
+```javascript
+curl --location 'https://api.sinric.pro/api/v1/devices/{device_id}/action' \
+--header 'Authorization: Bearer {accessToken}' \
+--header 'Content-Type: application/json' \
+--data '{ "type": "request", "instanceId" : "modeInstance1", "action": "setMode", "value": "{\"mode\":\"cool\"}" }'
+```
+
+Nota: `value` é uma string. Use `JSON.stringify()`
+
 Se você preferir **uma única chamada de API** para controlar seus dispositivos, explore exemplos em [IFTTT]({{ site.github.url }}/pt/pages/ifttt.html) ou [Apple Shortcuts]({{ site.github.url }}/pt/pages/apple-shortcuts.html). Estes podem fornecer uma abordagem mais amigável para controle básico.
 
 #### Ouvindo mudanças de estado do dispositivo

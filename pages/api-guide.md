@@ -169,6 +169,27 @@ curl --location 'https://api.sinric.pro/api/v1/devices/{device_id}/action' \
 Note: `value` is a string. Use `JSON.stringify()`
 
 
+#### Custom Device Type with Range or Mode
+
+*Range Request*
+
+```javascript
+curl --location 'https://api.sinric.pro/api/v1/devices/{device_id}/action' \
+--header 'Authorization: Bearer {accessToken}' \
+--header 'Content-Type: application/json' \
+--data '{ "type": "request", "instanceId" : "rangeInstance1", "action": "setRangeValue", "value": "{\"rangeValue\":41}" }'
+```
+
+*Mode Request*
+
+```javascript
+curl --location 'https://api.sinric.pro/api/v1/devices/{device_id}/action' \
+--header 'Authorization: Bearer {accessToken}' \
+--header 'Content-Type: application/json' \
+--data '{ "type": "request", "instanceId" : "modeInstance1", "action": "setMode", "value": "{\"mode\":\"cool\"}" }'
+```
+
+Note: `value` is a string. Use `JSON.stringify()`
 
 #### Find devices in your account
 
