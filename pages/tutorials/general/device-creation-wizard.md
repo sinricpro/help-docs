@@ -142,6 +142,26 @@ Toggle this option to enable energy estimation features. Server calculates the d
 > ✅ **Recommendation**:  
 > Use manufacturer specs or a watt-meter for accurate values.
 
+
+### Restore Device State When Connect
+
+When this feature is enabled, the SinricPro server automatically sends the device’s most recent state—such as power status, brightness, custom settings, and other relevant data—immediately after the device reconnects.
+
+For example, if your device was turned **on** before it went offline, the server will send an `onPowerState` callback with the value `true` as soon as the connection is reestablished, restoring the device to its last known state.
+
+Certainly! Here's a clearer and more illustrative rewrite with concrete examples:
+
+### Custom Settings in SinricPro
+
+Custom Settings allow you to define and manage your own device or module specific configuration parameters beyond the standard capabilities provided by SinricPro.
+
+For example, you could use Custom Settings to:  
+- Enable or disable a built-in LED on or off,
+- Set minimum SSID strength to connect to a SSID,
+- Set a **temperature offset** for a thermostat,  
+-  **automatic reboot** after a firmware update,  
+- Configure a **default brightness level** for startup.
+
 ---
 
 > 🛠️ Need firmware integration help? Check our SDKs for ESP8266, ESP32, Arduino, and more at [sinric.pro](https://sinric.pro).
