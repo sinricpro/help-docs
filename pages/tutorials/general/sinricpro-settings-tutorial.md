@@ -6,6 +6,8 @@ lang: en
 
 Custom Settings is a powerful feature that allows you to define and manage configuration parameters for your devices and modules. Instead of hardcoding values in your firmware, you can create settings that can be changed remotely through the SinricPro Portal or app.
 
+**Note**: These settings are not controllable via Amazon Alexa or Google Home.
+
 ![Sinric Pro Settings]({{ site.github.url }}/public/img/sinricpro-device-settings.png)
  
 ---
