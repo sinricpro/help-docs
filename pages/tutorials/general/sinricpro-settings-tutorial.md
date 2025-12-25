@@ -1,18 +1,14 @@
-# SinricPro Settings Tutorial
+---
+title: Settings Tutorial
+layout: post
+lang: en
+---
 
 Custom Settings is a powerful feature that allows you to define and manage configuration parameters for your devices and modules. Instead of hardcoding values in your firmware, you can create settings that can be changed remotely through the SinricPro Portal or app.
 
 ![Sinric Pro Settings]({{ site.github.url }}/public/img/sinricpro-device-settings.png)
-
-## Table of Contents
-
-1. [What is the Settings Feature?](#what-is-the-settings-feature)
-2. [Setting Up Custom Settings](#setting-up-custom-settings)
-3. [Using Settings in Your Code](#using-settings-in-your-code)
-
+ 
 ---
-
-## What is the Settings Feature?
 
 The Settings feature enables you to:
 
@@ -30,8 +26,6 @@ SinricPro supports three types of settings:
 | **Number** | Numeric values with optional min/max range, precision, and units | Temperature threshold (0-100°C), Fan speed (0-100%), Timer duration (seconds) |
 | **List** | Dropdown selection from predefined options | Operating mode (Off/Low/Medium/High), Power profile (Eco/Normal/Performance) |
 | **Boolean** | Simple on/off toggle | Enable notifications, Debug mode, Night mode |
-
-### Setting Scopes
 
 Settings can be created at two levels:
 
@@ -51,6 +45,8 @@ Global settings are reusable templates that can be assigned to multiple devices.
 1. Navigate to **Devices** → **Global Device Settings** (for device settings) or **Modules** → **Global Module Settings** (for module settings)
 
 2. Click **Create New Setting**
+
+![Sinric Pro Settings]({{ site.github.url }}/public/img/sinricpro-create-settings.png)
 
 3. Fill in the **Basic Information**:
    - **Name**: A descriptive name (e.g., "Temperature Threshold")
@@ -88,9 +84,11 @@ Once you've created global settings, assign them to your devices:
 
 *Option 1:*
 
-1. Go to **Devices** and select the device you want to configure, click Edit
+1. Go to **Devices** and select the device you want to configure, click **Edit**
 
 2. Click on the **Other** tab
+
+![Sinric Pro Settings]({{ site.github.url }}/public/img/sinricpro-device-edit-settings-other.png)
 
 3. In Custom Settings, click **Setup** to open the settings assignment dialog
 
@@ -109,6 +107,8 @@ Once you've created global settings, assign them to your devices:
 *Option 2:*
 
 1. Go to **Dashboard** and select the device you want to configure, click **Settings**
+
+![Sinric Pro Settings]({{ site.github.url }}/public/img/sinricpro-device-settings-manage-settings.png)
 
 2. Click **Manage Settings** and **Select a setting**
 
@@ -315,5 +315,3 @@ The Settings feature provides a flexible way to manage device configuration:
 4. **Implement** the callback to handle setting changes
 
 This approach separates configuration from code, making your IoT devices more maintainable and user-friendly.
-
-For more information, visit the [SinricPro Documentation](https://help.sinric.pro/).

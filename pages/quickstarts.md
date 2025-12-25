@@ -16,7 +16,8 @@ youtubeId2: HEMifE1Xm7E
 
 - ##### [Espalexa or fauxmoESP "Device Not Found"? Why Emulation Fails and How to Fix It]({{ site.github.url }}/pages/tutorials/general/device-not-found-fauxmoESP-espalexa.html)
 
-- ##### [Settings Tutorial]({{ site.github.url }}/pages/tutorials/settings/sinricpro-settings-tutorial.html)
+- ##### [Settings Tutorial]({{ site.github.url }}/pages/tutorials/general/sinricpro-settings-tutorial.html)
+ 
 
 <br/>
 
