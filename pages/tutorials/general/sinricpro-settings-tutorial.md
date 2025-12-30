@@ -149,23 +149,16 @@ After assigning settings, generate the callback code for your firmware:
 
 ```cpp
 bool onSetDeviceSetting(const String& deviceId, const String& settingId, SettingValue& settingValue) {
-  if (settingId == "id_temperature_threshold") {
-    Serial.printf("Device %s: Setting %s = %.2f\r\n", deviceId.c_str(), settingId.c_str(), settingValue.asFloat());
-    // Apply your logic here
-    float threshold = settingValue.asFloat();
-    setTemperatureThreshold(threshold);
-  } else if (settingId == "id_power_mode") {
-    Serial.printf("Device %s: Setting %s = %s\r\n", deviceId.c_str(), settingId.c_str(), settingValue.asString().c_str());
-    // Handle list setting
-    String mode = settingValue.asString();
-    setPowerMode(mode);
-  } else if (settingId == "id_notifications_enabled") {
-    Serial.printf("Device %s: Setting %s = %s\r\n", deviceId.c_str(), settingId.c_str(), settingValue.asBool() ? "true" : "false");
-    // Handle boolean setting
-    bool enabled = settingValue.asBool();
-    setNotifications(enabled);
+  // Handle device settings based on value type
+  if (std::holds_alternative<int>(settingValue)) {
+    Serial.printf("Device %s: Setting %s = %d\r\n", deviceId.c_str(), settingId.c_str(), std::get<int>(settingValue));
+  } else if (std::holds_alternative<float>(settingValue)) {
+    Serial.printf("Device %s: Setting %s = %.2f\r\n", deviceId.c_str(), settingId.c_str(), std::get<float>(settingValue));
+  } else if (std::holds_alternative<bool>(settingValue)) {
+    Serial.printf("Device %s: Setting %s = %s\r\n", deviceId.c_str(), settingId.c_str(), std::get<bool>(settingValue) ? "true" : "false");
+  } else if (std::holds_alternative<String>(settingValue)) {
+    Serial.printf("Device %s: Setting %s = %s\r\n", deviceId.c_str(), settingId.c_str(), std::get<String>(settingValue).c_str());
   }
-
   return true;
 }
 
@@ -174,7 +167,7 @@ void setupSinricPro() {
 
   // Register the device setting callback
   myDevice.onSetSetting(onSetDeviceSetting);
-
+  // .. 
   SinricPro.begin(APP_KEY, APP_SECRET);
 }
 ```
@@ -182,13 +175,17 @@ void setupSinricPro() {
 #### Module Settings Callback
 
 ```cpp
-bool onSetModuleSetting(const String& settingId, SettingValue& value) {
-  if (settingId == "id_wifi_retry_count") {
-    Serial.printf("Setting %s = %d\r\n", settingId.c_str(), value.asInt());
-    int retryCount = value.asInt();
-    setWifiRetryCount(retryCount);
+bool onSetModuleSetting(const String& id, SettingValue& value) {
+  // Handle module settings based on value type
+  if (std::holds_alternative<int>(value)) {
+    Serial.printf("Module setting %s = %d\r\n", id.c_str(), std::get<int>(value));
+  } else if (std::holds_alternative<float>(value)) {
+    Serial.printf("Module setting %s = %.2f\r\n", id.c_str(), std::get<float>(value));
+  } else if (std::holds_alternative<bool>(value)) {
+    Serial.printf("Module setting %s = %s\r\n", id.c_str(), std::get<bool>(value) ? "true" : "false");
+  } else if (std::holds_alternative<String>(value)) {
+    Serial.printf("Module setting %s = %s\r\n", id.c_str(), std::get<String>(value).c_str());
   }
-
   return true;
 }
 
@@ -197,19 +194,11 @@ void setupSinricPro() {
 
   // Register module setting callback
   SinricPro.onSetSetting(onSetModuleSetting);
-
+  // ..
   SinricPro.begin(APP_KEY, APP_SECRET);
 }
 ```
 
-#### SettingValue Methods
-
-| Method | Returns | Use For |
-|--------|---------|---------|
-| `settingValue.asBool()` | `bool` | Boolean settings |
-| `settingValue.asInt()` | `int` | Number settings (precision = 0) |
-| `settingValue.asFloat()` | `float` | Number settings (precision > 0) |
-| `settingValue.asString()` | `String` | List settings |
 
 ### NodeJS SDK
 
