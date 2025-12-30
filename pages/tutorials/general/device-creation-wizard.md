@@ -89,7 +89,7 @@ What's Retrigger Time ?
 
 > It's the delay between one notification to another. It's used to stop sending continuous push notification.
 
-> ✅ **Tip**: Use these options to monitor device status and receive real-time update notifications via the SinricPro app or connected platforms.
+> **Tip**: Use these options to monitor device status and receive real-time update notifications via the SinricPro app or connected platforms.
 
 
 ## Step 3: Timers
@@ -110,9 +110,9 @@ Set up automatic on/off behaviors for your device using cloud-managed timers. Mi
   - *Default*: `3 seconds` (adjustable)
   - *Example*: Set to `10` → device turns on 10 seconds after being turned off.
 
-> ⚠️ **Note**: Timers are cloud-based — they won't work if the device is temporarily offline.
+> **Note**: Timers are cloud-based — they won't work if the device is temporarily offline.
 
-> 💡 **Use Cases**:
+> **Use Cases**:
 > - Blinking lights or strobe effects.
 > - Safety shutoff for heaters or motors.
 
@@ -136,10 +136,10 @@ Toggle this option to enable energy estimation features. Server calculates the d
   Power consumed when the device is actively running.  
   > *Example*: LED bulb = `9W`, Fan = `50W`
 
-> 💡 **Why It Matters**:  
+> **Why It Matters**:  
 > Energy data helps users estimate electricity costs via Alexa smart dashboards.
 
-> ✅ **Recommendation**:  
+> **Recommendation**:  
 > Use manufacturer specs or a watt-meter for accurate values.
 
 
@@ -147,21 +147,22 @@ Toggle this option to enable energy estimation features. Server calculates the d
 
 When this feature is enabled, the SinricPro server automatically sends the device’s most recent state—such as power status, brightness, custom settings, and other relevant data—immediately after the device reconnects.
 
-For example, if your device was turned **on** before it went offline, the server will send an `onPowerState` callback with the value `true` as soon as the connection is reestablished, restoring the device to its last known state.
-
-Certainly! Here's a clearer and more illustrative rewrite with concrete examples:
+For example, if your device was **on** when it went offline, the server will send that last known power state (`true`) to the device upon reconnection—triggering your `onPowerState` callback and automatically restoring the device to its previous state.
 
 ### Custom Settings in SinricPro
 
-Custom Settings allow you to define and manage your own device or module specific configuration parameters beyond the standard capabilities provided by SinricPro.
+Custom Settings allow you to define and manage your own device specific configuration parameters beyond the standard capabilities provided by SinricPro.
 
 For example, you could use Custom Settings to:  
 - Enable or disable a built-in LED on or off,
 - Set minimum SSID strength to connect to a SSID,
 - Set a **temperature offset** for a thermostat,  
--  **automatic reboot** after a firmware update,  
+- Flag to set **automatic reboot** after a firmware update,  
 - Configure a **default brightness level** for startup.
+
+
+[Complete Settings Tutorial]({{ site.github.url }}/pages/tutorials/general/sinricpro-settings-tutorial.html)
 
 ---
 
-> 🛠️ Need firmware integration help? Check our SDKs for ESP8266, ESP32, Arduino, and more at [sinric.pro](https://sinric.pro).
+> This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)
