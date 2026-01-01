@@ -6,11 +6,22 @@ lang: en
 
 Custom Settings is a powerful feature that allows you to define and manage configuration parameters for your devices and modules. Instead of hardcoding values in your firmware, you can create settings that can be changed remotely through the SinricPro Portal or app.
 
-**Note**: These settings are not controllable via Amazon Alexa or Google Home.
 
 ![Sinric Pro Settings]({{ site.github.url }}/public/img/sinricpro-device-settings.png)
- 
+
+### SDK Requirements
+
+To use the Settings feature, ensure you have the following SDK versions:
+
+| SDK | Minimum Version |
+|-----|-----------------|
+| **ESP8266/ESP32 SDK** | 4.0 |
+| **Node.js SDK** | 5.1.0 |
+| **Python SDK** | 5.0.1 |
+
 ---
+
+**Note**: These settings are not controllable via Amazon Alexa or Google Home.
 
 The Settings feature enables you to:
 
