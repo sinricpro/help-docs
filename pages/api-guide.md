@@ -12,37 +12,14 @@ To interact with the SinricPro API, you'll need an API key. You can create and m
 
 
 ![Sinric Pro - Create a new API key]({{ site.github.url }}/public/img/sinricpro-create-new-api-key.png)
-
-*Request*
-
-```javascript
-curl -X POST 'https://api.sinric.pro/api/v1/auth' --header 'x-sinric-api-key: a614xxxx-xxxx-xxxx-xxxx-xxxxxxxx'
-```
-
-
-*Response*
-
-```json
- {
-    "success": true,
-    "message": "OK.",
-    "accessToken": "eyJhbG.xxxxxxxxx.xxxxxxxxxxxxxxx...",
-    "refreshToken": "9i4GV2Llpsl87FoT1HvQcxaybP3xxxxxxxxxxxxxxxx..",
-    "expiresIn": 604800
-}
-```
-
-`access Token` is your access token. The access token grants authorization for future API calls. Remember, it will expire after `604800` seconds.
-
-
-### Common API usecases : 
+ 
 
 #### Get all devices
 
 *Request*
 
 ```javascript
-curl -X GET 'https://api.sinric.pro/api/v1/devices' --header 'Authorization: Bearer {accessToken}'
+curl -H "X-SINRIC-API-KEY: {YOUR-API-KEY-HERE}" https://api.sinric.pro/api/v1/devices
 ```
 
 
@@ -51,11 +28,10 @@ curl -X GET 'https://api.sinric.pro/api/v1/devices' --header 'Authorization: Bea
 ```json
 {
    "success":true,
-   "devices":[
-      {
-         "name":"TV"
-      }
-   ]
+   "devices":[{
+      "name":"TV",
+      ....
+   }]
 }
 ```
 
@@ -65,7 +41,7 @@ curl -X GET 'https://api.sinric.pro/api/v1/devices' --header 'Authorization: Bea
 *Request*
 
 ```javascript
-curl -X GET 'https://api.sinric.pro/api/v1/devices/{device_id}' --header 'Authorization: Bearer {accessToken}'
+curl -H "X-SINRIC-API-KEY: {YOUR-API-KEY-HERE}" https://api.sinric.pro/api/v1/devices/{device_id}
 ```
 
 
@@ -75,8 +51,9 @@ curl -X GET 'https://api.sinric.pro/api/v1/devices/{device_id}' --header 'Author
 {
    "success":true,
    "device":{
-         "name":"TV"
-    }
+      "name":"TV",
+      ....
+   }
 }
 ```
 
@@ -87,7 +64,7 @@ curl -X GET 'https://api.sinric.pro/api/v1/devices/{device_id}' --header 'Author
 
 ```javascript
 curl --location 'https://api.sinric.pro/api/v1/devices/{device_id}/action' \
---header 'Authorization: Bearer {accessToken}' \
+--header 'X-SINRIC-API-KEY: {YOUR-API-KEY-HERE}' \
 --header 'Content-Type: application/json' \
 --data '{ "type": "request", "action": "setPowerState", "value": "{\"state\":\"On\"}" }'
 ```
@@ -102,16 +79,14 @@ Note: `value` is a string. Use `JSON.stringify()`
     "message": "OK. Your message has been queued for processing."
 }
 ```
-
-If you prefer a **single API call** to control your devices, explore examples in [IFTTT]({{ site.github.url }}/pages/ifttt.html) or [Apple Shortcuts]({{ site.github.url }}/pages/apple-shortcuts.html). These might provide a more user-friendly approach for basic control.
-
+ 
 
 #### Listening to device state changes
 
 SinricPro prioritizes speed and avoids blocking. All command requests are queued and handled asynchronously, meaning the response might not be immediate. To receive confirmation or continuously monitor device status, subscribe to updates through our SSE (Server-Sent Events) endpoint.
 
 ```javascript
-curl -N --http2 -H "Accept:text/event-stream" https://portal.sinric.pro/sse/stream?accessToken={accessToken}
+curl -N --http2 -H "Accept:text/event-stream" -H "X-SINRIC-API-KEY: {YOUR-API-KEY-HERE}" https://sse.sinric.pro/sse/stream
 ```
 
 
@@ -135,7 +110,7 @@ curl -N --http2 -H "Accept:text/event-stream" https://portal.sinric.pro/sse/stre
 
 ```javascript
 curl --location 'https://api.sinric.pro/api/v1/devices/{device_id}/action' \
---header 'Authorization: Bearer {accessToken}' \
+--header 'X-SINRIC-API-KEY: {YOUR-API-KEY-HERE}' \
 --header 'Content-Type: application/json' \
 --data '{ "type": "request", "action": "setMode", "value": "{\"mode\":\"Open\"}" }'
 ```
@@ -148,7 +123,7 @@ Note: `value` is a string. Use `JSON.stringify()`
 
 ```javascript
 curl --location 'https://api.sinric.pro/api/v1/devices/{device_id}/action' \
---header 'Authorization: Bearer {accessToken}' \
+--header 'X-SINRIC-API-KEY: {YOUR-API-KEY-HERE}' \
 --header 'Content-Type: application/json' \
 --data '{ "type": "request", "action": "setRangeValue", "value": "{\"rangeValue\": 100}" }'
 ```
@@ -161,7 +136,7 @@ Note: `value` is a string. Use `JSON.stringify()`
 
 ```javascript
 curl --location 'https://api.sinric.pro/api/v1/devices/{device_id}/action' \
---header 'Authorization: Bearer {accessToken}' \
+--header 'X-SINRIC-API-KEY: {YOUR-API-KEY-HERE}' \
 --header 'Content-Type: application/json' \
 --data '{ "type": "request", "action": "DoorbellPress", "value": "{\"state\": \"pressed\"}" }'
 ```
@@ -171,11 +146,13 @@ Note: `value` is a string. Use `JSON.stringify()`
 
 #### Custom Device Type with Range or Mode
 
+Note: capabilities like **Range** or **Mode** requires additional `instanceId` parameter
+
 *Range Request*
 
 ```javascript
 curl --location 'https://api.sinric.pro/api/v1/devices/{device_id}/action' \
---header 'Authorization: Bearer {accessToken}' \
+--header 'X-SINRIC-API-KEY: {YOUR-API-KEY-HERE}' \
 --header 'Content-Type: application/json' \
 --data '{ "type": "request", "instanceId" : "rangeInstance1", "action": "setRangeValue", "value": "{\"rangeValue\":41}" }'
 ```
@@ -184,7 +161,7 @@ curl --location 'https://api.sinric.pro/api/v1/devices/{device_id}/action' \
 
 ```javascript
 curl --location 'https://api.sinric.pro/api/v1/devices/{device_id}/action' \
---header 'Authorization: Bearer {accessToken}' \
+--header 'X-SINRIC-API-KEY: {YOUR-API-KEY-HERE}' \
 --header 'Content-Type: application/json' \
 --data '{ "type": "request", "instanceId" : "modeInstance1", "action": "setMode", "value": "{\"mode\":\"cool\"}" }'
 ```
@@ -197,9 +174,9 @@ Note: `value` is a string. Use `JSON.stringify()`
 
 ```javascript
 curl --location 'https://api.sinric.pro/api/v1/devicess/find' \
---header 'Authorization: Bearer {accessToken}' \
+--header 'X-SINRIC-API-KEY: {YOUR-API-KEY-HERE}' \
 --header 'Content-Type: application/json' \
---data '{ "name" : "TV", "description" : "....." }'
+--data '{ "name" : "TV" }'
 ```
  
 *Response*

@@ -183,6 +183,17 @@ void setupSinricPro() {
 }
 ```
 
+#### Device Settings Event
+
+```cpp
+void sendLedState() {
+  SinricProSwitch& mySwitch = SinricPro[SWITCH_ID];
+  Serial.printf("Sending device setting 'id_led' = %s\r\n", ledState ? "true" : "false");
+  mySwitch.sendSettingEvent('id_led', ledState);
+}
+```
+
+
 #### Module Settings Callback
 
 ```cpp
@@ -209,6 +220,15 @@ void setupSinricPro() {
   SinricPro.begin(APP_KEY, APP_SECRET);
 }
 ```
+
+#### Module Settings Event
+
+```cpp
+  int rssi = WiFi.RSSI();
+  Serial.printf("Sending module setting 'id_wifi_rssi' = %d\r\n", rssi);
+  SinricPro.sendSettingEvent('id_wifi_rssi', rssi);
+```
+
 
 
 ### NodeJS SDK
