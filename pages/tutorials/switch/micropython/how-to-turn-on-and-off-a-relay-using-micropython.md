@@ -1,5 +1,5 @@
 ---
-title: How to turn on and off a relay using MicroPython and ESP32
+title: How to Control a Relay (Turn On/Off) Using MicroPython on an ESP32 with Pymakr
 layout: post
 ---
 

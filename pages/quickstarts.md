@@ -33,7 +33,9 @@ youtubeId2: HEMifE1Xm7E
 
 #### Switch Tutorials (MicroPython)
 
-- ##### [How to turn on and off a Relay using ESP32]({{ site.github.url }}/pages/tutorials/switch/micropython/how-to-turn-on-and-off-a-relay-using-micropython.html)
+- ##### [How to Control a Relay (Turn On/Off) Using MicroPython on an ESP32 with Pymakr]({{ site.github.url }}/pages/tutorials/switch/micropython/how-to-turn-on-and-off-a-relay-using-micropython.html)
+
+- ##### [How to Control a Relay (Turn On/Off) Using MicroPython on an Raspberry Pi Pico W with Thonny]({{ site.github.url }}/pages/tutorials/switch/micropython/how-to-turn-on-and-off-a-relay-using-micropython-raspberry-pi-picow-with-thonny.html)
 
 <br/>
 
