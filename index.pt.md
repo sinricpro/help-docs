@@ -11,7 +11,7 @@ Bem-vindo à documentação do **Sinric Pro**.
  - Tutoriais [aqui]({{ site.github.url }}/pt/pages/quickstarts.html) 
 
 **API**
- - Guia da API [aqui](https://help.sinric.pro/pt/pages/tutorials/api-guide)
+ - Guia da API [aqui](https://help.sinric.pro/pt/pages/api-guide)
  - Documentação completa da API está disponível [aqui](https://apidocs.sinric.pro/)
 
 **SDKs**
