@@ -16,6 +16,8 @@ Welcome to **Sinric Pro** documentation.
 
 **SDKs**
  - [x]  [ESP8266, ESP32, Raspberry Pi Pico W SDK ](https://github.com/sinricpro/esp8266-esp32-sdk) *(Official)*
+ - [x]  [Raspberry Pi Pico SDK](https://github.com/sinricpro/pico-sdk/) *(Official)*
+ - [x]  [ESP-IDF SDK](https://github.com/sinricpro/esp-idf) *(Official)*
  - [x]  [Arduino UNO R4 WiFi, Nano 33 IoT, MKR WIFI 1010, Seeedstudio Wio Terminal](https://github.com/sinricpro/arduino-variants-sdk) *(Official)*
  - [x]  [Micropython SDK](https://github.com/sinricpro/micropython-sinricpro-sdk) *(Official)*
  - [x]  [Python SDK](https://github.com/sinricpro/python-sdk) *(Official)*
