@@ -85,6 +85,8 @@ youtubeId2: HEMifE1Xm7E
 
 #### Camera Tutorials
 - #### [RaspberryPI Camera (WebRTC) for Alexa, Google Home]({{ site.github.url }}/pages/tutorials/camera/raspberrypi-webrtc-alexa-googlehome-camera.html)  
+- #### [ESP32 Camera (WebRTC): Live View in the Sinric Pro App and Portal]({{ site.github.url }}/pages/tutorials/camera/esp32-webrtc-camera.html)  
+- #### [ESP32-S3 Camera (H.264) for Alexa, Google Home]({{ site.github.url }}/pages/tutorials/camera/esp32-h264-alexa-googlehome-camera.html)  
 
 <br/>
 
