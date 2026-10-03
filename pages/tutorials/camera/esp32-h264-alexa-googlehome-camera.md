@@ -115,6 +115,16 @@ camera.enableWebRTCVideo(WEBRTC_H264);
 
 You should see `WebRTC offer ...` and `WebRTC answer sent` in the Serial Monitor as the display connects.
 
+The camera also opens in the Alexa app and the Google Home app on your phone.
+
+Alexa app:
+
+![Sinric Pro ESP32-S3 H.264 camera live in the Alexa app]({{ site.github.url }}/public/img/sinricpro_esp32_h264_alexa_app_camera.jpg)
+
+Google Home app:
+
+![Sinric Pro ESP32-S3 H.264 camera live in the Google Home app]({{ site.github.url }}/public/img/sinricpro_esp32_h264_google_home_app_camera.jpg)
+
 ### Limitations
 
 - **ESP32-S3 only.** There is no software H.264 encoder for the classic ESP32.
