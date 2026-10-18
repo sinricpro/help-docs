@@ -1,5 +1,5 @@
 ---
-title: MCP Server
+title: "MCP Server & Skill"
 weight: 5
 lang: en
 ---
