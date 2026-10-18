@@ -10,6 +10,10 @@ gem 'jekyll-seo-tag', '~> 2.8'
 gem 'jekyll-sitemap', '~> 1.4'
 gem 'jekyll-polyglot', '~> 1.8'
 
+# Ruby 3.4 (Cloudflare Pages' build image) no longer ships these as default gems, but Jekyll 4.3 requires them.
+gem "csv"
+gem "base64"
+
 # Development dependencies
 gem "yaml-lint", "~> 0.0.9"
 gem "terminal-table", "~> 1.4"
