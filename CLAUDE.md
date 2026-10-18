@@ -164,3 +164,8 @@ This site supports multiple languages using Jekyll Polyglot:
 - Located in sidebar navigation
 - Switches between equivalent pages in both languages
 - Preserves URL structure with language prefix
+
+## Gotchas & Pitfalls
+- Cloudflare Pages builds with the image's Ruby (3.4.4 as of 2026-10), which has its own Jekyll 4.4.1 preinstalled. The build command must be `bundle exec jekyll build` (set in the Cloudflare dashboard, not the repo). Plain `jekyll build` loads the image's gems and fails with `You have already activated unicode-display_width ...`.
+- Ruby 3.4 removed `csv` and `base64` from the default gems. Jekyll 4.3 needs them, so they're in the `Gemfile`. If a Ruby upgrade causes `cannot load such file -- <gem>`, add that gem to the `Gemfile` too.
+- `Gemfile.lock` is gitignored, so every Cloudflare build resolves gem versions from scratch. A build can therefore break with no repo change. Local Ruby (3.2) doesn't match Cloudflare's, so reproduce in a container: `docker run ruby:3.4.4`, with `BUNDLE_WITHOUT="development test" bundle install && bundle exec jekyll build`.
