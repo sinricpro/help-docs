@@ -8,6 +8,8 @@ The **SinricPro Docs MCP Server** lets AI coding assistants read the official Si
 
 It speaks the [Model Context Protocol](https://modelcontextprotocol.io) (MCP) over **Streamable HTTP**. There is nothing to install and no API key required — just point your client at the endpoint below.
 
+> **Want your AI agent to control your devices instead?** The MCP server only reads documentation. To turn devices on and off, run scenes, or manage schedules from an agent, use the [SinricPro agent skill](#agent-skill-control-your-smart-home).
+
 ### Endpoint
 
 ```
@@ -139,3 +141,47 @@ Once connected, ask your assistant things like:
 - *"Search the SinricPro docs for the doorbell setup."*
 
 Your assistant will pull the answer straight from the official documentation.
+
+---
+
+## Agent skill: control your smart home
+
+The [SinricPro agent skill](https://github.com/sinricpro/sinricpro-agent-skills) (`sinricpro-smart-home`) lets an AI agent control your SinricPro account. It works with [OpenClaw](https://openclaw.ai), Claude Code, and other agents that load `SKILL.md` skills.
+
+| | Docs MCP server | Agent skill |
+|---|---|---|
+| Purpose | Help you write SinricPro code | Control your devices |
+| Talks to | Public documentation | Your account, via `api.sinric.pro` |
+| Needs | Nothing | Node.js 18+ and an API key |
+
+You can ask your agent things like:
+
+- *"Turn on the living room light."*
+- *"Set the bedroom AC to 24 degrees."*
+- *"Which devices are offline?"*
+- *"Run the movie night scene."*
+- *"Turn the porch light on at 6:30 pm on weekdays."*
+
+The skill does not handle camera live view or snapshots, adding or removing devices, editing automations, or account settings.
+
+### Set it up
+
+1. Create an API key at [portal.sinric.pro/credential/new/apikey](https://portal.sinric.pro/credential/new/apikey). The key gives full access to your account, so keep it private, and delete it in the portal if it leaks.
+2. Clone the repository and copy the `sinricpro-smart-home` folder into your agent's skills directory:
+
+   ```bash
+   git clone https://github.com/sinricpro/sinricpro-agent-skills.git
+   ```
+
+   | Agent | Skills directory |
+   |---|---|
+   | OpenClaw | `~/.openclaw/skills/` or `<workspace>/skills/` |
+   | Claude Code | `~/.claude/skills/` or `<project>/.claude/skills/` |
+
+3. Set `SINRICPRO_API_KEY` in the environment your agent runs in. In OpenClaw, enter it in the skill's configuration.
+
+### Locks and garage doors
+
+By default, the skill can lock doors and close garage doors, but it refuses to unlock or open them, including inside scenes. This is because an agent can misread a request. To allow unlocking and opening, set `SINRICPRO_ALLOW_UNLOCK=1`. The agent is told to ask you before each unlock or open, but that environment variable is the only real safeguard. Enable it only if you accept the risk.
+
+See the [repository README](https://github.com/sinricpro/sinricpro-agent-skills#readme) for the CLI and all configuration options.
