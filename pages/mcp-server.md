@@ -8,7 +8,7 @@ The **SinricPro Docs MCP Server** lets AI coding assistants read the official Si
 
 It speaks the [Model Context Protocol](https://modelcontextprotocol.io) (MCP) over **Streamable HTTP**. There is nothing to install and no API key required — just point your client at the endpoint below.
 
-> **Want your AI agent to control your devices instead?** The MCP server only reads documentation. To turn devices on and off, run scenes, or manage schedules from an agent, use the [SinricPro agent skill](#agent-skill-control-your-smart-home).
+> **Want your assistant to set up devices too?** Connect to the [account endpoint](#manage-devices-account-endpoint) with your API key and it can also create, rename and delete devices in your account. To turn devices on and off, run scenes, or manage schedules, use the [SinricPro agent skill](#agent-skill-control-your-smart-home).
 
 ### Endpoint
 
@@ -32,7 +32,7 @@ Once connected, your AI assistant gains these tools:
 | `get_pages` | Fetch full doc pages by path |
 | `submit_docs_feedback` | Send feedback about a docs page to the maintainers |
 
-SDKs covered: **ESP8266/ESP32 (Arduino C++)**, **ESP-IDF**, **Raspberry Pi Pico**, **Python**, **Node.js / TypeScript**, and **MicroPython**.
+SDKs covered: **ESP8266/ESP32 (Arduino C++)**, **ESP-IDF**, **Raspberry Pi Pico**, **Python**, **Node.js / TypeScript**, and **MicroPython**. The guides on this site (voice commands, device templates, tutorials, OTA and troubleshooting) are included too.
 
 ---
 
@@ -138,9 +138,66 @@ Once connected, ask your assistant things like:
 - *"Using the SinricPro docs MCP, show me a Python switch example."*
 - *"How do I refresh an access token with the SinricPro API?"*
 - *"Which devices does the ESP-IDF SDK support?"*
-- *"Search the SinricPro docs for the doorbell setup."*
+- *"What can I say to Alexa to dim a light?"*
 
 Your assistant will pull the answer straight from the official documentation.
+
+---
+
+## Manage devices (account endpoint)
+
+The account endpoint offers every docs tool above, plus tools that work on **your own SinricPro account**. Your assistant can create a device and then write a ready-to-flash sketch for it, in one conversation.
+
+```
+https://docs.sinric.pro/mcp/account
+```
+
+It needs your API key, sent as `Authorization: Bearer <your API key>`. Create one at [portal.sinric.pro/credential/new/apikey](https://portal.sinric.pro/credential/new/apikey). The key gives full access to your account, so keep it private, and delete it in the portal if it leaks.
+
+| Tool | What it does |
+|---|---|
+| `list_devices` | Your devices, with their type, room and online state |
+| `list_rooms` | Your rooms |
+| `list_device_types` | The device types you can create |
+| `create_device` | Creates a device from a name, type and room. It can also return the `APP_KEY` and `APP_SECRET` your sketch needs |
+| `update_device` | Renames a device, moves it to another room, or changes its description |
+| `delete_device` | Deletes a device permanently |
+
+Your assistant is told to check with you before creating, changing or deleting anything. Deleting only works with a device's exact name or id, so a similar name can't delete the wrong device. Each new device uses one of your device licenses, the same as creating it in the portal.
+
+**Claude Code:**
+
+```bash
+claude mcp add --transport http sinricpro https://docs.sinric.pro/mcp/account \
+  --header "Authorization: Bearer $SINRICPRO_API_KEY"
+```
+
+**Cursor** (`~/.cursor/mcp.json`):
+
+```json
+{
+  "mcpServers": {
+    "sinricpro": {
+      "url": "https://docs.sinric.pro/mcp/account",
+      "headers": { "Authorization": "Bearer <your API key>" }
+    }
+  }
+}
+```
+
+**OpenAI Codex** (`~/.codex/config.toml`), with the key in the `SINRICPRO_API_KEY` environment variable:
+
+```toml
+[mcp_servers.sinricpro]
+url = "https://docs.sinric.pro/mcp/account"
+bearer_token_env_var = "SINRICPRO_API_KEY"
+```
+
+Then try:
+
+- *"Create a switch called Kitchen Light in the Living Room and give me an ESP32 sketch for it."*
+- *"Rename Kitchen Light to Pantry Light."*
+- *"Which of my devices are offline?"*
 
 ---
 
@@ -148,11 +205,11 @@ Your assistant will pull the answer straight from the official documentation.
 
 The [SinricPro agent skill](https://github.com/sinricpro/sinricpro-agent-skills) (`sinricpro-smart-home`) lets an AI agent control your SinricPro account. It works with [OpenClaw](https://openclaw.ai), Claude Code, and other agents that load `SKILL.md` skills.
 
-| | Docs MCP server | Agent skill |
-|---|---|---|
-| Purpose | Help you write SinricPro code | Control your devices |
-| Talks to | Public documentation | Your account, via `api.sinric.pro` |
-| Needs | Nothing | Node.js 18+ and an API key |
+| | Docs MCP server | Account endpoint | Agent skill |
+|---|---|---|---|
+| Purpose | Help you write SinricPro code | Set up devices and write their code | Control your devices |
+| Talks to | Public documentation | Docs, and your account via `api.sinric.pro` | Your account, via `api.sinric.pro` |
+| Needs | Nothing | An API key | Node.js 18+ and an API key |
 
 You can ask your agent things like:
 
@@ -162,7 +219,7 @@ You can ask your agent things like:
 - *"Run the movie night scene."*
 - *"Turn the porch light on at 6:30 pm on weekdays."*
 
-The skill does not handle camera live view or snapshots, adding or removing devices, editing automations, or account settings.
+The skill does not handle camera live view or snapshots, adding or removing devices (use the [account endpoint](#manage-devices-account-endpoint)), editing automations, or account settings.
 
 ### Set it up
 
