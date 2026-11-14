@@ -1,6 +1,7 @@
 ---
 title: ESP32-S3 H.264 Camera for Alexa, Google Home
 layout: post
+description: Stream live H.264 video from an ESP32-S3 camera to Alexa Echo Show, Google Nest displays, Chromecast and the Sinric Pro app.
 ---
 
 In this section, we will show you how to stream live video from an **ESP32-S3** camera to
@@ -143,5 +144,11 @@ Google Home app:
 - You can validate the Google payload with the [Google WebRTC validator](https://smarthome-webrtc-validator.withgoogle.com/).
 
 Please refer to our [Troubleshooting]({{ site.github.url }}/pages/troubleshooting.html) page for possible solutions to your issue.
+
+### Related tutorials
+
+- [How to control an ESP32 or ESP8266 with Alexa and Google Home]({{ site.github.url }}/pages/tutorials/general/esp32-esp8266-alexa-google-home.html)
+- [ESP32 WebRTC camera]({{ site.github.url }}/pages/tutorials/camera/esp32-webrtc-camera.html)
+- [Raspberry Pi WebRTC camera]({{ site.github.url }}/pages/tutorials/camera/raspberrypi-webrtc-alexa-googlehome-camera.html)
 
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

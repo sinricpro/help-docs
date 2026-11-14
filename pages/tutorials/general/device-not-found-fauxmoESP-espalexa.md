@@ -2,6 +2,7 @@
 title: Espalexa or fauxmoESP "Device Not Found"? Why Emulation Fails and How to Fix It
 layout: post
 lang: en
+description: 'Alexa says "No new devices found" with Espalexa or fauxmoESP? Why Hue and WeMo emulation fails on ESP32 and ESP8266, and how to fix it.'
 ---
 
 If you are reading this, you are likely staring at a Serial Monitor trying to figure out why Alexa says "No new devices found" or "Device is unresponsive."

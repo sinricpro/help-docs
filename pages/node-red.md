@@ -3,6 +3,7 @@ title: Node-RED
 weight: 4
 lang: en
 youtubeId: YYjxLY7zioo
+description: Receive Alexa, Google Home and SmartThings commands in Node-RED with the Sinric Pro Node-RED plugin. Installation and example flow.
 ---
 
 With our Node-RED plugin, now you can receive commands from Amazon Alexa, Google Home or SmartThings in Node-RED.

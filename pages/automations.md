@@ -2,6 +2,7 @@
 title: Automations
 weight: 4
 lang: en
+description: Create Sinric Pro automations with drag and drop. Trigger devices by time, sunrise or sunset, delays and device events, and send push notifications.
 ---
 
 ### Introduction to SinricPro Automations

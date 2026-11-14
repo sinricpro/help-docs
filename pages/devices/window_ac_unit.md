@@ -6,6 +6,7 @@ published: false
 categories: 
     - "devices"
     - "windowacunit"
+description: How to create a Window AC Unit device in Sinric Pro and connect an ESP32 or ESP8266. Control temperature, mode and fan speed with Alexa and Google Home.
 ---
 
 Window AC Unit is a portable heating and/or air conditioning unit.

@@ -3,6 +3,7 @@ title: Device Templates
 weight: 2
 lang: en
 youtubeId: QJVbSPSztwY
+description: Build your own device type in Sinric Pro with device templates. Drag and drop capabilities and generate the code for ESP32 and ESP8266.
 ---
 
 ### Introduction 

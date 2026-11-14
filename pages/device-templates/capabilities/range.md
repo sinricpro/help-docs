@@ -1,6 +1,7 @@
 ---
 title: Range Capability
 layout: post
+description: Range capability for Sinric Pro device templates. Control a numeric setting within a minimum and maximum, such as fan speed. Includes Alexa, Google Home and SDK examples.
 ---
 
 The Range capability in SinricPro device templates allows you to control a setting of your device that can be represented by numbers within a minimum and maximum range. eg: speed setting on a fan.

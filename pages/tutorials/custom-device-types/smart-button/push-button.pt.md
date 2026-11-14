@@ -2,6 +2,7 @@
 title: Manuseando Botão Inteligente Sinric Pro
 layout: post
 lang: pt
+description: Adicione um botão ao app Sinric Pro que dispara uma ação no seu ESP32, ESP8266 ou Raspberry Pi Pico W.
 ---
 
 Quer controlar seus projetos DIY com apenas um toque no seu telefone? O recurso Smart Button do Sinric Pro é a solução perfeita. Crie botões push no aplicativo que podem acionar qualquer ação no seu microcontrolador – desde ligar LEDs até controlar motores ou sensores.
@@ -89,7 +90,137 @@ Cole este Template:
 
 #### 2.2 Código Completo
 
-<script src="https://gist.github.com/kakopappa/5de59e34522c7ea21e3eef72c2e2bcd7.js"></script>
+
+**SmartButton.h**
+
+```cpp
+#ifndef _SMARTBUTTON_H_
+#define _SMARTBUTTON_H_
+
+#include <SinricProDevice.h>
+#include <Capabilities/SmartButtonStateController.h>
+
+class SmartButton 
+: public SinricProDevice
+, public SmartButtonStateController<SmartButton> {
+  friend class SmartButtonStateController<SmartButton>;
+public:
+  SmartButton(const String &deviceId) : SinricProDevice(deviceId, "SmartButton") {};
+};
+
+#endif
+```
+
+**SmartButton.ino**
+
+```cpp
+// Uncomment the following line to enable serial debug output
+//#define ENABLE_DEBUG
+
+#ifdef ENABLE_DEBUG
+  #define DEBUG_ESP_PORT Serial
+  #define NODEBUG_WEBSOCKETS
+  #define NDEBUG
+#endif
+
+#include <Arduino.h>
+#ifdef ESP8266
+  #include <ESP8266WiFi.h>
+#endif
+#ifdef ESP32
+  #include <WiFi.h>
+#endif
+
+#include <SinricPro.h>
+#include "SmartButton.h"
+
+#define APP_KEY    "APP_KEY"
+#define APP_SECRET "APP_SECRET"
+#define DEVICE_ID  "DEVICE_ID"
+
+#define SSID       "YOUR_WIFI_SSID"
+#define PASS       "YOUR_WIFI_PASS"
+
+#define BAUD_RATE  115200
+
+SmartButton &smartButton = SinricPro[DEVICE_ID];
+
+
+/*************
+ * Callbacks *
+ *************/
+
+// SmartButtonStateController
+bool onSinglePress(const String &deviceId) {
+  // Triggers when you press the "SmartButton" on the app
+  
+  return true; // request handled properly
+}
+
+bool onDoublePress(const String &deviceId) {
+  // Triggers when you double press the "SmartButton" on the app
+  
+  return true; // request handled properly
+}
+
+bool onLongPress(const String &deviceId) {
+  // Triggers when you long press the "SmartButton" on the app
+  
+  return true; // request handled properly
+}
+
+
+/********* 
+ * Setup *
+ *********/
+
+void setupSinricPro() {
+
+// SmartButtonStateController
+ smartButton.onSinglePress(onSinglePress);
+ smartButton.onDoublePress(onDoublePress);
+ smartButton.onLongPress(onLongPress);
+
+  SinricPro.onConnected([]{ Serial.printf("[SinricPro]: Connected\r\n"); });
+  SinricPro.onDisconnected([]{ Serial.printf("[SinricPro]: Disconnected\r\n"); });
+  SinricPro.begin(APP_KEY, APP_SECRET);
+};
+
+void setupWiFi() {
+  #if defined(ESP8266)
+    WiFi.setSleepMode(WIFI_NONE_SLEEP); 
+    WiFi.setAutoReconnect(true);
+  #elif defined(ESP32)
+    WiFi.setSleep(false); 
+    WiFi.setAutoReconnect(true);
+  #endif
+
+  WiFi.begin(SSID, PASS);
+  Serial.printf("[WiFi]: Connecting to %s", SSID);
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.printf(".");
+    delay(250);
+  }
+  Serial.printf("connected\r\n");
+}
+
+void setup() {
+  Serial.begin(BAUD_RATE);
+  setupWiFi();
+  setupSinricPro();
+}
+
+/********
+ * Loop *
+ ********/
+
+void loop() {
+  SinricPro.handle();
+}
+```
+
+[View this code on GitHub Gist](https://gist.github.com/kakopappa/5de59e34522c7ea21e3eef72c2e2bcd7)
+
 
 ![Sinric Pro smart button in portal]({{ site.github.url }}/public/img/smart-button-portal-dashboard.png)
 

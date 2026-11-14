@@ -2,6 +2,7 @@
 title: Tutorial do Wally
 layout: post
 lang: pt
+description: Tutorial do Sinric Pro for Business. Crie um interruptor inteligente Wi-Fi de 2 canais (Wally) com ESP32, da definição do produto ao provisionamento.
 ---
 
 Nesta seção vamos criar um produto que gostaríamos de vender no futuro chamado **Wally**. É um Módulo Interruptor Inteligente Wi-Fi Wireless Mini de 2 Gang 1/2 Way.

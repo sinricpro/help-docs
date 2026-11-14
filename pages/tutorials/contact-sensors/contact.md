@@ -1,6 +1,7 @@
 ---
 title: Contact Sensor (MC-38) Tutorial for ESP8266, ESP32, Raspberry Pi Pico W
 layout: post
+description: Build a door and window contact sensor with an MC-38 reed switch and an ESP32, ESP8266 or Raspberry Pi Pico W. See the open/close state in Alexa.
 ---
  
 In this section, we will show you how to create a contact sensor (also known as a door sensor, entry sensor, or window sensor) using an **ESP32**, **ESP8266** or **Raspberry Pi Pico W**, and then view the open/close state in Alexa, Google Home, SmartThings, or the Sinric Pro app.
@@ -38,7 +39,42 @@ Note: We are using INPUT_PULLUP instead of connecting a 10kΩ resistor between t
 Let's verify that contact sensor is wired correctly and working. 
 
  
-<script src="https://gist.github.com/kakopappa/ce5b95c7618826005ef39bb1861cb6f1.js"></script>
+
+```cpp
+#if defined(ESP8266)
+  #define SENSOR_PIN        D2
+#elif defined(ESP32) 
+  #define SENSOR_PIN        26
+#elif (ARDUINO_ARCH_RP2040)
+  #define SENSOR_PIN        5
+#endif
+
+int newState;
+int oldState;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(SENSOR_PIN, INPUT_PULLUP);
+
+  oldState = digitalRead(SENSOR_PIN); // read the starting state
+}
+
+void loop() {
+  newState = digitalRead(SENSOR_PIN); // read current state
+
+  if(oldState != newState) {
+    if (newState == HIGH) {
+      Serial.println("Sliding window is open");
+    } else {
+      Serial.println("Sliding window is closed");
+    }
+    oldState = newState;
+  }  
+}
+```
+
+[View this code on GitHub Gist](https://gist.github.com/kakopappa/ce5b95c7618826005ef39bb1861cb6f1)
+
 
 <video width="640" height="480" controls>
   <source src="{{ site.github.url }}/public/video/sinricpro-contact-sensor-open-close.mp4" type="video/mp4">
@@ -53,7 +89,7 @@ Let's verify that contact sensor is wired correctly and working.
 
 * Click **Next** the in the Notifications tab
 
-![Sinric Pro temperature sensor device notifications]({{ site.github.url }}/public/img/sinric_pro_contact_sensor_notifications.png)
+![Sinric Pro contact sensor device notifications]({{ site.github.url }}/public/img/sinric_pro_contact_sensor_notifications.png)
 
 You can enable toggles for Open, Close here to receive a push notification via the Sinric Pro app when the contact sensor state change between **Open** or **Close**.
 
@@ -75,7 +111,83 @@ You can **generate the code** using **Zero Code** feature or write it by your se
 
 #### 2.2 Complete Code
 
-<script src="https://gist.github.com/kakopappa/2a027cb56a1f7762454d492d9e928b83.js"></script>
+
+```cpp
+#ifdef ENABLE_DEBUG
+  #define DEBUG_ESP_PORT Serial
+  #define NODEBUG_WEBSOCKETS
+  #define NDEBUG
+#endif 
+
+#include <Arduino.h>
+#if defined(ESP8266)
+  #include <ESP8266WiFi.h>
+#elif defined(ESP32) || defined(ARDUINO_ARCH_RP2040)
+  #include <WiFi.h>
+#endif
+
+#if defined(ESP8266)
+  #define SENSOR_PIN        D2
+#elif defined(ESP32) 
+  #define SENSOR_PIN        26
+#elif (ARDUINO_ARCH_RP2040)
+  #define SENSOR_PIN        5
+#endif
+
+#include "SinricPro.h"
+#include "SinricProContactsensor.h"
+
+#define WIFI_SSID         ""   // Your WiFI SSID name 
+#define WIFI_PASS         ""   // Your WiFi Password.
+#define APP_KEY           ""   // Should look like "de0bxxxx-1x3x-4x3x-ax2x-5dabxxxxxxxx" (Get it from Portal -> Secrets)
+#define APP_SECRET        ""   // Should look like "5f36xxxx-x3x7-4x3x-xexe-e86724a9xxxx-4c4axxxx-3x3x-x5xe-x9x3-333d65xxxxxx" (Get it from Portal -> Secrets)
+#define CONTACT_ID        ""   // Should look like "5dc1564130xxxxxxxxxxxxxx" (Get it from Portal -> Devices)
+#define BAUD_RATE         115200              // Change baudrate to your need (used for serial monitor)
+
+int actualContactState;
+int lastContactState;
+ 
+void handleContactSensor() {
+  actualContactState = digitalRead(SENSOR_PIN); // read current state
+  // If inverted change to !digitalRead(SENSOR_PIN)
+
+  if (actualContactState != lastContactState) {         // if state has changed
+    Serial.printf("Contact Sensor is %s now\r\n", actualContactState ? "open":"closed");
+    lastContactState = actualContactState;              // update last known state
+    
+    SinricProContactsensor &myContact = SinricPro[CONTACT_ID]; // get contact sensor device
+
+    // actualContactState == true then contact is closed 
+    // actualContactState == false then contact is open 
+    myContact.sendContactEvent(!actualContactState);      // send event with actual state
+  }
+}
+
+// setup function for WiFi connection
+void setupWiFi() {
+  Serial.printf("\r\n[Wifi]: Connecting");
+
+  #if defined(ESP8266)
+    WiFi.setSleepMode(WIFI_NONE_SLEEP); 
+    WiFi.setAutoReconnect(true);
+  #elif defined(ESP32)
+    WiFi.setSleep(false); 
+    WiFi.setAutoReconnect(true);
+  #endif
+
+  WiFi.begin(WIFI_SSID, WIFI_PASS); 
+
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.printf(".");
+    delay(250);
+  }
+  IPAddress localIP = WiFi.localIP();
+  Serial.printf("connected!\r\n[WiFi]: IP-Address is %d.%d.%d.%d\r\n", localIP[0], localIP[1], localIP[2], localIP[3]);
+}
+```
+
+[View this code on GitHub Gist](https://gist.github.com/kakopappa/2a027cb56a1f7762454d492d9e928b83)
+
  
 Now you should be able to see the contact state via Alexa, Google Home, SmartThings and Sinric Pro App
 
@@ -101,4 +213,12 @@ void triggerVoiceAnnouncement() {
 ### Troubleshooting
 1. Please refer to our [Troubleshooting]({{ site.github.url }}/pages/troubleshooting.html) page for more details.
  
+
+### Related tutorials
+
+- [How to control an ESP32 or ESP8266 with Alexa and Google Home]({{ site.github.url }}/pages/tutorials/general/esp32-esp8266-alexa-google-home.html)
+- [PIR motion sensor (HC-SR501, HC-SR505, AM312)]({{ site.github.url }}/pages/tutorials/motion-sensors/HC-SR501-HC-SR505-AM312-HC-SR312.html)
+- [Smart doorbell]({{ site.github.url }}/pages/tutorials/doorbell/doorbell.html)
+- [Send announcements to Alexa]({{ site.github.url }}/pages/tutorials/general/how-to-send-announcements-to-alexa.html)
+
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

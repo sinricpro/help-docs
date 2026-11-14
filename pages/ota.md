@@ -3,6 +3,7 @@ title: OTA Updates
 weight: 4
 lang: en
 youtubeId: FxtsQuC9mn8
+description: Set up firmware over-the-air (OTA) updates for ESP32 and ESP8266 with Sinric Pro. Upload firmware in the Portal and update devices remotely.
 ---
 
 

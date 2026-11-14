@@ -1,6 +1,7 @@
 ---
 title: Wally Tutorial
 layout: post
+description: Sinric Pro for Business tutorial. Create a 2 gang Wi-Fi smart switch product (Wally) on ESP32, from product definition to provisioning.
 ---
 
 In this section we’ll walk through creating a product we would like to sell in the future called **Wally**.  It's a 2 Gang 1/2 Way Wireless Wi-Fi Mini Smart Switch Module.

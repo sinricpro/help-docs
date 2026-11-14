@@ -2,6 +2,7 @@
 title: Atalhos da Apple
 weight: 4
 lang: pt
+description: Crie um Atalho da Apple que liga e desliga um relé em um ESP32, ESP8266 ou Raspberry Pi por meio da API do Sinric Pro.
 ---
 
 ### Introdução

@@ -2,6 +2,7 @@
 title: Troubleshooting
 weight: 4
 lang: en
+description: Fix common Sinric Pro problems on ESP32 and ESP8266. Unstable connection, device offline, Alexa or Google Home not responding.
 ---
 
 ### Troubleshooting tips 

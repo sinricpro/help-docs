@@ -2,6 +2,7 @@
 title: API Guide
 weight: 5
 lang: en
+description: Sinric Pro REST API guide. Create an API key, authenticate, list devices and send commands to your devices over HTTP.
 ---
 
 SinricPro uses REST for its API. This means it uses JSON for data exchange and follows common HTTP practices for communication.

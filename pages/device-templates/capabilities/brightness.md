@@ -1,6 +1,7 @@
 ---
 title: Brightness Capability
 layout: post
+description: Brightness capability for Sinric Pro device templates. Control the brightness of lights and other devices. Includes Alexa, Google Home and SDK examples.
 ---
 
 

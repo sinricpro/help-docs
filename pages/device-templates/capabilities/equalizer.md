@@ -1,6 +1,7 @@
 ---
 title: Equalizer Capability
 layout: post
+description: Equalizer capability for Sinric Pro device templates. Set and adjust equalizer bands and sound modes. Includes Alexa, Google Home and SDK examples.
 ---
 
 The Equalizer capability in SinricPro device templates allows set and adjust the equalizer bands and sound modes of a smart entertainment device.

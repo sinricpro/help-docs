@@ -1,6 +1,7 @@
 ---
 title: Thermostat Capability
 layout: post
+description: Thermostat capability for Sinric Pro device templates. Set the target temperature and thermostat mode. Includes Alexa, Google Home and SDK examples.
 ---
 
 The Thermostat capability in SinricPro device templates enables devices to monitor temperature and maintain it at a designated setpoint.

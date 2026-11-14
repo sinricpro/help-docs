@@ -1,6 +1,7 @@
 ---
 title: Power Capability
 layout: post
+description: Power capability for Sinric Pro device templates. Turn a device on and off and report its state. Includes Alexa, Google Home and SDK examples.
 ---
 
 

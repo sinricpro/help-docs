@@ -1,6 +1,7 @@
 ---
 title: TV Tutorial - IR Transceiver
 layout: post
+description: Control your TV with Alexa and Google Home using an ESP8285 ESP-01M IR transceiver module and Sinric Pro. Wiring and code.
 ---
 
 
@@ -28,7 +29,7 @@ An Infrared ESP8285 Wireless WIFI Transceiver Module is a circuit board that com
 
 ### Wiring
 
-![Sinric Pro esp8266 relay wiring]({{ site.github.url }}/public/img/sinricpro-ir-transceiver-esp8285-wiring.png) 
+![Sinric Pro ESP8285 ESP-01M IR transceiver wiring]({{ site.github.url }}/public/img/sinricpro-ir-transceiver-esp8285-wiring.png) 
 
 | ESP8285   | TTL     |
 | --------- | ------- |
@@ -36,7 +37,6 @@ An Infrared ESP8285 Wireless WIFI Transceiver Module is a circuit board that com
 | GND       |    GND  |
 | TX        |    RX   |
 | RX        |    TX   |
-
 
 
 Before we integrate with Sinric Pro, it is important to verify that the relay is wired correctly and you can record IR signals. 
@@ -126,7 +126,123 @@ When the sketch sends the signal, TV should either turn on or off. Now you can r
 
 Now we can complete the SinricPro TV sketch with the IR codes.
 
-<script src="https://gist.github.com/kakopappa/7fa62119ea71ce381fde92711dc82bc3.js"></script>
+
+```cpp
+// #define ENABLE_DEBUG
+#define SINRICPRO_NOSSL
+ 
+#ifdef ENABLE_DEBUG
+  #define DEBUG_ESP_PORT Serial
+  #define NODEBUG_WEBSOCKETS
+  #define NDEBUG
+#endif 
+
+#include <Arduino.h>
+#include <ESP8266WiFi.h>
+#include <IRremoteESP8266.h>
+#include <IRsend.h>
+
+#include "SinricPro.h"
+#include "SinricProTV.h"
+
+#define WIFI_SSID         "YOUR-WIFI-SSID"    
+#define WIFI_PASS         "YOUR-WIFI-PASSWORD"
+#define APP_KEY           "YOUR-APP-KEY"      // Should look like "de0bxxxx-1x3x-4x3x-ax2x-5dabxxxxxxxx"
+#define APP_SECRET        "YOUR-APP-SECRET"   // Should look like "5f36xxxx-x3x7-4x3x-xexe-e86724a9xxxx-4c4axxxx-3x3x-x5xe-x9x3-333d65xxxxxx"
+#define TV_ID             "YOUR-DEVICE-ID"    // Should look like "5dc1564130xxxxxxxxxxxxxx"
+#define BAUD_RATE         115200
+
+const uint16_t kIrLed = 4;
+IRsend irsend(kIrLed);
+
+bool tvPowerState;
+
+bool onPowerState(const String &deviceId, bool &state) {
+  Serial.printf("TV turned %s\r\n", state?"on":"off");
+  tvPowerState = state; // set powerState
+
+  /*
+    Protocol  : NEC
+    Code      : 0x20DF10EF (32 Bits)
+    uint16_t rawData[71] = {9032, 4476,  582, 544,  582, 546,  582, 1652,  582, 546,  582, 544,  582, 546,  582, 546,  582, 546,  582, 1654,  582, 1654,  582, 544,  582, 1654,  582, 1654,  582, 1654,  582, 1654,  582, 1654,  582, 546,  582, 544,  584, 544,  582, 1654,  582, 546,  582, 546,  582, 546,  582, 546,  582, 1654,  582, 1654,  582, 1652,  582, 546,  582, 1654,  582, 1654,  582, 1654,  582, 1654,  582, 41158,  9004, 2222,  582};  // NEC 20DF10EF
+    uint32_t address = 0x4;
+    uint32_t command = 0x8;
+    uint64_t data = 0x20DF10EF;
+  */
+  
+  uint16_t rawData[71] = {9032, 4476,  582, 544,  582, 546,  582, 1652,  582, 546,  582, 544,  582, 546,  582, 546,  582, 546,  582, 1654,  582, 1654,  582, 544,  582, 1654,  582, 1654,  582, 1654,  582, 1654,  582, 1654,  582, 546,  582, 544,  584, 544,  582, 1654,  582, 546,  582, 546,  582, 546,  582, 546,  582, 1654,  582, 1654,  582, 1652,  582, 546,  582, 1654,  582, 1654,  582, 1654,  582, 1654,  582, 41158,  9004, 2222,  582};  // NEC 20DF10EF
+  irsend.sendRaw(rawData, 71 /* IR len */, 38 /* kHz */);
+  
+  return true; 
+} 
+
+// setup function for WiFi connection
+void setupWiFi() {
+  Serial.printf("\r\n[Wifi]: Connecting");
+
+  #if defined(ESP8266)
+    WiFi.setSleepMode(WIFI_NONE_SLEEP); 
+    WiFi.setAutoReconnect(true);
+  #elif defined(ESP32)
+    WiFi.setSleep(false); 
+    WiFi.setAutoReconnect(true);
+  #endif
+
+  WiFi.begin(WIFI_SSID, WIFI_PASS); 
+
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.printf(".");
+    delay(250);
+  }
+  IPAddress localIP = WiFi.localIP();
+  Serial.printf("connected!\r\n[WiFi]: IP-Address is %d.%d.%d.%d\r\n", localIP[0], localIP[1], localIP[2], localIP[3]);
+}
+
+// setup function for SinricPro
+void setupSinricPro() {
+  // add device to SinricPro
+  SinricProTV& myTV = SinricPro[TV_ID];
+
+  // set callback functions to device
+  myTV.onPowerState(onPowerState);
+
+  // For other https://github.com/sinricpro/esp8266-esp32-sdk/blob/master/examples/TV/TV.ino
+  // myTV.onAdjustVolume(onAdjustVolume);
+  // myTV.onChangeChannel(onChangeChannel);
+  // myTV.onChangeChannelNumber(onChangeChannelNumber);
+  // myTV.onMediaControl(onMediaControl);
+  // myTV.onMute(onMute);  
+  // myTV.onSelectInput(onSelectInput);
+  // myTV.onSetVolume(onSetVolume);
+  // myTV.onSkipChannels(onSkipChannels);
+
+  // setup SinricPro
+  SinricPro.onConnected([](){ Serial.printf("Connected to SinricPro\r\n"); }); 
+  SinricPro.onDisconnected([](){ Serial.printf("Disconnected from SinricPro\r\n"); });
+  SinricPro.begin(APP_KEY, APP_SECRET);
+}
+
+void setupIR() {
+  irsend.begin();
+}
+
+// main setup function
+void setup() {
+  setupIR();
+  
+  Serial.begin(BAUD_RATE); Serial.printf("\r\n\r\n");
+
+  setupWiFi();
+  setupSinricPro();
+}
+
+void loop() {
+  SinricPro.handle();
+}
+```
+
+[View this code on GitHub Gist](https://gist.github.com/kakopappa/7fa62119ea71ce381fde92711dc82bc3)
+
 
 <video width="640" height="480" controls>
   <source src="{{ site.github.url }}/public/video/sinricpro-ir-tv-demo.mp4" type="video/mp4">
@@ -137,6 +253,10 @@ Now you should be able to control the TV via Sinric Pro App, Google Home, Alexa 
 ### Troubleshooting
 Please refer to our [Troubleshooting]({{ site.github.url }}/pages/troubleshooting.html) page for possible solutions to your issue.
 
+### Related tutorials
 
+- [How to control an ESP32 or ESP8266 with Alexa and Google Home]({{ site.github.url }}/pages/tutorials/general/esp32-esp8266-alexa-google-home.html)
+- [433MHz RF devices with an RF transmitter]({{ site.github.url }}/pages/tutorials/general/rf-transmitter-with-sinricpro.html)
+- [Switch tutorial part 1: turn a relay on and off]({{ site.github.url }}/pages/tutorials/switch/part-1.html)
 
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

@@ -1,7 +1,8 @@
 ---
-title: Switch Tutorial Part 1 - Turn on and off a Relay
+title: Control a Relay with ESP32 or ESP8266 using Alexa and Google Home (Switch Tutorial Part 1)
 layout: post
 lang: en
+description: Control a relay with an ESP32, ESP8266 or Raspberry Pi using Alexa, Google Home or SmartThings. Wiring, code and account linking.
 ---
 
 In this section we’ll walk through creating a Sinric Pro **Switch** for **ESP32**, **ESP8266** or **Raspberry Pi Zero W** and then control via **Alexa, Google Home or SmartThings**.
@@ -61,7 +62,34 @@ Normally open (NO) and normally closed (NC) contacts allow you to use one pin to
 
 Before we integrate with Sinric Pro, it is important to verify that the relay is wired correctly. You can use the following code to check whether the relay turns on and off every 5 seconds.  
 
-<script src="https://gist.github.com/kakopappa/baf926bc8b0821f048fe53540e254212.js"></script>
+
+```cpp
+#if defined(ESP8266)
+  #define relay        12
+#elif defined(ESP32) 
+  #define relay        16
+#elif (ARDUINO_ARCH_RP2040)
+  #define relay        6
+#endif
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(relay, OUTPUT);
+}
+
+void loop() {
+  Serial.println("Writing HIGH ..");
+  digitalWrite(relay, HIGH);
+  delay(5000); 
+  
+  Serial.println("Writing LOW ..");
+  digitalWrite(relay, LOW);
+  delay(5000);
+}
+```
+
+[View this code on GitHub Gist](https://gist.github.com/kakopappa/baf926bc8b0821f048fe53540e254212)
+
 
 ### Step 1 : Create a new device in Sinric Pro
 
@@ -96,7 +124,95 @@ You can **generate the code** using **Zero Code** feature or write it by your se
 
 #### 2.2 Complete Code
 
-<script src="https://gist.github.com/kakopappa/0416a1f26b8398ce6dd9f71a6a70755a.js"></script>
+
+```cpp
+#include <Arduino.h>
+#if defined(ESP8266)
+  #include <ESP8266WiFi.h>
+#elif defined(ESP32) || defined(ARDUINO_ARCH_RP2040)
+  #include <WiFi.h>
+#endif
+
+#include "SinricPro.h"
+#include "SinricProSwitch.h"
+
+#define WIFI_SSID         ""  // Change WIFI_SSID to your WiFi Name.
+#define WIFI_PASS         ""  // Change WIFI_PASS to your WiFi password.
+#define APP_KEY           ""  // Paste App Key from above 
+#define APP_SECRET        ""  // Paste App Secret from above 
+#define SWITCH_ID_1       ""  // Paste Device Id from  above
+
+#if defined(ESP8266)
+  #define RELAYPIN_1        12
+#elif defined(ESP32) 
+  #define RELAYPIN_1        16
+#elif (ARDUINO_ARCH_RP2040)
+  #define RELAYPIN_1        6
+#endif
+
+#define BAUD_RATE         115200                // Change baudrate to your need
+
+bool onPowerState1(const String &deviceId, bool &state) {
+ Serial.printf("Device 1 turned %s", state?"on":"off");
+ digitalWrite(RELAYPIN_1, state ? HIGH:LOW);
+ 
+ /* If your relay is activated with low signal, change the above to below code
+  digitalWrite(RELAYPIN_1, state ? LOW : HIGH); */
+
+ return true; // request handled properly
+}
+
+// setup function for WiFi connection
+void setupWiFi() {
+  Serial.printf("\r\n[Wifi]: Connecting");
+
+  #if defined(ESP8266)
+    WiFi.setSleepMode(WIFI_NONE_SLEEP); 
+    WiFi.setAutoReconnect(true);
+  #elif defined(ESP32)
+    WiFi.setSleep(false); 
+    WiFi.setAutoReconnect(true);
+  #endif
+
+  WiFi.begin(WIFI_SSID, WIFI_PASS);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.printf(".");
+    delay(250);
+  }
+
+  Serial.printf("connected!\r\n[WiFi]: IP-Address is %s\r\n", WiFi.localIP().toString().c_str());
+}
+
+// setup function for SinricPro
+void setupSinricPro() {
+  // add devices and callbacks to SinricPro
+  pinMode(RELAYPIN_1, OUTPUT);
+    
+  SinricProSwitch& mySwitch1 = SinricPro[SWITCH_ID_1];
+  mySwitch1.onPowerState(onPowerState1);
+    
+  // setup SinricPro
+  SinricPro.onConnected([](){ Serial.printf("Connected to SinricPro\r\n"); }); 
+  SinricPro.onDisconnected([](){ Serial.printf("Disconnected from SinricPro\r\n"); });
+   
+  SinricPro.begin(APP_KEY, APP_SECRET);
+}
+
+// main setup function
+void setup() {
+  Serial.begin(BAUD_RATE); Serial.printf("\r\n\r\n");
+  setupWiFi();
+  setupSinricPro();
+}
+
+void loop() {
+  SinricPro.handle();
+}
+```
+
+[View this code on GitHub Gist](https://gist.github.com/kakopappa/0416a1f26b8398ce6dd9f71a6a70755a)
+
  
 Now you should be able to control the relay via Portal like in the below video. 
 
@@ -168,6 +284,12 @@ Continue to [Part 2]({{ site.github.url }}/pages/tutorials/switch/part-2.html) o
 ### Troubleshooting
 Please refer to our [Troubleshooting]({{ site.github.url }}/pages/troubleshooting.html) page for possible solutions to your issue.
 
+### Related tutorials
 
+- [How to control an ESP32 or ESP8266 with Alexa and Google Home]({{ site.github.url }}/pages/tutorials/general/esp32-esp8266-alexa-google-home.html)
+- [Switch tutorial part 2: toggle the relay with a button]({{ site.github.url }}/pages/tutorials/switch/part-2.html)
+- [Switch tutorial part 3: multiple relays and buttons]({{ site.github.url }}/pages/tutorials/switch/part-3.html)
+- [Relay with MicroPython on ESP32]({{ site.github.url }}/pages/tutorials/switch/micropython/how-to-turn-on-and-off-a-relay-using-micropython.html)
+- [Dimmable switch with a RobotDyn AC light dimmer]({{ site.github.url }}/pages/tutorials/dimmable-switch/robotdyn-ac-light-dimmer.html)
 
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

@@ -6,6 +6,7 @@ published: false
 categories: 
     - "devices"
     - "fan"
+description: How to create a Fan device in Sinric Pro and connect an ESP32 or ESP8266. Control power and speed with Alexa and Google Home.
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 title:  Handling Sinric Pro Smart Button
 layout: post
+description: Add a push button to the Sinric Pro app that triggers an action on your ESP32, ESP8266 or Raspberry Pi Pico W.
 ---
 
 Want to control your DIY projects with just a tap on your phone? Sinric Pro's Smart Button feature is the perfect solution. Create a push buttons in the app that can trigger any action on your microcontroller – from switching on LEDs to controlling motors or sensors.
@@ -88,7 +89,137 @@ Paste this Template:
 
 #### 2.2 Complete Code
 
-<script src="https://gist.github.com/kakopappa/5de59e34522c7ea21e3eef72c2e2bcd7.js"></script>
+
+**SmartButton.h**
+
+```cpp
+#ifndef _SMARTBUTTON_H_
+#define _SMARTBUTTON_H_
+
+#include <SinricProDevice.h>
+#include <Capabilities/SmartButtonStateController.h>
+
+class SmartButton 
+: public SinricProDevice
+, public SmartButtonStateController<SmartButton> {
+  friend class SmartButtonStateController<SmartButton>;
+public:
+  SmartButton(const String &deviceId) : SinricProDevice(deviceId, "SmartButton") {};
+};
+
+#endif
+```
+
+**SmartButton.ino**
+
+```cpp
+// Uncomment the following line to enable serial debug output
+//#define ENABLE_DEBUG
+
+#ifdef ENABLE_DEBUG
+  #define DEBUG_ESP_PORT Serial
+  #define NODEBUG_WEBSOCKETS
+  #define NDEBUG
+#endif
+
+#include <Arduino.h>
+#ifdef ESP8266
+  #include <ESP8266WiFi.h>
+#endif
+#ifdef ESP32
+  #include <WiFi.h>
+#endif
+
+#include <SinricPro.h>
+#include "SmartButton.h"
+
+#define APP_KEY    "APP_KEY"
+#define APP_SECRET "APP_SECRET"
+#define DEVICE_ID  "DEVICE_ID"
+
+#define SSID       "YOUR_WIFI_SSID"
+#define PASS       "YOUR_WIFI_PASS"
+
+#define BAUD_RATE  115200
+
+SmartButton &smartButton = SinricPro[DEVICE_ID];
+
+
+/*************
+ * Callbacks *
+ *************/
+
+// SmartButtonStateController
+bool onSinglePress(const String &deviceId) {
+  // Triggers when you press the "SmartButton" on the app
+  
+  return true; // request handled properly
+}
+
+bool onDoublePress(const String &deviceId) {
+  // Triggers when you double press the "SmartButton" on the app
+  
+  return true; // request handled properly
+}
+
+bool onLongPress(const String &deviceId) {
+  // Triggers when you long press the "SmartButton" on the app
+  
+  return true; // request handled properly
+}
+
+
+/********* 
+ * Setup *
+ *********/
+
+void setupSinricPro() {
+
+// SmartButtonStateController
+ smartButton.onSinglePress(onSinglePress);
+ smartButton.onDoublePress(onDoublePress);
+ smartButton.onLongPress(onLongPress);
+
+  SinricPro.onConnected([]{ Serial.printf("[SinricPro]: Connected\r\n"); });
+  SinricPro.onDisconnected([]{ Serial.printf("[SinricPro]: Disconnected\r\n"); });
+  SinricPro.begin(APP_KEY, APP_SECRET);
+};
+
+void setupWiFi() {
+  #if defined(ESP8266)
+    WiFi.setSleepMode(WIFI_NONE_SLEEP); 
+    WiFi.setAutoReconnect(true);
+  #elif defined(ESP32)
+    WiFi.setSleep(false); 
+    WiFi.setAutoReconnect(true);
+  #endif
+
+  WiFi.begin(SSID, PASS);
+  Serial.printf("[WiFi]: Connecting to %s", SSID);
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.printf(".");
+    delay(250);
+  }
+  Serial.printf("connected\r\n");
+}
+
+void setup() {
+  Serial.begin(BAUD_RATE);
+  setupWiFi();
+  setupSinricPro();
+}
+
+/********
+ * Loop *
+ ********/
+
+void loop() {
+  SinricPro.handle();
+}
+```
+
+[View this code on GitHub Gist](https://gist.github.com/kakopappa/5de59e34522c7ea21e3eef72c2e2bcd7)
+
 
 ![Sinric Pro smart button in portal]({{ site.github.url }}/public/img/smart-button-portal-dashboard.png)
 
@@ -99,4 +230,11 @@ Paste this Template:
 
 2. Please refer to our [Troubleshooting]({{ site.github.url }}/pages/troubleshooting.html) page for more details.
  
+
+### Related tutorials
+
+- [How to control an ESP32 or ESP8266 with Alexa and Google Home]({{ site.github.url }}/pages/tutorials/general/esp32-esp8266-alexa-google-home.html)
+- [Switch tutorial part 2: toggle the relay with a button]({{ site.github.url }}/pages/tutorials/switch/part-2.html)
+- [Device templates: build your own device type]({{ site.github.url }}/pages/custom-templates.html)
+
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

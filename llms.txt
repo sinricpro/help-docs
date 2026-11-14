@@ -1,0 +1,34 @@
+---
+layout: null
+permalink: /llms.txt
+---
+# Sinric Pro Documentation
+
+> Sinric Pro is an IoT cloud platform that connects ESP32, ESP8266, Raspberry Pi Pico W and other development boards to Amazon Alexa, Google Home, Samsung SmartThings, Apple HomeKit (Homebridge), Home Assistant, a mobile app and a REST API. This site is the official documentation: setup guides, step-by-step hardware tutorials with complete code, device type and capability references, and API guides.
+
+Key facts:
+
+- Website: https://sinric.pro
+- Portal (create devices, get credentials): https://portal.sinric.pro
+- Arduino library for ESP32, ESP8266 and RP2040: `SinricPro` (https://github.com/sinricpro/esp8266-esp32-sdk). Install it from the Arduino Library Manager, or add `sinricpro/SinricPro` to `lib_deps` in PlatformIO.
+- Other SDKs: ESP-IDF, Raspberry Pi Pico, MicroPython, Python, NodeJS. See https://github.com/sinricpro
+- REST API reference: https://apidocs.sinric.pro
+- MCP server for AI coding assistants (documentation search, API reference, SDK examples): https://docs.sinric.pro/mcp. Setup: {{ site.url }}/pages/mcp-server
+
+## Start here
+{% assign en_pages = site.pages | sort: 'url' %}
+- [How to Control an ESP32 or ESP8266 with Alexa and Google Home]({{ site.url }}/pages/tutorials/general/esp32-esp8266-alexa-google-home): step-by-step guide with a complete sketch
+- [How to Install the Sinric Pro Library]({{ site.url }}/pages/tutorials/general/install-sinricpro-library): Arduino IDE, PlatformIO and common install errors
+- [Quickstart Tutorials]({{ site.url }}/pages/quickstarts): index of all tutorials
+
+## Guides and integrations
+{% for p in en_pages %}{% assign p_lang = p.lang | default: 'en' %}{% unless p_lang != 'en' or p.url contains '.pt.html' or p.url contains '.de.html' or p.url contains '.it.html' or p.url contains '.es.html' or p.title == nil %}{% assign parts = p.url | split: '/' %}{% if parts.size == 3 and p.url contains '/pages/' and p.url contains '.html' %}{% assign u = p.url | split: '.html' | first %}
+- [{{ p.title }}]({{ site.url }}{{ u }}){% if p.description %}: {{ p.description | strip_newlines | strip }}{% endif %}{% endif %}{% endunless %}{% endfor %}
+
+## Tutorials
+{% for p in en_pages %}{% assign p_lang = p.lang | default: 'en' %}{% unless p_lang != 'en' or p.url contains '.pt.html' or p.url contains '.de.html' or p.url contains '.it.html' or p.url contains '.es.html' or p.title == nil %}{% if p.url contains '/pages/tutorials/' or p.url contains '/pages/ota-updates/' %}{% assign u = p.url | split: '.html' | first %}
+- [{{ p.title }}]({{ site.url }}{{ u }}){% if p.description %}: {{ p.description | strip_newlines | strip }}{% endif %}{% endif %}{% endunless %}{% endfor %}
+
+## Device template capabilities
+{% for p in en_pages %}{% assign p_lang = p.lang | default: 'en' %}{% unless p_lang != 'en' or p.url contains '.pt.html' or p.url contains '.de.html' or p.url contains '.it.html' or p.url contains '.es.html' or p.title == nil %}{% if p.url contains '/pages/device-templates/' %}{% assign u = p.url | split: '.html' | first %}
+- [{{ p.title }}]({{ site.url }}{{ u }}){% if p.description %}: {{ p.description | strip_newlines | strip }}{% endif %}{% endif %}{% endunless %}{% endfor %}

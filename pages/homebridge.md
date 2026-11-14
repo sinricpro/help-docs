@@ -3,6 +3,7 @@ title: Homebridge (Homekit)
 weight: 4
 lang: en
 youtubeId: 3YI87iWlgDM
+description: Expose your Sinric Pro devices to Apple HomeKit with the Homebridge SinricPro plugin. Install the plugin and add your API key.
 ---
 
 With our Homebridge-SinricPro plugin, now you can expose your devices to Homekit.

@@ -2,6 +2,7 @@
 title: Supported Devices
 weight: 3
 published: false
+description: Device types supported by Sinric Pro, including switch, light, dimmer, thermostat, TV, lock, fan, doorbell and sensors.
 ---
  
 

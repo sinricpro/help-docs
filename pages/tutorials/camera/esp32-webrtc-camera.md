@@ -1,6 +1,7 @@
 ---
 title: ESP32 WebRTC Camera (Live View in Sinric Pro App and Portal)
 layout: post
+description: Stream live video from an ESP32 camera to the Sinric Pro app and Portal from anywhere using WebRTC.
 ---
 
 In this section, we will show you how to stream live video from an ESP32 camera to the **Sinric Pro App** and the **Sinric Pro Portal**, from anywhere, using WebRTC.
@@ -56,3 +57,10 @@ Snapshots (**Take Snapshot**, **View Snapshots**) keep working alongside live vi
 - `Camera init failed`: wrong `CAMERA_BOARD`, or PSRAM is disabled.
 - Stuck on "Connecting": check the Serial Monitor for `WebRTC answer failed`, and make sure the ESP32 core is 3.3.10 or 3.3.11.
 - Works at home but not on mobile data: that network blocks direct connections, so the stream must be relayed through TURN; check the Serial Monitor to confirm the offer included TURN servers.
+
+### Related tutorials
+
+- [How to control an ESP32 or ESP8266 with Alexa and Google Home]({{ site.github.url }}/pages/tutorials/general/esp32-esp8266-alexa-google-home.html)
+- [ESP32-S3 H.264 camera for Alexa and Google Home]({{ site.github.url }}/pages/tutorials/camera/esp32-h264-alexa-googlehome-camera.html)
+- [Raspberry Pi WebRTC camera]({{ site.github.url }}/pages/tutorials/camera/raspberrypi-webrtc-alexa-googlehome-camera.html)
+

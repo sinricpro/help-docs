@@ -1,45 +1,26 @@
 <div class="language-switcher">
-  {% assign current_language = site.default_lang %}
-  {% if site.active_lang %}
-    {% assign current_language = site.active_lang %}
-  {% endif %}
-  
+  {% comment %}
+    Uses seo_lang, seo_lang_list and seo_url_list from head.html.
+    A language links to the translation of the current page when one exists,
+    otherwise to that language's homepage.
+  {% endcomment %}
   <div class="language-selector">
     <button class="language-button" onclick="toggleLanguageMenu()">
       <span class="language-flag-text">
-        {% if current_language == 'en' %}
-          🇺🇸 English
-        {% elsif current_language == 'pt' %}
-          🇧🇷 Português
-        {% endif %}
+        {% if seo_lang == 'pt' %}🇧🇷 Português{% elsif seo_lang == 'de' %}🇩🇪 Deutsch{% elsif seo_lang == 'it' %}🇮🇹 Italiano{% elsif seo_lang == 'es' %}🇪🇸 Español{% else %}🇺🇸 English{% endif %}
       </span>
       <span class="arrow">▼</span>
     </button>
-    
+
     <div class="language-menu" id="languageMenu">
-      {% for language in site.languages %}
-        {% if language != current_language %}
-          {% if language == 'en' %}
-            {% assign en_url = page.url | remove_first: '/pt' %}
-            {% if en_url == '' %}{% assign en_url = '/' %}{% endif %}
-            <a href="{{ en_url }}" class="language-option" hreflang="en">
-              🇺🇸 English
-            </a>
-          {% elsif language == 'pt' %}
-            {% assign pt_url = page.url %}
-            {% unless pt_url contains '/pt' %}
-              {% if pt_url == '/' %}
-                {% assign pt_url = '/pt/' %}
-              {% else %}
-                {% assign pt_url = '/pt' | append: pt_url %}
-              {% endif %}
-            {% endunless %}
-            <a href="{{ pt_url }}" class="language-option" hreflang="pt">
-              🇧🇷 Português
-            </a>
-          {% endif %}
-        {% endif %}
-      {% endfor %}
+      {% for l in site.languages %}{% unless l == seo_lang %}
+        {% if l == 'en' %}{% assign ls_url = site.url | append: '/' %}{% else %}{% assign ls_url = site.url | append: '/' | append: l | append: '/' %}{% endif %}
+        {% for fl in seo_lang_list %}{% if fl == l %}{% assign ls_url = seo_url_list[forloop.index0] %}{% endif %}{% endfor %}
+        {% assign ls_path = ls_url | remove_first: site.url %}
+        {% unless ls_path contains '.html' or ls_path == '/' %}{% assign ls_last = ls_path | slice: -1 %}{% unless ls_last == '/' %}{% assign ls_path = ls_path | append: '.html' %}{% endunless %}{% endunless %}
+        {% assign ls_code = l %}{% if l == 'pt' %}{% assign ls_code = 'pt-BR' %}{% endif %}
+        <a {% static_href %}href="{{ ls_path }}"{% endstatic_href %} class="language-option" hreflang="{{ ls_code }}">{% if l == 'pt' %}🇧🇷 Português{% elsif l == 'de' %}🇩🇪 Deutsch{% elsif l == 'it' %}🇮🇹 Italiano{% elsif l == 'es' %}🇪🇸 Español{% else %}🇺🇸 English{% endif %}</a>
+      {% endunless %}{% endfor %}
     </div>
   </div>
 </div>

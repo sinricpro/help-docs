@@ -1,6 +1,7 @@
 ---
 title: Channel Capability
 layout: post
+description: Channel capability for Sinric Pro device templates. Change or skip channels on a TV or other entertainment device. Includes Alexa, Google Home and SDK examples.
 ---
 
 

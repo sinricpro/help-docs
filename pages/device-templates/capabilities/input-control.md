@@ -1,6 +1,7 @@
 ---
 title: Input Control Capability
 layout: post
+description: Input Control capability for Sinric Pro device templates. Switch the input of a TV or other entertainment device. Includes Alexa, Google Home and SDK examples.
 ---
 
 The Input Control capability in SinricPro device templates allows you to control the input of an entertainment device..

@@ -2,6 +2,7 @@
 title: Apple Shortcuts
 weight: 4
 lang: en
+description: Create an Apple Shortcut that turns a relay on an ESP32, ESP8266 or Raspberry Pi on and off through the Sinric Pro API.
 ---
 
 ### Introduction 

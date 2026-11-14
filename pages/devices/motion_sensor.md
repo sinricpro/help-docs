@@ -7,6 +7,7 @@ categories:
     - "devices"
     - "motionsensor"
     - "sensor"
+description: How to create a Motion Sensor device in Sinric Pro and connect an ESP32 or ESP8266. Detect movement and trigger Alexa routines.
 ---
 
 Motion sensors are used to detect movement in an area.

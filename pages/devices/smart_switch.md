@@ -7,6 +7,7 @@ published: false
 categories: 
     - "devices"
     - "smart-switch"
+description: How to create a Smart Switch device in Sinric Pro and connect an ESP32 or ESP8266. Turn a relay on and off with Alexa and Google Home.
 ---
 
 

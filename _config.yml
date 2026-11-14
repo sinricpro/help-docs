@@ -38,9 +38,9 @@ plugins:
   - jekyll-polyglot
 
 # Multi-language configuration
-languages: ["en", "pt"]
+languages: ["en", "pt", "de", "it", "es"]
 default_lang: "en"
-exclude_from_localization: ["public", "_site", "robots.txt", "sitemap.xml", "Gemfile", "Gemfile.lock", "_config.yml", "CLAUDE.md"]
+exclude_from_localization: ["public", "_site", "robots.txt", "sitemap.xml", "llms.txt", "Gemfile", "Gemfile.lock", "_config.yml", "CLAUDE.md"]
 parallel_localization: false
 
 # Content organization approach: keep clean directory structure

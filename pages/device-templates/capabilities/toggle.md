@@ -1,6 +1,7 @@
 ---
 title: Toggle Capability
 layout: post
+description: Toggle capability for Sinric Pro device templates. Control an on/off setting of a device. Includes Alexa, Google Home and SDK examples.
 ---
 
 The Toggle capability in SinricPro device templates lets you control binary settings that have exactly two possible states. These settings often represent physical on/off buttons or active/inactive functionality. For settings with more than two possible states, or those that can exist in a neutral state where neither binary option applies, the Modes trait provides a more appropriate representation.

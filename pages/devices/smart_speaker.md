@@ -6,6 +6,7 @@ published: false
 categories: 
     - "devices"
     - "smart-speaker"
+description: How to create a Smart Speaker device in Sinric Pro and connect an ESP32 or ESP8266. Control volume, mute and playback with Alexa.
 ---
 
 

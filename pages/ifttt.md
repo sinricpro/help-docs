@@ -3,6 +3,7 @@ title: IFTTT
 weight: 4
 lang: en
 youtubeId: UHuVoE6kPB8
+description: Integrate IFTTT Webhooks with Sinric Pro. Send device events to IFTTT and control Sinric Pro devices from IFTTT applets.
 ---
 
 **How to integrate IFTTT Webhooks with Sinric Pro**

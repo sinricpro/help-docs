@@ -7,6 +7,7 @@ published: false
 categories: 
     - "devices"
     - "switch-with-dimmer"
+description: How to create a Switch with Dimmer device in Sinric Pro and connect an ESP32 or ESP8266. Control power and dimming level with Alexa and Google Home.
 ---
 
 Smart switch that has a built in dimming functionality

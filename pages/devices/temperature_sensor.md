@@ -6,6 +6,7 @@ published: false
 categories: 
     - "sensor"
     - "temperature-humidity-sensor"
+description: How to create a Temperature and Humidity Sensor device in Sinric Pro and connect an ESP32 or ESP8266. Read temperature and humidity with Alexa and Google Home.
 ---
 
 Temperature sensor can detect the temperature surrounding area. Some temperature sensors has a humidity sensor built-in as well.

@@ -6,6 +6,7 @@ published: false
 categories: 
     - "devices"
     - "thermostat"
+description: How to create a Thermostat device in Sinric Pro and connect an ESP32 or ESP8266. Set the target temperature and mode with Alexa and Google Home.
 ---
 
 Thermostat is used to control the home's heating and/or air conditioning.

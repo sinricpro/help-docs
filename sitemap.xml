@@ -3,13 +3,23 @@ layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    {% for page in site.pages %}
-    {% if page.layout != nil %}
-    {% if page.layout != 'feed' %}
+    {% comment %}
+      One clean URL per page and language, from site.translations (see _plugins/translations.rb).
+      site.pages is not used because each Polyglot language build only contains some translations.
+    {% endcomment %}
+    {% for item in site.translations %}
+    {% assign base = item[0] %}
+    {% for l in item[1] %}
+    {% if base == '/index' %}
+      {% if l == 'en' %}{% assign loc = '/' %}{% else %}{% assign loc = '/' | append: l | append: '/' %}{% endif %}
+    {% elsif l == 'en' %}
+      {% assign loc = base %}
+    {% else %}
+      {% assign loc = '/' | append: l | append: base | append: '.' | append: l %}
+    {% endif %}
     <url>
-        <loc>{{site.url}}{{ page.url | remove: 'index.html' }}</loc>
+        <loc>{{ site.url }}{{ loc }}</loc>
     </url>
-    {% endif %}
-    {% endif %}
+    {% endfor %}
     {% endfor %}
 </urlset>

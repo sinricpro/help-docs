@@ -2,6 +2,7 @@
 title: Settings Tutorial
 layout: post
 lang: en
+description: Use Sinric Pro custom settings to change configuration values on your ESP32 or ESP8266 remotely, without reflashing the firmware.
 ---
 
 Custom Settings is a powerful feature that allows you to define and manage configuration parameters for your devices and modules. Instead of hardcoding values in your firmware, you can create settings that can be changed remotely through the SinricPro Portal or app.

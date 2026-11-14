@@ -1,6 +1,7 @@
 ---
 title: Start-Stop Capability
 layout: post
+description: Start-Stop capability for Sinric Pro device templates. Start, stop, pause and resume a device such as a washing machine. Includes Alexa, Google Home and SDK examples.
 ---
 
 The Start-Stop capability in SinricPro device templates allows devices to start and stop operations. While similar to power on/off functionality, this capability addresses more complex operational states. For example, some washing machines can be powered on before actually starting their wash cycle.

@@ -1,6 +1,7 @@
 ---
-title: Temperature Sensor Tutorial for LM35 (LM35DZ), LM335 and LM34
+title: LM35, LM335 and LM34 Temperature Sensor with ESP32 or ESP8266 for Alexa
 layout: post
+description: Connect an LM35, LM335 or LM34 temperature sensor to an ESP32 or ESP8266. Covers LM35 vs LM335 vs LM34 differences, pinouts, wiring and code for Alexa and Google Home.
 ---
 
 In this section we’ll walk through creating a **Temperature Sensor** using **ESP32**, **ESP8266** and then view the temperature via **Alexa, Google Home or SmartThings**.
@@ -17,9 +18,51 @@ The LM35/LM34 temperature sensors are a linear integrated circuit temperature se
 
 - LM35 provides temperature measurements in Celsius (°C)
 
-- LM32 provides temperature measurements in Fahrenheit (ºF). 
+- LM34 provides temperature measurements in Fahrenheit (ºF). 
 
 - LM335 provides temperature measurements in Kelvin (ºK)
+
+### LM35 vs LM335 vs LM34: what is the difference?
+
+All three sensors output an analog voltage that rises by 10 mV per degree. They differ in the temperature scale, the supply voltage and how they are wired.
+
+| | LM35 | LM34 | LM335 |
+| --- | --- | --- | --- |
+| Output scale | 10 mV per °C | 10 mV per °F | 10 mV per K |
+| Output at 25 °C (77 °F) | 0.25 V | 0.77 V | 2.98 V |
+| Sensor type | 3-pin voltage output | 3-pin voltage output | 2-terminal (zener-like) with an adjust pin |
+| Supply | 4 V to 30 V | 5 V to 30 V | Bias current through a resistor |
+| Extra parts | None | None | Pull-up (bias) resistor |
+| Calibration | Factory trimmed | Factory trimmed | Can be trimmed with the ADJ pin |
+
+**Which one should you use?**
+
+- **LM35**: the simplest choice if you want Celsius. The reading is the output in millivolts divided by 10.
+- **LM34**: the same sensor for Fahrenheit. Use it if you want °F without converting.
+- **LM335**: the output is in Kelvin, so subtract 273.15 to get Celsius. It needs a pull-up resistor, and the output sits around 3 V at room temperature, so it needs a wider ADC range than the LM35.
+
+The LM35 and LM34 need at least 4 V and 5 V, so power them from the **5V / VIN** pin, not from 3.3V.
+
+### LM35, LM34 and LM335 pinout
+
+Hold the TO-92 package with the **flat side facing you and the legs pointing down**. From left to right:
+
+| Sensor | Pin 1 (left) | Pin 2 (middle) | Pin 3 (right) |
+| --- | --- | --- | --- |
+| LM35 | +Vs (supply) | Vout | GND |
+| LM34 | +Vs (supply) | Vout | GND |
+| LM335 | ADJ (leave unconnected) | + (output) | − (GND) |
+
+### Converting the reading to a temperature
+
+```c++
+// ADC_VREF_MV: ADC reference voltage in millivolts, ADC_RESOLUTION: 4096 on ESP32, 1024 on ESP8266
+float millivolts = analogRead(ADC_PIN) * (ADC_VREF_MV / ADC_RESOLUTION);
+
+float lm35_celsius    = millivolts / 10.0;           // LM35
+float lm34_fahrenheit = millivolts / 10.0;           // LM34
+float lm335_celsius   = (millivolts / 10.0) - 273.15; // LM335 (Kelvin to Celsius)
+```
 
 ### Wiring for LM35 or LM34 with ESP8266
 
@@ -38,7 +81,46 @@ The LM35/LM34 temperature sensors are a linear integrated circuit temperature se
 
 Let's verify that temperature is wired correctly and working. 
 
-<script src="https://gist.github.com/kakopappa/35beffd648f962299c7df485b7f13124.js"></script>
+
+```cpp
+#if defined(ESP8266)
+  #define LM_PIN    A0
+#elif defined(ESP32)
+  #define LM_PIN    36
+#endif
+
+#define ADC_VREF_mV    5000.0 // 5000 is the voltage provided by MCU. If you connect to 3V change to 3000
+#define ADC_RESOLUTION 4096.0
+
+void setup() {
+  Serial.begin(9600);
+}
+
+float getTemperature() {
+  #if defined(ESP8266)
+    int analogValue = analogRead(LM_PIN);
+    float millivolts = (analogValue / 1024.0) * ADC_VREF_mV; 
+    float temperature = millivolts / 10;
+    // float fahrenheit = ((temperature * 9) / 5 + 32);
+    return temperature;
+  #elif defined(ESP32)
+    int adcVal = analogRead(LM_PIN);
+    float milliVolt = adcVal * (ADC_VREF_mV / ADC_RESOLUTION);
+    float temperature = milliVolt / 10;
+    return temperature;
+  #endif
+}
+
+void loop()
+{
+  float temperature = getTemperature();
+  Serial.printf("Temperature: %2.1f °C\r\n", temperature);
+  delay(1000);
+}
+```
+
+[View this code on GitHub Gist](https://gist.github.com/kakopappa/35beffd648f962299c7df485b7f13124)
+
  
 ### Step 1 : Create a new device in Sinric Pro
 
@@ -71,7 +153,153 @@ You can **generate the code** using **Zero Code** feature or write it by your se
 
 #### 2.2 Complete Code
   
-<script src="https://gist.github.com/kakopappa/8806b5eeb0203252c5aed42849bd1481.js"></script>
+
+```cpp
+#ifdef ENABLE_DEBUG
+  #define DEBUG_ESP_PORT Serial
+  #define NODEBUG_WEBSOCKETS
+  #define NDEBUG
+#endif 
+
+#include <Arduino.h>
+#if defined(ESP8266)
+  #include <ESP8266WiFi.h>
+#elif defined(ESP32)
+  #include <WiFi.h>
+#endif
+
+#if defined(ESP8266)
+  #define LM_PIN    A0
+#elif defined(ESP32)
+  #define LM_PIN    36
+#endif
+
+
+#include "SinricPro.h"
+#include "SinricProTemperaturesensor.h"
+
+#define WIFI_SSID         ""   // Your WiFI SSID name 
+#define WIFI_PASS         ""   // Your WiFi Password.
+#define APP_KEY           ""   // Should look like "de0bxxxx-1x3x-4x3x-ax2x-5dabxxxxxxxx" (Get it from Portal -> Secrets)
+#define APP_SECRET        ""   // Should look like "5f36xxxx-x3x7-4x3x-xexe-e86724a9xxxx-4c4axxxx-3x3x-x5xe-x9x3-333d65xxxxxx" (Get it from Portal -> Secrets)
+#define TEMP_SENSOR_ID    ""   // Should look like "5dc1564130xxxxxxxxxxxxxx" (Get it from Portal -> Devices)
+#define BAUD_RATE         115200              // Change baudrate to your need (used for serial monitor)
+#define EVENT_WAIT_TIME   60000               // send event every 60 seconds
+
+float temperature;                            // actual temperature
+float humidity;                               // actual humidity
+float lastTemperature;                        // last known temperature (for compare)
+
+#define ADC_VREF_mV    5000.0 // 5000 is the voltage provided by MCU. If you connect to 3V change to 3000
+#define ADC_RESOLUTION 4096.0
+
+float getTemperature() {
+  #if defined(ESP8266)
+    int analogValue = analogRead(LM_PIN);
+    float millivolts = (analogValue / 1024.0) * ADC_VREF_mV; 
+    float temperature = millivolts / 10;
+    // float fahrenheit = ((temperature * 9) / 5 + 32);
+    return temperature;
+  #elif defined(ESP32)
+    int adcVal = analogRead(LM_PIN);
+    float milliVolt = adcVal * (ADC_VREF_mV / ADC_RESOLUTION);
+    float temperature = milliVolt / 10;
+    return temperature;
+  #endif
+}
+
+void handleTemperaturesensor() {
+  if (SinricPro.isConnected() == false) {
+    Serial.printf("Not connected to Sinric Pro...!\r\n");
+    return; 
+  }
+
+  static unsigned long last_millis;
+  unsigned long        current_millis = millis();
+  if (last_millis && current_millis - last_millis < EVENT_WAIT_TIME) return;
+  last_millis = current_millis;
+  
+  float temperature = getTemperature();
+
+  Serial.printf("Temperature: %2.1f °C\r\n", temperature);
+
+  if (isnan(temperature)) { // reading failed... 
+    Serial.printf("reading failed!\r\n");  // print error message
+    return;                                    // try again next time
+  } 
+
+  if (temperature == lastTemperature) {
+    Serial.printf("Temperature did not changed. do nothing...!\r\n");
+    return; 
+  }
+
+  SinricProTemperaturesensor &mySensor = SinricPro[TEMP_SENSOR_ID];  // get temperaturesensor device
+  bool success = mySensor.sendTemperatureEvent(temperature, -1); // send event
+  if (success) {  
+    Serial.printf("Sent!\r\n");
+  } else {
+    Serial.printf("Something went wrong...could not send Event to server!\r\n"); // Enable ENABLE_DEBUG to see why
+  }
+
+  lastTemperature = temperature;  // save actual temperature for next compare  
+}
+
+
+// setup function for WiFi connection
+void setupWiFi() {
+  Serial.printf("\r\n[Wifi]: Connecting");
+
+  #if defined(ESP8266)
+    WiFi.setSleepMode(WIFI_NONE_SLEEP); 
+    WiFi.setAutoReconnect(true);
+  #elif defined(ESP32)
+    WiFi.setSleep(false); 
+    WiFi.setAutoReconnect(true);
+  #endif
+
+  WiFi.begin(WIFI_SSID, WIFI_PASS); 
+
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.printf(".");
+    delay(250);
+  }
+  IPAddress localIP = WiFi.localIP();
+  Serial.printf("connected!\r\n[WiFi]: IP-Address is %d.%d.%d.%d\r\n", localIP[0], localIP[1], localIP[2], localIP[3]);
+}
+
+bool onPowerState(const String &deviceId, bool &state) {
+  return true; // request handled properly
+}
+
+// setup function for SinricPro
+void setupSinricPro() {
+  // add device to SinricPro
+  SinricProTemperaturesensor &mySensor = SinricPro[TEMP_SENSOR_ID];
+  mySensor.onPowerState(onPowerState);
+  
+  // setup SinricPro
+  SinricPro.onConnected([](){ Serial.printf("Connected to SinricPro\r\n"); }); 
+  SinricPro.onDisconnected([](){ Serial.printf("Disconnected from SinricPro\r\n"); });
+  //SinricPro.restoreDeviceStates(true); // Uncomment to restore the last known state from the server.
+  SinricPro.begin(APP_KEY, APP_SECRET);  
+}
+
+// main setup function
+void setup() {
+  Serial.begin(BAUD_RATE); Serial.printf("\r\n\r\n");
+   
+  setupWiFi();
+  setupSinricPro();
+}
+
+void loop() {
+  SinricPro.handle();
+  handleTemperaturesensor();
+}
+```
+
+[View this code on GitHub Gist](https://gist.github.com/kakopappa/8806b5eeb0203252c5aed42849bd1481)
+
  
 Now you should be able to view the temperature via Sinric Pro App
   
@@ -82,4 +310,13 @@ Please note that Google Home App shows the temperature sensor as a Thermostat du
 ### Troubleshooting
 1. Please refer to our [Troubleshooting]({{ site.github.url }}/pages/troubleshooting.html) page for more details.
  
+
+### Related tutorials
+
+- [How to control an ESP32 or ESP8266 with Alexa and Google Home]({{ site.github.url }}/pages/tutorials/general/esp32-esp8266-alexa-google-home.html)
+- [DHT11, DHT22, AM2302 temperature and humidity sensor]({{ site.github.url }}/pages/tutorials/temperature-sensors/DHTx_AMx_RHTx.html)
+- [DS18B20 temperature sensor]({{ site.github.url }}/pages/tutorials/temperature-sensors/DS18B20.html)
+- [BME280 temperature and humidity sensor]({{ site.github.url }}/pages/tutorials/temperature-sensors/BME280.html)
+- [BMP180 temperature sensor]({{ site.github.url }}/pages/tutorials/temperature-sensors/BMP180.html)
+
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

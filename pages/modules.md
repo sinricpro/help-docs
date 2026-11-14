@@ -2,6 +2,7 @@
 title: Modules
 weight: 4
 lang: en
+description: What a module is in Sinric Pro, and how one ESP32 or ESP8266 board can host several devices.
 ---
 
 ### Introduction 

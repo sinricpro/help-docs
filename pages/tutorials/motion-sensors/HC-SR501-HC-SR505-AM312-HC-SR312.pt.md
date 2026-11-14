@@ -1,7 +1,8 @@
 ---
-title: Tutorial de Sensor de Movimento para HC-SR501, HC-SR505, Mini AM312, HC-SR312
+title: 'Sensor de Movimento PIR com ESP32 ou ESP8266 para Alexa: HC-SR501, HC-SR505, AM312'
 layout: post
 lang: pt
+description: Construa um sensor de movimento PIR com ESP32, ESP8266 ou Pico W. Compara HC-SR501, HC-SR505 e AM312 (HC-SR312), com fiação, ajuste de sensibilidade e código para Alexa.
 ---
 
 Nesta seção vamos criar um **Sensor de Movimento** PIR usando **ESP32**, **ESP8266** ou **Raspberry Pi Pico W** e depois visualizar as mudanças de movimento via **Alexa ou SmartThings**.
@@ -17,6 +18,16 @@ Nesta seção vamos criar um **Sensor de Movimento** PIR usando **ESP32**, **ESP
 | HC-SR312  |2.7-12V           | 2 segundos  | 2 segundos     | Repetível    | 3-5 metros
 | HC-SR505  |4.5-20V           | 2 segundos  | 2 segundos     | Repetível    | 3 metros
 | HC-SR501  |4.5-20V           | Ajustável  | Ajustável    | Ajustável    | 3 metros a 7 metros
+
+### HC-SR501 vs HC-SR505 vs AM312 (HC-SR312): qual escolher?
+
+O HC-SR312 é o módulo PIR mini construído em torno do sensor AM312, então os dois nomes se referem à mesma peça.
+
+- **HC-SR501**: o maior módulo e o único que pode ser ajustado. Tem dois potenciômetros (sensibilidade e tempo de atraso) e um jumper para disparo único ou repetido. Escolha-o quando precisar de maior alcance ou quiser ajustar o comportamento. Precisa de pelo menos 4,5 V, então alimente-o pelo 5V / VIN.
+- **HC-SR505**: um módulo pequeno com ajustes fixos. Não há nada para ajustar. Também precisa de pelo menos 4,5 V.
+- **AM312 / HC-SR312**: o menor módulo, também com ajustes fixos. Funciona a partir de 2,7 V, então pode ser alimentado diretamente pelo pino **3.3V**. É a melhor opção para placas ESP32 / ESP8266 e projetos alimentados por bateria.
+
+Os três têm os mesmos três pinos: **VCC**, **OUT** e **GND**. A ordem dos pinos é diferente em cada módulo, então confira as marcações na placa antes de ligar. O mesmo código funciona para todos.
 
 ### Introdução rápida aos Sensores de Movimento PIR
 
@@ -76,7 +87,44 @@ O HC-SR501 tem configurações ajustáveis:
 | Pico W    |    GP5  |
 
 Vamos verificar se o sensor de movimento está conectado corretamente e funcionando.
-<script src="https://gist.github.com/kakopappa/bc5a7152c02e4e692ca9ae6708fe6814.js"></script>
+
+```cpp
+#if defined(ESP8266)
+  #define SENSOR_PIN        D1
+#elif defined(ESP32) 
+  #define SENSOR_PIN        26
+#elif (ARDUINO_ARCH_RP2040)
+  #define SENSOR_PIN        5
+#endif
+
+int newState;
+int oldState;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(SENSOR_PIN, INPUT);
+  
+  Serial.printf("Wait 10 secs for the PIR sensor to calibrate properly\r\n");
+  delay(1000 * 10);
+  oldState = digitalRead(SENSOR_PIN); // read the starting state
+}
+
+void loop() {
+  newState = digitalRead(SENSOR_PIN); // read current state
+
+  if(oldState != newState) {
+    if (newState == HIGH) {
+      Serial.println("Movement detected!");
+    } else {
+      Serial.println("Movement not detected!");
+    }
+    oldState = newState;
+  }  
+   delay(100);
+}
+```
+
+[View this code on GitHub Gist](https://gist.github.com/kakopappa/bc5a7152c02e4e692ca9ae6708fe6814)
 
 
 O Monitor Serial do Arduino IDE mostrará as detecções de movimento assim:
@@ -117,7 +165,123 @@ Você pode **gerar o código** usando o recurso **Zero Code** ou escrevê-lo voc
 
 #### 2.2 Código Completo
   
-<script src="https://gist.github.com/kakopappa/f4fd3d769144689f15cfc80d783e8c94.js"></script>
+
+```cpp
+// Uncomment the following line to enable serial debug output
+//#define ENABLE_DEBUG
+
+#ifdef ENABLE_DEBUG
+  #define DEBUG_ESP_PORT Serial
+  #define NODEBUG_WEBSOCKETS
+  #define NDEBUG
+#endif 
+
+#include <Arduino.h>
+#if defined(ESP8266)
+  #include <ESP8266WiFi.h>
+#elif defined(ESP32) || defined(ARDUINO_ARCH_RP2040)
+  #include <WiFi.h>
+#endif
+
+#include "SinricPro.h"
+#include "SinricProMotionsensor.h" 
+
+#define WIFI_SSID         ""   // Your WiFI SSID name 
+#define WIFI_PASS         ""   // Your WiFi Password.
+#define APP_KEY           ""   // Should look like "de0bxxxx-1x3x-4x3x-ax2x-5dabxxxxxxxx" (Get it from Portal -> Secrets)
+#define APP_SECRET        ""   // Should look like "5f36xxxx-x3x7-4x3x-xexe-e86724a9xxxx-4c4axxxx-3x3x-x5xe-x9x3-333d65xxxxxx" (Get it from Portal -> Secrets)
+#define MOTION_SENSOR_ID  ""   // Should look like "5dc1564130xxxxxxxxxxxxxx" (Get it from Portal -> Devices)
+#define BAUD_RATE         115200              // Change baudrate to your need (used for serial monitor)
+ 
+#if defined(ESP8266)
+  #define SENSOR_PIN        D1
+#elif defined(ESP32) 
+  #define SENSOR_PIN        26
+#elif (ARDUINO_ARCH_RP2040)
+  #define SENSOR_PIN        5
+#endif 
+
+int newState;
+int oldState;
+
+void handleMotionSensor() {
+  newState = digitalRead(SENSOR_PIN); // read current state
+
+  if(oldState != newState) {
+    if (newState == HIGH) {
+      Serial.println("Movement detected!");
+    } else {
+      Serial.println("Movement not detected!");
+    }
+
+    // newState == true (HIGH) : if motion has been detected 
+    // newState == false (LOW): if no motion has been detected
+
+    SinricProMotionsensor &myMotionsensor = SinricPro[MOTION_SENSOR_ID]; // get motion sensor device
+    myMotionsensor.sendMotionEvent(newState);
+
+    oldState = newState;
+  }
+}
+
+
+// setup function for WiFi connection
+void setupWiFi() {
+  Serial.printf("\r\n[Wifi]: Connecting");
+
+  #if defined(ESP8266)
+    WiFi.setSleepMode(WIFI_NONE_SLEEP); 
+    WiFi.setAutoReconnect(true);
+  #elif defined(ESP32)
+    WiFi.setSleep(false); 
+    WiFi.setAutoReconnect(true);
+  #endif
+
+  WiFi.begin(WIFI_SSID, WIFI_PASS); 
+
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.printf(".");
+    delay(250);
+  }
+  IPAddress localIP = WiFi.localIP();
+  Serial.printf("connected!\r\n[WiFi]: IP-Address is %d.%d.%d.%d\r\n", localIP[0], localIP[1], localIP[2], localIP[3]);
+}
+ 
+// setup function for SinricPro
+void setupSinricPro() {
+  // add device to SinricPro
+  SinricProMotionsensor &mySensor = SinricPro[MOTION_SENSOR_ID];
+   
+  // setup SinricPro
+  SinricPro.onConnected([](){ Serial.printf("Connected to SinricPro\r\n"); }); 
+  SinricPro.onDisconnected([](){ Serial.printf("Disconnected from SinricPro\r\n"); });
+  //SinricPro.restoreDeviceStates(true); // Uncomment to restore the last known state from the server.
+  SinricPro.begin(APP_KEY, APP_SECRET);  
+}
+
+void setupMotionSensor() {
+  pinMode(SENSOR_PIN, INPUT);
+  Serial.printf("Wait 10 secs for the PIR sensor to calibrate properly\r\n");
+  delay(1000 * 10);  
+}
+
+// main setup function
+void setup() {
+  Serial.begin(BAUD_RATE); Serial.printf("\r\n\r\n");
+  
+  setupMotionSensor();
+  setupWiFi();
+  setupSinricPro();
+}
+
+void loop() {
+  SinricPro.handle();
+  handleMotionSensor();
+}
+```
+
+[View this code on GitHub Gist](https://gist.github.com/kakopappa/f4fd3d769144689f15cfc80d783e8c94)
+
  
 Agora você deve conseguir visualizar os movimentos via Alexa, SmartThings
   
@@ -125,7 +289,7 @@ Agora você deve conseguir visualizar os movimentos via Alexa, SmartThings
 
 via Portal
 
-![Sinric Pro Portal Temperature Sensor]({{ site.github.url }}/public/img/sinric_pro_contact_motion_portal.png)
+![Sinric Pro Portal motion sensor]({{ site.github.url }}/public/img/sinric_pro_contact_motion_portal.png)
 
 Note que Google Home não é suportado.
 

@@ -1,6 +1,7 @@
 ---
 title: Temperature Sensor Capability
 layout: post
+description: Temperature Sensor capability for Sinric Pro device templates. Report the current temperature and humidity. Includes Alexa, Google Home and SDK examples.
 ---
 
 

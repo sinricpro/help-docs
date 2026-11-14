@@ -1,6 +1,7 @@
 ---
 title: Open-Close Capability
 layout: post
+description: Open-Close capability for Sinric Pro device templates. Open, close and position blinds, doors and similar devices. Includes Alexa, Google Home and SDK examples.
 ---
 
 The Open-Close capability in SinricPro device templates supports devices that can open and close, including those with partial positioning or multi-directional movement functionality. For example, some blinds may open either to the left or to the right.

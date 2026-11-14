@@ -1,6 +1,7 @@
 ---
 title: Doorbell Capability
 layout: post
+description: Doorbell capability for Sinric Pro device templates. Raise doorbell press events and get Alexa announcements.
 ---
 
 The Doorbell capability in SinricPro device templates enables to raise doorbell events.

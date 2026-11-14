@@ -1,9 +1,10 @@
 ---
 title: Lock Capability
 layout: post
+description: Lock capability for Sinric Pro device templates. Lock and unlock a device. Includes Alexa, Google Home and SDK examples.
 ---
 
-The Brightness capability in SinricPro device templates allows you to lock and unlock lockable devices.
+The Lock capability in SinricPro device templates allows you to lock and unlock lockable devices.
 
 #### Supports
  - [x]  Alexa

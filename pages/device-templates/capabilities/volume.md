@@ -1,6 +1,7 @@
 ---
 title: Volume Capability
 layout: post
+description: Volume capability for Sinric Pro device templates. Set, adjust and mute the volume. Includes Alexa, Google Home and SDK examples.
 ---
  
 The Volume capability in SinricPro device templates allows you to control the device's volume.

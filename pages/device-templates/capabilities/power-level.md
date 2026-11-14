@@ -1,6 +1,7 @@
 ---
 title: Power Level Capability
 layout: post
+description: Power Level capability for Sinric Pro device templates. Set the power level of a device. Includes Alexa, Google Home and SDK examples.
 ---
 
 The Power Level capability in SinricPro device templates allows you to  control the power level of your smart home device.

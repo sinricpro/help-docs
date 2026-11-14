@@ -2,6 +2,7 @@
 title: "MCP Server & Skill"
 weight: 5
 lang: en
+description: Connect AI coding assistants such as Claude Code, Codex and Cursor to the Sinric Pro documentation, API reference and SDK examples with the MCP server.
 ---
 
 The **SinricPro Docs MCP Server** lets AI coding assistants read the official SinricPro documentation, API reference, and SDK examples directly — so tools like Claude Code, OpenAI Codex, and Cursor can answer SinricPro questions and write device code using up-to-date, authoritative sources instead of guessing.
@@ -9,6 +10,10 @@ The **SinricPro Docs MCP Server** lets AI coding assistants read the official Si
 It speaks the [Model Context Protocol](https://modelcontextprotocol.io) (MCP) over **Streamable HTTP**. There is nothing to install and no API key required — just point your client at the endpoint below.
 
 > **Want your assistant to set up devices too?** Connect to the [account endpoint](#manage-devices-account-endpoint) with your API key and it can also create, rename and delete devices in your account. To turn devices on and off, run scenes, or manage schedules, use the [SinricPro agent skill](#agent-skill-control-your-smart-home).
+
+### llms.txt
+
+If your assistant cannot use MCP, point it at [llms.txt]({{ site.github.url }}/llms.txt). It is a plain-text index of this documentation, with a one-line summary of every page, in the [llms.txt](https://llmstxt.org) format that ChatGPT, Claude, Cursor and similar tools can read.
 
 ### Endpoint
 

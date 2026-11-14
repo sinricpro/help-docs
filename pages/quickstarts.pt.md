@@ -4,6 +4,7 @@ weight: 1
 lang: pt
 youtubeId: H-iftzWVTXE
 youtubeId2: HEMifE1Xm7E
+description: Tutoriais de início rápido do Sinric Pro para ESP32, ESP8266 e Raspberry Pi Pico W. Interruptores, luzes, sensores, câmeras e mais com Alexa e Google Home.
 ---
  
 

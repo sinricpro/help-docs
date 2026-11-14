@@ -8,7 +8,10 @@ permalink: /
 Bem-vindo à documentação do **Sinric Pro**.
 
 **Início Rápido**
- - Tutoriais [aqui]({{ site.github.url }}/pt/pages/quickstarts.html) 
+ - [Como controlar um ESP32 ou ESP8266 com Alexa e Google Home]({{ site.github.url }}/pt/pages/tutorials/general/esp32-esp8266-alexa-google-home.pt.html)
+ - [Amazon Alexa]({{ site.github.url }}/pt/pages/alexa.pt.html)
+ - [Google Home]({{ site.github.url }}/pt/pages/google-home.pt.html)
+ - Mais tutoriais [aqui]({{ site.github.url }}/pt/pages/quickstarts.pt.html)
 
 **API**
  - Guia da API [aqui](https://help.sinric.pro/pt/pages/api-guide)
@@ -32,7 +35,7 @@ Bem-vindo à documentação do **Sinric Pro**.
  
 ## Para onde ir a seguir?
 
- * Para experimentar o Sinric, confira nosso [Guia de início rápido]({{ site.github.url }}/pt/pages/quickstart.html)
+ * Para experimentar o Sinric, confira nosso [Guia de início rápido]({{ site.github.url }}/pt/pages/quickstarts.pt.html)
  * O código-fonte de exemplo está no GitHub como [sinricpro](https://github.com/sinricpro)
  * Issues também são rastreados no [GitHub](https://github.com/sinricpro/)
 
