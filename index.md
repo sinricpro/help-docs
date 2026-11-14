@@ -8,7 +8,13 @@ permalink: /
 Welcome to **Sinric Pro** documentation.
 
 **Quick Start**
- - Tutorials [here]({{ site.github.url }}/pages/quickstarts.html) 
+ - [Control an ESP32 or ESP8266 with Alexa and Google Home]({{ site.github.url }}/pages/tutorials/general/esp32-esp8266-alexa-google-home.html)
+ - [Install the Sinric Pro library]({{ site.github.url }}/pages/tutorials/general/install-sinricpro-library.html)
+ - More tutorials [here]({{ site.github.url }}/pages/quickstarts.html)
+
+**AI assistants**
+ - [MCP Server & Skill]({{ site.github.url }}/pages/mcp-server.html) for Claude Code, Codex, Cursor and other AI coding assistants
+ - [llms.txt]({{ site.github.url }}/llms.txt): index of this documentation for AI tools
 
 **API**
  - API guide [here](https://help.sinric.pro/pages/api-guide)
@@ -27,14 +33,18 @@ Welcome to **Sinric Pro** documentation.
  - [x]  [Arduino SAMD21, Adafruit SAMD21, SAMD51, nRF52, STM32, Teensy, SAM DUE SDK](https://github.com/khoih-prog/SinricPro_Generic) *(Community Maintained)*
   
 **Integrations**
+ - [Amazon Alexa]({{ site.github.url }}/pages/alexa.html)
+ - [Google Home]({{ site.github.url }}/pages/google-home.html)
+ - [Samsung SmartThings]({{ site.github.url }}/pages/smartthings.html)
  - [IFTTT]({{ site.github.url }}/pages/ifttt.html)  
  - [Homebridge (Homekit)]({{ site.github.url }}/pages/homebridge.html)  
+ - [Home Assistant]({{ site.github.url }}/pages/home-assistant.html)
  - [Apple Shortcuts]({{ site.github.url }}/pages/apple-shortcuts.html)
  - [Node-Red]({{ site.github.url }}/pages/node-red.html)
  
 ## Where to go next?
 
- * To try out Sinric, check out our [Quickstart guide]({{ site.github.url }}/pages/quickstart.html)
+ * To try out Sinric, check out our [Quickstart guide]({{ site.github.url }}/pages/quickstarts.html)
  * Example code is available on GitHub
     - [ESP8266, ESP32, Raspberry Pi Pico W SDK](https://github.com/sinricpro/esp8266-esp32-sdk/tree/master/examples)
     - [Micropython SDK](https://github.com/sinricpro/micropython-sinricpro-sdk/tree/main/examples)

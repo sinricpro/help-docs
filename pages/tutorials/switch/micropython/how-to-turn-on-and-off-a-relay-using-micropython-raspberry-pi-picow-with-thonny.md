@@ -1,6 +1,7 @@
 ---
 title: How to Control a Relay (Turn On/Off) Using MicroPython on an Raspberry Pi Pico W with Thonny
 layout: post
+description: Control a relay with MicroPython on a Raspberry Pi Pico W using Thonny and Sinric Pro, with Alexa, Google Home and SmartThings.
 ---
 
 In this guide, we’ll show you how to set up MicroPython on your Raspberry Pi Pico W, create a Sinric Pro smart switch, and control it using popular smart home platforms like Alexa, Google Home, and SmartThings.
@@ -169,5 +170,11 @@ That's it.
 ![Sinric Pro MicroPython Connected]({{ site.github.url }}/public/img/sinricpro-thonny-sinricpro-running.png)
 
 Now the device is connected to Sinric Pro server and you can control it via Sinric Pro App, Alexa Skill, Google Home Action or SmartThings
+
+### Related tutorials
+
+- [How to control an ESP32 or ESP8266 with Alexa and Google Home]({{ site.github.url }}/pages/tutorials/general/esp32-esp8266-alexa-google-home.html)
+- [Relay with MicroPython on ESP32]({{ site.github.url }}/pages/tutorials/switch/micropython/how-to-turn-on-and-off-a-relay-using-micropython.html)
+- [Switch tutorial part 1: turn a relay on and off]({{ site.github.url }}/pages/tutorials/switch/part-1.html)
 
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

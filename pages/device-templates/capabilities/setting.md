@@ -1,6 +1,7 @@
 ---
 title: Setting Capability
 layout: post
+description: Setting capability for Sinric Pro device templates. Define custom settings and send their values to your device.
 ---
 
 The Setting capability in SinricPro device templates allows you to modify custom device configurations. You can define your own setting with a unique ID, descriptive name, and multiple possible values, then send these customized configurations to your device.

@@ -1,9 +1,10 @@
 ---
 title: Percentage Capability
 layout: post
+description: Percentage capability for Sinric Pro device templates. Control a device property as a percentage. Includes Alexa, Google Home and SDK examples.
 ---
 
-The Power Level capability in SinricPro device templates provides the ability to manage and adjust specific device properties that can be represented as a percentage, allowing for precise control over features such as brightness, fan speed, or power output.
+The Percentage capability in SinricPro device templates provides the ability to manage and adjust specific device properties that can be represented as a percentage, allowing for precise control over features such as brightness, fan speed, or power output.
 
 #### Supports
  - [x]  Alexa

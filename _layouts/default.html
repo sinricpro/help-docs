@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us">
+{% assign html_lang = 'en' %}{% for l in site.languages %}{% unless l == 'en' %}{% assign sfx = '.' | append: l | append: '.html' %}{% if page.lang == l or page.url contains sfx %}{% assign html_lang = l %}{% endif %}{% endunless %}{% endfor %}{% if html_lang == 'pt' %}{% assign html_lang = 'pt-BR' %}{% endif %}<html lang="{{ html_lang }}">
 
   {% include head.html %}
 

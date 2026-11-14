@@ -1,6 +1,7 @@
 ---
 title: Color Temperature Capability
 layout: post
+description: Color Temperature capability for Sinric Pro device templates. Adjust lights from warm white to cool white. Includes Alexa, Google Home and SDK examples.
 ---
 
 

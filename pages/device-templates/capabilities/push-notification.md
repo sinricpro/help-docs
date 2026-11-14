@@ -1,11 +1,14 @@
 ---
 title: Push Notification Capability
 layout: post
+description: How to send a push notification from an ESP32, ESP8266 or Raspberry Pi Pico W to your phone with the Sinric Pro SDK, using sendPushNotification().
 ---
 
 The Push Notification capability in SinricPro device templates gives you the capability to send a push notification message from your device.
 
-Please make sure 
+### How to send a push notification with the Sinric Pro SDK
+
+Call `sendPushNotification()` on your device from your ESP32, ESP8266 or Raspberry Pi Pico W sketch. The message is delivered to the Sinric Pro app on your phone and shown in the Sinric Pro Portal.
 
 {% highlight c %}   
 SinricProSwitch& mySwitch = SinricPro[SWITCH_ID];

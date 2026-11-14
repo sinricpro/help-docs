@@ -1,6 +1,7 @@
 ---
 title: Color Capability
 layout: post
+description: Color capability for Sinric Pro device templates. Set the RGB colour of colour-changing lights. Includes Alexa, Google Home and SDK examples.
 ---
 
 The Color capability in SinricPro device templates provides dynamic control over the hue and saturation of compatible smart devices. This feature enables users to transform their environment by adjusting RGB values of color-changing light bulbs, LED strips, and other chromatic lighting fixtures to create personalized atmospheres for any occasion.

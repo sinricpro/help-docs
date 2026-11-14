@@ -1,6 +1,7 @@
 ---
 title: Motion Sensor Capability
 layout: post
+description: Motion Sensor capability for Sinric Pro device templates. Report detected movement and trigger Alexa routines.
 ---
 
 The Motion sensor capability in SinricPro device templates enables detection of physical movement within a specific area.

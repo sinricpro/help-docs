@@ -2,6 +2,7 @@
 title: Energy Estimates
 weight: 3
 lang: en
+description: How Sinric Pro estimates the energy use of your devices from their on and off times and wattage.
 ---
 We are innovating new ways with Sinric to make smart homes more efficient and help everyone have a positive impact on the planet
 

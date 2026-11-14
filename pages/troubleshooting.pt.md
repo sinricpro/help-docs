@@ -4,6 +4,7 @@ weight: 4
 lang: pt
 youtubeId: H-iftzWVTXE
 youtubeId2: HEMifE1Xm7E
+description: Resolva problemas comuns do Sinric Pro no ESP32 e ESP8266. Conexão instável, dispositivo offline, Alexa ou Google Home sem resposta.
 ---
 
 ### Dicas de solução de problemas 

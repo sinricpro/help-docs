@@ -1,6 +1,7 @@
 ---
 title: Mode Capability
 layout: post
+description: Mode capability for Sinric Pro device templates. Switch a device between predefined modes. Includes Alexa, Google Home and SDK examples.
 ---
 
 The Mode capability in SinricPro device templates allows you to control the mode settings of your device where a device can operate in different predefined modes instead of just ON/OFF states. 

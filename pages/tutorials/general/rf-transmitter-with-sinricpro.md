@@ -2,6 +2,7 @@
 title: ESP32 RF Transmitter + SinricPro Integration Tutorial
 layout: post
 lang: en
+description: Control 433MHz RF lights, fans and outlets with Alexa and Google Home using an ESP32, an RF transmitter and Sinric Pro.
 ---
  
 Control your RF devices (lights, fans, outlets) via Alexa, Google Home, or the SinricPro app — using your existing 433MHz RF transmitter!
@@ -274,3 +275,10 @@ Let me know if you want to add more devices, schedules, or local button feedback
 
 **Next Step:** Try saying *“Alexa, discover devices”* — and enjoy voice-controlled RF gadgets!
 ```
+
+### Related tutorials
+
+- [How to control an ESP32 or ESP8266 with Alexa and Google Home]({{ site.github.url }}/pages/tutorials/general/esp32-esp8266-alexa-google-home.html)
+- [TV control with an IR transceiver]({{ site.github.url }}/pages/tutorials/tv/ir-transceiver-esp8285.html)
+- [Switch tutorial part 1: turn a relay on and off]({{ site.github.url }}/pages/tutorials/switch/part-1.html)
+

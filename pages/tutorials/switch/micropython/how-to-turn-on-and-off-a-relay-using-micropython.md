@@ -1,6 +1,7 @@
 ---
 title: How to Control a Relay (Turn On/Off) Using MicroPython on an ESP32 with Pymakr
 layout: post
+description: Control a relay with MicroPython on an ESP32 using the Pymakr extension for VS Code and Sinric Pro, with Alexa, Google Home and SmartThings.
 ---
 
 In this guide, we'll walk you through the steps of setting up MicroPython on your ESP32, creating a Sinric Pro Switch and ultimately controlling it with smart home platforms like Alexa, Google Home, and SmartThings
@@ -72,7 +73,7 @@ Click the "Pymakr" icon in the left sidebar of VS Code.
 
 Before we integrate with Sinric Pro, it is important to verify that the relay is wired correctly and it's working. 
 
-Let's create a new Pymark Project. Press (Ctrl+Shift+P) and select `PyMark: Create new project`
+Let's create a new Pymakr Project. Press (Ctrl+Shift+P) and select `Pymakr: Create new project`
 
 ![Sinric Pro pymark new project]({{ site.github.url }}/public/img/sinricpro-micropython-pymakr-new-project.png) 
 
@@ -92,15 +93,15 @@ while True:
   sleep(5)
 ```
 
-Select `PyMark` extention -> Connect to your ESP32 -> Click on Upload Icon.
+Select `Pymakr` extension -> Connect to your ESP32 -> Click on Upload Icon.
 
 ![Sinric Pro pymark new project]({{ site.github.url }}/public/img/sinricpro-micropython-pymakr-upload-mainpy.png) 
 
-Once upload compleres, you must perform a **Hard reset device**. Then ESP32 will reboot and execute the code in `main.py`
+Once upload completes, you must perform a **Hard reset device**. Then ESP32 will reboot and execute the code in `main.py`
 
 ![Sinric Pro pymark hard reset device]({{ site.github.url }}/public/img/sinricpro-micropython-pymakr-hard-reset.png) 
 
-Now your relay should trun on and off every 5 seconds. If the relay is working correctly, time to integrate with Sinric Pro.
+Now your relay should turn on and off every 5 seconds. If the relay is working correctly, time to integrate with Sinric Pro.
 
 ### Sinric Pro integration
 
@@ -234,5 +235,11 @@ That's it.
 
 
 Now the device is connected to Sinric Pro server and you can control it via Sinric Pro App, Alexa Skill, Google Home Action or SmartThings
+
+### Related tutorials
+
+- [How to control an ESP32 or ESP8266 with Alexa and Google Home]({{ site.github.url }}/pages/tutorials/general/esp32-esp8266-alexa-google-home.html)
+- [Relay with MicroPython on Raspberry Pi Pico W (Thonny)]({{ site.github.url }}/pages/tutorials/switch/micropython/how-to-turn-on-and-off-a-relay-using-micropython-raspberry-pi-picow-with-thonny.html)
+- [Switch tutorial part 1: turn a relay on and off]({{ site.github.url }}/pages/tutorials/switch/part-1.html)
 
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

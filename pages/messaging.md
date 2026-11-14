@@ -3,6 +3,7 @@ title: Messaging
 weight: 4
 lang: en
 published: false
+description: Sinric Pro WebSocket messaging protocol reference. JSON message format, HMAC signatures, requests, responses and events.
 ---
  
 

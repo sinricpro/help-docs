@@ -2,6 +2,7 @@
 title: Como ligar e desligar um relé usando MicroPython e ESP32
 layout: post
 lang: pt
+description: Controle um relé com MicroPython em um ESP32 usando a extensão Pymakr para VS Code e o Sinric Pro, com Alexa, Google Home e SmartThings.
 ---
 
 Neste guia, vamos orientá-lo através dos passos para configurar MicroPython no seu ESP32, criar um Interruptor Sinric Pro e finalmente controlá-lo com plataformas de casa inteligente como Alexa, Google Home e SmartThings

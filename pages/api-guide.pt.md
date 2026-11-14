@@ -2,6 +2,7 @@
 title: Guia da API
 weight: 5
 lang: pt
+description: Guia da API REST do Sinric Pro. Crie uma chave de API, autentique-se, liste dispositivos e envie comandos aos seus dispositivos por HTTP.
 ---
 
 SinricPro usa REST para sua API. Isso significa que usa JSON para troca de dados e segue práticas HTTP comuns para comunicação.

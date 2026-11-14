@@ -2,6 +2,7 @@
 title: PaaS
 weight: 1
 published: false
+description: Sinric Pro PaaS (white label) solution. Your own branded mobile apps, Alexa skill, Google Home action and IoT cloud.
 ---
 
 **We provide the following services with our PaaS (White Label) solution**

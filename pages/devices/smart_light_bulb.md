@@ -6,6 +6,7 @@ published: false
 categories: 
     - "devices"
     - "smart-light-bulb"
+description: How to create a Smart Light Bulb device in Sinric Pro and connect an ESP32 or ESP8266. Control power, brightness and colour with Alexa and Google Home.
 ---
 
 Smart Light Bulb is a LED light bulb that allows lighting to be customized using RGB color code and can be controlled remotely using WiFi. 

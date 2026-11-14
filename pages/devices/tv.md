@@ -6,6 +6,7 @@ published: false
 categories: 
     - "devices"
     - "tv"
+description: How to create a TV device in Sinric Pro and connect an ESP32 or ESP8266. Control power, volume, channels and inputs with Alexa and Google Home.
 ---
 
 Smart TV is an internet connected television which allows users to control using voice, stream music and videos.

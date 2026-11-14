@@ -2,6 +2,7 @@
 title: Sending Voice Announcements via Google Home Using SinricPro
 layout: post
 lang: en
+description: Send voice announcements to Google Home from an ESP32 or ESP8266 with Sinric Pro, using Google Home automations.
 ---
 
 Google Home **does not support arbitrary text-to-speech (TTS) announcements** through the Smart Home API for third-party integrations like SinricPro. However, you can achieve voice announcements **indirectly** using **Google Home Routines** (called *“Routines”* in the Google Home app) combined with a virtual device trigger.

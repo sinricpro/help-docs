@@ -1,7 +1,8 @@
 ---
-title: Tutorial de Interruptor Parte 1 - Ligar e desligar um Relé
+title: Controle um Relé com ESP32 ou ESP8266 usando Alexa e Google Home (Tutorial de Interruptor Parte 1)
 layout: post
 lang: pt
+description: Controle um relé com ESP32, ESP8266 ou Raspberry Pi usando Alexa, Google Home ou SmartThings. Fiação, código e vinculação de contas.
 ---
 
 Nesta seção vamos criar um **Interruptor** Sinric Pro para **ESP32**, **ESP8266** ou **Raspberry Pi Zero W** e depois controlar via **Alexa, Google Home ou SmartThings**.
@@ -61,7 +62,34 @@ Os contatos normalmente aberto (NO) e normalmente fechado (NC) permitem que voc�
 
 Antes de integrarmos com Sinric Pro, é importante verificar se o relé está conectado corretamente. Você pode usar o seguinte código para verificar se o relé liga e desliga a cada 5 segundos.
 
-<script src="https://gist.github.com/kakopappa/baf926bc8b0821f048fe53540e254212.js"></script>
+
+```cpp
+#if defined(ESP8266)
+  #define relay        12
+#elif defined(ESP32) 
+  #define relay        16
+#elif (ARDUINO_ARCH_RP2040)
+  #define relay        6
+#endif
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(relay, OUTPUT);
+}
+
+void loop() {
+  Serial.println("Writing HIGH ..");
+  digitalWrite(relay, HIGH);
+  delay(5000); 
+  
+  Serial.println("Writing LOW ..");
+  digitalWrite(relay, LOW);
+  delay(5000);
+}
+```
+
+[View this code on GitHub Gist](https://gist.github.com/kakopappa/baf926bc8b0821f048fe53540e254212)
+
 
 ### Passo 1: Criar um novo dispositivo no Sinric Pro
 
@@ -94,7 +122,95 @@ Você pode **gerar o código** usando o recurso **Zero Code** ou escrevê-lo voc
 
 #### 2.2 Código Completo
 
-<script src="https://gist.github.com/kakopappa/0416a1f26b8398ce6dd9f71a6a70755a.js"></script>
+
+```cpp
+#include <Arduino.h>
+#if defined(ESP8266)
+  #include <ESP8266WiFi.h>
+#elif defined(ESP32) || defined(ARDUINO_ARCH_RP2040)
+  #include <WiFi.h>
+#endif
+
+#include "SinricPro.h"
+#include "SinricProSwitch.h"
+
+#define WIFI_SSID         ""  // Change WIFI_SSID to your WiFi Name.
+#define WIFI_PASS         ""  // Change WIFI_PASS to your WiFi password.
+#define APP_KEY           ""  // Paste App Key from above 
+#define APP_SECRET        ""  // Paste App Secret from above 
+#define SWITCH_ID_1       ""  // Paste Device Id from  above
+
+#if defined(ESP8266)
+  #define RELAYPIN_1        12
+#elif defined(ESP32) 
+  #define RELAYPIN_1        16
+#elif (ARDUINO_ARCH_RP2040)
+  #define RELAYPIN_1        6
+#endif
+
+#define BAUD_RATE         115200                // Change baudrate to your need
+
+bool onPowerState1(const String &deviceId, bool &state) {
+ Serial.printf("Device 1 turned %s", state?"on":"off");
+ digitalWrite(RELAYPIN_1, state ? HIGH:LOW);
+ 
+ /* If your relay is activated with low signal, change the above to below code
+  digitalWrite(RELAYPIN_1, state ? LOW : HIGH); */
+
+ return true; // request handled properly
+}
+
+// setup function for WiFi connection
+void setupWiFi() {
+  Serial.printf("\r\n[Wifi]: Connecting");
+
+  #if defined(ESP8266)
+    WiFi.setSleepMode(WIFI_NONE_SLEEP); 
+    WiFi.setAutoReconnect(true);
+  #elif defined(ESP32)
+    WiFi.setSleep(false); 
+    WiFi.setAutoReconnect(true);
+  #endif
+
+  WiFi.begin(WIFI_SSID, WIFI_PASS);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.printf(".");
+    delay(250);
+  }
+
+  Serial.printf("connected!\r\n[WiFi]: IP-Address is %s\r\n", WiFi.localIP().toString().c_str());
+}
+
+// setup function for SinricPro
+void setupSinricPro() {
+  // add devices and callbacks to SinricPro
+  pinMode(RELAYPIN_1, OUTPUT);
+    
+  SinricProSwitch& mySwitch1 = SinricPro[SWITCH_ID_1];
+  mySwitch1.onPowerState(onPowerState1);
+    
+  // setup SinricPro
+  SinricPro.onConnected([](){ Serial.printf("Connected to SinricPro\r\n"); }); 
+  SinricPro.onDisconnected([](){ Serial.printf("Disconnected from SinricPro\r\n"); });
+   
+  SinricPro.begin(APP_KEY, APP_SECRET);
+}
+
+// main setup function
+void setup() {
+  Serial.begin(BAUD_RATE); Serial.printf("\r\n\r\n");
+  setupWiFi();
+  setupSinricPro();
+}
+
+void loop() {
+  SinricPro.handle();
+}
+```
+
+[View this code on GitHub Gist](https://gist.github.com/kakopappa/0416a1f26b8398ce6dd9f71a6a70755a)
+
  
 Agora você deve conseguir controlar o relé via Portal como no vídeo abaixo.
 

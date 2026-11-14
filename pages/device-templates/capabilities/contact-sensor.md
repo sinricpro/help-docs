@@ -1,6 +1,7 @@
 ---
 title: Contact Sensor Capability
 layout: post
+description: Contact Sensor capability for Sinric Pro device templates. Report the open or closed state of doors and windows. Includes Alexa, Google Home and SDK examples.
 ---
 
 The Contact Sensor capability in SinricPro device templates enables detection of physical contact between two surfaces. This functionality allows devices to monitor and report the state of doors, windows, or other openings - indicating whether they are currently open or closed.

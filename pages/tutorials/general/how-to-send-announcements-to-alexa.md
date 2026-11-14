@@ -2,6 +2,7 @@
 title: Sending Voice Announcements via Alexa Using SinricPro
 layout: post
 lang: en
+description: Send voice announcements to Alexa from an ESP32 or ESP8266 with Sinric Pro, using a contact sensor and an Alexa routine.
 ---
 
 The Amazon Alexa Smart Home API does not natively support sending arbitrary voice announcements (i.e., custom text-to-speech messages). However, you can achieve this functionality indirectly using only officially supported methods by combining **Alexa Routines** with a **Switch** in SinricPro.

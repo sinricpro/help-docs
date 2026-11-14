@@ -2,6 +2,7 @@
 title: Utterances
 weight: 3
 lang: en
+description: Sample voice commands (utterances) for Amazon Alexa and Google Home for each Sinric Pro device type.
 ---
 
 **Sample utterances for Amazon Alexa and Google Home**

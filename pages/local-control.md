@@ -2,6 +2,7 @@
 title: Local Control
 weight: 4
 lang: en
+description: Local control lets the Sinric Pro app talk to your ESP32 and ESP8266 devices directly over Wi-Fi, so they keep working when the internet is down.
 ---
 
 Local control lets the Sinric Pro app talk to your devices **directly over your

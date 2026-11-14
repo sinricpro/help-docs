@@ -3,6 +3,7 @@ title: Smart Doorbell using  ESP32, ESP8266 or Raspberry Pi Pico W for Alexa, Go
 layout: post
 youtubeId: H-iftzWVTXE
 youtubeId2: HEMifE1Xm7E
+description: Build a smart doorbell with a push button and an ESP32, ESP8266 or Raspberry Pi Pico W. Get notifications in Alexa, Google Home and the Sinric Pro app.
 ---
 
 In this section we’ll walk through creating a **Doorbell** using a push (tactile) button connected to a **ESP32**, **ESP8266** or **Raspberry Pi Pico W** and then get a notification in Alexa, Google Home, or the Sinric Pro app.
@@ -18,7 +19,7 @@ In this section we’ll walk through creating a **Doorbell** using a push (tacti
 
 We are going to use Pull-Down approach to wire our button. When the button is pressed, digitalRead reads HIGH (1) signal.
 
-![Sinric Pro contact sensor wiring]({{ site.github.url }}/public/img/sinricpro_pi_doorbell-wiring-diagram.png) 
+![Sinric Pro doorbell push button wiring diagram]({{ site.github.url }}/public/img/sinricpro_pi_doorbell-wiring-diagram.png) 
 
 | MCU       | GPIO Pin     |
 | --------- | ------- |
@@ -30,7 +31,53 @@ We are going to use Pull-Down approach to wire our button. When the button is pr
 
 Let's verify that sensor is wired correctly and working. 
 
-<script src="https://gist.github.com/kakopappa/b8db56b3315c83be6bda1069e9b6a5c8.js"></script>
+
+```cpp
+#if defined(ESP8266)
+  #define BUTTON_PIN        D4
+#elif defined(ESP32) 
+  #define BUTTON_PIN        34
+#elif (ARDUINO_ARCH_RP2040)
+  #define BUTTON_PIN        7
+#endif
+
+int button_state;
+int lastbutton_state = LOW;
+
+unsigned long last_debounce_time = 0;
+unsigned long debounce_delay = 50; // increase if needed.
+
+void setup() {
+  Serial.begin(115200);	
+  pinMode(BUTTON_PIN, INPUT);
+}
+
+void handle_button_press() {
+  int reading = digitalRead(BUTTON_PIN);  
+  if (reading != lastbutton_state) {
+    last_debounce_time = millis();
+  }
+
+  if ((millis() - last_debounce_time) > debounce_delay) {
+    if (reading != button_state) {
+      button_state = reading;
+      
+      if (button_state == HIGH) {
+        Serial.printf("Pressed!\r\n");
+      }
+    }
+  }
+  
+  lastbutton_state = reading;
+}
+
+void loop() {
+  handle_button_press();
+}
+```
+
+[View this code on GitHub Gist](https://gist.github.com/kakopappa/b8db56b3315c83be6bda1069e9b6a5c8)
+
 
 ![Sinric Pro pull-down arduino serial monitor]({{ site.github.url }}/public/img/sinricpro-pushbutton-pull-down.png)
 
@@ -60,7 +107,121 @@ If you did not get the push notification, just ask Alexa to device devices
 
 #### 2.2 Complete Code
 
-<script src="https://gist.github.com/kakopappa/f5853e57b534d08fbc1df2d299c71265.js"></script>
+
+```cpp
+// Uncomment the following line to enable serial debug output
+//#define ENABLE_DEBUG
+
+#ifdef ENABLE_DEBUG
+  #define DEBUG_ESP_PORT Serial
+  #define NODEBUG_WEBSOCKETS
+  #define NDEBUG
+#endif 
+
+#include <Arduino.h>
+#if defined(ESP8266)
+  #include <ESP8266WiFi.h>
+#elif defined(ESP32) || defined(ARDUINO_ARCH_RP2040)
+  #include <WiFi.h>
+#endif
+
+#include "SinricPro.h"
+#include "SinricProDoorbell.h"
+
+// Grab it from https://portal.sinric.pro.
+#define APP_KEY    "" //Should look like "de0bxxxx-1x3x-4x3x-ax2x-5dabxxxxxxxx"
+#define APP_SECRET "" //Should look like "5f36xxxx-x3x7-4x3x-xexe-e86724a9xxxx-4c4axxxx-3x3x-x5xe-x9x3-333d65xxxxxx"
+#define DOORBELL_ID  "" //Should look like "6534xxxxxxxc08c6ea1b"
+
+#define SSID       "" // Your WiFi SSID
+#define PASS       "" // Your WiFi Password 
+
+#define BAUD_RATE         115200                // Change baudrate to your need
+
+#if defined(ESP8266)
+  #define BUTTON_PIN        D4
+#elif defined(ESP32) 
+  #define BUTTON_PIN        34
+#elif (ARDUINO_ARCH_RP2040)
+  #define BUTTON_PIN        7
+#endif
+
+int button_state;
+int lastbutton_state = LOW;
+
+unsigned long last_debounce_time = 0;
+unsigned long debounce_delay = 50; // increase if needed.
+SinricProDoorbell& myDoorbell = SinricPro[DOORBELL_ID];
+
+void handleButtonPress() {
+  int reading = digitalRead(BUTTON_PIN);  
+  if (reading != lastbutton_state) {
+    last_debounce_time = millis();
+  }
+
+  if ((millis() - last_debounce_time) > debounce_delay) {
+    if (reading != button_state) {
+      button_state = reading;
+      
+      if (button_state == HIGH) {
+        Serial.printf("[handleButtonPress()]: Button pressed!\r\n");
+        bool success = myDoorbell.sendDoorbellEvent();
+        if(!success) {
+          Serial.printf("[handleButtonPress()]: Something went wrong...could not send Event to server!\r\n");
+        }        
+      }
+    }
+  }
+  
+  lastbutton_state = reading;
+}
+ 
+void setupWiFi() {
+  Serial.printf("\r\n[setupWiFi()]: Connecting");
+
+  #if defined(ESP8266)
+    WiFi.setSleepMode(WIFI_NONE_SLEEP); 
+    WiFi.setAutoReconnect(true);
+  #elif defined(ESP32)
+    WiFi.setSleep(false); 
+    WiFi.setAutoReconnect(true);
+  #endif
+
+  WiFi.begin(WIFI_SSID, WIFI_PASS);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.printf(".");
+    delay(250);
+  }
+  IPAddress localIP = WiFi.localIP();
+  Serial.printf("connected!\r\n[setupWiFi()]: IP-Address is %d.%d.%d.%d\r\n", localIP[0], localIP[1], localIP[2], localIP[3]);
+}
+ 
+void setupSinricPro() {
+  SinricPro.onConnected([](){ Serial.printf("Connected to SinricPro\r\n"); }); 
+  SinricPro.onDisconnected([](){ Serial.printf("Disconnected from SinricPro\r\n"); });
+  SinricPro.begin(APP_KEY, APP_SECRET);
+}
+
+void setupButton() {
+  pinMode(BUTTON_PIN, INPUT);
+}
+
+void setup() {
+  Serial.begin(BAUD_RATE); Serial.printf("\r\n\r\n");
+  setupButton();
+  setupWiFi();
+  setupSinricPro();
+}
+
+void loop() {
+  handleButtonPress();
+  SinricPro.handle();
+}
+```
+
+[View this code on GitHub Gist](https://gist.github.com/kakopappa/f5853e57b534d08fbc1df2d299c71265)
+
 
 **Note:** **Alexa doorbell notifications are turned off by default**. You must enable it by openning the app to recevice the DingDong notification in Alexa.
 
@@ -76,6 +237,11 @@ If you did not get the push notification, just ask Alexa to device devices
 
 - Please refer to our [Troubleshooting]({{ site.github.url }}/pages/troubleshooting.html) page for possible solutions to your issue.
 
+### Related tutorials
 
+- [How to control an ESP32 or ESP8266 with Alexa and Google Home]({{ site.github.url }}/pages/tutorials/general/esp32-esp8266-alexa-google-home.html)
+- [Door and window contact sensor]({{ site.github.url }}/pages/tutorials/contact-sensors/contact.html)
+- [PIR motion sensor (HC-SR501, HC-SR505, AM312)]({{ site.github.url }}/pages/tutorials/motion-sensors/HC-SR501-HC-SR505-AM312-HC-SR312.html)
+- [Raspberry Pi WebRTC camera]({{ site.github.url }}/pages/tutorials/camera/raspberrypi-webrtc-alexa-googlehome-camera.html)
 
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

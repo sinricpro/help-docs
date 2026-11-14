@@ -3,6 +3,7 @@ title: Templates de Dispositivo
 weight: 2
 lang: pt
 youtubeId: QJVbSPSztwY
+description: Crie seu próprio tipo de dispositivo no Sinric Pro com templates de dispositivo. Arraste e solte capacidades e gere o código para ESP32 e ESP8266.
 ---
 
 ### Introdução

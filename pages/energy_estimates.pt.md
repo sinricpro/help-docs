@@ -2,6 +2,7 @@
 title: Estimativas de Energia
 weight: 3
 lang: pt
+description: Como o Sinric Pro estima o consumo de energia dos seus dispositivos a partir do tempo ligado e da potência.
 ---
 Estamos inovando novas maneiras com o Sinric para tornar as casas inteligentes mais eficientes e ajudar todos a terem um impacto positivo no planeta
 

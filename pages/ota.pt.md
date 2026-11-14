@@ -3,6 +3,7 @@ title: Atualizações OTA
 weight: 4
 lang: pt
 youtubeId: FxtsQuC9mn8
+description: Configure atualizações de firmware over-the-air (OTA) para ESP32 e ESP8266 com o Sinric Pro e atualize seus dispositivos remotamente.
 ---
 
 ### Introdução 

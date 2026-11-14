@@ -3,6 +3,7 @@ title: Google Home (IFTTT)
 weight: 4
 youtubeId: UHuVoE6kPB8
 published: false
+description: Control Sinric Pro devices from Google Home through IFTTT. Step-by-step applet setup.
 ---
 
 ### Google Home Via IFTTT

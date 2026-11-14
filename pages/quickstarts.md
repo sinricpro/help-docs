@@ -4,7 +4,20 @@ weight: 1
 lang: en
 youtubeId: H-iftzWVTXE
 youtubeId2: HEMifE1Xm7E
+description: Sinric Pro quickstart tutorials for ESP32, ESP8266 and Raspberry Pi Pico W. Switches, lights, sensors, cameras and more with Alexa and Google Home.
 ---
+
+#### Getting Started
+
+- ##### [How to Control an ESP32 or ESP8266 with Alexa and Google Home]({{ site.github.url }}/pages/tutorials/general/esp32-esp8266-alexa-google-home.html)
+
+- ##### [How to Install the Sinric Pro Library (SinricPro.h) in Arduino IDE and PlatformIO]({{ site.github.url }}/pages/tutorials/general/install-sinricpro-library.html)
+
+- ##### [Sinric Pro - IoT Cloud Platform for ESP8266, ESP32 and Raspberry Pi Pico W]({{ site.github.url }}/pages/tutorials/general/iot-platform-esp8266-esp32.html)
+
+- ##### [Sinric Pro Alternatives - How Sinric Pro Compares]({{ site.github.url }}/pages/tutorials/general/sinric-pro-alternatives.html)
+
+<br/>
 
 #### General Tutorials
 

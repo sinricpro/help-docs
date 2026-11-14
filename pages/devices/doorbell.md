@@ -6,6 +6,7 @@ published: false
 categories: 
     - "devices"
     - "doorbell"
+description: How to create a Doorbell device in Sinric Pro and connect an ESP32 or ESP8266. Get Alexa announcements when the button is pressed.
 ---
 
 Sends a notification when a button is pressed. You can get the Amazon Alexa to announce and or chime when your doorbell is pressed.

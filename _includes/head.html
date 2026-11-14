@@ -1,5 +1,5 @@
 <head>
-  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
@@ -29,26 +29,53 @@
 
   <script src="{{ site.github.url }}/public/js/scripts.js"></script>
 
-  {% seo %}
-  
-  <!-- Multilingual SEO -->
-  {% assign current_lang = site.active_lang | default: site.default_lang %}
-  <html lang="{{ current_lang }}">
-  
-  <!-- hreflang tags for multilingual SEO -->
-  {% if page.lang %}
-    {% for language in site.languages %}
-      {% if language == 'en' %}
-        {% assign lang_url = page.url | remove: '/pt' %}
-        {% if lang_url == '' %}{% assign lang_url = '/' %}{% endif %}
-        <link rel="alternate" hreflang="en" href="{{ site.url }}{{ lang_url }}" />
-      {% elsif language == 'pt' %}
-        {% assign lang_url = page.url %}
-        {% unless lang_url contains '/pt' %}
-          {% assign lang_url = '/pt' | append: lang_url %}
-        {% endunless %}
-        <link rel="alternate" hreflang="pt-BR" href="{{ site.url }}{{ lang_url }}" />
-      {% endif %}
-    {% endfor %}
+  {% comment %}
+    Canonical and hreflang URLs.
+    Cloudflare Pages redirects /page.html to /page, and Polyglot builds every page under / and
+    under each language prefix (/pt/, /de/, /it/, /es/). Each page gets one clean canonical URL:
+    English content at /pages/x, translated content at /<lang>/pages/x.<lang>.
+    A translation is the file x.<lang>.md with "lang: <lang>" in its front matter.
+    static_href stops Polyglot from adding a language prefix to these links.
+    Which languages a page exists in comes from site.translations (see _plugins/translations.rb).
+    Sets seo_lang, seo_lang_list and seo_url_list, which language-switcher.html reuses.
+  {% endcomment %}
+  {% capture seo_out %}{% seo %}{% endcapture %}
+  {% assign seo_orig_url = page.url | absolute_url %}
+  {% assign seo_lang = 'en' %}
+  {% assign seo_base = page.url | replace: 'index.html', '' %}
+  {% for l in site.languages %}{% unless l == 'en' %}
+    {% assign seo_sfx = '.' | append: l | append: '.html' %}
+    {% if page.lang == l or page.url contains seo_sfx %}{% assign seo_lang = l %}{% assign seo_base = seo_base | replace: seo_sfx, '' %}{% endif %}
+  {% endunless %}{% endfor %}
+  {% assign seo_base_parts = seo_base | split: '.html' %}
+  {% assign seo_base = seo_base_parts | first %}
+  {% assign seo_langs_found = '' %}
+  {% assign seo_urls = '' %}
+  {% assign seo_canonical = '' %}
+  {% assign seo_key = seo_base %}{% if seo_base == '/' %}{% assign seo_key = '/index' %}{% endif %}
+  {% assign seo_available = site.translations[seo_key] %}
+  {% for l in site.languages %}
+    {% if seo_base == '/' %}
+      {% if l == 'en' %}{% assign seo_u = site.url | append: '/' %}{% else %}{% assign seo_u = site.url | append: '/' | append: l | append: '/' %}{% endif %}
+    {% elsif l == 'en' %}
+      {% assign seo_u = site.url | append: seo_base %}
+    {% else %}
+      {% assign seo_u = site.url | append: '/' | append: l | append: seo_base | append: '.' | append: l %}
+    {% endif %}
+    {% if l == seo_lang %}{% assign seo_canonical = seo_u %}{% endif %}
+    {% if seo_available contains l %}
+      {% assign seo_langs_found = seo_langs_found | append: l | append: ',' %}
+      {% assign seo_urls = seo_urls | append: seo_u | append: ',' %}
+    {% endif %}
+  {% endfor %}
+  {% capture seo_old_canonical %}<link rel="canonical" href="{{ seo_orig_url }}" />{% endcapture %}
+  {{ seo_out | remove: seo_old_canonical | replace: seo_orig_url, seo_canonical }}
+  <link rel="canonical" {% static_href %}href="{{ seo_canonical }}"{% endstatic_href %} />
+  {% assign seo_lang_list = seo_langs_found | split: ',' %}
+  {% assign seo_url_list = seo_urls | split: ',' %}
+  {% if seo_lang_list.size > 1 %}
+  {% for l in seo_lang_list %}{% assign seo_code = l %}{% if l == 'pt' %}{% assign seo_code = 'pt-BR' %}{% endif %}
+  <link rel="alternate" hreflang="{{ seo_code }}" {% static_href %}href="{{ seo_url_list[forloop.index0] }}"{% endstatic_href %} />{% if l == 'en' %}
+  <link rel="alternate" hreflang="x-default" {% static_href %}href="{{ seo_url_list[forloop.index0] }}"{% endstatic_href %} />{% endif %}{% endfor %}
   {% endif %}
 </head>

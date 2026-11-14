@@ -1,6 +1,7 @@
 ---
 title: RaspberryPI WebRTC Camera for Alexa, Google Home
 layout: post
+description: Build a Raspberry Pi WebRTC camera and view the live feed on Alexa Echo Show, Google Nest displays, Chromecast and the Sinric Pro app.
 ---
 
 
@@ -28,7 +29,6 @@ WebRTC (Web Real-Time Communication) is a technology that enables real-time audi
 
 
 ![Sinric Pro create device alexa]({{ site.github.url }}/public/img/sinricpro_pi_webrtc_camera_with_alexa_googlehome_sequnce_diagram.png)
-
 
 
 ### Step 1: Setup Raspberry Pi with the Camera Module
@@ -104,7 +104,6 @@ The resulting RaspberryPI camera stream will be available in path http://hostnam
 ``http://pi3:8889/cam/``
 
 
-
 ### Step 3: Sinric Pro Integration.
 
 * [Login](http://portal.sinric.pro) to your Sinric Pro account, go to **Devices** menu on your left and click **Add Device** button (On top left).
@@ -133,12 +132,110 @@ You can use the ``Python`` or ``NodeJS`` SDK to handle the SDP offer/answer requ
 Install our PythonSDK:
     ``pip install sinricpro --user``
 
- <script src="https://gist.github.com/kakopappa/3ce3f22b9c64a086415320078bd7dc95.js"></script>
+
+```python
+from sinric import SinricPro, SinricProConstants
+import requests
+import asyncio
+import base64
+
+APP_KEY = ""
+APP_SECRET = ""
+CAMERA_ID = ''
+
+def get_webrtc_answer(device_id, offer):
+    sdp_offer = base64.b64decode(offer)
+    print('device_id: {} offer: {}'.format(device_id, offer))
+
+    # PORT 8889 for WebRTC. eg: for PiCam, use http://<mediamtx-hostname>:8889/cam/whep
+    mediamtx_url = "http://<mediamtx-hostname>:8889/cam/whep"  #TODO: Change <mediamtx-hostname> 
+    headers = {"Content-Type": "application/sdp"}
+    response = requests.post(mediamtx_url, headers=headers, data=sdp_offer)
+
+    if response.status_code == 201:
+        answer = base64.b64encode(response.content).decode("utf-8")
+        return True, answer
+    else:
+        return False
+
+
+def power_state(device_id, state):
+    print('device_id: {} power state: {}'.format(device_id, state))
+    return True, state
+
+callbacks = {
+    SinricProConstants.GET_WEBRTC_ANSWER: get_webrtc_answer,
+    SinricProConstants.SET_POWER_STATE: power_state
+}
+
+if __name__ == '__main__':
+    loop = asyncio.get_event_loop()
+    client = SinricPro(APP_KEY, [CAMERA_ID], callbacks,
+                       enable_log=False, restore_states=False, secret_key=APP_SECRET)
+    loop.run_until_complete(client.connect())
+```
+
+[View this code on GitHub Gist](https://gist.github.com/kakopappa/3ce3f22b9c64a086415320078bd7dc95)
+
 
 Install our NodeJS:
     ``npm install sinricpro``
 
-<script src="https://gist.github.com/kakopappa/d2659a68f70bb4760292d2362a066e3e.js"></script>
+
+```javascript
+const {
+  SinricPro, startSinricPro, raiseEvent, eventNames,
+} = require('sinricpro');
+
+const fetch = require('node-fetch');
+
+const APPKEY =  "";
+const APPSECRET = "";
+const cameraId = "";
+const deviceIds = [cameraId];
+
+async function mediamtx(offer) {
+  /* 
+    Get the answer from mediamtx `http://<hostname>:8889/<name>/whep`. eg: http://pi3:8889/cam/whep
+  */
+  const url = "http://<mediamtx-hostname>:8889/cam/whep";  // TODO: Change <mediamtx-hostname>.
+  const response = await fetch(url, {
+    headers: {
+      "content-type": "application/sdp",
+    },
+    body: offer,
+    method: "POST",
+  });
+
+  // eslint-disable-next-line no-return-await
+  return await response.text();   
+}
+
+const getWebRTCAnswer = async (deviceid, base64Offer) => {
+  // Alexa Eco needs camera stream answer
+  const offer = Buffer.from(base64Offer, 'base64').toString();
+  try {
+    const answer = await mediamtx(offer);
+    const answerInBase64 = Buffer.from(answer).toString('base64');
+    return { success: true, answer: answerInBase64 };
+  } catch (error) {
+    console.error(error);
+    return { success: false };
+  }  
+};
+
+const setPowerState = async (deviceid, data) => {
+  console.log(deviceid, data);
+  return true;
+};
+
+const sinricpro = new SinricPro(APPKEY, deviceIds, APPSECRET, false);
+const callbacks = { setPowerState, getWebRTCAnswer };
+
+startSinricPro(sinricpro, callbacks);
+```
+
+[View this code on GitHub Gist](https://gist.github.com/kakopappa/d2659a68f70bb4760292d2362a066e3e)
 
 
 ### Step 5: Demo
@@ -174,7 +271,6 @@ Sinric Pro App:
 </video>
 
 
-
 ### Troubleshooting
 1. Google Home App Public beta camera preview does not work correctly. 
 
@@ -189,9 +285,13 @@ Make sure it's wired correctly.
 ![Sinric Pro Pi camera how to connect]({{ site.github.url }}/public/img/sinricpro_pi_webrtc_camera_how_to_connect.png)
 
 
-
 Please refer to our [Troubleshooting]({{ site.github.url }}/pages/troubleshooting.html) page for possible solutions to your issue.
 
+### Related tutorials
 
+- [How to control an ESP32 or ESP8266 with Alexa and Google Home]({{ site.github.url }}/pages/tutorials/general/esp32-esp8266-alexa-google-home.html)
+- [ESP32-S3 H.264 camera for Alexa and Google Home]({{ site.github.url }}/pages/tutorials/camera/esp32-h264-alexa-googlehome-camera.html)
+- [ESP32 WebRTC camera]({{ site.github.url }}/pages/tutorials/camera/esp32-webrtc-camera.html)
+- [Smart doorbell]({{ site.github.url }}/pages/tutorials/doorbell/doorbell.html)
 
 > This document is open source. See a typo? Please create an [issue](https://github.com/sinricpro/help-docs)

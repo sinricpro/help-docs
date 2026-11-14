@@ -1,9 +1,10 @@
 ---
 title: Media Control Capability
 layout: post
+description: Media Control capability for Sinric Pro device templates. Play, pause, stop and skip audio or video. Includes Alexa, Google Home and SDK examples.
 ---
 
-The Brightness capability in SinricPro device templates allows you to control devices that can play, stop, and navigate playback for audio or video content.
+The Media Control capability in SinricPro device templates allows you to control devices that can play, stop, and navigate playback for audio or video content.
 
 #### Supports
  - [x]  Alexa

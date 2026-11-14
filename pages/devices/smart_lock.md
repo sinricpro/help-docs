@@ -6,6 +6,7 @@ published: false
 categories: 
     - "devices"
     - "smart-lock"
+description: How to create a Smart Lock device in Sinric Pro and connect an ESP32 or ESP8266. Lock and unlock with Alexa and Google Home.
 ---
 
 

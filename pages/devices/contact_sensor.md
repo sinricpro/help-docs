@@ -6,6 +6,7 @@ published: false
 categories: 
     - "sensor"
     - "contactsensor"
+description: How to create a Contact Sensor device in Sinric Pro and connect an ESP32 or ESP8266. Detect open and closed doors and windows with Alexa.
 ---
 
 Contact sensors can detect whether something is open or closed. They're typically installed on doors, windows or drawers.

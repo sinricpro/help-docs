@@ -1,6 +1,7 @@
 ---
 title: Local WiFI OTA Update via ArduinoOTA
 layout: post
+description: Update ESP32 and ESP8266 firmware over your local Wi-Fi with ArduinoOTA in a Sinric Pro sketch.
 ---
 
 Over-the-air (OTA) updates offer a convenient and efficient way to update your modules using WiFi connection without physically connecting it to your computer. In order to upload firmware, you have to update your Sinric Pro integration with ArduinoOTA support code. 
